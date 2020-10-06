@@ -184,7 +184,7 @@ public class Login extends javax.swing.JFrame {
         String password = tfPassword.getPassword().toString();
         
         if (username.isEmpty() || password.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Username is empty", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "El nombre de usuario está vacio", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             userLogin(username, password);            
         }                
@@ -205,7 +205,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNuevoUsuarioActionPerformed
 
     private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
-        this.setVisible(false);
+        this.dispose();
+        Admin admin = new Admin();
         admin.setVisible(true);
     }//GEN-LAST:event_btnLogin1ActionPerformed
 

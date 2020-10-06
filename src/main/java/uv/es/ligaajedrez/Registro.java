@@ -121,7 +121,7 @@ public class Registro extends javax.swing.JFrame {
         btnVolverLogin.setBackground(new java.awt.Color(0, 153, 255));
         btnVolverLogin.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         btnVolverLogin.setForeground(new java.awt.Color(255, 255, 255));
-        btnVolverLogin.setText("Volver al login");
+        btnVolverLogin.setText("Volver");
         btnVolverLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverLoginActionPerformed(evt);

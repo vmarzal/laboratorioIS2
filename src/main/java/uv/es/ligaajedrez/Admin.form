@@ -38,7 +38,7 @@
                           <Component id="jb_disponibilidadHora" min="-2" pref="192" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="jl_nom_1_jugador" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -50,7 +50,7 @@
                                   <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
                                   <Component id="jb_cancel" min="-2" pref="143" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jb_reservar" max="32767" attributes="0"/>
+                                  <Component id="jb_reservar" min="-2" pref="149" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1230,33 +1230,31 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="49" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jb_reservaSede" alignment="1" min="-2" pref="267" max="-2" attributes="0"/>
-                          <Component id="jb_aSede" min="-2" max="-2" attributes="0"/>
+                  <Component id="jb_back" min="-2" pref="87" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jb_aSede" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jb_cMensual" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jb_reservaSede" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jb_apuntar_a_Torneo" alignment="0" pref="307" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jb_apuntar_a_Torneo" alignment="1" min="-2" pref="267" max="-2" attributes="0"/>
-                          <Component id="jb_cMensual" min="-2" pref="267" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jb_rInftantiles" max="32767" attributes="0"/>
+                          <Component id="jb_rPartida" max="32767" attributes="0"/>
+                          <Component id="jb_cambioClub" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jb_d_baja" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
-              </Group>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jb_rInftantiles" max="32767" attributes="0"/>
-                  <Component id="jb_rPartida" max="32767" attributes="0"/>
-                  <Component id="jb_cambioClub" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jb_d_baja" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jb_back" min="-2" pref="87" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -1284,8 +1282,9 @@
                   <Component id="jb_apuntar_a_Torneo" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                   <Component id="jb_d_baja" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="49" max="32767" attributes="0"/>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
               <Component id="jb_back" min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -1481,7 +1480,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="BACK"/>
+        <Property name="text" type="java.lang.String" value="Volver"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_backActionPerformed"/>
