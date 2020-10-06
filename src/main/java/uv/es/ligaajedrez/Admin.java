@@ -125,7 +125,7 @@ public class Admin extends javax.swing.JFrame {
         jl_admin = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         jb_reservaSede = new javax.swing.JButton();
-        jb_rInftantiles = new javax.swing.JButton();
+        jb_infantiles = new javax.swing.JButton();
         jb_aSede = new javax.swing.JButton();
         jb_rPartida = new javax.swing.JButton();
         jb_cMensual = new javax.swing.JButton();
@@ -140,7 +140,7 @@ public class Admin extends javax.swing.JFrame {
         jl_rSede.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jl_rSede.setForeground(new java.awt.Color(255, 255, 255));
         jl_rSede.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jl_rSede.setText("Reservacion sede");
+        jl_rSede.setText("Realizar Reserva de Sede");
         jl_rSede.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout jp_reservaLayout = new javax.swing.GroupLayout(jp_reserva);
@@ -149,7 +149,7 @@ public class Admin extends javax.swing.JFrame {
             jp_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_reservaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jl_rSede, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jl_rSede, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_reservaLayout.setVerticalGroup(
@@ -723,7 +723,7 @@ public class Admin extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -979,13 +979,13 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
-        jb_rInftantiles.setBackground(new java.awt.Color(0, 153, 255));
-        jb_rInftantiles.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        jb_rInftantiles.setForeground(new java.awt.Color(255, 255, 255));
-        jb_rInftantiles.setText("Asignar responsable a los infanitles");
-        jb_rInftantiles.addActionListener(new java.awt.event.ActionListener() {
+        jb_infantiles.setBackground(new java.awt.Color(0, 153, 255));
+        jb_infantiles.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jb_infantiles.setForeground(new java.awt.Color(255, 255, 255));
+        jb_infantiles.setText("Asignar responsable a los infanitles");
+        jb_infantiles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_rInftantilesActionPerformed(evt);
+                jb_infantilesActionPerformed(evt);
             }
         });
 
@@ -1059,11 +1059,11 @@ public class Admin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jb_cMensual, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jb_reservaSede, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jb_apuntar_a_Torneo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+                    .addComponent(jb_apuntar_a_Torneo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jb_aSede, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jb_rInftantiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jb_infantiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jb_rPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jb_cambioClub, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jb_d_baja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1080,7 +1080,7 @@ public class Admin extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_reservaSede, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_rInftantiles, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jb_infantiles, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_cMensual, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1096,27 +1096,27 @@ public class Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jb_reservaSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_reservaSedeActionPerformed
-        this.setVisible(false);
-        jf_reserva.setVisible(true);
+        this.setVisible(false);                     
+        jf_reserva.setSize(876, 400);
+        jf_reserva.setVisible(true);        
     }//GEN-LAST:event_jb_reservaSedeActionPerformed
 
-    private void jb_rInftantilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_rInftantilesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jb_rInftantilesActionPerformed
+    private void jb_infantilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_infantilesActionPerformed
+        this.setVisible(false);
+        jf_infantiles.setSize(912, 500);
+        jf_infantiles.setVisible(true);
+    }//GEN-LAST:event_jb_infantilesActionPerformed
 
     private void jb_aSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_aSedeActionPerformed
-       this.dispose();
-       jf_reserva = new JFrame();              
-       jf_reserva.setVisible(true);       
-       log.info("Name: " + jf_reserva.getName());              
-       log.info("Visible: " + jf_reserva.isVisible());                     
-       log.info("Valid: " + jf_reserva.isValid());                     
-       log.info("Active: " + jf_reserva.isActive());                                          
+       this.setVisible(false);
+       jf_aSede.setSize(876, 650);       
+       jf_aSede.setVisible(true);       
     }//GEN-LAST:event_jb_aSedeActionPerformed
 
     private void jb_rPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_rPartidaActionPerformed
         this.setVisible(false);
-        jf_resultadosPartida.setVisible(true);
+        jf_resultadosPartida.setSize(802, 400);
+        jf_resultadosPartida.setVisible(true);        
     }//GEN-LAST:event_jb_rPartidaActionPerformed
 
     private void jb_cMensualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cMensualActionPerformed
@@ -1330,7 +1330,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JButton jb_disponibilidadHora;
     private javax.swing.JButton jb_disponibilidadHora1;
     private javax.swing.JButton jb_guardar;
-    private javax.swing.JButton jb_rInftantiles;
+    private javax.swing.JButton jb_infantiles;
     private javax.swing.JButton jb_rPartida;
     private javax.swing.JButton jb_reservaSede;
     private javax.swing.JButton jb_reservar;

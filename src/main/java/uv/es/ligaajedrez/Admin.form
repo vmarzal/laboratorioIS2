@@ -114,7 +114,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jl_rSede" min="-2" pref="211" max="-2" attributes="0"/>
+                      <Component id="jl_rSede" min="-2" pref="382" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -139,7 +139,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Reservacion sede"/>
+                <Property name="text" type="java.lang.String" value="Realizar Reserva de Sede"/>
                 <Property name="horizontalTextPosition" type="int" value="4"/>
               </Properties>
             </Component>
@@ -902,7 +902,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" pref="542" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" pref="653" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -1232,12 +1232,12 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jb_cMensual" alignment="0" max="32767" attributes="0"/>
                   <Component id="jb_reservaSede" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jb_apuntar_a_Torneo" alignment="0" pref="307" max="32767" attributes="0"/>
+                  <Component id="jb_apuntar_a_Torneo" alignment="0" max="32767" attributes="0"/>
                   <Component id="jb_aSede" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jb_rInftantiles" max="32767" attributes="0"/>
+                  <Component id="jb_infantiles" max="32767" attributes="0"/>
                   <Component id="jb_rPartida" max="32767" attributes="0"/>
                   <Component id="jb_cambioClub" alignment="0" max="32767" attributes="0"/>
                   <Component id="jb_d_baja" alignment="0" max="32767" attributes="0"/>
@@ -1258,7 +1258,7 @@
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jb_reservaSede" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                  <Component id="jb_rInftantiles" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="jb_infantiles" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -1358,7 +1358,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_reservaSedeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jb_rInftantiles">
+    <Component class="javax.swing.JButton" name="jb_infantiles">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="99" red="0" type="rgb"/>
@@ -1372,7 +1372,7 @@
         <Property name="text" type="java.lang.String" value="Asignar responsable a los infanitles"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_rInftantilesActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_infantilesActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jb_aSede">
