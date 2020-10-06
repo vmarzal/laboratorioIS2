@@ -41,6 +41,9 @@ public class Login extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         btnNuevoUsuario = new javax.swing.JButton();
         btnLogin1 = new javax.swing.JButton();
+        btnLogin2 = new javax.swing.JButton();
+        btnLogin3 = new javax.swing.JButton();
+        btnLogin4 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -84,10 +87,39 @@ public class Login extends javax.swing.JFrame {
         btnLogin1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         btnLogin1.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin1.setText("Admin");
-        btnLogin1.setActionCommand("Admin");
         btnLogin1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogin1ActionPerformed(evt);
+            }
+        });
+
+        btnLogin2.setBackground(new java.awt.Color(0, 153, 255));
+        btnLogin2.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        btnLogin2.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin2.setText("Jugador");
+        btnLogin2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogin2ActionPerformed(evt);
+            }
+        });
+
+        btnLogin3.setBackground(new java.awt.Color(0, 153, 255));
+        btnLogin3.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        btnLogin3.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin3.setText("Entrenador");
+        btnLogin3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogin3ActionPerformed(evt);
+            }
+        });
+
+        btnLogin4.setBackground(new java.awt.Color(0, 153, 255));
+        btnLogin4.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        btnLogin4.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin4.setText("Gerente");
+        btnLogin4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogin4ActionPerformed(evt);
             }
         });
 
@@ -112,7 +144,13 @@ public class Login extends javax.swing.JFrame {
                                 .addComponent(btnNuevoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addComponent(btnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLogin2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnLogin4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLogin3)))
                 .addContainerGap(198, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -131,7 +169,11 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNuevoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(61, 61, 61)
-                .addComponent(btnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogin2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogin3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogin4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -149,15 +191,15 @@ public class Login extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -206,9 +248,27 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
         this.dispose();
-        LoginAdmin loginAdmin = new LoginAdmin();
-        loginAdmin.setVisible(true);
+        Admin panelAdmin = new Admin();
+        panelAdmin.setVisible(true);
     }//GEN-LAST:event_btnLogin1ActionPerformed
+
+    private void btnLogin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin2ActionPerformed
+        this.dispose();
+        MainMenu panelUsuario = new MainMenu();
+        panelUsuario.setVisible(true);
+    }//GEN-LAST:event_btnLogin2ActionPerformed
+
+    private void btnLogin3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin3ActionPerformed
+        this.dispose();
+        Entrenador panelEntrenador = new Entrenador();
+        panelEntrenador.setVisible(true);
+    }//GEN-LAST:event_btnLogin3ActionPerformed
+
+    private void btnLogin4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin4ActionPerformed
+        this.dispose();
+        Gerente panelGerente = new Gerente();
+        panelGerente.setVisible(true);
+    }//GEN-LAST:event_btnLogin4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,6 +308,9 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnLogin1;
+    private javax.swing.JButton btnLogin2;
+    private javax.swing.JButton btnLogin3;
+    private javax.swing.JButton btnLogin4;
     private javax.swing.JButton btnNuevoUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

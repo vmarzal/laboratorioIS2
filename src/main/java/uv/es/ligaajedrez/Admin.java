@@ -953,7 +953,7 @@ public class Admin extends javax.swing.JFrame {
         AdminLayout.setHorizontalGroup(
             AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AdminLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(41, 41, 41)
                 .addComponent(jl_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1263,7 +1263,7 @@ public class Admin extends javax.swing.JFrame {
     private void exitAdmin() {
      // Navegamos al menu del admin de la aplicación
      dispose();
-     LoginAdmin loginAdmin = new LoginAdmin();
+     Login loginAdmin = new Login();
      loginAdmin.setVisible(true);         
     }
    
