@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uv.es.ligaajedrez;
+package uv.es.ligaajedrez.dudas;
 
+import uv.es.ligaajedrez.*;
 import javax.swing.JFrame;
 import lombok.extern.slf4j.Slf4j;
 
@@ -13,13 +14,13 @@ import lombok.extern.slf4j.Slf4j;
  * @author Ezzedine
  */
 @Slf4j
-public class Admin extends javax.swing.JFrame {
+public class AdminConDudas extends javax.swing.JFrame {
 
     /**
      * Creates new form Admin
      */
     private Login login;
-    public Admin() {
+    public AdminConDudas() {
         initComponents();
         
     }
@@ -96,8 +97,6 @@ public class Admin extends javax.swing.JFrame {
         jl_d2Jugador = new javax.swing.JLabel();
         jl_nom2jugador = new javax.swing.JLabel();
         jTF_nombre2jug = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
         jf_infantiles = new javax.swing.JFrame();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -129,6 +128,10 @@ public class Admin extends javax.swing.JFrame {
         jb_infantiles = new javax.swing.JButton();
         jb_aSede = new javax.swing.JButton();
         jb_rPartida = new javax.swing.JButton();
+        jb_cMensual = new javax.swing.JButton();
+        jb_apuntar_a_Torneo = new javax.swing.JButton();
+        jb_cambioClub = new javax.swing.JButton();
+        jb_d_baja = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
 
         jf_reserva.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -459,14 +462,29 @@ public class Admin extends javax.swing.JFrame {
         jf_aSede.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jp_aSede.setBackground(new java.awt.Color(204, 102, 0));
-        jp_aSede.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jl_aSede.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jl_aSede.setForeground(new java.awt.Color(255, 255, 255));
         jl_aSede.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_aSede.setText("Asignacion de sede para partidas del torneo");
         jl_aSede.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jp_aSede.add(jl_aSede, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 28, -1, 43));
+
+        javax.swing.GroupLayout jp_aSedeLayout = new javax.swing.GroupLayout(jp_aSede);
+        jp_aSede.setLayout(jp_aSedeLayout);
+        jp_aSedeLayout.setHorizontalGroup(
+            jp_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_aSedeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jl_aSede)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jp_aSedeLayout.setVerticalGroup(
+            jp_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_aSedeLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jl_aSede, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
 
         jl_nSede1.setText("Nombre de Sede:");
 
@@ -572,7 +590,7 @@ public class Admin extends javax.swing.JFrame {
 
         jl_club_2_jugador.setText("Club   ");
 
-        jl_d2Jugador.setText("Datos segundo jugador");
+        jl_d2Jugador.setText("Datos primer jugador");
 
         jl_nom2jugador.setText("Nombre  jugador");
 
@@ -638,12 +656,6 @@ public class Admin extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(jb_Asignar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26))
-            .addGroup(jf_aSedeLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jf_aSedeLayout.setVerticalGroup(
             jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -665,9 +677,7 @@ public class Admin extends javax.swing.JFrame {
                     .addComponent(jl_hPartida1)
                     .addComponent(jTF_horarioPartida1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jb_disponibilidadHora1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
+                .addGap(18, 18, 18)
                 .addComponent(jl_d1Jugador)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -679,9 +689,7 @@ public class Admin extends javax.swing.JFrame {
                 .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nEntrenador1jugador)
                     .addComponent(jTF_nombreEntrenador1jugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jl_d2Jugador)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -697,7 +705,7 @@ public class Admin extends javax.swing.JFrame {
                 .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_Asignar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jb_cancel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jf_infantiles.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -988,6 +996,46 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
+        jb_cMensual.setBackground(new java.awt.Color(0, 153, 255));
+        jb_cMensual.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jb_cMensual.setForeground(new java.awt.Color(255, 255, 255));
+        jb_cMensual.setText("Pagar cuota mensual");
+        jb_cMensual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_cMensualActionPerformed(evt);
+            }
+        });
+
+        jb_apuntar_a_Torneo.setBackground(new java.awt.Color(0, 153, 255));
+        jb_apuntar_a_Torneo.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jb_apuntar_a_Torneo.setForeground(new java.awt.Color(255, 255, 255));
+        jb_apuntar_a_Torneo.setText("Apuntar jugador a torneo");
+        jb_apuntar_a_Torneo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_apuntar_a_TorneoActionPerformed(evt);
+            }
+        });
+
+        jb_cambioClub.setBackground(new java.awt.Color(0, 153, 255));
+        jb_cambioClub.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jb_cambioClub.setForeground(new java.awt.Color(255, 255, 255));
+        jb_cambioClub.setText("Solicitud de cambio de club");
+        jb_cambioClub.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_cambioClubActionPerformed(evt);
+            }
+        });
+
+        jb_d_baja.setBackground(new java.awt.Color(0, 153, 255));
+        jb_d_baja.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jb_d_baja.setForeground(new java.awt.Color(255, 255, 255));
+        jb_d_baja.setText("Dar de baja un usuario");
+        jb_d_baja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_d_bajaActionPerformed(evt);
+            }
+        });
+
         btnExit.setBackground(new java.awt.Color(0, 153, 255));
         btnExit.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         btnExit.setForeground(new java.awt.Color(255, 255, 255));
@@ -1011,27 +1059,39 @@ public class Admin extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jb_cMensual, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jb_reservaSede, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jb_apuntar_a_Torneo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jb_aSede, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jb_infantiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jb_rPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jb_rPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jb_cambioClub, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jb_d_baja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(38, 38, 38))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_rPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jb_aSede, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jb_infantiles, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_reservaSede, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(82, 82, 82)
+                    .addComponent(jb_reservaSede, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_infantiles, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_cMensual, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_cambioClub, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_apuntar_a_Torneo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_d_baja, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1062,6 +1122,22 @@ public class Admin extends javax.swing.JFrame {
         jf_resultadosPartida.setSize(802, 400);
         jf_resultadosPartida.setVisible(true);        
     }//GEN-LAST:event_jb_rPartidaActionPerformed
+
+    private void jb_cMensualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cMensualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_cMensualActionPerformed
+
+    private void jb_apuntar_a_TorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_apuntar_a_TorneoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_apuntar_a_TorneoActionPerformed
+
+    private void jb_cambioClubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cambioClubActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_cambioClubActionPerformed
+
+    private void jb_d_bajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_d_bajaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_d_bajaActionPerformed
 
     private void jTF_nSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nSedeActionPerformed
         // TODO add your handling code here:
@@ -1212,8 +1288,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField jTF_club_1_jugador;
     private javax.swing.JTextField jTF_club_2_jugador;
     private javax.swing.JTextField jTF_disputacionP;
@@ -1247,10 +1321,14 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JButton jb_Asignar;
     private javax.swing.JButton jb_Asignar1;
     private javax.swing.JButton jb_aSede;
+    private javax.swing.JButton jb_apuntar_a_Torneo;
+    private javax.swing.JButton jb_cMensual;
+    private javax.swing.JButton jb_cambioClub;
     private javax.swing.JButton jb_cancel;
     private javax.swing.JButton jb_cancel1;
     private javax.swing.JButton jb_cancel2;
     private javax.swing.JButton jb_cancel3;
+    private javax.swing.JButton jb_d_baja;
     private javax.swing.JButton jb_disponibilidadDia;
     private javax.swing.JButton jb_disponibilidadDia1;
     private javax.swing.JButton jb_disponibilidadHora;

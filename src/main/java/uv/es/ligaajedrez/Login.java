@@ -5,6 +5,7 @@
  */
 package uv.es.ligaajedrez;
 
+import uv.es.ligaajedrez.dudas.MainMenu;
 import javax.swing.JOptionPane;
 //import lombok.extern.slf4j.Slf4j;
 
@@ -269,8 +270,10 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLogin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin2ActionPerformed
         this.dispose();
-        MainMenu panelUsuario = new MainMenu();
-        panelUsuario.setVisible(true);
+//        MainMenu panelUsuario = new MainMenu();
+//        panelUsuario.setVisible(true);
+        Jugador jugador= new Jugador();
+        jugador.setVisible(true);
     }//GEN-LAST:event_btnLogin2ActionPerformed
 
     private void btnLogin3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin3ActionPerformed

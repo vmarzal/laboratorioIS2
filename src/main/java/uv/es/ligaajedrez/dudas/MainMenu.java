@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uv.es.ligaajedrez;
+package uv.es.ligaajedrez.dudas;
+
+import uv.es.ligaajedrez.Login;
 
 /**
  *

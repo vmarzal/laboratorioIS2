@@ -13,13 +13,13 @@ import lombok.extern.slf4j.Slf4j;
  * @author Ezzedine
  */
 @Slf4j
-public class Admin extends javax.swing.JFrame {
+public class Jugador extends javax.swing.JFrame {
 
     /**
      * Creates new form Admin
      */
     private Login login;
-    public Admin() {
+    public Jugador() {
         initComponents();
         
     }
@@ -96,8 +96,6 @@ public class Admin extends javax.swing.JFrame {
         jl_d2Jugador = new javax.swing.JLabel();
         jl_nom2jugador = new javax.swing.JLabel();
         jTF_nombre2jug = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
         jf_infantiles = new javax.swing.JFrame();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -123,11 +121,10 @@ public class Admin extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         jb_Asignar1 = new javax.swing.JButton();
         jb_cancel3 = new javax.swing.JButton();
-        Admin = new javax.swing.JPanel();
-        jl_admin = new javax.swing.JLabel();
+        Jugador = new javax.swing.JPanel();
+        jl_jugador = new javax.swing.JLabel();
         jb_reservaSede = new javax.swing.JButton();
         jb_infantiles = new javax.swing.JButton();
-        jb_aSede = new javax.swing.JButton();
         jb_rPartida = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
 
@@ -459,14 +456,29 @@ public class Admin extends javax.swing.JFrame {
         jf_aSede.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jp_aSede.setBackground(new java.awt.Color(204, 102, 0));
-        jp_aSede.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jl_aSede.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jl_aSede.setForeground(new java.awt.Color(255, 255, 255));
         jl_aSede.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_aSede.setText("Asignacion de sede para partidas del torneo");
         jl_aSede.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jp_aSede.add(jl_aSede, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 28, -1, 43));
+
+        javax.swing.GroupLayout jp_aSedeLayout = new javax.swing.GroupLayout(jp_aSede);
+        jp_aSede.setLayout(jp_aSedeLayout);
+        jp_aSedeLayout.setHorizontalGroup(
+            jp_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_aSedeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jl_aSede)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jp_aSedeLayout.setVerticalGroup(
+            jp_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_aSedeLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jl_aSede, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
 
         jl_nSede1.setText("Nombre de Sede:");
 
@@ -572,7 +584,7 @@ public class Admin extends javax.swing.JFrame {
 
         jl_club_2_jugador.setText("Club   ");
 
-        jl_d2Jugador.setText("Datos segundo jugador");
+        jl_d2Jugador.setText("Datos primer jugador");
 
         jl_nom2jugador.setText("Nombre  jugador");
 
@@ -638,12 +650,6 @@ public class Admin extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(jb_Asignar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26))
-            .addGroup(jf_aSedeLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jf_aSedeLayout.setVerticalGroup(
             jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -665,9 +671,7 @@ public class Admin extends javax.swing.JFrame {
                     .addComponent(jl_hPartida1)
                     .addComponent(jTF_horarioPartida1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jb_disponibilidadHora1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
+                .addGap(18, 18, 18)
                 .addComponent(jl_d1Jugador)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -679,9 +683,7 @@ public class Admin extends javax.swing.JFrame {
                 .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nEntrenador1jugador)
                     .addComponent(jTF_nombreEntrenador1jugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jl_d2Jugador)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -697,7 +699,7 @@ public class Admin extends javax.swing.JFrame {
                 .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_Asignar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jb_cancel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jf_infantiles.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -923,28 +925,28 @@ public class Admin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Admin");
 
-        Admin.setBackground(new java.awt.Color(204, 102, 0));
+        Jugador.setBackground(new java.awt.Color(204, 102, 0));
 
-        jl_admin.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jl_admin.setForeground(new java.awt.Color(255, 255, 255));
-        jl_admin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jl_admin.setText("Admin");
-        jl_admin.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jl_jugador.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jl_jugador.setForeground(new java.awt.Color(255, 255, 255));
+        jl_jugador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_jugador.setText("Jugador");
+        jl_jugador.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-        javax.swing.GroupLayout AdminLayout = new javax.swing.GroupLayout(Admin);
-        Admin.setLayout(AdminLayout);
-        AdminLayout.setHorizontalGroup(
-            AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AdminLayout.createSequentialGroup()
+        javax.swing.GroupLayout JugadorLayout = new javax.swing.GroupLayout(Jugador);
+        Jugador.setLayout(JugadorLayout);
+        JugadorLayout.setHorizontalGroup(
+            JugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JugadorLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(jl_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jl_jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        AdminLayout.setVerticalGroup(
-            AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AdminLayout.createSequentialGroup()
+        JugadorLayout.setVerticalGroup(
+            JugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JugadorLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jl_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jl_jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -965,16 +967,6 @@ public class Admin extends javax.swing.JFrame {
         jb_infantiles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_infantilesActionPerformed(evt);
-            }
-        });
-
-        jb_aSede.setBackground(new java.awt.Color(0, 153, 255));
-        jb_aSede.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        jb_aSede.setForeground(new java.awt.Color(255, 255, 255));
-        jb_aSede.setText("Asignacion de sede para las partidas");
-        jb_aSede.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_aSedeActionPerformed(evt);
             }
         });
 
@@ -1002,38 +994,34 @@ public class Admin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jugador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jb_reservaSede, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jb_aSede, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jb_infantiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jb_rPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(38, 38, 38))))
+                            .addComponent(jb_infantiles, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jb_reservaSede, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jb_rPartida, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 191, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jb_rPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_aSede, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jb_infantiles, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_reservaSede, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(82, 82, 82)
+                .addComponent(Jugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jb_rPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jb_reservaSede, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jb_infantiles, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(38, 38, 38))
         );
 
         pack();
@@ -1050,12 +1038,6 @@ public class Admin extends javax.swing.JFrame {
         jf_infantiles.setSize(912, 500);
         jf_infantiles.setVisible(true);
     }//GEN-LAST:event_jb_infantilesActionPerformed
-
-    private void jb_aSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_aSedeActionPerformed
-       this.setVisible(false);
-       jf_aSede.setSize(876, 650);       
-       jf_aSede.setVisible(true);       
-    }//GEN-LAST:event_jb_aSedeActionPerformed
 
     private void jb_rPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_rPartidaActionPerformed
         this.setVisible(false);
@@ -1197,7 +1179,7 @@ public class Admin extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Admin;
+    private javax.swing.JPanel Jugador;
     private javax.swing.JButton btnExit;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
@@ -1212,8 +1194,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField jTF_club_1_jugador;
     private javax.swing.JTextField jTF_club_2_jugador;
     private javax.swing.JTextField jTF_disputacionP;
@@ -1246,7 +1226,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField9;
     private javax.swing.JButton jb_Asignar;
     private javax.swing.JButton jb_Asignar1;
-    private javax.swing.JButton jb_aSede;
     private javax.swing.JButton jb_cancel;
     private javax.swing.JButton jb_cancel1;
     private javax.swing.JButton jb_cancel2;
@@ -1265,7 +1244,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JFrame jf_reserva;
     private javax.swing.JFrame jf_resultadosPartida;
     private javax.swing.JLabel jl_aSede;
-    private javax.swing.JLabel jl_admin;
     private javax.swing.JLabel jl_club_1_jugador;
     private javax.swing.JLabel jl_club_2_jugador;
     private javax.swing.JLabel jl_d1Jugador;
@@ -1275,6 +1253,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jl_fPartida1;
     private javax.swing.JLabel jl_hPartida;
     private javax.swing.JLabel jl_hPartida1;
+    private javax.swing.JLabel jl_jugador;
     private javax.swing.JLabel jl_nEntrenador;
     private javax.swing.JLabel jl_nEntrenador1jugador;
     private javax.swing.JLabel jl_nEntrenador2jugador;
