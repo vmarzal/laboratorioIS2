@@ -3,15 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uv.es</groupId>
     <artifactId>LigaAjedrez</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
-    <repositories>
-        <repository>
-            <id>unknown-jars-temp-repo</id>
-            <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
-            <url>file:${project.basedir}/lib</url>
-        </repository>
-    </repositories>
+           
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -29,12 +23,23 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
-        </dependency>
+        </dependency>       
+        
+         <!-- https://mvnrepository.com/artifact/org.netbeans.external/AbsoluteLayout -->
         <dependency>
-            <groupId>unknown.binary</groupId>
+            <groupId>org.netbeans.external</groupId>
             <artifactId>AbsoluteLayout</artifactId>
-            <version>SNAPSHOT</version>
+            <version>RELEASE65</version>
         </dependency>
+           
     </dependencies>
+    
+    <repositories>
+        <repository>
+          <id>netbeans</id>
+          <name>Netbeans rep</name>
+          <url>http://bits.netbeans.org/maven2/</url>
+        </repository>
+    </repositories>
     
 </project>
