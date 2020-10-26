@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo;
+package uv.es.ligaajedrez.modelo;
 
 import java.util.ArrayList;
 
@@ -11,18 +11,18 @@ import java.util.ArrayList;
  *
  * @author Ezzedine
  */
-public class Torneo {
-    protected String federacion;
+public class LigaAjedrez {
+    protected ArrayList<String> federaciones = new ArrayList<String>();
     protected ArrayList<Jugador> jugadoresParticipantes = new ArrayList<Jugador>();
     protected ArrayList<Club> clubesParticipantes = new ArrayList<Club>();
     protected ArrayList<Entrenador> entrenadoresParticipantes = new ArrayList<Entrenador>();
+    protected ArrayList<Torneo> torneos = new ArrayList<Torneo>();
+    protected ArrayList<Gerente> gerentes = new ArrayList<Gerente>();
 
-    public Torneo() {
+    public LigaAjedrez() {
     }
-
-    public Torneo(String federacion) {
-        this.federacion = federacion;
-    }
+    
+    
 
     
 }

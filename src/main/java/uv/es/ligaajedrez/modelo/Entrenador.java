@@ -1,4 +1,4 @@
-package modelo;
+package uv.es.ligaajedrez.modelo;
 
 import java.util.ArrayList;
 
