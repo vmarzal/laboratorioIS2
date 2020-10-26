@@ -488,7 +488,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="113" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -556,8 +556,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel3" min="-2" pref="183" max="-2" attributes="0"/>
-                  <EmptySpace pref="525" max="32767" attributes="0"/>
+                  <Component id="jLabel3" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

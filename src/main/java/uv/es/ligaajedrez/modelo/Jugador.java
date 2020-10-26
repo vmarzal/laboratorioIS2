@@ -5,17 +5,14 @@
  */
 package uv.es.ligaajedrez.modelo;
 
-/**
- *
- * @author Ezzedine
- */
-
-
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Vector;
 
+/**
+ *  Objeto de dominio que representa a un jugador registrado de la Liga de
+ *  Ajedrez.
+ */
 public class Jugador {
+    
     protected ArrayList<Partida> partidas = new ArrayList<Partida>();
     protected ArrayList<Club> historicoClubes = new ArrayList<Club>();
     protected Torneo torneo;

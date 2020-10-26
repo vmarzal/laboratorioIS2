@@ -5,6 +5,7 @@
  */
 package uv.es.ligaajedrez.dudas;
 
+import uv.es.ligaajedrez.Login;
 import uv.es.ligaajedrez.*;
 import javax.swing.JFrame;
 import lombok.extern.slf4j.Slf4j;

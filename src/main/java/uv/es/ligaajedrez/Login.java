@@ -5,8 +5,14 @@
  */
 package uv.es.ligaajedrez;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import uv.es.ligaajedrez.dudas.MainMenu;
 import javax.swing.JOptionPane;
+import lombok.extern.slf4j.Slf4j;
+import uv.es.ligaajedrez.modelo.Usuario;
 //import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -14,7 +20,7 @@ import javax.swing.JOptionPane;
  * 
  * @author vmarzal
  */
-//@Slf4j
+@Slf4j
 public class Login extends javax.swing.JFrame {
 
     /**
@@ -23,6 +29,7 @@ public class Login extends javax.swing.JFrame {
     //public Admin admin;
     public Login() {
         initComponents();
+        cargarUsuariosPorDefecto();
     }
 
     /**
@@ -164,7 +171,7 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(btnLogin4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnLogin3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -207,7 +214,7 @@ public class Login extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 729, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -235,19 +242,36 @@ public class Login extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        String username = tfUsername.getText();
-        String password = tfPassword.getPassword().toString();
-        
-        if (username.isEmpty() || password.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El nombre de usuario está vacio", "Error", JOptionPane.ERROR_MESSAGE);
+        String username = tfUsername.getText();        
+        String password = new String(tfPassword.getPassword());
+                
+        if (username.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "El nombre de usuario no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (!loadedUsersList.containsKey(username)) {
+            JOptionPane.showMessageDialog(this, "No existe ese nombre de usuario", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "El password no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            userLogin(username, password);            
-        }                
+            userLogin(username, password);    
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    public Map<String, String> loadedUsersList;
+    
+    private void cargarUsuariosPorDefecto() {
+        log.info("Cargando los usuarios por defecto ...");
+        loadedUsersList = new HashMap<String, String>();
+        
+        Usuario usuario = Usuario.builder().login("vmarzal").password("1111")
+                .build();
+        
+        loadedUsersList.put(usuario.getLogin(), usuario.getPassword());
+    }
+    
     private void tfUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsernameActionPerformed
         
     }//GEN-LAST:event_tfUsernameActionPerformed
@@ -350,13 +374,22 @@ public class Login extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void userLogin(String username, String password) {
-        // TODO: aun no comprueba login/password
-        if (!username.isEmpty()) {
-            // Navegamos al menu de la aplicación
+        /*
+        for (Map.Entry<String, String> entry : loadedUsersList.entrySet()) {
+	   System.out.println(entry.getKey() + ":" + entry.getValue());
+	}*/
+         
+        log.info("> value: " + loadedUsersList.get(username));
+        log.info("> pass : " + password);
+        
+        if (loadedUsersList.get(username).equals(password)) {
+            log.info("Password correcto,. entramos ...");
             dispose();
             MainMenu mainMenu = new MainMenu();
             mainMenu.setTitle("Main menu");
             mainMenu.setVisible(true);
-        }
+        } else {
+            JOptionPane.showMessageDialog(this, "El password es incorrecto", "Error", JOptionPane.ERROR_MESSAGE);
+        }                                                                                                                                                                    	                               
     }
 }

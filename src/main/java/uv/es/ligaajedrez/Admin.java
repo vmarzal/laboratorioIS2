@@ -928,17 +928,14 @@ public class Admin extends javax.swing.JFrame {
         jl_admin.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jl_admin.setForeground(new java.awt.Color(255, 255, 255));
         jl_admin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jl_admin.setText("Admin");
+        jl_admin.setText("Administrador");
         jl_admin.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout AdminLayout = new javax.swing.GroupLayout(Admin);
         Admin.setLayout(AdminLayout);
         AdminLayout.setHorizontalGroup(
             AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AdminLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jl_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jl_admin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         AdminLayout.setVerticalGroup(
             AdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1037,6 +1034,7 @@ public class Admin extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jb_reservaSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_reservaSedeActionPerformed

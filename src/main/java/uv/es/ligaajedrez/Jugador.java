@@ -937,10 +937,7 @@ public class Jugador extends javax.swing.JFrame {
         Jugador.setLayout(JugadorLayout);
         JugadorLayout.setHorizontalGroup(
             JugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JugadorLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jl_jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jl_jugador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         JugadorLayout.setVerticalGroup(
             JugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1025,6 +1022,7 @@ public class Jugador extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jb_reservaSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_reservaSedeActionPerformed
