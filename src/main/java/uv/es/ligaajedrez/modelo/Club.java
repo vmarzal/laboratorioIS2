@@ -20,7 +20,8 @@ public class Club {
     protected Entrenador entrenador;
     protected Gerente gerente;
 
-    public Club() {
+    public Club(String sede) {
+        this.sede = sede;
     }
 
     public Club(String sede, String federacion, Entrenador entrenador, Gerente gerente) {
@@ -29,7 +30,6 @@ public class Club {
         this.entrenador = entrenador;
         this.gerente = gerente;
     }
-    
     
     
     
