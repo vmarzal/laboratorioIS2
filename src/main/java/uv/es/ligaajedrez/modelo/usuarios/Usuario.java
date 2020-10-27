@@ -5,7 +5,7 @@
  */
 package uv.es.ligaajedrez.modelo.usuarios;
 
-import java.util.Date;
+import java.time.LocalDate;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
@@ -19,6 +19,6 @@ public class Usuario {
     protected String password;
     
     protected String DNI, nombre, apellidos, email, telefono, direccion;
-    protected Date fechaNacimiento;
+    protected LocalDate fechaNacimiento;
    
 }

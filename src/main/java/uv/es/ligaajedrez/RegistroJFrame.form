@@ -3,6 +3,12 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[767, 770]"/>
+    </Property>
+    <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[0, 0]"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -23,143 +29,116 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jL_nombre" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jS_datosPersonales" min="-2" pref="534" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jL_clubJugador" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jL_clubEntrenador" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jT_clubEntrenador" min="-2" pref="49" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jB_anadir" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jT_clubJugador" min="-2" pref="181" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jL_tipoJugador" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jCB_tipoJugador" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
-                                      <Component id="jL_elo" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jT_elo" min="-2" pref="54" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace pref="274" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jL_clubesTrabajo" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jB_borrar" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jSP_clubesTrabajo" min="-2" pref="271" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jL_clubGerente" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="jT_clubGerente" min="-2" pref="181" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                              <Component id="jL_nomina" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jT_nomina" min="-2" pref="181" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="jL_irpf" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jT_irpf" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jL_porcentaje" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="46" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jL_clubJugador" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jT_clubJugador" min="-2" pref="203" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jL_tipoJugador" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jCB_tipoJugador" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="jL_elo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jT_elo" min="-2" pref="54" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jL_pw" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jP_pw" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jL_pw2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jP_pw2" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jL_nom" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jT_nom" min="-2" pref="234" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jL_fNaci" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jT_fNaci" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jL_direc" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jT_direc" min="-2" pref="297" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jL_telef" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jT_tele" min="-2" pref="125" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jL_apellido" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jT_apellido" min="-2" pref="188" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jL_dni" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jT_dni" min="-2" pref="97" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jL_email" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jT_email" min="-2" pref="125" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="jL_clubesTrabajo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jB_borrar" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="148" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jL_user" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jT_user" min="-2" pref="181" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jS_userPw" min="-2" pref="534" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="jL_tipoUser" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jCB_tipoUser" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="btnVolverLogin" min="-2" pref="102" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="btnRegistrar" min="-2" pref="108" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jSP_clubesTrabajo" min="-2" pref="263" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="btnVolverLogin" min="-2" pref="102" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnRegistrar" min="-2" pref="108" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="jS_userPw1" min="-2" pref="751" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jS_userPw" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jS_datosPersonales" min="-2" pref="751" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jL_telef" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jT_tele" min="-2" pref="119" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                      <Component id="jL_email" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jT_email" min="-2" pref="187" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jL_nom" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                          <Component id="jT_nom" min="-2" pref="353" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                          <Component id="jL_dni" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jT_dni" min="-2" pref="178" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jL_apellido" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jT_apellido" min="-2" pref="350" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jL_fNaci" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jT_fNaci" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jL_direc" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jT_direc" min="-2" pref="301" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Component id="jL_user" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jT_user" min="-2" pref="118" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="jL_pw" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jP_pw" min="-2" pref="103" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jL_pw2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jP_pw2" min="-2" pref="106" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -167,104 +146,76 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jS_datosPersonales" min="-2" pref="10" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jL_nombre" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jL_user" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jT_user" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="jL_pw" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jP_pw" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jL_pw2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jP_pw2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jS_datosPersonales" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jL_nom" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jT_nom" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jL_fNaci" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jT_fNaci" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                      <Component id="jL_dni" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jT_dni" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jL_apellido" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jT_apellido" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Group type="103" alignment="3" groupAlignment="3" attributes="0">
-                      <Component id="jL_dni" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jT_dni" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
-                          <Component id="jL_email" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jT_email" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jL_fNaci" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jT_fNaci" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jL_direc" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jT_direc" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="3" groupAlignment="3" attributes="0">
-                      <Component id="jL_telef" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jT_tele" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jL_tipoUser" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jCB_tipoUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jL_telef" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jT_tele" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jL_email" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jT_email" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Component id="jS_userPw1" min="-2" pref="10" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jT_clubJugador" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jL_clubJugador" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jL_tipoJugador" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jL_elo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jT_elo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jCB_tipoJugador" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jT_elo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jL_clubEntrenador" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jT_clubEntrenador" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jB_anadir" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jL_clubesTrabajo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jL_clubesTrabajo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jB_borrar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jSP_clubesTrabajo" min="-2" pref="92" max="-2" attributes="0"/>
+                  <Component id="jSP_clubesTrabajo" pref="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jT_clubGerente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jL_clubGerente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jL_nomina" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jT_nomina" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jL_irpf" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jT_irpf" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jL_porcentaje" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Component id="jS_userPw" min="-2" pref="10" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jL_user" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jT_user" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jL_pw" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="jP_pw" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jL_pw2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jP_pw2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnRegistrar" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="btnVolverLogin" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnRegistrar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -291,7 +242,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" pref="43" max="-2" attributes="0"/>
-                  <EmptySpace pref="36" max="32767" attributes="0"/>
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -306,7 +257,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Registro de nuevo usuario"/>
+            <Property name="text" type="java.lang.String" value="Registro de nuevo jugador"/>
             <Property name="horizontalTextPosition" type="int" value="4"/>
           </Properties>
         </Component>
@@ -318,9 +269,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jT_nom">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Lorena "/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jT_nomActionPerformed"/>
       </Events>
@@ -331,9 +279,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jT_apellido">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Iborra L&#xf3;pez"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jL_direc">
       <Properties>
@@ -341,13 +286,10 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jT_direc">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Avda Primado Reig, 29, 6&#xba;C"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jL_fNaci">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fecha de nacimiento:"/>
+        <Property name="text" type="java.lang.String" value="Fecha de Nac:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jT_fNaci">
@@ -363,9 +305,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jT_user">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="liborra"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jL_pw">
       <Properties>
@@ -423,34 +362,6 @@
     </Component>
     <Component class="javax.swing.JSeparator" name="jS_userPw">
     </Component>
-    <Component class="javax.swing.JLabel" name="jL_nombre">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Datos personales"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jL_tipoUser">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tipo usuario"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jCB_tipoUser">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCB_tipoUserActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JLabel" name="jL_clubJugador">
       <Properties>
         <Property name="text" type="java.lang.String" value="Club"/>
@@ -459,7 +370,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jT_clubJugador">
       <Properties>
-        <Property name="text" type="java.lang.String" value="liborra"/>
+        <Property name="text" type="java.lang.String" value="Nombre del club"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jT_clubJugadorActionPerformed"/>
@@ -484,25 +395,6 @@
         <Property name="text" type="java.lang.String" value="ELO"/>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jT_clubEntrenador">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="liborra"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jL_clubEntrenador">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Club"/>
-        <Property name="opaque" type="boolean" value="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jB_anadir">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_anadirActionPerformed"/>
-      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jSP_clubesTrabajo">
       <AuxValues>
@@ -543,51 +435,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_borrarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jL_clubGerente">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Club"/>
-        <Property name="opaque" type="boolean" value="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jT_clubGerente">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="liborra"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jT_nomina">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="2000"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jT_nominaActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jL_nomina">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nomina"/>
-        <Property name="opaque" type="boolean" value="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jT_irpf">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jT_irpfActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jL_irpf">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="IRPF"/>
-        <Property name="opaque" type="boolean" value="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jL_porcentaje">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="%"/>
-        <Property name="opaque" type="boolean" value="true"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JComboBox" name="jCB_tipoJugador">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -609,38 +456,31 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jT_dni">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Y3434343W"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jT_dniActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jT_email">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ligajedrez@gmail.com"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jT_emailActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jL_email">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Email"/>
+        <Property name="text" type="java.lang.String" value="Email:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jT_tele">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="+34 65548218"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jT_teleActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jL_telef">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Telefono"/>
+        <Property name="text" type="java.lang.String" value="Telefono:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JSeparator" name="jS_userPw1">
     </Component>
   </SubComponents>
 </Form>

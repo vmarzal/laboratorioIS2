@@ -26,7 +26,17 @@ public class Login extends javax.swing.JFrame {
     //public Admin admin;
     public Login() {
         initComponents();
-        cargarUsuariosPorDefecto();
+        
+        loadedUsersList = new HashMap<String, Usuario>();        
+        if (loadedUsersList.isEmpty()) {
+            initUsuariosPorDefecto();
+        }   
+        
+        loadedUsersList.values().stream()
+                .forEach(System.out::println);
+        
+        loadedUsersList.keySet().stream()
+                .forEach(System.out::println);
     }
 
     /**
@@ -257,12 +267,10 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
-    public Map<String, Usuario> loadedUsersList;
+    public static Map<String, Usuario> loadedUsersList;
+        
     
-    private void cargarUsuariosPorDefecto() {
-        log.info("Cargando los usuarios por defecto ...");
-        loadedUsersList = new HashMap<String, Usuario>();
-                        
+    private void initUsuariosPorDefecto() {                                                       
         Administrador adminUser = Administrador.builder().login("admin").password("admin").build();                     
         loadedUsersList.put(adminUser.getLogin(), adminUser);                                       
         
