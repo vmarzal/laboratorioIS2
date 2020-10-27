@@ -5,12 +5,10 @@
  */
 package uv.es.ligaajedrez.modelo;
 
+import uv.es.ligaajedrez.modelo.usuarios.Jugador;
+import uv.es.ligaajedrez.modelo.usuarios.Entrenador;
 import java.util.ArrayList;
 
-/**
- *
- * @author Ezzedine
- */
 public class Torneo {
     protected String federacion;
     protected ArrayList<Jugador> jugadoresParticipantes = new ArrayList<Jugador>();

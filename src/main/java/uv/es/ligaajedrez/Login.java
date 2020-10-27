@@ -5,21 +5,18 @@
  */
 package uv.es.ligaajedrez;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import uv.es.ligaajedrez.dudas.MainMenu;
 import javax.swing.JOptionPane;
+import uv.es.ligaajedrez.modelo.usuarios.Administrador;
+import uv.es.ligaajedrez.modelo.usuarios.Entrenador;
+import uv.es.ligaajedrez.modelo.usuarios.Gerente;
+import uv.es.ligaajedrez.modelo.usuarios.Jugador;
+import uv.es.ligaajedrez.modelo.usuarios.Usuario;
 import lombok.extern.slf4j.Slf4j;
-import uv.es.ligaajedrez.modelo.Usuario;
-//import lombok.extern.slf4j.Slf4j;
 
-/**
- * Login Page
- * 
- * @author vmarzal
- */
 @Slf4j
 public class Login extends javax.swing.JFrame {
 
@@ -260,16 +257,23 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
-    public Map<String, String> loadedUsersList;
+    public Map<String, Usuario> loadedUsersList;
     
     private void cargarUsuariosPorDefecto() {
         log.info("Cargando los usuarios por defecto ...");
-        loadedUsersList = new HashMap<String, String>();
+        loadedUsersList = new HashMap<String, Usuario>();
+                        
+        Administrador adminUser = Administrador.builder().login("admin").password("admin").build();                     
+        loadedUsersList.put(adminUser.getLogin(), adminUser);                                       
         
-        Usuario usuario = Usuario.builder().login("vmarzal").password("1111")
-                .build();
+        Gerente gerente = Gerente.builder().login("gerente").password("gerente").build();
+        loadedUsersList.put(gerente.getLogin(), gerente);
         
-        loadedUsersList.put(usuario.getLogin(), usuario.getPassword());
+        Entrenador entrenador = Entrenador.builder().login("entrenador").password("entrenador").build();
+        loadedUsersList.put(entrenador.getLogin(), entrenador);
+        
+        Jugador jugador = Jugador.builder().login("jugador").password("jugador").build();
+        loadedUsersList.put(jugador.getLogin(), jugador);                                        
     }
     
     private void tfUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsernameActionPerformed
@@ -277,38 +281,34 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_tfUsernameActionPerformed
 
     private void btnNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoUsuarioActionPerformed
-//        log.info("Register form ...");
-        
         // Navegamos a registrar nuevo usuario
         dispose();
-        Registro registro = new Registro();
+        RegistroJFrame registro = new RegistroJFrame();
         registro.setTitle("Registrar nuevo usuario");
         registro.setVisible(true);
     }//GEN-LAST:event_btnNuevoUsuarioActionPerformed
 
     private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
         this.dispose();
-        Admin panelAdmin = new Admin();
+        AdminJFrame panelAdmin = new AdminJFrame();
         panelAdmin.setVisible(true);
     }//GEN-LAST:event_btnLogin1ActionPerformed
 
     private void btnLogin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin2ActionPerformed
         this.dispose();
-//        MainMenu panelUsuario = new MainMenu();
-//        panelUsuario.setVisible(true);
-        Jugador jugador= new Jugador();
+        JugadorJFrame jugador= new JugadorJFrame();
         jugador.setVisible(true);
     }//GEN-LAST:event_btnLogin2ActionPerformed
 
     private void btnLogin3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin3ActionPerformed
         this.dispose();
-        Entrenador panelEntrenador = new Entrenador();
+        EntrenadorJFrame panelEntrenador = new EntrenadorJFrame();
         panelEntrenador.setVisible(true);
     }//GEN-LAST:event_btnLogin3ActionPerformed
 
     private void btnLogin4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin4ActionPerformed
         this.dispose();
-        Gerente panelGerente = new Gerente();
+        GerenteJFrame panelGerente = new GerenteJFrame();
         panelGerente.setVisible(true);
     }//GEN-LAST:event_btnLogin4ActionPerformed
 
@@ -342,6 +342,9 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -373,21 +376,32 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField tfUsername;
     // End of variables declaration//GEN-END:variables
 
-    private void userLogin(String username, String password) {
-        /*
-        for (Map.Entry<String, String> entry : loadedUsersList.entrySet()) {
-	   System.out.println(entry.getKey() + ":" + entry.getValue());
-	}*/
-         
+    private void userLogin(String username, String password) {                
         log.info("> value: " + loadedUsersList.get(username));
         log.info("> pass : " + password);
         
-        if (loadedUsersList.get(username).equals(password)) {
+        Usuario usuario = loadedUsersList.get(username);
+        
+        log.info(usuario.toString());
+                
+        if (usuario.getPassword().equals(password)) {
             log.info("Password correcto,. entramos ...");
-            dispose();
+            dispose();       
+            
+            if (usuario instanceof Administrador) {
+                log.info("Logado un Administrador. Mostrar solo sus opciones..");
+            } else if (usuario instanceof Gerente) {
+                log.info("Logado un Gerente. Mostrar solo sus opciones..");
+            } else if (usuario instanceof Entrenador) {
+                log.info("Logado un Entrenador. Mostrar solo sus opciones..");
+            } else if (usuario instanceof Jugador) {
+                log.info("Logado un Jugador. Mostrar solo sus opciones..");
+            }            
+            
             MainMenu mainMenu = new MainMenu();
             mainMenu.setTitle("Main menu");
             mainMenu.setVisible(true);
+            
         } else {
             JOptionPane.showMessageDialog(this, "El password es incorrecto", "Error", JOptionPane.ERROR_MESSAGE);
         }                                                                                                                                                                    	                               

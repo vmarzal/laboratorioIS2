@@ -11,12 +11,12 @@ import lombok.extern.slf4j.Slf4j;
  * @author vmarzal
  */
 @Slf4j
-public class Registro extends javax.swing.JFrame {
+public class RegistroJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form Registro
      */
-    public Registro() {
+    public RegistroJFrame() {
         initComponents();
         
         

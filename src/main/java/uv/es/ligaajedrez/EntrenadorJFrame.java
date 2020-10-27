@@ -9,12 +9,12 @@ package uv.es.ligaajedrez;
  *
  * @author Adrian Cozma
  */
-public class Entrenador extends javax.swing.JFrame {
+public class EntrenadorJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form Entrenador
      */
-    public Entrenador() {
+    public EntrenadorJFrame() {
         initComponents();
     }
 

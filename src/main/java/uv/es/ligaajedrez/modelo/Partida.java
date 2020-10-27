@@ -5,6 +5,7 @@
  */
 package uv.es.ligaajedrez.modelo;
 
+import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 import java.util.Date;
 
 /**

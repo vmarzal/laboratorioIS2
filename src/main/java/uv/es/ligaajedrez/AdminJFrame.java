@@ -8,18 +8,14 @@ package uv.es.ligaajedrez;
 import javax.swing.JFrame;
 import lombok.extern.slf4j.Slf4j;
 
-/**
- *
- * @author Ezzedine
- */
 @Slf4j
-public class Admin extends javax.swing.JFrame {
+public class AdminJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form Admin
      */
     private Login login;
-    public Admin() {
+    public AdminJFrame() {
         initComponents();
         
     }

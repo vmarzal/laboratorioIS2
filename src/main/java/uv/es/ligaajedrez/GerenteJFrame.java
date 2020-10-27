@@ -9,12 +9,12 @@ package uv.es.ligaajedrez;
  *
  * @author Adrian Cozma
  */
-public class Gerente extends javax.swing.JFrame {
+public class GerenteJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form Gerente
      */
-    public Gerente() {
+    public GerenteJFrame() {
         initComponents();
     }
 

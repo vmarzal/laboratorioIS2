@@ -13,13 +13,13 @@ import lombok.extern.slf4j.Slf4j;
  * @author Ezzedine
  */
 @Slf4j
-public class Jugador extends javax.swing.JFrame {
+public class JugadorJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form Admin
      */
     private Login login;
-    public Jugador() {
+    public JugadorJFrame() {
         initComponents();
         
     }
