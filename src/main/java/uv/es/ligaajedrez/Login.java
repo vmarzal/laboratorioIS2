@@ -390,17 +390,26 @@ public class Login extends javax.swing.JFrame {
             
             if (usuario instanceof Administrador) {
                 log.info("Logado un Administrador. Mostrar solo sus opciones..");
+                AdminJFrame admin = new AdminJFrame();
+                admin.setVisible(true);
             } else if (usuario instanceof Gerente) {
                 log.info("Logado un Gerente. Mostrar solo sus opciones..");
+                GerenteJFrame gerente = new GerenteJFrame();
+                gerente.setVisible(true);
             } else if (usuario instanceof Entrenador) {
                 log.info("Logado un Entrenador. Mostrar solo sus opciones..");
+                EntrenadorJFrame entrenador = new EntrenadorJFrame();
+                entrenador.setVisible(true);
             } else if (usuario instanceof Jugador) {
                 log.info("Logado un Jugador. Mostrar solo sus opciones..");
+                JugadorJFrame jugador = new JugadorJFrame();
+                jugador.setVisible(true);
+            
             }            
             
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.setTitle("Main menu");
-            mainMenu.setVisible(true);
+//            MainMenu mainMenu = new MainMenu();
+//            mainMenu.setTitle("Main menu");
+//            mainMenu.setVisible(true);
             
         } else {
             JOptionPane.showMessageDialog(this, "El password es incorrecto", "Error", JOptionPane.ERROR_MESSAGE);
