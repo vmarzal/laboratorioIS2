@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package uv.es.ligaajedrez;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Vector;
 import lombok.extern.slf4j.Slf4j;
 
@@ -87,6 +90,12 @@ public class RegistroJFrame extends javax.swing.JFrame {
         jL_irpf = new javax.swing.JLabel();
         jL_porcentaje = new javax.swing.JLabel();
         jCB_tipoJugador = new javax.swing.JComboBox<>();
+        jL_dni = new javax.swing.JLabel();
+        jT_dni = new javax.swing.JTextField();
+        jT_email = new javax.swing.JTextField();
+        jL_email = new javax.swing.JLabel();
+        jT_tele = new javax.swing.JTextField();
+        jL_telef = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -260,6 +269,33 @@ public class RegistroJFrame extends javax.swing.JFrame {
 
         jCB_tipoJugador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jL_dni.setText("DNI");
+
+        jT_dni.setText("Y3434343W");
+        jT_dni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jT_dniActionPerformed(evt);
+            }
+        });
+
+        jT_email.setText("ligajedrez@gmail.com");
+        jT_email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jT_emailActionPerformed(evt);
+            }
+        });
+
+        jL_email.setText("Email");
+
+        jT_tele.setText("+34 65548218");
+        jT_tele.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jT_teleActionPerformed(evt);
+            }
+        });
+
+        jL_telef.setText("Telefono");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -337,15 +373,28 @@ public class RegistroJFrame extends javax.swing.JFrame {
                                 .addComponent(jL_fNaci)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jT_fNaci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jL_direc)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jT_direc, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jL_apellido)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jT_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jL_direc)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jT_direc, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jL_telef)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jT_tele, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jL_apellido)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jT_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jL_dni)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jT_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jL_email)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jT_email, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(148, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -385,11 +434,20 @@ public class RegistroJFrame extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jL_apellido)
-                    .addComponent(jT_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jT_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jL_dni)
+                        .addComponent(jT_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jL_email)
+                            .addComponent(jT_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jL_direc)
-                    .addComponent(jT_direc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jT_direc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jL_telef)
+                        .addComponent(jT_tele, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jL_tipoUser)
@@ -451,6 +509,28 @@ public class RegistroJFrame extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
 //        log.info("Persistimos el registro del nuevo usuario...");
+        String fecha, telef,user, pw, nom, apellido, dni, direc, email, direccion;
+        Date fechaNac;
+        SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
+
+     
+        nom= jT_nom.getText();
+        apellido= jT_apellido.getText();
+        dni=jT_dni.getText();
+        email = jT_email.getText();
+        telef = jT_tele.getText();
+        direc= jT_direc.getText();
+        fecha= jT_fNaci.getText();
+        
+        //cambiamos la fecha de string a date de formato dd/mm/yyyy
+        try {
+            fechaNac = cambioFecha.parse(fecha);
+        } 
+        catch (ParseException ex) {
+            System.out.print(ex);
+        }
+        
+        
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnVolverLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverLoginActionPerformed
@@ -580,6 +660,19 @@ public class RegistroJFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jB_borrarActionPerformed
 
+    private void jT_dniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_dniActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jT_dniActionPerformed
+
+    private void jT_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_emailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jT_emailActionPerformed
+
+    private void jT_teleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_teleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jT_teleActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -595,7 +688,9 @@ public class RegistroJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jL_clubJugador;
     private javax.swing.JLabel jL_clubesTrabajo;
     private javax.swing.JLabel jL_direc;
+    private javax.swing.JLabel jL_dni;
     private javax.swing.JLabel jL_elo;
+    private javax.swing.JLabel jL_email;
     private javax.swing.JLabel jL_fNaci;
     private javax.swing.JLabel jL_irpf;
     private javax.swing.JLabel jL_nom;
@@ -604,6 +699,7 @@ public class RegistroJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jL_porcentaje;
     private javax.swing.JLabel jL_pw;
     private javax.swing.JLabel jL_pw2;
+    private javax.swing.JLabel jL_telef;
     private javax.swing.JLabel jL_tipoJugador;
     private javax.swing.JLabel jL_tipoUser;
     private javax.swing.JLabel jL_user;
@@ -620,11 +716,14 @@ public class RegistroJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jT_clubGerente;
     private javax.swing.JTextField jT_clubJugador;
     private javax.swing.JTextField jT_direc;
+    private javax.swing.JTextField jT_dni;
     private javax.swing.JTextField jT_elo;
+    private javax.swing.JTextField jT_email;
     private javax.swing.JTextField jT_fNaci;
     private javax.swing.JTextField jT_irpf;
     private javax.swing.JTextField jT_nom;
     private javax.swing.JTextField jT_nomina;
+    private javax.swing.JTextField jT_tele;
     private javax.swing.JTextField jT_user;
     // End of variables declaration//GEN-END:variables
     private String [] tipoUsers = {"Jugador", "Entrenador", "Gerente"};
