@@ -26,6 +26,23 @@ public class Jugador extends Usuario {
     protected Club club;
     protected Entrenador entrenador;
     protected int elo;    
-    private boolean cuotaPagada;
-    private float cuota;                   
+    private boolean cuotaPagada, apuntado, desapuntado;
+    private float cuota; 
+    
+    
+    public boolean pagarCuota(){
+        
+        return (cuotaPagada = true);
+    }
+    
+    public boolean apuntarseTorneo(Jugador jugador){
+        
+        return (torneo.addJugador(jugador));
+    }
+    
+    public boolean desapuntarseTorneo(Jugador jugador){
+        
+        return (torneo.removeJugador(jugador));
+    }
+    
 }

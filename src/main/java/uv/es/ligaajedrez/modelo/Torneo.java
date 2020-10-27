@@ -22,5 +22,11 @@ public class Torneo {
         this.federacion = federacion;
     }
 
+    public boolean addJugador(Jugador jugador){
+        return (jugadoresParticipantes.add(jugador));
+    }
     
+    public boolean removeJugador(Jugador jugador){
+        return (jugadoresParticipantes.remove(jugador));
+    }
 }
