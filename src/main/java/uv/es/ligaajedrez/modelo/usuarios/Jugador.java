@@ -18,7 +18,7 @@ import uv.es.ligaajedrez.modelo.Torneo;
 public class Jugador extends Usuario {
 
     
-    protected List<Partida> partidas = new ArrayList<Partida>();
+    private List<Partida> partidas = new ArrayList<Partida>();
     private List<Club> historicoClubes = new ArrayList<Club>();
     
     protected Torneo torneo;
@@ -44,10 +44,9 @@ public class Jugador extends Usuario {
         return (torneo.removeJugador(jugador));
     }
     
-    public boolean cambiarClub(Jugador jugador, Club club){
-            jugador.setClub(club);
-        
-        return (jugador.historicoClubes.add(club));
+    public void cambiarClub(Jugador jugador, Club club){
+        jugador.historicoClubes.add(jugador.getClub());
+        jugador.setClub(club);
     }
     
     
@@ -106,5 +105,21 @@ public class Jugador extends Usuario {
     public void setHistoricoClubes(List<Club> historicoClubes) {
         this.historicoClubes = historicoClubes;
     }
+    
+    /**
+     * @return the partidas
+     */
+    public List<Partida> getPartidas() {
+        return partidas;
+    }
+
+    /**
+     * @param partidas the partidas to set
+     */
+    public void setPartidas(List<Partida> partidas) {
+        this.partidas = partidas;
+    }
+
+    
     
 }
