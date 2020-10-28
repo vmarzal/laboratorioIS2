@@ -52,6 +52,12 @@ public class Jugador extends Usuario {
     {
         partidas.add(p);
     }
+//    public boolean reservarSede(Jugador j)
+//    {
+//        return club.reservarSede();
+//    }
+    
+    
     
     public boolean pagarCuota(){
         

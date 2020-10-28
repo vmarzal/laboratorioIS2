@@ -35,11 +35,19 @@ public class Club {
     }
     
     
-            //Ezz-anyadimos la partida ala lista de partidas del club
-        public void introResultPartida ( Partida p)
-        {
-            partidasJugadoreDelClub.add(p);
-            
-            
-        }
+//Ezz-anyadimos la partida ala lista de partidas del club
+    public void introResultPartida ( Partida p)
+    {
+        partidasJugadoreDelClub.add(p);
+
+    }
+    //Ezz--creo que hay que crear una clase sede
+//    public boolean consultarDisponibilidadSede (Date fecha, String time)
+//    {
+//        
+//    }
+//     public boolean reservarSede(Jugador j)
+//    {
+//        
+//    }
 }
