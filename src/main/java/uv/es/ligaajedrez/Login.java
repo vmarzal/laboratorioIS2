@@ -16,6 +16,7 @@ import uv.es.ligaajedrez.modelo.usuarios.Gerente;
 import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 import uv.es.ligaajedrez.modelo.usuarios.Usuario;
 import lombok.extern.slf4j.Slf4j;
+import uv.es.ligaajedrez.modelo.LigaAjedrez;
 
 @Slf4j
 public class Login extends javax.swing.JFrame {
@@ -37,6 +38,10 @@ public class Login extends javax.swing.JFrame {
         
         loadedUsersList.keySet().stream()
                 .forEach(System.out::println);
+        //Ezz-Cargamos 3jugadores, 2 entrenadores, 2 gerentes, 2 clubes, 1torneo, 1federacion
+        //    para hacer comprobaciones
+        ligaAjedrez = new LigaAjedrez();
+        ligaAjedrez.cargarDatos();
     }
 
     /**
@@ -280,7 +285,7 @@ public class Login extends javax.swing.JFrame {
         Entrenador entrenador = Entrenador.builder().login("entrenador").password("entrenador").build();
         loadedUsersList.put(entrenador.getLogin(), entrenador);
         
-        Jugador jugador = Jugador.builder().login("jugador").password("jugador").build();
+        Jugador jugador = Jugador.builder().login("jugador").password("jugador").DNI("jugador").nombre("jugador").build();
         loadedUsersList.put(jugador.getLogin(), jugador);                                        
     }
     
@@ -303,9 +308,10 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogin1ActionPerformed
 
     private void btnLogin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin2ActionPerformed
-        this.dispose();
-        JugadorJFrame jugador= new JugadorJFrame();
-        jugador.setVisible(true);
+//        this.dispose();
+//        
+//        JugadorJFrame jugador= new JugadorJFrame();
+//        jugador.setVisible(true);
     }//GEN-LAST:event_btnLogin2ActionPerformed
 
     private void btnLogin3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin3ActionPerformed
@@ -383,7 +389,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField tfPassword;
     private javax.swing.JTextField tfUsername;
     // End of variables declaration//GEN-END:variables
-
+    private LigaAjedrez ligaAjedrez;
+    
     private void userLogin(String username, String password) {                
         log.info("> value: " + loadedUsersList.get(username));
         log.info("> pass : " + password);
@@ -410,7 +417,7 @@ public class Login extends javax.swing.JFrame {
                 entrenador.setVisible(true);
             } else if (usuario instanceof Jugador) {
                 log.info("Logado un Jugador. Mostrar solo sus opciones..");
-                JugadorJFrame jugador = new JugadorJFrame();
+                JugadorJFrame jugador = new JugadorJFrame((Jugador)usuario);
                 jugador.setVisible(true);
             
             }            

@@ -6,10 +6,12 @@
 package uv.es.ligaajedrez.modelo.usuarios;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 import uv.es.ligaajedrez.modelo.Club;
+import uv.es.ligaajedrez.modelo.LigaAjedrez;
 import uv.es.ligaajedrez.modelo.Partida;
 import uv.es.ligaajedrez.modelo.Torneo;
 
@@ -18,7 +20,7 @@ import uv.es.ligaajedrez.modelo.Torneo;
 public class Jugador extends Usuario {
 
     
-    private List<Partida> partidas = new ArrayList<Partida>();
+    private ArrayList<Partida> partidas = new ArrayList<Partida>();
     private List<Club> historicoClubes = new ArrayList<Club>();
     
     protected Torneo torneo;
@@ -27,7 +29,29 @@ public class Jugador extends Usuario {
     private int elo;    
     private boolean cuotaPagada;
     private float cuota; 
+    protected LigaAjedrez ligaAjedrez;
     
+    public void introResultPartida (String j1, String j2, String ganador, String ubi, Date fecha, float duracion)
+    {
+        System.out.println("llega a la clase jugador");
+        System.out.println(j1 + " " + j2+ " " + ganador+ " " +ubi+ " " +fecha+ " " +duracion );
+        Partida partida = new Partida(j1, j2, ganador, fecha, duracion, ubi);
+        partidas.add(partida);
+        
+        System.out.println("lo anyade con exito");
+        //aNadimos la partida a la lista de partidas de la liga, del rival , del club y del torneo
+        ligaAjedrez.introResultPartida(partida);
+        System.out.println("lo anyade a la liga");
+        club.introResultPartida(partida);
+        System.out.println("lo anyade al club");
+        torneo.introResultPartida(partida);
+        System.out.println("lo anyade al torneo");
+        
+    }
+    public void addPartida(Partida p)
+    {
+        partidas.add(p);
+    }
     
     public boolean pagarCuota(){
         
@@ -106,19 +130,19 @@ public class Jugador extends Usuario {
         this.historicoClubes = historicoClubes;
     }
     
-    /**
-     * @return the partidas
-     */
-    public List<Partida> getPartidas() {
-        return partidas;
-    }
-
-    /**
-     * @param partidas the partidas to set
-     */
-    public void setPartidas(List<Partida> partidas) {
-        this.partidas = partidas;
-    }
+//    /**
+//     * @return the partidas
+//     */
+//    public List<Partida> getPartidas() {
+//        return partidas;
+//    }
+//
+//    /**
+//     * @param partidas the partidas to set
+//     */
+//    public void setPartidas(List<Partida> partidas) {
+//        this.partidas = partidas;
+//    }
 
     
     

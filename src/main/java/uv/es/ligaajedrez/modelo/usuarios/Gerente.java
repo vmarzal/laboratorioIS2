@@ -18,6 +18,7 @@ public class Gerente extends Usuario {
     protected List<Club> historicoClubes = new ArrayList<Club>();
     protected List<Float> historicoNominas= new ArrayList<Float>();
     protected List<Float> historicoRetenciones= new ArrayList<Float>();
+    protected Club clubActual;
     protected float nomina, IRPF;
     
 }
