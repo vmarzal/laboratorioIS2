@@ -6,9 +6,12 @@
 package uv.es.ligaajedrez;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Map;
 import java.util.Vector;
 import lombok.extern.slf4j.Slf4j;
+import uv.es.ligaajedrez.modelo.DatosLigaAjedrez;
 import uv.es.ligaajedrez.modelo.usuarios.Jugador;
+import uv.es.ligaajedrez.modelo.usuarios.Usuario;
 
 /**
  * @author vmarzal
@@ -16,20 +19,27 @@ import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 @Slf4j
 public class RegistroJFrame extends javax.swing.JFrame {
 
+    private DatosLigaAjedrez commonData;    
+    private Map<String, Usuario> loadedUsers;
+            
     /**
      * Creates new form Registro
      */
     public RegistroJFrame() {
         initComponents();
-                       
+             
+        commonData = DatosLigaAjedrez.getSingletonInstance();                        
+        loadedUsers = commonData.getLoadedUsersList();        
+        loadedUsers.values().stream().forEach(System.out::println);        
+       
+        /**
         jCB_tipoJugador.removeAllItems();
        
         for (String tipoJugador: tipoJugadors){
             jCB_tipoJugador.addItem(tipoJugador);
-        }
-        
+        }        
         jList_clubesTrabajo.setListData(clubesTrabajo);
-        
+        **/        
     }
 
     /**
@@ -418,10 +428,9 @@ public class RegistroJFrame extends javax.swing.JFrame {
         Jugador jugador = Jugador.builder().login(login).password(password)
                 .nombre(nombre).apellidos(apellidos).DNI(DNI).email(email)
                 .telefono(telefono).direccion(direccion).fechaNacimiento(fechaNac)
-                .build();              
+                .build();                            
         
-        Login.loadedUsersList.put(jugador.getLogin(), jugador);
-        
+        loadedUsers.put(jugador.getLogin(), jugador);        
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnVolverLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverLoginActionPerformed

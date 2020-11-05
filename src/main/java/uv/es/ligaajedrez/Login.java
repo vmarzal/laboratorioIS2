@@ -17,31 +17,32 @@ import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 import uv.es.ligaajedrez.modelo.usuarios.Usuario;
 import lombok.extern.slf4j.Slf4j;
 import uv.es.ligaajedrez.modelo.LigaAjedrez;
+import uv.es.ligaajedrez.modelo.DatosLigaAjedrez;
 
 @Slf4j
-public class Login extends javax.swing.JFrame {
-
+public class Login extends javax.swing.JFrame {          
+    
+    private DatosLigaAjedrez commonData;    
+    private Map<String, Usuario> initialUserList;
+    
     /**
      * Creates new form Login
      */
-    //public Admin admin;
     public Login() {
-        initComponents();
+        initComponents();                
+             
+        commonData = DatosLigaAjedrez.getSingletonInstance();
         
-        loadedUsersList = new HashMap<String, Usuario>();        
-        if (loadedUsersList.isEmpty()) {
+        if (commonData.loadedUsersListIsEmpty()) {                       
             initUsuariosPorDefecto();
-        }   
+        }                     
+        commonData.getLoadedUsersList().values().stream().forEach(System.out::println);        
+       
         
-        loadedUsersList.values().stream()
-                .forEach(System.out::println);
-        
-        loadedUsersList.keySet().stream()
-                .forEach(System.out::println);
         //Ezz-Cargamos 3jugadores, 2 entrenadores, 2 gerentes, 2 clubes, 1torneo, 1federacion
         //    para hacer comprobaciones
         ligaAjedrez = new LigaAjedrez();
-        ligaAjedrez.cargarDatos();
+        ligaAjedrez.cargarDatos();                
     }
 
     /**
@@ -263,7 +264,7 @@ public class Login extends javax.swing.JFrame {
                 
         if (username.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El nombre de usuario no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (!loadedUsersList.containsKey(username)) {
+        } else if (!initialUserList.containsKey(username)) {
             JOptionPane.showMessageDialog(this, "No existe ese nombre de usuario", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El password no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
@@ -271,22 +272,19 @@ public class Login extends javax.swing.JFrame {
             userLogin(username, password);    
         }
     }//GEN-LAST:event_btnLoginActionPerformed
-
-    public static Map<String, Usuario> loadedUsersList;
-        
-    
+               
     private void initUsuariosPorDefecto() {                                                       
         Administrador adminUser = Administrador.builder().login("admin").password("admin").build();                     
-        loadedUsersList.put(adminUser.getLogin(), adminUser);                                       
+        commonData.getLoadedUsersList().put(adminUser.getLogin(), adminUser);                                       
         
         Gerente gerente = Gerente.builder().login("gerente").password("gerente").build();
-        loadedUsersList.put(gerente.getLogin(), gerente);
+        commonData.getLoadedUsersList().put(gerente.getLogin(), gerente);
         
         Entrenador entrenador = Entrenador.builder().login("entrenador").password("entrenador").build();
-        loadedUsersList.put(entrenador.getLogin(), entrenador);
+        commonData.getLoadedUsersList().put(entrenador.getLogin(), entrenador);
         
         Jugador jugador = Jugador.builder().login("jugador").password("jugador").DNI("jugador").nombre("jugador").build();
-        loadedUsersList.put(jugador.getLogin(), jugador);                                        
+        commonData.getLoadedUsersList().put(jugador.getLogin(), jugador);                                        
     }
     
     private void tfUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsernameActionPerformed
@@ -392,10 +390,10 @@ public class Login extends javax.swing.JFrame {
     private LigaAjedrez ligaAjedrez;
     
     private void userLogin(String username, String password) {                
-        log.info("> value: " + loadedUsersList.get(username));
+        log.info("> value: " + initialUserList.get(username));
         log.info("> pass : " + password);
         
-        Usuario usuario = loadedUsersList.get(username);
+        Usuario usuario = initialUserList.get(username);
         
         log.info(usuario.toString());
                 
