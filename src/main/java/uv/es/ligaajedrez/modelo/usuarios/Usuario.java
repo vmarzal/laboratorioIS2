@@ -11,7 +11,6 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Getter
-@ToString
 @SuperBuilder
 public class Usuario {
 
@@ -21,4 +20,8 @@ public class Usuario {
     protected String DNI, nombre, apellidos, email, telefono, direccion;
     protected LocalDate fechaNacimiento;
    
+    public String toString() {
+        return "(login=" + login + ",password=" + password + ")";
+    }
+    
 }

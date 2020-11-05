@@ -22,8 +22,7 @@ import uv.es.ligaajedrez.modelo.Torneo;
 public class Login extends javax.swing.JFrame {          
     
     private DatosLigaAjedrez commonData;    
-    private Map<String, Usuario> initialUserList;
-    
+        
     /**
      * Creates new form Login
      */
@@ -32,7 +31,7 @@ public class Login extends javax.swing.JFrame {
              
         commonData = DatosLigaAjedrez.getSingletonInstance();        
         if (commonData.loadedUsersListIsEmpty()) {                       
-            initUsuariosPorDefecto();
+            commonData.initUsuariosPorDefecto();
         }         
         log.info(">>>> " + commonData.toString());        
     }
@@ -256,7 +255,7 @@ public class Login extends javax.swing.JFrame {
                 
         if (username.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El nombre de usuario no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (!initialUserList.containsKey(username)) {
+        } else if (!commonData.getLoadedUsersList().containsKey(username)) {
             JOptionPane.showMessageDialog(this, "No existe ese nombre de usuario", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El password no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
@@ -264,51 +263,7 @@ public class Login extends javax.swing.JFrame {
             userLogin(username, password);    
         }
     }//GEN-LAST:event_btnLoginActionPerformed
-               
-    private void initUsuariosPorDefecto() {   
-        String federacion = "Federación de La Comunidad Valenciana";
-        commonData.getFederaciones().add(federacion);        
-
-        Torneo torneo = new Torneo("Torneo internacional de La Comunidat Valenciana", federacion);
-        commonData.getTorneos().add(torneo);                        
-        
-        Administrador adminUser = Administrador.builder().login("admin").password("admin").build();                     
-        commonData.getLoadedUsersList().put(adminUser.getLogin(), adminUser);                                                               
-
-        Entrenador e1, e2;
-        e1 = Entrenador.builder().login("eValencia").password("eValencia").nombre("Entrenador de Valencia").build();
-        e2 = Entrenador.builder().login("eVillareal").password("eVillareal").nombre("Entrenador de Villareal").build();
-        
-        commonData.getEntrenadoresPaticipantes().put(e1.getLogin(), e1);
-        commonData.getEntrenadoresPaticipantes().put(e2.getLogin(), e2);
-        
-        Gerente g1, g2;
-        g1 = Gerente.builder().login("gValencia").password("gValencia").nombre("gValencia").nomina(900).IRPF(15).build();        
-        g2 = Gerente.builder().login("gVillareal").password("gVillareal").nombre("gVillareal").nomina(900).IRPF(15).build();
-        
-        commonData.getGerentes().put(g1.getLogin(), g1);
-        commonData.getGerentes().put(g2.getLogin(), g2);
-               
-        Club valencia, villareal;
-        valencia = new Club("Valencia", federacion, e1, g1);
-        villareal = new Club("Villareal", federacion, e2, g2);
-        
-        commonData.getClubesParticipantes().add(valencia);
-        commonData.getClubesParticipantes().add(villareal);
                        
-        Jugador ezz, vic, adri;        
-        ezz = Jugador.builder().login("ezz").password("ezz").nombre("Ezzedine")
-                    .DNI("1111111111").club(valencia).entrenador(e1).build();
-        adri = Jugador.builder().login("adri").password("adri").nombre("Adrian")
-                    .DNI("2222222222").club(villareal).entrenador(e2).build();                        
-        vic = Jugador.builder().login("vic").password("vic").nombre("Victor")
-                    .DNI("3333333333").club(villareal).entrenador(e2).build();
-        
-        commonData.getJugadoresParticipantes().put(ezz.getLogin(), ezz);
-        commonData.getJugadoresParticipantes().put(adri.getLogin(), adri);
-        commonData.getJugadoresParticipantes().put(vic.getLogin(), vic);                                                
-    }
-    
     private void tfUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsernameActionPerformed
         
     }//GEN-LAST:event_tfUsernameActionPerformed
@@ -412,10 +367,10 @@ public class Login extends javax.swing.JFrame {
     private LigaAjedrez ligaAjedrez;
     
     private void userLogin(String username, String password) {                
-        log.info("> value: " + initialUserList.get(username));
+        log.info("> value: " + commonData.getLoadedUsersList().get(username));
         log.info("> pass : " + password);
         
-        Usuario usuario = initialUserList.get(username);
+        Usuario usuario = commonData.getLoadedUsersList().get(username);
         
         log.info(usuario.toString());
                 
@@ -438,13 +393,8 @@ public class Login extends javax.swing.JFrame {
             } else if (usuario instanceof Jugador) {
                 log.info("Logado un Jugador. Mostrar solo sus opciones..");
                 JugadorJFrame jugador = new JugadorJFrame((Jugador)usuario);
-                jugador.setVisible(true);
-            
+                jugador.setVisible(true);            
             }            
-            
-//            MainMenu mainMenu = new MainMenu();
-//            mainMenu.setTitle("Main menu");
-//            mainMenu.setVisible(true);
             
         } else {
             JOptionPane.showMessageDialog(this, "El password es incorrecto", "Error", JOptionPane.ERROR_MESSAGE);
