@@ -5,10 +5,7 @@
  */
 package uv.es.ligaajedrez;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import uv.es.ligaajedrez.dudas.MainMenu;
 import javax.swing.JOptionPane;
 import uv.es.ligaajedrez.modelo.usuarios.Administrador;
 import uv.es.ligaajedrez.modelo.usuarios.Entrenador;
@@ -16,8 +13,10 @@ import uv.es.ligaajedrez.modelo.usuarios.Gerente;
 import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 import uv.es.ligaajedrez.modelo.usuarios.Usuario;
 import lombok.extern.slf4j.Slf4j;
+import uv.es.ligaajedrez.modelo.Club;
 import uv.es.ligaajedrez.modelo.LigaAjedrez;
 import uv.es.ligaajedrez.modelo.DatosLigaAjedrez;
+import uv.es.ligaajedrez.modelo.Torneo;
 
 @Slf4j
 public class Login extends javax.swing.JFrame {          
@@ -31,18 +30,11 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();                
              
-        commonData = DatosLigaAjedrez.getSingletonInstance();
-        
+        commonData = DatosLigaAjedrez.getSingletonInstance();        
         if (commonData.loadedUsersListIsEmpty()) {                       
             initUsuariosPorDefecto();
-        }                     
-        commonData.getLoadedUsersList().values().stream().forEach(System.out::println);        
-       
-        
-        //Ezz-Cargamos 3jugadores, 2 entrenadores, 2 gerentes, 2 clubes, 1torneo, 1federacion
-        //    para hacer comprobaciones
-        ligaAjedrez = new LigaAjedrez();
-        ligaAjedrez.cargarDatos();                
+        }         
+        log.info(">>>> " + commonData.toString());        
     }
 
     /**
@@ -273,18 +265,48 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnLoginActionPerformed
                
-    private void initUsuariosPorDefecto() {                                                       
+    private void initUsuariosPorDefecto() {   
+        String federacion = "Federación de La Comunidad Valenciana";
+        commonData.getFederaciones().add(federacion);        
+
+        Torneo torneo = new Torneo("Torneo internacional de La Comunidat Valenciana", federacion);
+        commonData.getTorneos().add(torneo);                        
+        
         Administrador adminUser = Administrador.builder().login("admin").password("admin").build();                     
-        commonData.getLoadedUsersList().put(adminUser.getLogin(), adminUser);                                       
+        commonData.getLoadedUsersList().put(adminUser.getLogin(), adminUser);                                                               
+
+        Entrenador e1, e2;
+        e1 = Entrenador.builder().login("eValencia").password("eValencia").nombre("Entrenador de Valencia").build();
+        e2 = Entrenador.builder().login("eVillareal").password("eVillareal").nombre("Entrenador de Villareal").build();
         
-        Gerente gerente = Gerente.builder().login("gerente").password("gerente").build();
-        commonData.getLoadedUsersList().put(gerente.getLogin(), gerente);
+        commonData.getEntrenadoresPaticipantes().put(e1.getLogin(), e1);
+        commonData.getEntrenadoresPaticipantes().put(e2.getLogin(), e2);
         
-        Entrenador entrenador = Entrenador.builder().login("entrenador").password("entrenador").build();
-        commonData.getLoadedUsersList().put(entrenador.getLogin(), entrenador);
+        Gerente g1, g2;
+        g1 = Gerente.builder().login("gValencia").password("gValencia").nombre("gValencia").nomina(900).IRPF(15).build();        
+        g2 = Gerente.builder().login("gVillareal").password("gVillareal").nombre("gVillareal").nomina(900).IRPF(15).build();
         
-        Jugador jugador = Jugador.builder().login("jugador").password("jugador").DNI("jugador").nombre("jugador").build();
-        commonData.getLoadedUsersList().put(jugador.getLogin(), jugador);                                        
+        commonData.getGerentes().put(g1.getLogin(), g1);
+        commonData.getGerentes().put(g2.getLogin(), g2);
+               
+        Club valencia, villareal;
+        valencia = new Club("Valencia", federacion, e1, g1);
+        villareal = new Club("Villareal", federacion, e2, g2);
+        
+        commonData.getClubesParticipantes().add(valencia);
+        commonData.getClubesParticipantes().add(villareal);
+                       
+        Jugador ezz, vic, adri;        
+        ezz = Jugador.builder().login("ezz").password("ezz").nombre("Ezzedine")
+                    .DNI("1111111111").club(valencia).entrenador(e1).build();
+        adri = Jugador.builder().login("adri").password("adri").nombre("Adrian")
+                    .DNI("2222222222").club(villareal).entrenador(e2).build();                        
+        vic = Jugador.builder().login("vic").password("vic").nombre("Victor")
+                    .DNI("3333333333").club(villareal).entrenador(e2).build();
+        
+        commonData.getJugadoresParticipantes().put(ezz.getLogin(), ezz);
+        commonData.getJugadoresParticipantes().put(adri.getLogin(), adri);
+        commonData.getJugadoresParticipantes().put(vic.getLogin(), vic);                                                
     }
     
     private void tfUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsernameActionPerformed

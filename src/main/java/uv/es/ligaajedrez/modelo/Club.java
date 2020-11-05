@@ -16,7 +16,9 @@ import java.util.List;
  * @author Ezzedine
  */
 public class Club {
+    
     protected String sede, federacion;
+    
     protected ArrayList<Jugador> listaJugadores = new ArrayList<Jugador>();
     private List<Partida> partidasJugadoreDelClub = new ArrayList<Partida>();
 

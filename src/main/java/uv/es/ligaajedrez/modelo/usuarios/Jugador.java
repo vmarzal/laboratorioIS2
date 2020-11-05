@@ -18,7 +18,6 @@ import uv.es.ligaajedrez.modelo.Torneo;
 @Getter
 @SuperBuilder
 public class Jugador extends Usuario {
-
     
     private ArrayList<Partida> partidas = new ArrayList<Partida>();
     private List<Club> historicoClubes = new ArrayList<Club>();
@@ -29,7 +28,7 @@ public class Jugador extends Usuario {
     private int elo;    
     private boolean cuotaPagada;
     private float cuota; 
-    protected LigaAjedrez ligaAjedrez;
+    //protected LigaAjedrez ligaAjedrez;
     
     public void introResultPartida (String j1, String j2, String ganador, String ubi, Date fecha, float duracion)
     {
@@ -40,7 +39,7 @@ public class Jugador extends Usuario {
         
         System.out.println("lo anyade con exito");
         //aNadimos la partida a la lista de partidas de la liga, del rival , del club y del torneo
-        ligaAjedrez.introResultPartida(partida);
+        //ligaAjedrez.introResultPartida(partida);
         System.out.println("lo anyade a la liga");
         club.introResultPartida(partida);
         System.out.println("lo anyade al club");
