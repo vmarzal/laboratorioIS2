@@ -29,6 +29,8 @@ public class JugadorJFrame extends javax.swing.JFrame {
     public JugadorJFrame(Jugador j) {
         initComponents();
         jugador = j;
+        jTF_nombre1jug1RP.setText(j.getNombre());
+        jTF_nombre1jug1RP.setEditable(false);
     }
 
     /**
@@ -288,13 +290,14 @@ public class JugadorJFrame extends javax.swing.JFrame {
                     .addComponent(jl_nSede)
                     .addComponent(jTF_nSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_hPartida)
-                    .addComponent(jTF_horarioPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_disponibilidadHora)
+                .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jl_fPartida)
-                        .addComponent(jTF_fechaPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTF_fechaPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jl_hPartida)
+                        .addComponent(jTF_horarioPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jb_disponibilidadHora)))
                 .addGap(18, 18, 18)
                 .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nom_1_jugador)
@@ -341,7 +344,11 @@ public class JugadorJFrame extends javax.swing.JFrame {
 
         jl_nom_1_jugador1RP.setText("Nombre primer jugador");
 
-        jTF_nombre1jug1RP.setText("jugador");
+        jTF_nombre1jug1RP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTF_nombre1jug1RPActionPerformed(evt);
+            }
+        });
 
         jl_disputacionPRP.setText("Fecha de disputacion:");
 
@@ -376,7 +383,6 @@ public class JugadorJFrame extends javax.swing.JFrame {
 
         jl_tPartidaRP.setText("Tiempo de partida");
 
-        jTF_nombre2jugador1RP.setText("ezz");
         jTF_nombre2jugador1RP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_nombre2jugador1RPActionPerformed(evt);
@@ -449,15 +455,16 @@ public class JugadorJFrame extends javax.swing.JFrame {
                     .addComponent(jl_nom_2_jugador1RP)
                     .addComponent(jTF_nombre2jugador1RP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTF_disputacionPRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jl_tPartidaRP)
-                    .addComponent(jTF_tPartidaRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jl_disputacionPRP)
+                .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTF_ubicacionRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jl_ubicacionRP)
-                        .addComponent(jl_hour)))
+                        .addComponent(jl_hour))
+                    .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTF_disputacionPRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jl_tPartidaRP)
+                        .addComponent(jTF_tPartidaRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jl_disputacionPRP)))
                 .addGap(25, 25, 25)
                 .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nGanadorRP)
@@ -1121,6 +1128,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
         
         nomJ1 = jTF_nombre1jug1RP.getText();
         nomJ2 = jTF_nombre2jugador1RP.getText();
+        
         ganador= jTF_nombreGanadorRP.getText();
         ubi= jTF_ubicacionRP.getText();
         duracion= Float.parseFloat(jTF_tPartidaRP.getText());
@@ -1134,12 +1142,18 @@ public class JugadorJFrame extends javax.swing.JFrame {
 
                 JOptionPane.showMessageDialog(this,"La fecha introducida deber ser anterior a la fecha de hoy.");
             }else{
-               // jugador.introResultPartida(nomJ1, nomJ2, ganador, ubi, fecha, duracion);
-                jf_resultadosPartida.setVisible(false);
-                this.setVisible(true);
+                System.out.print("jframe");
+                boolean exito=jugador.introResultPartida(nomJ1, nomJ2, ganador, ubi, fecha, duracion);
+                if(exito){
+                    
+                    jf_resultadosPartida.setVisible(false);
+                    this.setVisible(true);
+                }
+                else{
+                    JOptionPane.showMessageDialog(this,"El nombre del rival no coincide con ningun jugador en la liga ajedrez");
+                    }
+                }
             }
-            
-        } 
         catch (ParseException ex) {
             System.out.print(ex);
         }
@@ -1234,6 +1248,10 @@ public class JugadorJFrame extends javax.swing.JFrame {
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         exitAdmin();
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void jTF_nombre1jug1RPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nombre1jug1RPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTF_nombre1jug1RPActionPerformed
 
     private void exitAdmin() {
      // Navegamos al menu del admin de la aplicación

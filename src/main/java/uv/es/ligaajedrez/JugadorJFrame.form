@@ -74,13 +74,15 @@
                       <Component id="jTF_nSede" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jl_hPartida" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTF_horarioPartida" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jb_disponibilidadHora" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="jl_fPartida" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTF_fechaPartida" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jl_hPartida" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTF_horarioPartida" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jb_disponibilidadHora" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -332,15 +334,17 @@
                       <Component id="jTF_nombre2jugador1RP" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTF_disputacionPRP" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jl_tPartidaRP" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTF_tPartidaRP" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jl_disputacionPRP" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="jTF_ubicacionRP" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jl_ubicacionRP" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jl_hour" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTF_disputacionPRP" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jl_tPartidaRP" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTF_tPartidaRP" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jl_disputacionPRP" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
@@ -408,9 +412,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTF_nombre1jug1RP">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jugador"/>
-          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_nombre1jug1RPActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jl_disputacionPRP">
           <Properties>
@@ -470,9 +474,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTF_nombre2jugador1RP">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="ezz"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_nombre2jugador1RPActionPerformed"/>
           </Events>
