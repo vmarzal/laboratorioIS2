@@ -5,7 +5,6 @@
  */
 package uv.es.ligaajedrez;
 
-import java.util.Map;
 import javax.swing.JOptionPane;
 import uv.es.ligaajedrez.modelo.usuarios.Administrador;
 import uv.es.ligaajedrez.modelo.usuarios.Entrenador;
@@ -13,10 +12,7 @@ import uv.es.ligaajedrez.modelo.usuarios.Gerente;
 import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 import uv.es.ligaajedrez.modelo.usuarios.Usuario;
 import lombok.extern.slf4j.Slf4j;
-import uv.es.ligaajedrez.modelo.Club;
-import uv.es.ligaajedrez.modelo.LigaAjedrez;
 import uv.es.ligaajedrez.modelo.DatosLigaAjedrez;
-import uv.es.ligaajedrez.modelo.Torneo;
 
 @Slf4j
 public class Login extends javax.swing.JFrame {          
@@ -30,10 +26,10 @@ public class Login extends javax.swing.JFrame {
         initComponents();                
              
         commonData = DatosLigaAjedrez.getSingletonInstance();        
-        if (commonData.loadedUsersListIsEmpty()) {                       
+        if (commonData.isUsuariosEmpty()) {                       
             commonData.initUsuariosPorDefecto();
         }         
-        log.info(">>>> " + commonData.toString());        
+        //log.info(">>>> " + commonData.toString());        
     }
 
     /**
@@ -197,7 +193,7 @@ public class Login extends javax.swing.JFrame {
                 
         if (username.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El nombre de usuario no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (!commonData.getLoadedUsersList().containsKey(username)) {
+        } else if (!commonData.getUsuarios().containsKey(username)) {
             JOptionPane.showMessageDialog(this, "No existe ese nombre de usuario", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El password no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
@@ -277,13 +273,13 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField tfPassword;
     private javax.swing.JTextField tfUsername;
     // End of variables declaration//GEN-END:variables
-    private LigaAjedrez ligaAjedrez;
+    
     
     private void userLogin(String username, String password) {                
-        log.info("> value: " + commonData.getLoadedUsersList().get(username));
+        log.info("> value: " + commonData.getUsuarios().get(username));
         log.info("> pass : " + password);
         
-        Usuario usuario = commonData.getLoadedUsersList().get(username);
+        Usuario usuario = commonData.getUsuarios().get(username);
         
         log.info(usuario.toString());
                 

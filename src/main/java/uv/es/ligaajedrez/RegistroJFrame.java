@@ -5,9 +5,11 @@
  */
 package uv.es.ligaajedrez;
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import lombok.extern.slf4j.Slf4j;
 import uv.es.ligaajedrez.modelo.DatosLigaAjedrez;
 import uv.es.ligaajedrez.modelo.usuarios.Jugador;
@@ -29,7 +31,7 @@ public class RegistroJFrame extends javax.swing.JFrame {
         initComponents();
              
         commonData = DatosLigaAjedrez.getSingletonInstance();                        
-        loadedUsers = commonData.getLoadedUsersList();        
+        loadedUsers = commonData.getUsuarios();        
         loadedUsers.values().stream().forEach(System.out::println);        
        
         /**
@@ -93,7 +95,8 @@ public class RegistroJFrame extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(767, 770));
         setSize(new java.awt.Dimension(0, 0));
 
-        jPanel2.setBackground(new java.awt.Color(204, 102, 0));
+        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -138,10 +141,6 @@ public class RegistroJFrame extends javax.swing.JFrame {
         jL_pw.setText("Password:");
 
         jL_pw2.setText("Repita password:");
-
-        jP_pw.setText("jPasswordField1");
-
-        jP_pw2.setText("jPasswordField2");
 
         btnRegistrar.setBackground(new java.awt.Color(0, 153, 255));
         btnRegistrar.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
@@ -278,14 +277,6 @@ public class RegistroJFrame extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jL_telef)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jT_tele, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(46, 46, 46)
-                                        .addComponent(jL_email)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jT_email, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addComponent(jL_nom)
@@ -303,10 +294,19 @@ public class RegistroJFrame extends javax.swing.JFrame {
                                             .addComponent(jL_fNaci)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(jT_fNaci)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jL_direc)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jT_direc, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(jL_direc)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jT_direc))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(jL_telef)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jT_tele, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(46, 46, 46)
+                                            .addComponent(jL_email)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jT_email, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(jL_user)
@@ -399,45 +399,102 @@ public class RegistroJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jT_nomActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        log.info("Persistimos el registro del nuevo usuario...");
-        
-        // TODO: variables para las 9 propiedades obligatorias de un Usuario
-        // TODO: tlfno y dirección podrían ser opcionales
+                      
+        // Dejamos email, tlfno y dirección como opcionales
         String login, password, passwordRepetido;
-        String DNI, nombre, apellidos, email, telefono, direccion;
-        String fechaNacimiento;                
-               
-        // TODO: validaciones de fecha        
-        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-     
-        // TODO: validacion del password doble
-        login = jT_user.getText();
-        password = new String(jP_pw.getPassword());
-        passwordRepetido = new String(jP_pw2.getPassword());
-                
+        String DNI, nombre, apellidos, email, telefono, direccion;        
+        boolean registrable = false;
+        
         nombre = jT_nom.getText();
         apellidos= jT_apellido.getText();
         DNI = jT_dni.getText();
         email = jT_email.getText();
         telefono = jT_tele.getText();
         direccion = jT_direc.getText();        
-                
-        log.info("> " + jT_fNaci.getText());
-        LocalDate fechaNac = LocalDate.parse(jT_fNaci.getText(), df);
-               
-        Jugador jugador = Jugador.builder().login(login).password(password)
+        login = jT_user.getText();  
+        password = new String(jP_pw.getPassword());
+        passwordRepetido = new String(jP_pw2.getPassword());
+                        
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate fechaNac = LocalDate.parse(jT_fNaci.getText(), df);        
+        Period periodo = Period.between(fechaNac, LocalDate.now());
+                       
+        if (isNullOrEmpty(login)) {
+           JOptionPane.showMessageDialog(this, "El login de usuario es OBLIGATORIO.", 
+                    "Error", JOptionPane.ERROR_MESSAGE);                                  
+        } else if (commonData.getUsuarios().containsKey(login)) {
+            JOptionPane.showMessageDialog(this, "El login de usuario ya existe en el sistema.", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (isNullOrEmpty(password) || isNullOrEmpty(passwordRepetido)) {
+            JOptionPane.showMessageDialog(this, "El password y su validación son OBLIGATORIOS.", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (!password.equals(passwordRepetido)) {
+            JOptionPane.showMessageDialog(this, "Los passwords no coinciden.", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (isNullOrEmpty(nombre) || isNullOrEmpty(apellidos)) {
+            JOptionPane.showMessageDialog(this, "El nombre y apellidos del usuario son OBLIGATORIOS.", 
+                    "Error", JOptionPane.ERROR_MESSAGE); 
+        } else if (isNullOrEmpty(DNI)) {
+            JOptionPane.showMessageDialog(this, "El DNI del usuario es OBLIGATORIO.", 
+                    "Error", JOptionPane.ERROR_MESSAGE); 
+        } else if (isNullOrEmpty(fechaNac.toString())) {
+            JOptionPane.showMessageDialog(this, "La fecha de nacimiento es OBLIGATORIA.", 
+                    "Error", JOptionPane.ERROR_MESSAGE); 
+        } else if (periodo.getYears() < 6) {
+            JOptionPane.showMessageDialog(this, "No se pueden registrar jugadores menores de 6 años.", 
+                    "Error", JOptionPane.ERROR_MESSAGE); 
+        } else if (periodo.getYears() > 6 && periodo.getYears() < 12) {
+            log.info("El jugador se registra como infantil. Necesita de permiso de su tutor.");
+            
+            // TODO: se debe marcar al Jugador como infantil para poder ponerle tutor
+            registrable = true;            
+        } else {
+            log.info("El jugador es mayor de edad.");            
+            registrable = true;      
+        }  
+        
+        if (registrable) {
+          Jugador jugador = Jugador.builder().login(login).password(password)
                 .nombre(nombre).apellidos(apellidos).DNI(DNI).email(email)
                 .telefono(telefono).direccion(direccion).fechaNacimiento(fechaNac)
-                .build();                            
+                .build();         
+            
+          loadedUsers.put(jugador.getLogin(), jugador);     
+          
+          JOptionPane.showMessageDialog(this, "¡Jugador registrado con exito!", 
+                    "Success", JOptionPane.OK_OPTION); 
+          
+          clearAllInputs();
+        }
         
-        loadedUsers.put(jugador.getLogin(), jugador);        
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
+    public void clearAllInputs() {
+        
+        jT_user.setText("");
+        jP_pw.setText("");
+        jP_pw2.setText("");
+        jT_nom.setText("");
+        jT_apellido.setText("");
+        jT_dni.setText("");
+        jT_email.setText("");
+        jT_direc.setText("");
+        jT_tele.setText("");
+        jT_fNaci.setText("");
+                
+    }
+   
+    
+    private boolean isNullOrEmpty(String value) {
+        if (value.isEmpty() || value.equals("")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     private void btnVolverLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverLoginActionPerformed
         log.info("Volvemos al login");
-        dispose();
-        
-        
+        dispose();                
         Login login = new Login();
         login.setVisible(true);
                 

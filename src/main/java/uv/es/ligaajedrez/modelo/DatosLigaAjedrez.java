@@ -121,33 +121,28 @@ public class DatosLigaAjedrez {
     
         //Ezz-anyadimos la partida ala lista de partidas de la liga
     
-        public boolean introResultPartida ( Partida p)
-        {
-            boolean existe =false;
-            if (jugadoresParticipantes.containsKey(p.j2))
-            {
-                partidas.add(p);
-                //aNadimos la partida al rival en el caso que el rival existe
-                jugadoresParticipantes.get(p.j2).addPartida(p);
-                existe = true;
-            }
-            
-            return existe;
-
-            
+        public boolean introResultPartida(Partida p) {
+        boolean existe = false;
+        if (jugadoresParticipantes.containsKey(p.j2)) {
+            partidas.add(p);
+            //aNadimos la partida al rival en el caso que el rival existe
+            jugadoresParticipantes.get(p.j2).addPartida(p);
+            existe = true;
         }
-    
-    
-              
+
+        return existe;
+    }
+        
+        
     public List<String> getFederaciones() {
         return federaciones;                
     }
     
-    public boolean loadedUsersListIsEmpty() {
+    public boolean isUsuariosEmpty() {
         return usuarios.isEmpty();
     }
     
-    public Map<String, Usuario> getLoadedUsersList() {
+    public Map<String, Usuario> getUsuarios() {
         return usuarios;
     }
     

@@ -8,12 +8,10 @@ package uv.es.ligaajedrez.modelo.usuarios;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.swing.JOptionPane;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 import uv.es.ligaajedrez.modelo.Club;
 import uv.es.ligaajedrez.modelo.DatosLigaAjedrez;
-import uv.es.ligaajedrez.modelo.LigaAjedrez;
 import uv.es.ligaajedrez.modelo.Partida;
 import uv.es.ligaajedrez.modelo.Torneo;
 
@@ -52,7 +50,7 @@ public class Jugador extends Usuario {
         }
         else
         {
-            System.out.println("lrival no existe");
+            System.out.println("el rival no existe");
             return false;
         }
         
@@ -63,6 +61,7 @@ public class Jugador extends Usuario {
     {
         ligaAjedrez = ligaAje;
     }
+    
     public void crearListaPartidas(){
          partidas= new ArrayList<Partida>();
         
@@ -71,12 +70,6 @@ public class Jugador extends Usuario {
     {
         partidas.add(p);
     }
-//    public boolean reservarSede(Jugador j)
-//    {
-//        return club.reservarSede();
-//    }
-    
-    
     
     public boolean pagarCuota(){
         
@@ -154,21 +147,6 @@ public class Jugador extends Usuario {
     public void setHistoricoClubes(List<Club> historicoClubes) {
         this.historicoClubes = historicoClubes;
     }
-    
-//    /**
-//     * @return the partidas
-//     */
-//    public List<Partida> getPartidas() {
-//        return partidas;
-//    }
-//
-//    /**
-//     * @param partidas the partidas to set
-//     */
-//    public void setPartidas(List<Partida> partidas) {
-//        this.partidas = partidas;
-//    }
-
-    
+     
     
 }
