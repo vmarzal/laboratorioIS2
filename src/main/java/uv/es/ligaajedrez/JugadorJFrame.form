@@ -417,9 +417,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTF_nombre1jug1RP">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jugador"/>
-          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_nombre1jug1RPActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jl_disputacionPRP">
           <Properties>
@@ -479,9 +479,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTF_nombre2jugador1RP">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="ezz"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_nombre2jugador1RPActionPerformed"/>
           </Events>

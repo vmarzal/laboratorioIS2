@@ -29,6 +29,8 @@ public class JugadorJFrame extends javax.swing.JFrame {
     public JugadorJFrame(Jugador j) {
         initComponents();
         jugador = j;
+        jTF_nombre1jug1RP.setText(j.getNombre());
+        jTF_nombre1jug1RP.setEditable(false);
     }
 
     /**
@@ -341,7 +343,11 @@ public class JugadorJFrame extends javax.swing.JFrame {
 
         jl_nom_1_jugador1RP.setText("Nombre primer jugador");
 
-        jTF_nombre1jug1RP.setText("jugador");
+        jTF_nombre1jug1RP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTF_nombre1jug1RPActionPerformed(evt);
+            }
+        });
 
         jl_disputacionPRP.setText("Fecha de disputacion:");
 
@@ -376,7 +382,6 @@ public class JugadorJFrame extends javax.swing.JFrame {
 
         jl_tPartidaRP.setText("Tiempo de partida");
 
-        jTF_nombre2jugador1RP.setText("ezz");
         jTF_nombre2jugador1RP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_nombre2jugador1RPActionPerformed(evt);
@@ -1125,6 +1130,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
         
         nomJ1 = jTF_nombre1jug1RP.getText();
         nomJ2 = jTF_nombre2jugador1RP.getText();
+        
         ganador= jTF_nombreGanadorRP.getText();
         ubi= jTF_ubicacionRP.getText();
         duracion= Float.parseFloat(jTF_tPartidaRP.getText());
@@ -1138,12 +1144,18 @@ public class JugadorJFrame extends javax.swing.JFrame {
 
                 JOptionPane.showMessageDialog(this,"La fecha introducida deber ser anterior a la fecha de hoy.");
             }else{
-               // jugador.introResultPartida(nomJ1, nomJ2, ganador, ubi, fecha, duracion);
-                jf_resultadosPartida.setVisible(false);
-                this.setVisible(true);
+                System.out.print("jframe");
+                boolean exito=jugador.introResultPartida(nomJ1, nomJ2, ganador, ubi, fecha, duracion);
+                if(exito){
+                    
+                    jf_resultadosPartida.setVisible(false);
+                    this.setVisible(true);
+                }
+                else{
+                    JOptionPane.showMessageDialog(this,"El nombre del rival no coincide con ningun jugador en la liga ajedrez");
+                    }
+                }
             }
-            
-        } 
         catch (ParseException ex) {
             System.out.print(ex);
         }
@@ -1241,6 +1253,15 @@ public class JugadorJFrame extends javax.swing.JFrame {
         loginAdmin.setVisible(true);         
     }//GEN-LAST:event_btnVolverActionPerformed
     
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+                                
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void jTF_nombre1jug1RPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nombre1jug1RPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTF_nombre1jug1RPActionPerformed
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Jugador;

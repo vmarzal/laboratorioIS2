@@ -24,6 +24,7 @@ public class DatosLigaAjedrez {
     private static Map<String, Entrenador> entrenadoresParticipantes;
     private static Map<String, Gerente> gerentes;
     private static List<Club> clubesParticipantes;
+    protected static List<Partida> partidas ;
     
     public static List<String> federaciones;
     public static List<Torneo> torneos;
@@ -47,6 +48,7 @@ public class DatosLigaAjedrez {
             gerentes = new HashMap<>();
             torneos = new ArrayList<Torneo>();
             clubesParticipantes = new ArrayList<Club>();
+            partidas = new ArrayList<Partida>();
             
         } else {
             log.info("Devolvemos la instancia única de datos comunes.");                        
@@ -99,12 +101,15 @@ public class DatosLigaAjedrez {
         clubesParticipantes.add(villareal);
                        
         Jugador ezz, vic, adri;        
-        ezz = Jugador.builder().login("ezz").password("ezz").nombre("Ezzedine")
-                    .DNI("1111111111").club(valencia).entrenador(e1).build();
+        ezz = Jugador.builder().login("ezz").password("ezz").nombre("Ezzideen")
+                    .DNI("1111111111").club(valencia).entrenador(e1).torneo(torneo).ligaAjedrez(singleton).build(); 
+        ezz.crearListaPartidas();
         adri = Jugador.builder().login("adri").password("adri").nombre("Adrian")
-                    .DNI("2222222222").club(villareal).entrenador(e2).build();                        
+                    .DNI("2222222222").club(villareal).entrenador(e2).torneo(torneo).ligaAjedrez(singleton).build();                        
+        adri.crearListaPartidas();
         vic = Jugador.builder().login("vic").password("vic").nombre("Victor")
-                    .DNI("3333333333").club(villareal).entrenador(e2).build();
+                    .DNI("3333333333").club(villareal).entrenador(e2).torneo(torneo).ligaAjedrez(singleton).build();
+        vic.crearListaPartidas();
         
         jugadoresParticipantes.put(ezz.getLogin(), ezz);
         jugadoresParticipantes.put(adri.getLogin(), adri);
@@ -113,6 +118,26 @@ public class DatosLigaAjedrez {
         usuarios.put(adri.getLogin(), adri);
         usuarios.put(vic.getLogin(), vic);               
     }
+    
+        //Ezz-anyadimos la partida ala lista de partidas de la liga
+    
+        public boolean introResultPartida ( Partida p)
+        {
+            boolean existe =false;
+            if (jugadoresParticipantes.containsKey(p.j2))
+            {
+                partidas.add(p);
+                //aNadimos la partida al rival en el caso que el rival existe
+                jugadoresParticipantes.get(p.j2).addPartida(p);
+                existe = true;
+            }
+            
+            return existe;
+
+            
+        }
+    
+    
               
     public List<String> getFederaciones() {
         return federaciones;                
@@ -140,6 +165,9 @@ public class DatosLigaAjedrez {
     
     public List<Club> getClubesParticipantes() {
         return clubesParticipantes;
+    }
+    public List<Partida> getPartidas() {
+        return partidas;
     }
         
     public List<Torneo> getTorneos() {
