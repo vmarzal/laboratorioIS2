@@ -144,6 +144,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(204, 102, 0));
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));

@@ -135,33 +135,34 @@ public class JugadorJFrame extends javax.swing.JFrame {
         jb_reservaSede = new javax.swing.JButton();
         jb_infantiles = new javax.swing.JButton();
         jb_rPartida = new javax.swing.JButton();
-        btnExit = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
 
         jf_reserva.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jp_reserva.setBackground(new java.awt.Color(204, 102, 0));
+        jp_reserva.setBackground(new java.awt.Color(0, 204, 204));
+        jp_reserva.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jl_rSede.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jl_rSede.setForeground(new java.awt.Color(255, 255, 255));
         jl_rSede.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_rSede.setText("Realizar Reserva de Sede");
-        jl_rSede.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jl_rSede.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jp_reservaLayout = new javax.swing.GroupLayout(jp_reserva);
         jp_reserva.setLayout(jp_reservaLayout);
         jp_reservaLayout.setHorizontalGroup(
             jp_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_reservaLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_reservaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jl_rSede, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(254, 254, 254))
         );
         jp_reservaLayout.setVerticalGroup(
             jp_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_reservaLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(33, 33, 33)
                 .addComponent(jl_rSede, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jl_nSede.setText("Nombre de Sede:");
@@ -241,32 +242,29 @@ public class JugadorJFrame extends javax.swing.JFrame {
             .addGroup(jf_reservaLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jf_reservaLayout.createSequentialGroup()
+                    .addGroup(jf_reservaLayout.createSequentialGroup()
+                        .addComponent(jl_nEntrenador)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTF_nombreEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jf_reservaLayout.createSequentialGroup()
                         .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jf_reservaLayout.createSequentialGroup()
-                                .addComponent(jl_nEntrenador)
+                                .addComponent(jl_nom_1_jugador)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTF_nombreEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTF_nombre1jug, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(45, 45, 45)
+                                .addComponent(jl_nom_2_jugador))
                             .addGroup(jf_reservaLayout.createSequentialGroup()
-                                .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jf_reservaLayout.createSequentialGroup()
-                                        .addComponent(jl_nom_1_jugador)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTF_nombre1jug, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(45, 45, 45)
-                                        .addComponent(jl_nom_2_jugador))
-                                    .addGroup(jf_reservaLayout.createSequentialGroup()
-                                        .addGap(172, 172, 172)
-                                        .addComponent(jb_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jb_reservar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTF_nombre2jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jf_reservaLayout.createSequentialGroup()
-                                .addComponent(jl_nSede)
+                                .addGap(172, 172, 172)
+                                .addComponent(jb_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTF_nSede, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(54, Short.MAX_VALUE))
+                                .addComponent(jb_reservar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTF_nombre2jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jf_reservaLayout.createSequentialGroup()
+                        .addComponent(jl_nSede)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTF_nSede, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jf_reservaLayout.createSequentialGroup()
                         .addComponent(jl_fPartida)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -276,8 +274,8 @@ public class JugadorJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTF_horarioPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jb_disponibilidadHora, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(222, Short.MAX_VALUE))))
+                        .addComponent(jb_disponibilidadHora, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         jf_reservaLayout.setVerticalGroup(
             jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,13 +286,14 @@ public class JugadorJFrame extends javax.swing.JFrame {
                     .addComponent(jl_nSede)
                     .addComponent(jTF_nSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_hPartida)
-                    .addComponent(jTF_horarioPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_disponibilidadHora)
+                .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jl_fPartida)
-                        .addComponent(jTF_fechaPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTF_fechaPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jl_hPartida)
+                        .addComponent(jTF_horarioPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jb_disponibilidadHora)))
                 .addGap(18, 18, 18)
                 .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nom_1_jugador)
@@ -309,34 +308,35 @@ public class JugadorJFrame extends javax.swing.JFrame {
                 .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_reservar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jb_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 28, Short.MAX_VALUE))
+                .addGap(0, 24, Short.MAX_VALUE))
         );
 
         jf_resultadosPartida.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jp_resultadosPartidaRP.setBackground(new java.awt.Color(204, 102, 0));
+        jp_resultadosPartidaRP.setBackground(new java.awt.Color(0, 204, 204));
+        jp_resultadosPartidaRP.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jl_rSede1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jl_rSede1.setForeground(new java.awt.Color(255, 255, 255));
         jl_rSede1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_rSede1.setText("Introducir los resultados de la partida ");
-        jl_rSede1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jl_rSede1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jp_resultadosPartidaRPLayout = new javax.swing.GroupLayout(jp_resultadosPartidaRP);
         jp_resultadosPartidaRP.setLayout(jp_resultadosPartidaRPLayout);
         jp_resultadosPartidaRPLayout.setHorizontalGroup(
             jp_resultadosPartidaRPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_resultadosPartidaRPLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_resultadosPartidaRPLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jl_rSede1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(135, 135, 135))
         );
         jp_resultadosPartidaRPLayout.setVerticalGroup(
             jp_resultadosPartidaRPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_resultadosPartidaRPLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(30, 30, 30)
                 .addComponent(jl_rSede1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jl_nom_1_jugador1RP.setText("Nombre primer jugador");
@@ -449,15 +449,16 @@ public class JugadorJFrame extends javax.swing.JFrame {
                     .addComponent(jl_nom_2_jugador1RP)
                     .addComponent(jTF_nombre2jugador1RP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTF_disputacionPRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jl_tPartidaRP)
-                    .addComponent(jTF_tPartidaRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jl_disputacionPRP)
+                .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTF_ubicacionRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jl_ubicacionRP)
-                        .addComponent(jl_hour)))
+                        .addComponent(jl_hour))
+                    .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTF_disputacionPRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jl_tPartidaRP)
+                        .addComponent(jTF_tPartidaRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jl_disputacionPRP)))
                 .addGap(25, 25, 25)
                 .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nGanadorRP)
@@ -471,22 +472,23 @@ public class JugadorJFrame extends javax.swing.JFrame {
 
         jf_aSede.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jp_aSede.setBackground(new java.awt.Color(204, 102, 0));
+        jp_aSede.setBackground(new java.awt.Color(0, 204, 204));
+        jp_aSede.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jl_aSede.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jl_aSede.setForeground(new java.awt.Color(255, 255, 255));
         jl_aSede.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_aSede.setText("Asignacion de sede para partidas del torneo");
-        jl_aSede.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jl_aSede.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jp_aSedeLayout = new javax.swing.GroupLayout(jp_aSede);
         jp_aSede.setLayout(jp_aSedeLayout);
         jp_aSedeLayout.setHorizontalGroup(
             jp_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_aSedeLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_aSedeLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jl_aSede)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(129, 129, 129))
         );
         jp_aSedeLayout.setVerticalGroup(
             jp_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -699,7 +701,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
                 .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nEntrenador1jugador)
                     .addComponent(jTF_nombreEntrenador1jugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jl_d2Jugador)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -720,7 +722,8 @@ public class JugadorJFrame extends javax.swing.JFrame {
 
         jf_infantiles.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(204, 102, 0));
+        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -732,17 +735,17 @@ public class JugadorJFrame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(123, 123, 123))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jInternalFrame1.setForeground(new java.awt.Color(51, 102, 255));
@@ -919,7 +922,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_Asignar1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jb_cancel3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jf_infantilesLayout = new javax.swing.GroupLayout(jf_infantiles.getContentPane());
@@ -939,10 +942,12 @@ public class JugadorJFrame extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Admin");
 
-        Jugador.setBackground(new java.awt.Color(204, 102, 0));
+        Jugador.setBackground(new java.awt.Color(0, 204, 204));
+        Jugador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Jugador.setForeground(new java.awt.Color(0, 0, 0));
 
+        jl_jugador.setBackground(new java.awt.Color(0, 204, 204));
         jl_jugador.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jl_jugador.setForeground(new java.awt.Color(255, 255, 255));
         jl_jugador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -966,7 +971,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
         jb_reservaSede.setBackground(new java.awt.Color(0, 153, 255));
         jb_reservaSede.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jb_reservaSede.setForeground(new java.awt.Color(255, 255, 255));
-        jb_reservaSede.setText("Realizar reserva");
+        jb_reservaSede.setText("Reserva de sede");
         jb_reservaSede.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_reservaSedeActionPerformed(evt);
@@ -976,7 +981,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
         jb_infantiles.setBackground(new java.awt.Color(0, 153, 255));
         jb_infantiles.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jb_infantiles.setForeground(new java.awt.Color(255, 255, 255));
-        jb_infantiles.setText("Asignar responsable a los infanitles");
+        jb_infantiles.setText("Asignar responsable a los infantiles");
         jb_infantiles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_infantilesActionPerformed(evt);
@@ -986,20 +991,20 @@ public class JugadorJFrame extends javax.swing.JFrame {
         jb_rPartida.setBackground(new java.awt.Color(0, 153, 255));
         jb_rPartida.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jb_rPartida.setForeground(new java.awt.Color(255, 255, 255));
-        jb_rPartida.setText("Introducir resultados partida");
+        jb_rPartida.setText("Introducir resultados de partida");
         jb_rPartida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_rPartidaActionPerformed(evt);
             }
         });
 
-        btnExit.setBackground(new java.awt.Color(0, 153, 255));
-        btnExit.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        btnExit.setForeground(new java.awt.Color(255, 255, 255));
-        btnExit.setText("Volver");
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
+        btnVolver.setBackground(new java.awt.Color(0, 153, 255));
+        btnVolver.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
+                btnVolverActionPerformed(evt);
             }
         });
 
@@ -1009,17 +1014,13 @@ public class JugadorJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Jugador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jb_infantiles, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jb_reservaSede, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jb_rPartida, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(169, 169, 169)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jb_infantiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jb_rPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jb_reservaSede, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(0, 191, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -1030,11 +1031,11 @@ public class JugadorJFrame extends javax.swing.JFrame {
                 .addComponent(jb_rPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jb_reservaSede, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addComponent(jb_infantiles, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -1042,20 +1043,23 @@ public class JugadorJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jb_reservaSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_reservaSedeActionPerformed
-        this.setVisible(false);                     
-        jf_reserva.setSize(876, 400);
+        this.setVisible(false);       
+        jf_reserva.setSize(876, 500);
+        jf_reserva.setLocationRelativeTo(null);        
         jf_reserva.setVisible(true);        
     }//GEN-LAST:event_jb_reservaSedeActionPerformed
 
     private void jb_infantilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_infantilesActionPerformed
         this.setVisible(false);
         jf_infantiles.setSize(912, 500);
+        jf_reserva.setLocationRelativeTo(null);
         jf_infantiles.setVisible(true);
     }//GEN-LAST:event_jb_infantilesActionPerformed
 
     private void jb_rPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_rPartidaActionPerformed
         this.setVisible(false);
         jf_resultadosPartida.setSize(802, 400);
+        jf_reserva.setLocationRelativeTo(null);
         jf_resultadosPartida.setVisible(true);        
     }//GEN-LAST:event_jb_rPartidaActionPerformed
 
@@ -1231,21 +1235,16 @@ public class JugadorJFrame extends javax.swing.JFrame {
         this.setVisible(true);
     }//GEN-LAST:event_jb_cancel3ActionPerformed
 
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        exitAdmin();
-    }//GEN-LAST:event_btnExitActionPerformed
-
-    private void exitAdmin() {
-     // Navegamos al menu del admin de la aplicación
-     dispose();
-     Login loginAdmin = new Login();
-     loginAdmin.setVisible(true);         
-    }
-   
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        dispose();
+        Login loginAdmin = new Login();
+        loginAdmin.setVisible(true);         
+    }//GEN-LAST:event_btnVolverActionPerformed
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Jugador;
-    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
