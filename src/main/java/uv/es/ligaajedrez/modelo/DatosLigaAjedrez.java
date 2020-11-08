@@ -5,6 +5,8 @@
  */
 package uv.es.ligaajedrez.modelo;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -78,36 +80,44 @@ public class DatosLigaAjedrez {
         entrenadoresParticipantes.put(e2.getLogin(), e2);
         usuarios.put(e1.getLogin(), e1);
         usuarios.put(e2.getLogin(), e2);
+                       
+        Sede sedeValencia = Sede.builder().direccion("C/ de Guillem de Castro, 65").telefono("963153005").build();
+        Sede sedeVillareal = Sede.builder().direccion("C/ Federico de Saboya, 102").telefono("9867030303").build();
         
+        Club clubMassanassa, clubVilaReal;
+                
+        clubMassanassa = new Club("Club de Ajedrez Massanassa", sedeValencia, federacion, e1);
+        clubVilaReal = new Club("Club de Ajedrez Vila-real", sedeVillareal, federacion, e2);
+        
+        clubesParticipantes.add(clubMassanassa);
+        clubesParticipantes.add(clubVilaReal);
+           
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate fechaNacGerente1 = LocalDate.parse("02/04/1960", df);        
+        LocalDate fechaNacGerente2 = LocalDate.parse("14/12/1980", df);        
+                
         Gerente g1, g2;
-        g1 = Gerente.builder().login("gerente1").password("gerente1").nombre("Gerente de Valencia").nomina(900).IRPF(15).build();        
-        g2 = Gerente.builder().login("gerente2").password("gerente2").nombre("Gerente de Villareal").nomina(900).IRPF(15).build();
+        g1 = Gerente.builder().login("gerente1").password("gerente1")
+                .nombre("Manuel Antonio").apellidos("Benitez Plasencia")
+                .fechaNacimiento(fechaNacGerente1).nomina(2400).IRPF(23).clubActual(clubMassanassa).build();        
+        g2 = Gerente.builder().login("gerente2").password("gerente2")
+                .nombre("Antonio David").apellidos("Garcia Fuertes").fechaNacimiento(fechaNacGerente2)
+                .nomina(3400).IRPF(26).clubActual(clubVilaReal).build();
         
         usuarios.put(g1.getLogin(), g1);
         usuarios.put(g2.getLogin(), g2);
         gerentes.put(g1.getLogin(), g1);
         gerentes.put(g2.getLogin(), g2);
         
-        Sede sedeValencia = Sede.builder().direccion("C/ de Guillem de Castro, 65").telefono("963153005").build();
-        Sede sedeVillareal = Sede.builder().direccion("C/ Federico de Saboya, 102").telefono("9867030303").build();
-        
-        Club valencia, villareal;
-                
-        valencia = new Club("Club de Ajedrez Massanassa", sedeValencia, federacion, e1, g1);
-        villareal = new Club("Club de Ajedrez Vila-real", sedeVillareal, federacion, e2, g2);
-        
-        clubesParticipantes.add(valencia);
-        clubesParticipantes.add(villareal);
-                       
         Jugador ezz, vic, adri;        
         ezz = Jugador.builder().login("ezz").password("ezz").nombre("Ezzideen")
-                    .DNI("1111111111").club(valencia).entrenador(e1).torneo(torneo).ligaAjedrez(singleton).build(); 
+                    .DNI("1111111111").club(clubMassanassa).entrenador(e1).torneo(torneo).ligaAjedrez(singleton).build(); 
         ezz.crearListaPartidas();
         adri = Jugador.builder().login("adri").password("adri").nombre("Adrian")
-                    .DNI("2222222222").club(villareal).entrenador(e2).torneo(torneo).ligaAjedrez(singleton).build();                        
+                    .DNI("2222222222").club(clubVilaReal).entrenador(e2).torneo(torneo).ligaAjedrez(singleton).build();                        
         adri.crearListaPartidas();
         vic = Jugador.builder().login("vic").password("vic").nombre("Victor")
-                    .DNI("3333333333").club(villareal).entrenador(e2).torneo(torneo).ligaAjedrez(singleton).build();
+                    .DNI("3333333333").club(clubVilaReal).entrenador(e2).torneo(torneo).ligaAjedrez(singleton).build();
         vic.crearListaPartidas();
         
         jugadoresParticipantes.put(ezz.getLogin(), ezz);

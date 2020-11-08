@@ -8,10 +8,12 @@ package uv.es.ligaajedrez.modelo.usuarios;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import uv.es.ligaajedrez.modelo.Club;
 
 @Getter
+@Setter
 @SuperBuilder
 public class Gerente extends Usuario {
         
@@ -19,6 +21,6 @@ public class Gerente extends Usuario {
     protected List<Float> historicoNominas= new ArrayList<Float>();
     protected List<Float> historicoRetenciones= new ArrayList<Float>();
     protected Club clubActual;
-    protected float nomina, IRPF;
+    protected float nomina, IRPF;       
     
 }

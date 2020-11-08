@@ -276,9 +276,7 @@ public class Login extends javax.swing.JFrame {
     
     
     private void userLogin(String username, String password) {                
-        log.info("> value: " + commonData.getUsuarios().get(username));
-        log.info("> pass : " + password);
-        
+                
         Usuario usuario = commonData.getUsuarios().get(username);
         
         log.info(usuario.toString());
@@ -292,9 +290,10 @@ public class Login extends javax.swing.JFrame {
                 AdminJFrame admin = new AdminJFrame();
                 admin.setVisible(true);
             } else if (usuario instanceof Gerente) {
-                log.info("Logado un Gerente. Mostrar solo sus opciones..");
-                GerenteJFrame gerente = new GerenteJFrame();
-                gerente.setVisible(true);
+                log.info("Logado un Gerente. Mostrar solo sus opciones..");                                                                             
+                Gerente gerente = commonData.getGerentes().get(usuario.getLogin());                
+                GerenteJFrame gerenteFrame = new GerenteJFrame(gerente);                                
+                gerenteFrame.setVisible(true);
             } else if (usuario instanceof Entrenador) {
                 log.info("Logado un Entrenador. Mostrar solo sus opciones..");
                 EntrenadorJFrame entrenador = new EntrenadorJFrame();

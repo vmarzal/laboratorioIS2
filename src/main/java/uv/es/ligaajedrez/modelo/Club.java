@@ -24,15 +24,13 @@ public class Club {
     protected List<Jugador> listaJugadores = new ArrayList<Jugador>();
     private List<Partida> partidasJugadoreDelClub = new ArrayList<Partida>();
 
-    protected Entrenador entrenador;
-    protected Gerente gerente;
+    protected Entrenador entrenador;    
    
-    public Club(String nombre, Sede sede, String federacion, Entrenador entrenador, Gerente gerente) {
+    public Club(String nombre, Sede sede, String federacion, Entrenador entrenador) {
         this.nombre = nombre;
         this.sede = sede;
         this.federacion = federacion;
-        this.entrenador = entrenador;
-        this.gerente = gerente;
+        this.entrenador = entrenador;        
     }
     
     public String toString() {

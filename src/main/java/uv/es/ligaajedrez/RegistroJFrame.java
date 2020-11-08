@@ -36,16 +36,11 @@ public class RegistroJFrame extends javax.swing.JFrame {
         commonData = DatosLigaAjedrez.getSingletonInstance();                        
         usuarios = commonData.getUsuarios();        
         usuarios.values().stream().forEach(System.out::println);        
-        
-        for (Club club : commonData.getClubesParticipantes()) {
-            jComboBoxClubes.addItem(club.toString());
-        }                        
-       
+                                            
         Club[] clubArray = new Club[commonData.getClubesParticipantes().size()];
         clubArray = commonData.getClubesParticipantes().toArray(clubArray);        
         jComboBoxClubes.setModel(new DefaultComboBoxModel(clubArray));                
-        
-       
+               
     }
 
     /**
@@ -446,7 +441,6 @@ public class RegistroJFrame extends javax.swing.JFrame {
     }
     
     private void btnVolverLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverLoginActionPerformed
-        log.info("Volvemos al login");
         dispose();                
         Login login = new Login();
         login.setVisible(true);

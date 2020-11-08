@@ -7,10 +7,12 @@ package uv.es.ligaajedrez.modelo.usuarios;
 
 import java.time.LocalDate;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Getter
+@Setter
 @SuperBuilder
 public class Usuario {
 
@@ -20,6 +22,18 @@ public class Usuario {
     protected String DNI, nombre, apellidos, email, telefono, direccion;
     protected LocalDate fechaNacimiento;
    
+    protected Usuario(Usuario orig) {
+        this.login = orig.getLogin();
+        this.password = orig.getPassword();
+        this.DNI = orig.getDNI();
+        this.nombre = orig.getNombre();
+        this.apellidos = orig.getApellidos();
+        this.email = orig.getEmail();
+        this.telefono = orig.getTelefono();
+        this.direccion = orig.getDireccion();
+        this.fechaNacimiento = orig.getFechaNacimiento();                
+    }
+    
     public String toString() {
         return "(login=" + login + ",password=" + password + ")";
     }
