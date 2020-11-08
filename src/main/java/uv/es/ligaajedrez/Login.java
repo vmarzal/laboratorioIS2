@@ -29,7 +29,7 @@ public class Login extends javax.swing.JFrame {
         if (commonData.isUsuariosEmpty()) {                       
             commonData.initUsuariosPorDefecto();
         }         
-        //log.info(">>>> " + commonData.toString());        
+        log.info(">>>> " + commonData.toString());        
     }
 
     /**

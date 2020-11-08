@@ -1,4 +1,5 @@
 /*
+
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -9,8 +10,10 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import lombok.extern.slf4j.Slf4j;
+import uv.es.ligaajedrez.modelo.Club;
 import uv.es.ligaajedrez.modelo.DatosLigaAjedrez;
 import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 import uv.es.ligaajedrez.modelo.usuarios.Usuario;
@@ -22,7 +25,7 @@ import uv.es.ligaajedrez.modelo.usuarios.Usuario;
 public class RegistroJFrame extends javax.swing.JFrame {
 
     private DatosLigaAjedrez commonData;    
-    private Map<String, Usuario> loadedUsers;
+    private Map<String, Usuario> usuarios;
             
     /**
      * Creates new form Registro
@@ -31,17 +34,18 @@ public class RegistroJFrame extends javax.swing.JFrame {
         initComponents();
              
         commonData = DatosLigaAjedrez.getSingletonInstance();                        
-        loadedUsers = commonData.getUsuarios();        
-        loadedUsers.values().stream().forEach(System.out::println);        
+        usuarios = commonData.getUsuarios();        
+        usuarios.values().stream().forEach(System.out::println);        
+        
+        for (Club club : commonData.getClubesParticipantes()) {
+            jComboBoxClubes.addItem(club.toString());
+        }                        
        
-        /**
-        jCB_tipoJugador.removeAllItems();
+        Club[] clubArray = new Club[commonData.getClubesParticipantes().size()];
+        clubArray = commonData.getClubesParticipantes().toArray(clubArray);        
+        jComboBoxClubes.setModel(new DefaultComboBoxModel(clubArray));                
+        
        
-        for (String tipoJugador: tipoJugadors){
-            jCB_tipoJugador.addItem(tipoJugador);
-        }        
-        jList_clubesTrabajo.setListData(clubesTrabajo);
-        **/        
     }
 
     /**
@@ -74,15 +78,8 @@ public class RegistroJFrame extends javax.swing.JFrame {
         btnVolverLogin = new javax.swing.JButton();
         jS_userPw = new javax.swing.JSeparator();
         jL_clubJugador = new javax.swing.JLabel();
-        jT_clubJugador = new javax.swing.JTextField();
-        jL_tipoJugador = new javax.swing.JLabel();
         jT_elo = new javax.swing.JTextField();
         jL_elo = new javax.swing.JLabel();
-        jSP_clubesTrabajo = new javax.swing.JScrollPane();
-        jList_clubesTrabajo = new javax.swing.JList<>();
-        jL_clubesTrabajo = new javax.swing.JLabel();
-        jB_borrar = new javax.swing.JButton();
-        jCB_tipoJugador = new javax.swing.JComboBox<>();
         jL_dni = new javax.swing.JLabel();
         jT_dni = new javax.swing.JTextField();
         jT_email = new javax.swing.JTextField();
@@ -90,9 +87,9 @@ public class RegistroJFrame extends javax.swing.JFrame {
         jT_tele = new javax.swing.JTextField();
         jL_telef = new javax.swing.JLabel();
         jS_userPw1 = new javax.swing.JSeparator();
+        jComboBoxClubes = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(767, 770));
         setSize(new java.awt.Dimension(0, 0));
 
         jPanel2.setBackground(new java.awt.Color(0, 204, 204));
@@ -134,7 +131,7 @@ public class RegistroJFrame extends javax.swing.JFrame {
 
         jL_fNaci.setText("Fecha de Nac:");
 
-        jT_fNaci.setText("10/05/2009");
+        jT_fNaci.setText("10/03/2009");
 
         jL_user.setText("Username:");
 
@@ -162,18 +159,8 @@ public class RegistroJFrame extends javax.swing.JFrame {
             }
         });
 
-        jL_clubJugador.setText("Club");
+        jL_clubJugador.setText("Club:");
         jL_clubJugador.setOpaque(true);
-
-        jT_clubJugador.setText("Nombre del club");
-        jT_clubJugador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jT_clubJugadorActionPerformed(evt);
-            }
-        });
-
-        jL_tipoJugador.setText("Tipo jugador");
-        jL_tipoJugador.setOpaque(true);
 
         jT_elo.setText("2");
         jT_elo.addActionListener(new java.awt.event.ActionListener() {
@@ -184,25 +171,6 @@ public class RegistroJFrame extends javax.swing.JFrame {
 
         jL_elo.setText("ELO");
         jL_elo.setOpaque(true);
-
-        jList_clubesTrabajo.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jSP_clubesTrabajo.setViewportView(jList_clubesTrabajo);
-
-        jL_clubesTrabajo.setText("Clubes donde trabaja");
-        jL_clubesTrabajo.setOpaque(true);
-
-        jB_borrar.setText("Borrar");
-        jB_borrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_borrarActionPerformed(evt);
-            }
-        });
-
-        jCB_tipoJugador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jL_dni.setText("DNI");
 
@@ -228,31 +196,26 @@ public class RegistroJFrame extends javax.swing.JFrame {
 
         jL_telef.setText("Telefono:");
 
+        jComboBoxClubes.setName(""); // NOI18N
+        jComboBoxClubes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxClubesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jL_clubJugador)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jT_clubJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jL_tipoJugador)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCB_tipoJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(jL_elo)
-                        .addGap(18, 18, 18)
-                        .addComponent(jT_elo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jL_clubesTrabajo)
-                            .addComponent(jB_borrar))
-                        .addGap(18, 18, 18)
-                        .addComponent(jSP_clubesTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jL_clubJugador)
+                .addGap(34, 34, 34)
+                .addComponent(jComboBoxClubes, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jL_elo)
+                .addGap(18, 18, 18)
+                .addComponent(jT_elo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -364,25 +327,15 @@ public class RegistroJFrame extends javax.swing.JFrame {
                     .addComponent(jL_email)
                     .addComponent(jT_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addComponent(jS_userPw1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jS_userPw1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jT_clubJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jL_clubJugador)
-                    .addComponent(jL_tipoJugador)
                     .addComponent(jL_elo)
-                    .addComponent(jCB_tipoJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jT_elo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jL_clubesTrabajo)
-                        .addGap(18, 18, 18)
-                        .addComponent(jB_borrar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jSP_clubesTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(32, 32, 32)
-                .addComponent(jS_userPw, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jT_elo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxClubes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jS_userPw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVolverLogin)
@@ -453,16 +406,18 @@ public class RegistroJFrame extends javax.swing.JFrame {
         }  
         
         if (registrable) {
+          Club selectedClub = (Club) jComboBoxClubes.getSelectedItem();
+            
           Jugador jugador = Jugador.builder().login(login).password(password)
                 .nombre(nombre).apellidos(apellidos).DNI(DNI).email(email)
                 .telefono(telefono).direccion(direccion).fechaNacimiento(fechaNac)
-                .build();         
+                  .club(selectedClub).build();         
             
-          loadedUsers.put(jugador.getLogin(), jugador);     
-          
+          usuarios.put(jugador.getLogin(), jugador);     
+                              
           JOptionPane.showMessageDialog(this, "¡Jugador registrado con exito!", 
                     "Success", JOptionPane.OK_OPTION); 
-          
+                              
           clearAllInputs();
         }
         
@@ -478,9 +433,7 @@ public class RegistroJFrame extends javax.swing.JFrame {
         jT_dni.setText("");
         jT_email.setText("");
         jT_direc.setText("");
-        jT_tele.setText("");
-        jT_fNaci.setText("");
-                
+        jT_tele.setText("");        
     }
    
     
@@ -504,18 +457,6 @@ public class RegistroJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_eloActionPerformed
 
-    private void jT_clubJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_clubJugadorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jT_clubJugadorActionPerformed
-
-    private void jB_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_borrarActionPerformed
-        // TODO add your handling code here:
-        int i= jList_clubesTrabajo.getSelectedIndex();
-        clubesTrabajo.remove(i);
-        jList_clubesTrabajo.setListData(clubesTrabajo);
-        
-    }//GEN-LAST:event_jB_borrarActionPerformed
-
     private void jT_dniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_dniActionPerformed
         // TODO add your handling code here:
         
@@ -529,16 +470,18 @@ public class RegistroJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_teleActionPerformed
 
+    private void jComboBoxClubesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxClubesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxClubesActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnVolverLogin;
-    private javax.swing.JButton jB_borrar;
-    private javax.swing.JComboBox<String> jCB_tipoJugador;
+    private javax.swing.JComboBox<String> jComboBoxClubes;
     private javax.swing.JLabel jL_apellido;
     private javax.swing.JLabel jL_clubJugador;
-    private javax.swing.JLabel jL_clubesTrabajo;
     private javax.swing.JLabel jL_direc;
     private javax.swing.JLabel jL_dni;
     private javax.swing.JLabel jL_elo;
@@ -548,19 +491,15 @@ public class RegistroJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jL_pw;
     private javax.swing.JLabel jL_pw2;
     private javax.swing.JLabel jL_telef;
-    private javax.swing.JLabel jL_tipoJugador;
     private javax.swing.JLabel jL_user;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JList<String> jList_clubesTrabajo;
     private javax.swing.JPasswordField jP_pw;
     private javax.swing.JPasswordField jP_pw2;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jSP_clubesTrabajo;
     private javax.swing.JSeparator jS_datosPersonales;
     private javax.swing.JSeparator jS_userPw;
     private javax.swing.JSeparator jS_userPw1;
     private javax.swing.JTextField jT_apellido;
-    private javax.swing.JTextField jT_clubJugador;
     private javax.swing.JTextField jT_direc;
     private javax.swing.JTextField jT_dni;
     private javax.swing.JTextField jT_elo;

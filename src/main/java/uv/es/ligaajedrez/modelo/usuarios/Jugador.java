@@ -19,7 +19,7 @@ import uv.es.ligaajedrez.modelo.Torneo;
 @SuperBuilder
 public class Jugador extends Usuario {
     
-    private ArrayList<Partida> partidas;
+    private List<Partida> partidas;
     private List<Club> historicoClubes = new ArrayList<Club>();
     
     protected Torneo torneo;

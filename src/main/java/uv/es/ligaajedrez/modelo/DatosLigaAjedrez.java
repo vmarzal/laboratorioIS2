@@ -48,20 +48,15 @@ public class DatosLigaAjedrez {
             gerentes = new HashMap<>();
             torneos = new ArrayList<Torneo>();
             clubesParticipantes = new ArrayList<Club>();
-            partidas = new ArrayList<Partida>();
-            
-        } else {
-            log.info("Devolvemos la instancia única de datos comunes.");                        
-        }        
+            partidas = new ArrayList<Partida>();            
+        }      
         return singleton;        
     }
    
     public static DatosLigaAjedrez getSingletonInstance(Map<String, Usuario> loadedUsersList) {
         if (singleton == null) {
             singleton = new DatosLigaAjedrez(loadedUsersList);
-        } else {
-            log.info("Devolvemos la instancia única de datos comunes.");            
-        }        
+        }       
         return singleton;
     }    
     
@@ -92,10 +87,14 @@ public class DatosLigaAjedrez {
         usuarios.put(g2.getLogin(), g2);
         gerentes.put(g1.getLogin(), g1);
         gerentes.put(g2.getLogin(), g2);
-               
+        
+        Sede sedeValencia = Sede.builder().direccion("C/ de Guillem de Castro, 65").telefono("963153005").build();
+        Sede sedeVillareal = Sede.builder().direccion("C/ Federico de Saboya, 102").telefono("9867030303").build();
+        
         Club valencia, villareal;
-        valencia = new Club("Valencia", federacion, e1, g1);
-        villareal = new Club("Villareal", federacion, e2, g2);
+                
+        valencia = new Club("Club de Ajedrez Massanassa", sedeValencia, federacion, e1, g1);
+        villareal = new Club("Club de Ajedrez Vila-real", sedeVillareal, federacion, e2, g2);
         
         clubesParticipantes.add(valencia);
         clubesParticipantes.add(villareal);
@@ -119,9 +118,8 @@ public class DatosLigaAjedrez {
         usuarios.put(vic.getLogin(), vic);               
     }
     
-        //Ezz-anyadimos la partida ala lista de partidas de la liga
-    
-        public boolean introResultPartida(Partida p) {
+     //Ezz-anyadimos la partida ala lista de partidas de la liga
+    public boolean introResultPartida(Partida p) {
         boolean existe = false;
         if (jugadoresParticipantes.containsKey(p.j2)) {
             partidas.add(p);

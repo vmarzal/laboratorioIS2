@@ -17,23 +17,26 @@ import java.util.List;
  */
 public class Club {
     
-    protected String sede, federacion;
+    private String nombre;
+    private Sede sede;            
+    private String federacion;    
     
-    protected ArrayList<Jugador> listaJugadores = new ArrayList<Jugador>();
+    protected List<Jugador> listaJugadores = new ArrayList<Jugador>();
     private List<Partida> partidasJugadoreDelClub = new ArrayList<Partida>();
 
     protected Entrenador entrenador;
     protected Gerente gerente;
-
-    public Club(String sede) {
-        this.sede = sede;
-    }
-
-    public Club(String sede, String federacion, Entrenador entrenador, Gerente gerente) {
+   
+    public Club(String nombre, Sede sede, String federacion, Entrenador entrenador, Gerente gerente) {
+        this.nombre = nombre;
         this.sede = sede;
         this.federacion = federacion;
         this.entrenador = entrenador;
         this.gerente = gerente;
+    }
+    
+    public String toString() {
+        return nombre;
     }
     
     
