@@ -352,6 +352,7 @@ public class RegistroJFrame extends javax.swing.JFrame {
         String login, password, passwordRepetido;
         String DNI, nombre, apellidos, email, telefono, direccion;        
         boolean registrable = false;
+        boolean isMenor = false;
         
         nombre = jT_nom.getText();
         apellidos= jT_apellido.getText();
@@ -391,10 +392,9 @@ public class RegistroJFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No se pueden registrar jugadores menores de 6 años.", 
                     "Error", JOptionPane.ERROR_MESSAGE); 
         } else if (periodo.getYears() > 6 && periodo.getYears() < 12) {
-            log.info("El jugador se registra como infantil. Necesita de permiso de su tutor.");
-            
-            // TODO: se debe marcar al Jugador como infantil para poder ponerle tutor
+            log.info("El jugador se registra como infantil. Necesita de permiso de su tutor.");                        
             registrable = true;            
+            isMenor = true;
         } else {
             log.info("El jugador es mayor de edad.");            
             registrable = true;      
@@ -406,7 +406,7 @@ public class RegistroJFrame extends javax.swing.JFrame {
           Jugador jugador = Jugador.builder().login(login).password(password)
                 .nombre(nombre).apellidos(apellidos).DNI(DNI).email(email)
                 .telefono(telefono).direccion(direccion).fechaNacimiento(fechaNac)
-                  .club(selectedClub).build();         
+                .isMenor(isMenor).club(selectedClub).build();         
             
           usuarios.put(jugador.getLogin(), jugador);     
                               
@@ -503,7 +503,5 @@ public class RegistroJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jT_tele;
     private javax.swing.JTextField jT_user;
     // End of variables declaration//GEN-END:variables
-    
-    private String [] tipoJugadors = {"Infantil", "Junior", "Senior"};
-    private Vector<String> clubesTrabajo = new Vector<>();
+        
 }

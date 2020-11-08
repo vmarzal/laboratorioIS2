@@ -278,11 +278,9 @@ public class Login extends javax.swing.JFrame {
     private void userLogin(String username, String password) {                
                 
         Usuario usuario = commonData.getUsuarios().get(username);
-        
-        log.info(usuario.toString());
-                
+                       
         if (usuario.getPassword().equals(password)) {
-            log.info("Password correcto,. entramos ...");
+            log.info("Password correcto,. entramos.");
             dispose();       
             
             if (usuario instanceof Administrador) {

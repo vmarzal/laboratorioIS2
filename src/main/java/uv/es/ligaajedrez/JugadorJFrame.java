@@ -1048,23 +1048,23 @@ public class JugadorJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jb_reservaSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_reservaSedeActionPerformed
-        this.setVisible(false);       
+        
         jf_reserva.setSize(876, 500);
         jf_reserva.setLocationRelativeTo(null);        
         jf_reserva.setVisible(true);        
     }//GEN-LAST:event_jb_reservaSedeActionPerformed
 
     private void jb_infantilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_infantilesActionPerformed
-        this.setVisible(false);
+        
         jf_infantiles.setSize(912, 500);
-        jf_reserva.setLocationRelativeTo(null);
+        jf_infantiles.setLocationRelativeTo(null);
         jf_infantiles.setVisible(true);
     }//GEN-LAST:event_jb_infantilesActionPerformed
 
     private void jb_rPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_rPartidaActionPerformed
-        this.setVisible(false);
+
         jf_resultadosPartida.setSize(802, 400);
-        jf_reserva.setLocationRelativeTo(null);
+        jf_resultadosPartida.setLocationRelativeTo(null);
         jf_resultadosPartida.setVisible(true);        
     }//GEN-LAST:event_jb_rPartidaActionPerformed
 
