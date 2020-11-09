@@ -406,7 +406,7 @@ public class RegistroJFrame extends javax.swing.JFrame {
           Jugador jugador = Jugador.builder().login(login).password(password)
                 .nombre(nombre).apellidos(apellidos).DNI(DNI).email(email)
                 .telefono(telefono).direccion(direccion).fechaNacimiento(fechaNac)
-                .isMenor(isMenor).club(selectedClub).build();         
+                .esMenor(isMenor).club(selectedClub).build();         
             
           usuarios.put(jugador.getLogin(), jugador);     
                               

@@ -64,11 +64,8 @@ public class DatosLigaAjedrez {
     
     public static void initUsuariosPorDefecto() {   
         DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        
-        String federacion = "Federación de La Comunidad Valenciana";        
-        federaciones.add(federacion);        
-
-        Torneo torneo = new Torneo("Torneo internacional de La Comunidat Valenciana", federacion);
+                        
+        Torneo torneo = new Torneo("Torneo internacional de La Comunidat Valenciana", Federaciones.FEDERACION_VALENCIANA);
         torneos.add(torneo);                        
         
         Administrador adminUser = Administrador.builder().login("admin").password("admin").build();                     
@@ -90,8 +87,8 @@ public class DatosLigaAjedrez {
         
         Club clubMassanassa, clubVilaReal;
                 
-        clubMassanassa = new Club("Club de Ajedrez Massanassa", sedeValencia, federacion, e1);
-        clubVilaReal = new Club("Club de Ajedrez Vila-real", sedeVillareal, federacion, e2);
+        clubMassanassa = new Club("Club de Ajedrez Massanassa", sedeValencia, Federaciones.FEDERACION_VALENCIANA, e1);
+        clubVilaReal = new Club("Club de Ajedrez Vila-real", sedeVillareal, Federaciones.FEDERACION_VALENCIANA, e2);
         
         clubesParticipantes.add(clubMassanassa);
         clubesParticipantes.add(clubVilaReal);

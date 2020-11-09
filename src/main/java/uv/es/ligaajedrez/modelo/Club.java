@@ -6,7 +6,6 @@
 package uv.es.ligaajedrez.modelo;
 
 import uv.es.ligaajedrez.modelo.usuarios.Jugador;
-import uv.es.ligaajedrez.modelo.usuarios.Gerente;
 import uv.es.ligaajedrez.modelo.usuarios.Entrenador;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,14 +18,14 @@ public class Club {
     
     private String nombre;
     private Sede sede;            
-    private String federacion;    
+    private Federaciones federacion;    
     
     protected List<Jugador> listaJugadores = new ArrayList<Jugador>();
     private List<Partida> partidasJugadoreDelClub = new ArrayList<Partida>();
 
     protected Entrenador entrenador;    
    
-    public Club(String nombre, Sede sede, String federacion, Entrenador entrenador) {
+    public Club(String nombre, Sede sede, Federaciones federacion, Entrenador entrenador) {
         this.nombre = nombre;
         this.sede = sede;
         this.federacion = federacion;
@@ -36,21 +35,10 @@ public class Club {
     public String toString() {
         return nombre;
     }
-    
-    
-//Ezz-anyadimos la partida ala lista de partidas del club
-    public void introResultPartida ( Partida p)
-    {
+       
+    public void introResultPartida ( Partida p) {
         partidasJugadoreDelClub.add(p);
 
     }
-    //Ezz--creo que hay que crear una clase sede
-//    public boolean consultarDisponibilidadSede (Date fecha, String time)
-//    {
-//        
-//    }
-//     public boolean reservarSede(Jugador j)
-//    {
-//        
-//    }
+
 }

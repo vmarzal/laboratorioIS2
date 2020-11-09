@@ -9,10 +9,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
-import javax.swing.JList;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import uv.es.ligaajedrez.modelo.Club;
 import uv.es.ligaajedrez.modelo.DatosLigaAjedrez;
+import uv.es.ligaajedrez.modelo.Federaciones;
 import uv.es.ligaajedrez.modelo.usuarios.Entrenador;
 
 /**
@@ -48,8 +49,9 @@ public class EntrenadorJFrame extends javax.swing.JFrame {
         for (Club club : entrenador.getClubesDondeTrabaja()) {
             clubesListModel.addElement(club);
         }                        
-        clubesJList.setModel(clubesListModel);
-                            
+        clubesJList.setModel(clubesListModel);                                                     
+        federacionesComboBox.setModel(new DefaultComboBoxModel(Federaciones.values()));        
+        
         entrenadorAActualizar = entrenador;        
     }
 
@@ -70,9 +72,9 @@ public class EntrenadorJFrame extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jb_Asignar1 = new javax.swing.JButton();
         jb_cancel3 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        federacionesComboBox = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        clubesSeleccionablesJList = new javax.swing.JList<>();
         jf_horarios = new javax.swing.JFrame();
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -156,14 +158,19 @@ public class EntrenadorJFrame extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Federación Valenciana", "Federación de Murcia"}));
+        federacionesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Federación Valenciana", "Federación de Murcia"}));
+        federacionesComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                federacionesComboBoxActionPerformed(evt);
+            }
+        });
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        clubesSeleccionablesJList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Club Sedaví", "Club Paiporta", "Club Burjassot" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList2);
+        jScrollPane2.setViewportView(clubesSeleccionablesJList);
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
@@ -175,7 +182,7 @@ public class EntrenadorJFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(federacionesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -198,7 +205,7 @@ public class EntrenadorJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(federacionesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -590,6 +597,10 @@ public class EntrenadorJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fechaNacEntrenadorTextFieldActionPerformed
 
+    private void federacionesComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_federacionesComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_federacionesComboBoxActionPerformed
+
     
     
     private void exitMenu() {
@@ -604,8 +615,9 @@ public class EntrenadorJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardarEntrenador;
     private javax.swing.JButton btnVolverLogin;
     private javax.swing.JList<String> clubesJList;
+    private javax.swing.JList<String> clubesSeleccionablesJList;
     private javax.swing.JTextField fechaNacEntrenadorTextField;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> federacionesComboBox;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
@@ -618,7 +630,6 @@ public class EntrenadorJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList2;
     private javax.swing.JList<String> jList3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

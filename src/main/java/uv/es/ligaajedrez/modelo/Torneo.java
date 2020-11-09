@@ -15,14 +15,14 @@ import lombok.ToString;
 public class Torneo {
     
     private String nombre;
-    private String federacion;
+    private Federaciones federacion;
     
-    protected ArrayList<Jugador> jugadoresParticipantes = new ArrayList<Jugador>();
-    protected ArrayList<Club> clubesParticipantes = new ArrayList<Club>();
-    protected ArrayList<Entrenador> entrenadoresParticipantes = new ArrayList<Entrenador>();
-    protected ArrayList<Partida> partidasTorneo = new ArrayList<Partida>();
+    protected List<Jugador> jugadoresParticipantes = new ArrayList<Jugador>();
+    protected List<Club> clubesParticipantes = new ArrayList<Club>();
+    protected List<Entrenador> entrenadoresParticipantes = new ArrayList<Entrenador>();
+    protected List<Partida> partidasTorneo = new ArrayList<Partida>();
     
-    public Torneo(String nombre, String federacion) {
+    public Torneo(String nombre, Federaciones federacion) {
         this.nombre = nombre;
         this.federacion = federacion;
     }
