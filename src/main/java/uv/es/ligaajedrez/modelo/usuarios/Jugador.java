@@ -27,7 +27,7 @@ public class Jugador extends Usuario {
     private Entrenador entrenador;
     private int elo;    
     private boolean cuotaPagada;
-    private boolean isMenor;
+    private boolean esMenor;
     private float cuota; 
     protected DatosLigaAjedrez ligaAjedrez;
     

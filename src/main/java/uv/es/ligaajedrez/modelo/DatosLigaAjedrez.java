@@ -63,6 +63,8 @@ public class DatosLigaAjedrez {
     }    
     
     public static void initUsuariosPorDefecto() {   
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        
         String federacion = "Federación de La Comunidad Valenciana";        
         federaciones.add(federacion);        
 
@@ -73,13 +75,15 @@ public class DatosLigaAjedrez {
         usuarios.put(adminUser.getLogin(), adminUser);                                                               
 
         Entrenador e1, e2;
-        e1 = Entrenador.builder().login("entrenador1").password("entrenador1").nombre("Entrenador de Valencia").build();
-        e2 = Entrenador.builder().login("entrenador2").password("entrenador2").nombre("Entrenador de Villareal").build();
-        
-        entrenadoresParticipantes.put(e1.getLogin(), e1);
-        entrenadoresParticipantes.put(e2.getLogin(), e2);
-        usuarios.put(e1.getLogin(), e1);
-        usuarios.put(e2.getLogin(), e2);
+        LocalDate fechaNacEntrenador1 = LocalDate.parse("20/03/1977", df);        
+        LocalDate fechaNacEntrenador2 = LocalDate.parse("04/01/1950", df);
+                
+        e1 = Entrenador.builder().login("entrenador1").password("entrenador1").nombre("Alonso")
+               .apellidos("Quijano").fechaNacimiento(fechaNacEntrenador1).build();               
+               
+        e2 = Entrenador.builder().login("entrenador2").password("entrenador2").nombre("Pepe")
+               .apellidos("Botella").fechaNacimiento(fechaNacEntrenador2)               
+               .build();              
                        
         Sede sedeValencia = Sede.builder().direccion("C/ de Guillem de Castro, 65").telefono("963153005").build();
         Sede sedeVillareal = Sede.builder().direccion("C/ Federico de Saboya, 102").telefono("9867030303").build();
@@ -91,8 +95,15 @@ public class DatosLigaAjedrez {
         
         clubesParticipantes.add(clubMassanassa);
         clubesParticipantes.add(clubVilaReal);
-           
-        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        
+        e1.setClubesDondeTrabaja(new ArrayList<Club>() {{ add(clubMassanassa); }});
+        e2.setClubesDondeTrabaja(new ArrayList<Club>(){{ add(clubVilaReal); }});
+        
+        entrenadoresParticipantes.put(e1.getLogin(), e1);
+        entrenadoresParticipantes.put(e2.getLogin(), e2);
+        usuarios.put(e1.getLogin(), e1);
+        usuarios.put(e2.getLogin(), e2);
+                   
         LocalDate fechaNacGerente1 = LocalDate.parse("02/04/1960", df);        
         LocalDate fechaNacGerente2 = LocalDate.parse("14/12/1980", df);        
                 
@@ -158,7 +169,7 @@ public class DatosLigaAjedrez {
         return jugadoresParticipantes;
     }
     
-    public Map<String, Entrenador> getEntrenadoresPaticipantes() {
+    public Map<String, Entrenador> getEntrenadoresParticipantes() {
         return entrenadoresParticipantes;
     }
     

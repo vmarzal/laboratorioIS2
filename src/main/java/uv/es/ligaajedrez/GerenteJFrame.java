@@ -300,10 +300,13 @@ public class GerenteJFrame extends javax.swing.JFrame {
         gerenteAActualizar.setNomina(nomina);
         gerenteAActualizar.setIRPF(irpf);
         gerenteAActualizar.setClubActual(clubCambiado);
-                                                                                          
+        
+        commonData.getGerentes().put(gerenteAActualizar.getLogin(), gerenteAActualizar);
+        commonData.getUsuarios().put(gerenteAActualizar.getLogin(), gerenteAActualizar);
+        
         JOptionPane.showMessageDialog(this, "¡Gerente actualizado con exito!", "Success", 
                 JOptionPane.OK_OPTION);
-        
+                        
         // TODO: faltaria actualizar los historicos de clubes, irpfs y nominas
         
         

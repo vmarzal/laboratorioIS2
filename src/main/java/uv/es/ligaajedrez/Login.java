@@ -285,21 +285,22 @@ public class Login extends javax.swing.JFrame {
             
             if (usuario instanceof Administrador) {
                 log.info("Logado un Administrador. Mostrar solo sus opciones..");
-                AdminJFrame admin = new AdminJFrame();
-                admin.setVisible(true);
+                AdminJFrame adminJFrame = new AdminJFrame();
+                adminJFrame.setVisible(true);
             } else if (usuario instanceof Gerente) {
                 log.info("Logado un Gerente. Mostrar solo sus opciones..");                                                                             
                 Gerente gerente = commonData.getGerentes().get(usuario.getLogin());                
-                GerenteJFrame gerenteFrame = new GerenteJFrame(gerente);                                
-                gerenteFrame.setVisible(true);
+                GerenteJFrame gerenteJFrame = new GerenteJFrame(gerente);                                
+                gerenteJFrame.setVisible(true);
             } else if (usuario instanceof Entrenador) {
                 log.info("Logado un Entrenador. Mostrar solo sus opciones..");
-                EntrenadorJFrame entrenador = new EntrenadorJFrame();
-                entrenador.setVisible(true);
+                Entrenador entrenador = commonData.getEntrenadoresParticipantes().get(usuario.getLogin());
+                EntrenadorJFrame entrenadorJFrame = new EntrenadorJFrame(entrenador);
+                entrenadorJFrame.setVisible(true);
             } else if (usuario instanceof Jugador) {
                 log.info("Logado un Jugador. Mostrar solo sus opciones..");
-                JugadorJFrame jugador = new JugadorJFrame((Jugador)usuario);
-                jugador.setVisible(true);            
+                JugadorJFrame jugadorJFrame = new JugadorJFrame((Jugador)usuario);
+                jugadorJFrame.setVisible(true);            
             }            
             
         } else {
