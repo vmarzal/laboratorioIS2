@@ -7,14 +7,14 @@ package uv.es.ligaajedrez.modelo;
 
 /**
  *
- * @author manu
+ * @author vmarzal
  */
-public enum Federaciones {
+public enum Federacion {
             
     FEDERACION_VALENCIANA("Federación de La Comunidad Valenciana"),
     FEDERACION_MURCIANA("Federación de La Comunidad Murciana");
     
-    private Federaciones(String display) {
+    private Federacion(String display) {
         this.display = display;
     }        
     

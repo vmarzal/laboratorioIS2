@@ -65,7 +65,7 @@ public class DatosLigaAjedrez {
     public static void initUsuariosPorDefecto() {   
         DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                         
-        Torneo torneo = new Torneo("Torneo internacional de La Comunidat Valenciana", Federaciones.FEDERACION_VALENCIANA);
+        Torneo torneo = new Torneo("Torneo internacional de La Comunidat Valenciana", Federacion.FEDERACION_VALENCIANA);
         torneos.add(torneo);                        
         
         Administrador adminUser = Administrador.builder().login("admin").password("admin").build();                     
@@ -87,11 +87,15 @@ public class DatosLigaAjedrez {
         
         Club clubMassanassa, clubVilaReal;
                 
-        clubMassanassa = new Club("Club de Ajedrez Massanassa", sedeValencia, Federaciones.FEDERACION_VALENCIANA, e1);
-        clubVilaReal = new Club("Club de Ajedrez Vila-real", sedeVillareal, Federaciones.FEDERACION_VALENCIANA, e2);
-        
+        clubMassanassa = new Club("Club de Ajedrez Massanassa", sedeValencia, Federacion.FEDERACION_VALENCIANA, e1);
+        clubVilaReal = new Club("Club de Ajedrez Vila-real", sedeVillareal, Federacion.FEDERACION_VALENCIANA, e2);
+        Club club3 = new Club("Club de Paiporta", sedeValencia, Federacion.FEDERACION_VALENCIANA);
+        Club club4 = new Club("Club de Torrent", sedeValencia, Federacion.FEDERACION_VALENCIANA);
+        Club club5 = new Club("Club de Sedaví", sedeValencia, Federacion.FEDERACION_VALENCIANA);
+                
         clubesParticipantes.add(clubMassanassa);
         clubesParticipantes.add(clubVilaReal);
+        clubesParticipantes.add(club3); clubesParticipantes.add(club4); clubesParticipantes.add(club5);
         
         e1.setClubesDondeTrabaja(new ArrayList<Club>() {{ add(clubMassanassa); }});
         e2.setClubesDondeTrabaja(new ArrayList<Club>(){{ add(clubVilaReal); }});
@@ -177,12 +181,22 @@ public class DatosLigaAjedrez {
     public List<Club> getClubesParticipantes() {
         return clubesParticipantes;
     }
+    
     public List<Partida> getPartidas() {
         return partidas;
     }
         
     public List<Torneo> getTorneos() {
         return torneos;
+    }
+    
+    public Club getClubByName(String name) {
+        for (Club item : clubesParticipantes) {
+            if (item.getNombre().equals(name)) {
+                return item;
+            }
+        }
+        return null;                
     }
     
     public String toString() {

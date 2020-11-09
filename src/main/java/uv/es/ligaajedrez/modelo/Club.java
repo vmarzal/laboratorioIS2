@@ -9,23 +9,27 @@ import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 import uv.es.ligaajedrez.modelo.usuarios.Entrenador;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
 
-/**
- *
- * @author Ezzedine
- */
+@Getter
 public class Club {
     
     private String nombre;
     private Sede sede;            
-    private Federaciones federacion;    
+    private Federacion federacion;    
     
     protected List<Jugador> listaJugadores = new ArrayList<Jugador>();
     private List<Partida> partidasJugadoreDelClub = new ArrayList<Partida>();
 
     protected Entrenador entrenador;    
    
-    public Club(String nombre, Sede sede, Federaciones federacion, Entrenador entrenador) {
+    public Club(String nombre, Sede sede, Federacion federacion) {
+        this.nombre = nombre;
+        this.sede = sede;
+        this.federacion = federacion;
+    }
+    
+    public Club(String nombre, Sede sede, Federacion federacion, Entrenador entrenador) {
         this.nombre = nombre;
         this.sede = sede;
         this.federacion = federacion;

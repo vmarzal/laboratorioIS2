@@ -13,7 +13,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import uv.es.ligaajedrez.modelo.Club;
 import uv.es.ligaajedrez.modelo.DatosLigaAjedrez;
-import uv.es.ligaajedrez.modelo.Federaciones;
+import uv.es.ligaajedrez.modelo.Federacion;
 import uv.es.ligaajedrez.modelo.usuarios.Entrenador;
 
 /**
@@ -24,6 +24,7 @@ public class EntrenadorJFrame extends javax.swing.JFrame {
 
     private DatosLigaAjedrez commonData;    
     private Entrenador entrenadorAActualizar;
+    private Club clubSeleccionado;
     
     /**
      * Creates new form Entrenador
@@ -50,7 +51,13 @@ public class EntrenadorJFrame extends javax.swing.JFrame {
             clubesListModel.addElement(club);
         }                        
         clubesJList.setModel(clubesListModel);                                                     
-        federacionesComboBox.setModel(new DefaultComboBoxModel(Federaciones.values()));        
+        federacionesComboBox.setModel(new DefaultComboBoxModel(Federacion.values()));        
+        
+        DefaultListModel clubesSeleccionablesModel = new DefaultListModel();
+        for (Club club : commonData.getClubesParticipantes()) {
+            clubesSeleccionablesModel.addElement(club);
+        }
+        clubesSeleccionablesJList.setModel(clubesSeleccionablesModel);
         
         entrenadorAActualizar = entrenador;        
     }
@@ -165,11 +172,6 @@ public class EntrenadorJFrame extends javax.swing.JFrame {
             }
         });
 
-        clubesSeleccionablesJList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Club Sedaví", "Club Paiporta", "Club Burjassot" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane2.setViewportView(clubesSeleccionablesJList);
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
@@ -362,6 +364,7 @@ public class EntrenadorJFrame extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setName("frameEntrenador"); // NOI18N
 
         jLabel2.setText("Apellidos:");
 
@@ -574,6 +577,14 @@ public class EntrenadorJFrame extends javax.swing.JFrame {
 
     private void jb_Asignar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_Asignar1ActionPerformed
                 
+        /**
+        Club prueba = clubesSeleccionablesJList.getSelectedValue();
+        Club clubEncontrado = commonData.getClubByName(prueba);
+                        
+        entrenadorAActualizar.getClubesDondeTrabaja().add(clubEncontrado);                
+        jf_clubes.setVisible(false);
+        this.setVisible(true);
+        **/
         
     }//GEN-LAST:event_jb_Asignar1ActionPerformed
 
