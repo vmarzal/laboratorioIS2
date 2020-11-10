@@ -189,16 +189,7 @@ public class DatosLigaAjedrez {
         
     public List<Torneo> getTorneos() {
         return torneos;
-    }
-    
-    public Club getClubByName(String name) {
-        for (Club item : clubesParticipantes) {
-            if (item.getNombre().equals(name)) {
-                return item;
-            }
-        }
-        return null;                
-    }
+    }        
     
     public String toString() {
         return "usuarios: " + usuarios.toString() + "\n" + 
