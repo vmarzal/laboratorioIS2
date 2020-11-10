@@ -130,12 +130,6 @@ public class RegistroJFrame extends javax.swing.JFrame {
 
         jL_user.setText("Username:");
 
-        jT_user.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jT_userActionPerformed(evt);
-            }
-        });
-
         jL_pw.setText("Password:");
 
         jL_pw2.setText("Repita password:");

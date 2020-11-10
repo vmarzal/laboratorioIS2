@@ -43,14 +43,14 @@ public class DatosLigaAjedrez {
         if (singleton == null) {
             singleton = new DatosLigaAjedrez();
             
-            federaciones = new ArrayList<String>();
+            federaciones = new ArrayList<>();
             usuarios = new HashMap<>();
             jugadoresParticipantes = new HashMap<>();
             entrenadoresParticipantes = new HashMap<>();
             gerentes = new HashMap<>();
-            torneos = new ArrayList<Torneo>();
-            clubesParticipantes = new ArrayList<Club>();
-            partidas = new ArrayList<Partida>();            
+            torneos = new ArrayList<>();
+            clubesParticipantes = new ArrayList<>();
+            partidas = new ArrayList<>();            
         }      
         return singleton;        
     }
