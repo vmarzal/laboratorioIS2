@@ -85,21 +85,20 @@ public class DatosLigaAjedrez {
         Sede sedeValencia = Sede.builder().direccion("C/ de Guillem de Castro, 65").telefono("963153005").build();
         Sede sedeVillareal = Sede.builder().direccion("C/ Federico de Saboya, 102").telefono("9867030303").build();
         
-        Club clubMassanassa, clubVilaReal;
+        Club club1, club2, club3, club4, club5;
                 
-        clubMassanassa = new Club("Club de Ajedrez Massanassa", sedeValencia, Federacion.FEDERACION_VALENCIANA, e1);
-        clubVilaReal = new Club("Club de Ajedrez Vila-real", sedeVillareal, Federacion.FEDERACION_VALENCIANA, e2);
-        Club club3 = new Club("Club de Paiporta", sedeValencia, Federacion.FEDERACION_VALENCIANA);
-        Club club4 = new Club("Club de Torrent", sedeValencia, Federacion.FEDERACION_VALENCIANA);
-        Club club5 = new Club("Club de Sedaví", sedeValencia, Federacion.FEDERACION_VALENCIANA);
+        club1 = new Club("Club de Ajedrez Massanassa", sedeValencia, Federacion.FEDERACION_VALENCIANA, e1);
+        club2 = new Club("Club de Ajedrez Vila-real", sedeVillareal, Federacion.FEDERACION_VALENCIANA, e2);
+        club3 = new Club("Club de Paiporta", sedeValencia, Federacion.FEDERACION_VALENCIANA);
+        club4 = new Club("Club de Torrent", sedeValencia, Federacion.FEDERACION_VALENCIANA);
+        club5 = new Club("Club de Sedaví", sedeValencia, Federacion.FEDERACION_VALENCIANA);
                 
-        clubesParticipantes.add(clubMassanassa);
-        clubesParticipantes.add(clubVilaReal);
-        clubesParticipantes.add(club3); clubesParticipantes.add(club4); clubesParticipantes.add(club5);
-        
-        
-        e1.setClubesDondeTrabaja(new ArrayList<Club>() {{ add(clubMassanassa); }});
-        e2.setClubesDondeTrabaja(new ArrayList<Club>(){{ add(clubVilaReal); }});
+        clubesParticipantes.add(club1); clubesParticipantes.add(club2);
+        clubesParticipantes.add(club3); clubesParticipantes.add(club4); 
+        clubesParticipantes.add(club5);
+                
+        e1.setClubesDondeTrabaja(new ArrayList<Club>() {{ add(club1); }});
+        e2.setClubesDondeTrabaja(new ArrayList<Club>(){{ add(club2); }});
         
         entrenadoresParticipantes.put(e1.getLogin(), e1);
         entrenadoresParticipantes.put(e2.getLogin(), e2);
@@ -112,10 +111,10 @@ public class DatosLigaAjedrez {
         Gerente g1, g2;
         g1 = Gerente.builder().login("gerente1").password("gerente1")
                 .nombre("Manuel Antonio").apellidos("Benitez Plasencia")
-                .fechaNacimiento(fechaNacGerente1).nomina(2400).IRPF(23).clubActual(clubMassanassa).build();        
+                .fechaNacimiento(fechaNacGerente1).nomina(2400).IRPF(23).clubActual(club4).build();        
         g2 = Gerente.builder().login("gerente2").password("gerente2")
                 .nombre("Antonio David").apellidos("Garcia Fuertes").fechaNacimiento(fechaNacGerente2)
-                .nomina(3400).IRPF(26).clubActual(clubVilaReal).build();
+                .nomina(3400).IRPF(26).clubActual(club2).build();
         
         usuarios.put(g1.getLogin(), g1);
         usuarios.put(g2.getLogin(), g2);
@@ -123,14 +122,15 @@ public class DatosLigaAjedrez {
         gerentes.put(g2.getLogin(), g2);
         
         Jugador ezz, vic, adri;        
-        ezz = Jugador.builder().login("ezz").password("ezz").nombre("Ezzideen")
-                    .DNI("1111111111").club(clubMassanassa).entrenador(e1).torneo(torneo).ligaAjedrez(singleton).build(); 
+        ezz = Jugador.builder().login("ezz").password("ezz").nombre("Ezzideen").apellidos("Naasan")
+                    .DNI("1111111111").club(club1).entrenador(e1).torneo(torneo).ligaAjedrez(singleton).build(); 
         ezz.crearListaPartidas();
         adri = Jugador.builder().login("adri").password("adri").nombre("Adrian")
-                    .DNI("2222222222").club(clubVilaReal).entrenador(e2).torneo(torneo).ligaAjedrez(singleton).build();                        
+                    .apellidos("Cozma")
+                    .DNI("2222222222").club(club2).entrenador(e2).torneo(torneo).ligaAjedrez(singleton).build();                        
         adri.crearListaPartidas();
-        vic = Jugador.builder().login("vic").password("vic").nombre("Victor")
-                    .DNI("3333333333").club(clubVilaReal).entrenador(e2).torneo(torneo).ligaAjedrez(singleton).build();
+        vic = Jugador.builder().login("vic").password("vic").nombre("Victor").apellidos("Marzal Llopis")
+                    .DNI("3333333333").club(club2).entrenador(e2).torneo(torneo).ligaAjedrez(singleton).build();
         vic.crearListaPartidas();
         
         jugadoresParticipantes.put(ezz.getLogin(), ezz);

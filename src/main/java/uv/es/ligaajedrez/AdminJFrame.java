@@ -5,9 +5,10 @@
  */
 package uv.es.ligaajedrez;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import lombok.extern.slf4j.Slf4j;
 import uv.es.ligaajedrez.modelo.Club;
@@ -37,6 +38,17 @@ public class AdminJFrame extends javax.swing.JFrame {
         clubArray = commonData.getClubesParticipantes().toArray(clubArray);        
         jComboBoxClubes.setModel(new DefaultComboBoxModel(clubArray));
         
+        Map<String, Jugador> jugadores = commonData.getJugadoresParticipantes();
+        List<Jugador> jugadoresLst = new ArrayList<>();
+        
+        for (Map.Entry<String, Jugador> entry : jugadores.entrySet()) {                        
+            jugadoresLst.add(entry.getValue());
+        }
+        
+        Jugador[] jugadorArray = new Jugador[commonData.getJugadoresParticipantes().size()];
+        jugadorArray = jugadoresLst.toArray(jugadorArray);
+        jComboBoxJugadores.setModel(new DefaultComboBoxModel(jugadorArray));
+                
     }
 
     /**
@@ -156,6 +168,8 @@ public class AdminJFrame extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jComboBoxClubes = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        jComboBoxJugadores = new javax.swing.JComboBox<>();
         jf_historicoClubs = new javax.swing.JFrame();
         jp_reserva2 = new javax.swing.JPanel();
         jl_rSede3 = new javax.swing.JLabel();
@@ -1049,20 +1063,20 @@ public class AdminJFrame extends javax.swing.JFrame {
         jp_reserva1.setLayout(jp_reserva1Layout);
         jp_reserva1Layout.setHorizontalGroup(
             jp_reserva1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_reserva1Layout.createSequentialGroup()
-                .addContainerGap(205, Short.MAX_VALUE)
+            .addGroup(jp_reserva1Layout.createSequentialGroup()
+                .addGap(112, 112, 112)
                 .addComponent(jl_rSede2, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(222, 222, 222))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_reserva1Layout.setVerticalGroup(
             jp_reserva1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_reserva1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_reserva1Layout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addComponent(jl_rSede2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(31, 31, 31))
         );
 
-        jl_nSede2.setText("Club Actual");
+        jl_nSede2.setText("Club Actual:");
 
         jTF_nSede2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1090,7 +1104,7 @@ public class AdminJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel16.setText("Nuevo Club");
+        jLabel16.setText("Nuevo Club:");
 
         jComboBoxClubes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxClubes.addActionListener(new java.awt.event.ActionListener() {
@@ -1106,6 +1120,15 @@ public class AdminJFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel18.setText("Jugador:");
+
+        jComboBoxJugadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxJugadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxJugadoresActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jf_cambioClubLayout = new javax.swing.GroupLayout(jf_cambioClub.getContentPane());
         jf_cambioClub.getContentPane().setLayout(jf_cambioClubLayout);
         jf_cambioClubLayout.setHorizontalGroup(
@@ -1118,18 +1141,24 @@ public class AdminJFrame extends javax.swing.JFrame {
                         .addComponent(jl_nSede2)
                         .addGap(18, 18, 18)
                         .addComponent(jTF_nSede2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jf_cambioClubLayout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(jb_cancel4, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jb_reservar1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jf_cambioClubLayout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBoxClubes, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jf_cambioClubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jf_cambioClubLayout.createSequentialGroup()
+                            .addComponent(jb_reservar1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jb_cancel4, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jf_cambioClubLayout.createSequentialGroup()
+                            .addGroup(jf_cambioClubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jf_cambioClubLayout.createSequentialGroup()
+                                    .addComponent(jLabel16)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jComboBoxClubes, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jf_cambioClubLayout.createSequentialGroup()
+                                    .addComponent(jLabel18)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jComboBoxJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(18, 18, 18)
+                            .addComponent(jButton2))))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         jf_cambioClubLayout.setVerticalGroup(
             jf_cambioClubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1139,16 +1168,20 @@ public class AdminJFrame extends javax.swing.JFrame {
                 .addGroup(jf_cambioClubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nSede2)
                     .addComponent(jTF_nSede2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jf_cambioClubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(jComboBoxJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
                 .addGroup(jf_cambioClubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(jComboBoxClubes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
-                .addGap(104, 104, 104)
+                .addGap(27, 27, 27)
                 .addGroup(jf_cambioClubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_reservar1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jb_cancel4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 34, Short.MAX_VALUE))
+                .addGap(0, 45, Short.MAX_VALUE))
         );
 
         jf_historicoClubs.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1673,6 +1706,10 @@ public class AdminJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jb_cancel5ActionPerformed
 
+    private void jComboBoxJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxJugadoresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxJugadoresActionPerformed
+
     private void exitAdmin() {
      // Navegamos al menu del admin de la aplicación
      dispose();
@@ -1686,6 +1723,7 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBoxClubes;
+    private javax.swing.JComboBox<String> jComboBoxJugadores;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1696,6 +1734,7 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

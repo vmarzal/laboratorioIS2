@@ -180,6 +180,9 @@ public class Jugador extends Usuario {
     }
     
     
+   public String toString() {
+       return nombre + " " + apellidos;               
+   }
      
     
 }
