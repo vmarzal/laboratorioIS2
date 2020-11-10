@@ -30,6 +30,7 @@ public class Jugador extends Usuario {
     private boolean esMenor;
     private float cuota; 
     protected DatosLigaAjedrez ligaAjedrez;
+    private String responsableMenor;
     
     public boolean introResultPartida (String j1, String j2, String ganador, String ubi, Date fecha, float duracion)
     {
@@ -148,6 +149,22 @@ public class Jugador extends Usuario {
     public void setHistoricoClubes(List<Club> historicoClubes) {
         this.historicoClubes = historicoClubes;
     }
+
+    /**
+     * @return the responsableMenor
+     */
+    public String getResponsableMenor() {
+        return responsableMenor;
+    }
+
+    /**
+     * @param responsableMenor the responsableMenor to set
+     */
+    public void setResponsableMenor(String responsableMenor) {
+        this.responsableMenor = responsableMenor;
+    }
+    
+    
      
     
 }
