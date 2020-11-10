@@ -97,6 +97,7 @@ public class DatosLigaAjedrez {
         clubesParticipantes.add(clubVilaReal);
         clubesParticipantes.add(club3); clubesParticipantes.add(club4); clubesParticipantes.add(club5);
         
+        
         e1.setClubesDondeTrabaja(new ArrayList<Club>() {{ add(clubMassanassa); }});
         e2.setClubesDondeTrabaja(new ArrayList<Club>(){{ add(clubVilaReal); }});
         

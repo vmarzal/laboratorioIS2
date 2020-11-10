@@ -5,10 +5,15 @@
  */
 package uv.es.ligaajedrez;
 
+import java.util.Map;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import lombok.extern.slf4j.Slf4j;
+import uv.es.ligaajedrez.modelo.Club;
+import uv.es.ligaajedrez.modelo.DatosLigaAjedrez;
 import uv.es.ligaajedrez.modelo.usuarios.Jugador;
+import uv.es.ligaajedrez.modelo.usuarios.Usuario;
 
 @Slf4j
 public class AdminJFrame extends javax.swing.JFrame {
@@ -18,9 +23,19 @@ public class AdminJFrame extends javax.swing.JFrame {
      */
     private Login login;
     private Jugador jugador;
+    private DatosLigaAjedrez commonData;    
+    private Map<String, Usuario> usuarios;
     
     public AdminJFrame() {
         initComponents();
+        
+        commonData = DatosLigaAjedrez.getSingletonInstance();                        
+        usuarios = commonData.getUsuarios();        
+        usuarios.values().stream().forEach(System.out::println);        
+                                            
+        Club[] clubArray = new Club[commonData.getClubesParticipantes().size()];
+        clubArray = commonData.getClubesParticipantes().toArray(clubArray);        
+        jComboBoxClubes.setModel(new DefaultComboBoxModel(clubArray));
         
     }
 
@@ -131,6 +146,23 @@ public class AdminJFrame extends javax.swing.JFrame {
         jTextField12 = new javax.swing.JTextField();
         jTextField13 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
+        jf_cambioClub = new javax.swing.JFrame();
+        jp_reserva1 = new javax.swing.JPanel();
+        jl_rSede2 = new javax.swing.JLabel();
+        jl_nSede2 = new javax.swing.JLabel();
+        jTF_nSede2 = new javax.swing.JTextField();
+        jb_reservar1 = new javax.swing.JButton();
+        jb_cancel4 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jComboBoxClubes = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
+        jf_historicoClubs = new javax.swing.JFrame();
+        jp_reserva2 = new javax.swing.JPanel();
+        jl_rSede3 = new javax.swing.JLabel();
+        jb_reservar2 = new javax.swing.JButton();
+        jb_cancel5 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         Admin = new javax.swing.JPanel();
         jl_admin = new javax.swing.JLabel();
         jb_reservaSede = new javax.swing.JButton();
@@ -138,6 +170,7 @@ public class AdminJFrame extends javax.swing.JFrame {
         jb_aSede = new javax.swing.JButton();
         jb_rPartida = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
+        jb_infantiles1 = new javax.swing.JButton();
 
         jf_reserva.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1001,6 +1034,208 @@ public class AdminJFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jf_cambioClub.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jp_reserva1.setBackground(new java.awt.Color(255, 51, 51));
+        jp_reserva1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jl_rSede2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jl_rSede2.setForeground(new java.awt.Color(255, 255, 255));
+        jl_rSede2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_rSede2.setText("Cambiar un jugador de club");
+        jl_rSede2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        javax.swing.GroupLayout jp_reserva1Layout = new javax.swing.GroupLayout(jp_reserva1);
+        jp_reserva1.setLayout(jp_reserva1Layout);
+        jp_reserva1Layout.setHorizontalGroup(
+            jp_reserva1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_reserva1Layout.createSequentialGroup()
+                .addContainerGap(205, Short.MAX_VALUE)
+                .addComponent(jl_rSede2, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(222, 222, 222))
+        );
+        jp_reserva1Layout.setVerticalGroup(
+            jp_reserva1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_reserva1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jl_rSede2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+
+        jl_nSede2.setText("Club Actual");
+
+        jTF_nSede2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTF_nSede2ActionPerformed(evt);
+            }
+        });
+
+        jb_reservar1.setBackground(new java.awt.Color(0, 153, 255));
+        jb_reservar1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jb_reservar1.setForeground(new java.awt.Color(255, 255, 255));
+        jb_reservar1.setText("Guardar");
+        jb_reservar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_reservar1ActionPerformed(evt);
+            }
+        });
+
+        jb_cancel4.setBackground(new java.awt.Color(0, 153, 255));
+        jb_cancel4.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jb_cancel4.setForeground(new java.awt.Color(255, 255, 255));
+        jb_cancel4.setText("Cancelar");
+        jb_cancel4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_cancel4ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("Nuevo Club");
+
+        jComboBoxClubes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxClubes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxClubesActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Histórico");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jf_cambioClubLayout = new javax.swing.GroupLayout(jf_cambioClub.getContentPane());
+        jf_cambioClub.getContentPane().setLayout(jf_cambioClubLayout);
+        jf_cambioClubLayout.setHorizontalGroup(
+            jf_cambioClubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jp_reserva1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jf_cambioClubLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jf_cambioClubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jf_cambioClubLayout.createSequentialGroup()
+                        .addComponent(jl_nSede2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTF_nSede2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jf_cambioClubLayout.createSequentialGroup()
+                        .addGap(172, 172, 172)
+                        .addComponent(jb_cancel4, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_reservar1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jf_cambioClubLayout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBoxClubes, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jf_cambioClubLayout.setVerticalGroup(
+            jf_cambioClubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jf_cambioClubLayout.createSequentialGroup()
+                .addComponent(jp_reserva1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addGroup(jf_cambioClubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_nSede2)
+                    .addComponent(jTF_nSede2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jf_cambioClubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(jComboBoxClubes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addGap(104, 104, 104)
+                .addGroup(jf_cambioClubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_reservar1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_cancel4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 34, Short.MAX_VALUE))
+        );
+
+        jf_historicoClubs.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jp_reserva2.setBackground(new java.awt.Color(255, 51, 51));
+        jp_reserva2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jl_rSede3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jl_rSede3.setForeground(new java.awt.Color(255, 255, 255));
+        jl_rSede3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_rSede3.setText("Histórico de clubes del jugador");
+        jl_rSede3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        javax.swing.GroupLayout jp_reserva2Layout = new javax.swing.GroupLayout(jp_reserva2);
+        jp_reserva2.setLayout(jp_reserva2Layout);
+        jp_reserva2Layout.setHorizontalGroup(
+            jp_reserva2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_reserva2Layout.createSequentialGroup()
+                .addGap(159, 159, 159)
+                .addComponent(jl_rSede3, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jp_reserva2Layout.setVerticalGroup(
+            jp_reserva2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_reserva2Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jl_rSede3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+
+        jb_reservar2.setBackground(new java.awt.Color(0, 153, 255));
+        jb_reservar2.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jb_reservar2.setForeground(new java.awt.Color(255, 255, 255));
+        jb_reservar2.setText("Guardar");
+        jb_reservar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_reservar2ActionPerformed(evt);
+            }
+        });
+
+        jb_cancel5.setBackground(new java.awt.Color(0, 153, 255));
+        jb_cancel5.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jb_cancel5.setForeground(new java.awt.Color(255, 255, 255));
+        jb_cancel5.setText("Cancelar");
+        jb_cancel5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_cancel5ActionPerformed(evt);
+            }
+        });
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        javax.swing.GroupLayout jf_historicoClubsLayout = new javax.swing.GroupLayout(jf_historicoClubs.getContentPane());
+        jf_historicoClubs.getContentPane().setLayout(jf_historicoClubsLayout);
+        jf_historicoClubsLayout.setHorizontalGroup(
+            jf_historicoClubsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jp_reserva2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jf_historicoClubsLayout.createSequentialGroup()
+                .addGroup(jf_historicoClubsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jf_historicoClubsLayout.createSequentialGroup()
+                        .addGap(212, 212, 212)
+                        .addComponent(jb_cancel5, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_reservar2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jf_historicoClubsLayout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(223, Short.MAX_VALUE))
+        );
+        jf_historicoClubsLayout.setVerticalGroup(
+            jf_historicoClubsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jf_historicoClubsLayout.createSequentialGroup()
+                .addComponent(jp_reserva2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addGroup(jf_historicoClubsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_reservar2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_cancel5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 34, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Admin");
 
@@ -1077,25 +1312,33 @@ public class AdminJFrame extends javax.swing.JFrame {
             }
         });
 
+        jb_infantiles1.setBackground(new java.awt.Color(0, 153, 255));
+        jb_infantiles1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jb_infantiles1.setForeground(new java.awt.Color(255, 255, 255));
+        jb_infantiles1.setText("Cambiar un jugador de club");
+        jb_infantiles1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_infantiles1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jb_reservaSede, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jb_aSede, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jb_infantiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jb_rPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jb_infantiles1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jb_reservaSede, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jb_aSede, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jb_infantiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jb_rPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnExit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
@@ -1110,8 +1353,13 @@ public class AdminJFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_infantiles, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jb_reservaSede, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_infantiles1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
@@ -1364,6 +1612,67 @@ public class AdminJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField13ActionPerformed
 
+    private void jb_infantiles1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_infantiles1ActionPerformed
+        jf_cambioClub.setSize(802, 400);
+        jf_cambioClub.setLocationRelativeTo(null);       
+        jf_cambioClub.setVisible(true);
+        
+        //jTF_nSede2.setText(jugador.getClub().toString());
+        jTF_nSede2.setText(jComboBoxClubes.getSelectedItem().toString());
+          
+        
+    }//GEN-LAST:event_jb_infantiles1ActionPerformed
+
+    private void jTF_nSede2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nSede2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTF_nSede2ActionPerformed
+
+    private void jb_reservar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_reservar1ActionPerformed
+        jf_cambioClub.setVisible(false);
+        
+        //jugador.setNomClub(jTF_nSede2.getText());
+        Club selectedClub = (Club) jComboBoxClubes.getSelectedItem();
+        Jugador jugador = Jugador.builder().club(selectedClub).build();
+        
+        usuarios.put(jugador.getLogin(), jugador);     
+                              
+        JOptionPane.showMessageDialog(this, "¡Jugador registrado con exito en el nuevo club!", 
+            "Success", JOptionPane.OK_OPTION); 
+        
+        jList1.add(Admin, jComboBoxClubes.getSelectedItem());
+        
+    }//GEN-LAST:event_jb_reservar1ActionPerformed
+
+    private void jb_cancel4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancel4ActionPerformed
+        jf_cambioClub.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jb_cancel4ActionPerformed
+
+    private void jComboBoxClubesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxClubesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxClubesActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        jf_historicoClubs.setSize(600, 600);
+        jf_historicoClubs.setLocationRelativeTo(null);       
+        jf_historicoClubs.setVisible(true);
+        
+        String historico = new String();
+        
+        historico += jComboBoxClubes.getSelectedItem().toString();
+        
+        JOptionPane.showMessageDialog(this, historico, 
+            "Success", JOptionPane.OK_OPTION); 
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jb_reservar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_reservar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_reservar2ActionPerformed
+
+    private void jb_cancel5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancel5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_cancel5ActionPerformed
+
     private void exitAdmin() {
      // Navegamos al menu del admin de la aplicación
      dispose();
@@ -1375,6 +1684,8 @@ public class AdminJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Admin;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBoxClubes;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1383,6 +1694,7 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1391,7 +1703,9 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -1405,6 +1719,7 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTF_nFed;
     private javax.swing.JTextField jTF_nSede;
     private javax.swing.JTextField jTF_nSede1;
+    private javax.swing.JTextField jTF_nSede2;
     private javax.swing.JTextField jTF_nombre1jug;
     private javax.swing.JTextField jTF_nombre1jug1;
     private javax.swing.JTextField jTF_nombre1jug2;
@@ -1435,16 +1750,23 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jb_cancel1;
     private javax.swing.JButton jb_cancel2;
     private javax.swing.JButton jb_cancel3;
+    private javax.swing.JButton jb_cancel4;
+    private javax.swing.JButton jb_cancel5;
     private javax.swing.JButton jb_disponibilidadDia;
     private javax.swing.JButton jb_disponibilidadDia1;
     private javax.swing.JButton jb_disponibilidadHora;
     private javax.swing.JButton jb_disponibilidadHora1;
     private javax.swing.JButton jb_guardar;
     private javax.swing.JButton jb_infantiles;
+    private javax.swing.JButton jb_infantiles1;
     private javax.swing.JButton jb_rPartida;
     private javax.swing.JButton jb_reservaSede;
     private javax.swing.JButton jb_reservar;
+    private javax.swing.JButton jb_reservar1;
+    private javax.swing.JButton jb_reservar2;
     private javax.swing.JFrame jf_aSede;
+    private javax.swing.JFrame jf_cambioClub;
+    private javax.swing.JFrame jf_historicoClubs;
     private javax.swing.JFrame jf_infantiles;
     private javax.swing.JFrame jf_reserva;
     private javax.swing.JFrame jf_resultadosPartida;
@@ -1466,6 +1788,7 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jl_nGanador;
     private javax.swing.JLabel jl_nSede;
     private javax.swing.JLabel jl_nSede1;
+    private javax.swing.JLabel jl_nSede2;
     private javax.swing.JLabel jl_nom2jugador;
     private javax.swing.JLabel jl_nom_1_jugador;
     private javax.swing.JLabel jl_nom_1_jugador1;
@@ -1474,9 +1797,13 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jl_nom_2_jugador1;
     private javax.swing.JLabel jl_rSede;
     private javax.swing.JLabel jl_rSede1;
+    private javax.swing.JLabel jl_rSede2;
+    private javax.swing.JLabel jl_rSede3;
     private javax.swing.JLabel jl_tPartida;
     private javax.swing.JPanel jp_aSede;
     private javax.swing.JPanel jp_reserva;
+    private javax.swing.JPanel jp_reserva1;
+    private javax.swing.JPanel jp_reserva2;
     private javax.swing.JPanel jp_resultadosPartida;
     // End of variables declaration//GEN-END:variables
 }

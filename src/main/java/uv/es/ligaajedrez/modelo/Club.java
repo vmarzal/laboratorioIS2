@@ -36,6 +36,14 @@ public class Club {
         this.entrenador = entrenador;        
     }
     
+    public Club(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Club() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     public String toString() {
         return nombre;
     }

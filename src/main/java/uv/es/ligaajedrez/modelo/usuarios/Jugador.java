@@ -31,6 +31,7 @@ public class Jugador extends Usuario {
     private float cuota; 
     protected DatosLigaAjedrez ligaAjedrez;
     private String responsableMenor;
+    private String nomClub;
     
     public boolean introResultPartida (String j1, String j2, String ganador, String ubi, Date fecha, float duracion)
     {
@@ -162,6 +163,20 @@ public class Jugador extends Usuario {
      */
     public void setResponsableMenor(String responsableMenor) {
         this.responsableMenor = responsableMenor;
+    }
+
+    /**
+     * @return the nomClub
+     */
+    public String getNomClub() {
+        return nomClub;
+    }
+
+    /**
+     * @param nomClub the nomClub to set
+     */
+    public void setNomClub(String nomClub) {
+        this.nomClub = nomClub;
     }
     
     
