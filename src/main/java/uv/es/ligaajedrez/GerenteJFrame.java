@@ -25,6 +25,11 @@ public class GerenteJFrame extends javax.swing.JFrame {
     
     private DefaultListModel jList1Model = new DefaultListModel();  // JLIST
     
+    private DefaultListModel jList2Model = new DefaultListModel();  // JLIST
+    private DefaultListModel jList3Model = new DefaultListModel();  // JLIST
+    
+    
+    
     /**
      * Creates new form Gerente
      */
@@ -36,6 +41,9 @@ public class GerenteJFrame extends javax.swing.JFrame {
         initComponents();
                 
         jList1.setModel(jList1Model); // JLIST
+        
+        jList2.setModel(jList2Model); // JLIST
+        jList3.setModel(jList3Model); // JLIST
         
         commonData = DatosLigaAjedrez.getSingletonInstance();                                
         
@@ -72,6 +80,16 @@ public class GerenteJFrame extends javax.swing.JFrame {
         jb_cancel5 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        jf_historicoG = new javax.swing.JFrame();
+        jp_reserva3 = new javax.swing.JPanel();
+        jl_rSede4 = new javax.swing.JLabel();
+        jb_cancel6 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList3 = new javax.swing.JList<>();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         apellidosGerenteTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnGuardarGerente = new javax.swing.JButton();
@@ -93,6 +111,7 @@ public class GerenteJFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jComboBoxClubes = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
 
         jf_historicoClubsG.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -157,6 +176,98 @@ public class GerenteJFrame extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(jb_cancel5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 31, Short.MAX_VALUE))
+        );
+
+        jf_historicoG.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jp_reserva3.setBackground(new java.awt.Color(255, 51, 51));
+        jp_reserva3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jl_rSede4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jl_rSede4.setForeground(new java.awt.Color(255, 255, 255));
+        jl_rSede4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_rSede4.setText("Histórico de nómina e IRPF del gerente");
+        jl_rSede4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        javax.swing.GroupLayout jp_reserva3Layout = new javax.swing.GroupLayout(jp_reserva3);
+        jp_reserva3.setLayout(jp_reserva3Layout);
+        jp_reserva3Layout.setHorizontalGroup(
+            jp_reserva3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_reserva3Layout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addComponent(jl_rSede4, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(88, Short.MAX_VALUE))
+        );
+        jp_reserva3Layout.setVerticalGroup(
+            jp_reserva3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_reserva3Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jl_rSede4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+
+        jb_cancel6.setBackground(new java.awt.Color(0, 153, 255));
+        jb_cancel6.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jb_cancel6.setForeground(new java.awt.Color(255, 255, 255));
+        jb_cancel6.setText("Volver");
+        jb_cancel6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_cancel6ActionPerformed(evt);
+            }
+        });
+
+        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jList2);
+
+        jList3.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(jList3);
+
+        jLabel9.setText("Nómina:");
+
+        jLabel10.setText("IRPF:");
+
+        javax.swing.GroupLayout jf_historicoGLayout = new javax.swing.GroupLayout(jf_historicoG.getContentPane());
+        jf_historicoG.getContentPane().setLayout(jf_historicoGLayout);
+        jf_historicoGLayout.setHorizontalGroup(
+            jf_historicoGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jf_historicoGLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jp_reserva3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jf_historicoGLayout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addGroup(jf_historicoGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jb_cancel6, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
+                .addGroup(jf_historicoGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jf_historicoGLayout.setVerticalGroup(
+            jf_historicoGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jf_historicoGLayout.createSequentialGroup()
+                .addComponent(jp_reserva3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jf_historicoGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
+                .addGap(6, 6, 6)
+                .addGroup(jf_historicoGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addComponent(jb_cancel6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -255,6 +366,8 @@ public class GerenteJFrame extends javax.swing.JFrame {
 
         jComboBoxClubes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLabel11.setText("%");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -287,9 +400,12 @@ public class GerenteJFrame extends javax.swing.JFrame {
                                             .addComponent(nominaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(IRPFTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel8)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton1))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel8)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jButton1))
+                                            .addComponent(jLabel11)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(jLabel1)
                                         .addGap(18, 18, 18)
@@ -340,9 +456,11 @@ public class GerenteJFrame extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(IRPFTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(IRPFTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel11))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -392,6 +510,10 @@ public class GerenteJFrame extends javax.swing.JFrame {
         // TODO: faltaria actualizar los historicos de clubes, irpfs y nominas
         jList1Model.addElement(clubCambiado.getNombre());   // JLIST
         
+        jList2Model.addElement(nomina + "€");               // JLIST
+        jList3Model.addElement(irpf + "%");                 // JLIST
+        
+        
     }//GEN-LAST:event_btnGuardarGerenteActionPerformed
 
     private void btnVolverLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverLoginActionPerformed
@@ -415,7 +537,12 @@ public class GerenteJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_nominaTextFieldActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        jf_historicoG.setSize(700, 600);
+        jf_historicoG.setLocationRelativeTo(null);       
+        jf_historicoG.setVisible(true);
+        
+        jScrollPane2.repaint(); // JLIST
+        jScrollPane3.repaint(); // JLIST
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jb_cancel5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancel5ActionPerformed
@@ -431,6 +558,11 @@ public class GerenteJFrame extends javax.swing.JFrame {
         
         jScrollPane1.repaint(); // JLIST
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jb_cancel6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancel6ActionPerformed
+        jf_historicoG.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jb_cancel6ActionPerformed
 
     
     
@@ -451,6 +583,8 @@ public class GerenteJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBoxClubes;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -458,15 +592,24 @@ public class GerenteJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList2;
+    private javax.swing.JList<String> jList3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton jb_cancel5;
+    private javax.swing.JButton jb_cancel6;
     private javax.swing.JFrame jf_historicoClubsG;
+    private javax.swing.JFrame jf_historicoG;
     private javax.swing.JLabel jl_rSede3;
+    private javax.swing.JLabel jl_rSede4;
     private javax.swing.JPanel jp_reserva2;
+    private javax.swing.JPanel jp_reserva3;
     private javax.swing.JTextField nombreGerenteTextField;
     private javax.swing.JTextField nominaTextField;
     // End of variables declaration//GEN-END:variables
