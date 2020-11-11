@@ -8,6 +8,7 @@ package uv.es.ligaajedrez.modelo;
 import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 import uv.es.ligaajedrez.modelo.usuarios.Entrenador;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import lombok.Getter;
 
@@ -51,6 +52,26 @@ public class Club {
     public void introResultPartida ( Partida p) {
         partidasJugadoreDelClub.add(p);
 
+    }
+    
+    public Sede getSede()
+    {
+        return sede;
+    }
+    public String getNomSede()
+    {
+        return sede.getNombre();
+    }
+    
+    public ArrayList<String> getHorariosDisponible(Date d)
+    {
+        System.out.println("2");
+        return sede.getHorariosDisponible(d);
+    }
+    
+    public void asignarFranjaHoraria(Date d,int i )
+    {
+        sede.asignarFranjaHoraria(d, i);
     }
 
 }
