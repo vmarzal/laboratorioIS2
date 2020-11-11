@@ -285,7 +285,7 @@ public class Login extends javax.swing.JFrame {
             
             if (usuario instanceof Administrador) {
                 log.info("Logado un Administrador. Mostrar solo sus opciones..");
-                AdminJFrame adminJFrame = new AdminJFrame();
+                AdminJFrame adminJFrame = new AdminJFrame((Administrador)usuario);
                 adminJFrame.setVisible(true);
             } else if (usuario instanceof Gerente) {
                 log.info("Logado un Gerente. Mostrar solo sus opciones..");                                                                             

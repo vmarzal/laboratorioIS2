@@ -5,9 +5,12 @@
  */
 package uv.es.ligaajedrez.modelo;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +29,7 @@ public class DatosLigaAjedrez {
     private static Map<String, Entrenador> entrenadoresParticipantes;
     private static Map<String, Gerente> gerentes;
     private static List<Club> clubesParticipantes;
+    private static List<Sede> sedes;
     protected static List<Partida> partidas ;
     
     public static List<String> federaciones;
@@ -50,6 +54,7 @@ public class DatosLigaAjedrez {
             gerentes = new HashMap<>();
             torneos = new ArrayList<>();
             clubesParticipantes = new ArrayList<>();
+            sedes = new ArrayList<>();
             partidas = new ArrayList<>();            
         }      
         return singleton;        
@@ -68,7 +73,7 @@ public class DatosLigaAjedrez {
         Torneo torneo = new Torneo("Torneo internacional de La Comunidat Valenciana", Federacion.FEDERACION_VALENCIANA);
         torneos.add(torneo);                        
         
-        Administrador adminUser = Administrador.builder().login("admin").password("admin").build();                     
+        Administrador adminUser = Administrador.builder().login("admin").password("admin").ligaAjedrez(singleton).build();                     
         usuarios.put(adminUser.getLogin(), adminUser);                                                               
 
         Entrenador e1, e2;
@@ -84,6 +89,7 @@ public class DatosLigaAjedrez {
                        
         Sede sedeValencia = Sede.builder().nombre("Valencia").direccion("C/ de Guillem de Castro, 65").telefono("963153005").build();sedeValencia.loadFechas();
         Sede sedeVillareal = Sede.builder().nombre("Villareal").direccion("C/ Federico de Saboya, 102").telefono("9867030303").build();sedeVillareal.loadFechas();
+        sedes.add(sedeValencia); sedes.add(sedeVillareal);
         
         Club club1, club2, club3, club4, club5;
                 
@@ -138,7 +144,23 @@ public class DatosLigaAjedrez {
         jugadoresParticipantes.put(vic.getLogin(), vic);                                                
         usuarios.put(ezz.getLogin(), ezz);
         usuarios.put(adri.getLogin(), adri);
-        usuarios.put(vic.getLogin(), vic);               
+        usuarios.put(vic.getLogin(), vic);   
+        
+        //partidas sin sede asignado para comprobar cosas
+        adminUser.cargarPartidasSinSede();
+        String fechaAux = "25/11/2020";
+        Date fecha ;
+        SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            fecha = cambioFecha.parse(fechaAux);
+            Partida p1,p2;
+            p1 = new Partida("ezz", "adri", null, fecha, 0, null);
+            p2 = new Partida("adri", "ezz", null, fecha, 0, null);
+            adminUser.aNadirPartidasSinSede(p1);
+            adminUser.aNadirPartidasSinSede(p2);
+        }catch (ParseException ex) {
+            System.out.print(ex);
+        }
     }
     
      //Ezz-anyadimos la partida ala lista de partidas de la liga
@@ -153,6 +175,17 @@ public class DatosLigaAjedrez {
 
         return existe;
     }
+    public Jugador buscarJugador(String jug)
+      {
+          Jugador j = null ;
+          System.err.println("jug" + jug);
+          
+          if (jugadoresParticipantes.containsKey(jug)) 
+            j=jugadoresParticipantes.get(jug);
+           
+            
+          return j;
+      }
         
         
     public List<String> getFederaciones() {

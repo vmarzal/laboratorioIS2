@@ -35,9 +35,10 @@ public class Jugador extends Usuario {
     private String responsableMenor;
     private String nomClub;
     
+    
     public boolean introResultPartida(String j1, String j2, String ganador, String ubi, Date fecha, float duracion) {        
         System.out.println(j1 + " " + j2 + " " + ganador + " " + ubi + " " + fecha + " " + duracion);
-        Partida partida = new Partida(j1, j2, ganador, fecha, duracion, ubi);
+        Partida partida = new Partida(j1, j2, ganador, fecha, duracion,null);
 
         //aNadimos la partida a la lista de partidas de la liga, del rival , del club y del torneo
         if (ligaAjedrez.introResultPartida(partida)) {
@@ -86,6 +87,10 @@ public class Jugador extends Usuario {
      public String getNomSede()
     {
         return club.getNomSede();
+    }
+     public String getNomClub()
+    {
+        return club.getNombre();
     }
    public ArrayList<String> getHorariosDisponible(Date d)
     {

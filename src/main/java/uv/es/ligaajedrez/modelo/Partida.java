@@ -17,10 +17,12 @@ public class Partida {
     protected Date fecha;
     protected float duracion;
     protected String sede;
+    protected Sede sedePartido;
+    
 
     public Partida() {
     }
-
+    
     public Partida(String j1, String j2, String ganador, Date fecha, float duracion, String sede) {
         this.j1 = j1;
         this.j2 = j2;
@@ -31,10 +33,16 @@ public class Partida {
         
         System.out.println("creamos partida  "+j1 + " " + j2+ " " + ganador+ " " +sede+ " " +fecha+ " " +duracion );
     }
+    @Override
+        public String toString() {
+            return ("Partida entre: |" + j1+ " | " + j2 + "| Fecha: | " + fecha) ;
+        }
 
     
-    
-    
+    public void AsignarSedePartida(Sede sede, Date fecha, String time)
+    {
+        
+    }
     
     
     

@@ -5,9 +5,14 @@
  */
 package uv.es.ligaajedrez;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
+import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
@@ -15,6 +20,8 @@ import javax.swing.JOptionPane;
 import lombok.extern.slf4j.Slf4j;
 import uv.es.ligaajedrez.modelo.Club;
 import uv.es.ligaajedrez.modelo.DatosLigaAjedrez;
+import uv.es.ligaajedrez.modelo.Partida;
+import uv.es.ligaajedrez.modelo.usuarios.Administrador;
 import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 import uv.es.ligaajedrez.modelo.usuarios.Usuario;
 
@@ -25,14 +32,20 @@ public class AdminJFrame extends javax.swing.JFrame {
      * Creates new form Admin
      */
     private Login login;
-    private Jugador jugador;
+    private Jugador jugador, j1,j2;
+    private Administrador adminisitrador;
     private DatosLigaAjedrez commonData;    
     private Map<String, Usuario> usuarios;
     
+    private Vector<Object> partidasSeleccionadas= new Vector<>();
+    private Vector<String> partidasJlistString= new Vector<>();
+    
     private DefaultListModel jList1Model = new DefaultListModel();  // JLIST
     
-    public AdminJFrame() {
+    public AdminJFrame(Administrador admin) {
         initComponents();
+        adminisitrador =  admin;
+        
         jList1.setModel(jList1Model); // JLIST
         
         commonData = DatosLigaAjedrez.getSingletonInstance();                        
@@ -54,6 +67,7 @@ public class AdminJFrame extends javax.swing.JFrame {
         jugadorArray = jugadoresLst.toArray(jugadorArray);
         jComboBoxJugadores.setModel(new DefaultComboBoxModel(jugadorArray));
                 
+        
     }
 
     /**
@@ -102,18 +116,10 @@ public class AdminJFrame extends javax.swing.JFrame {
         jf_aSede = new javax.swing.JFrame();
         jp_aSede = new javax.swing.JPanel();
         jl_aSede = new javax.swing.JLabel();
-        jl_nSede1 = new javax.swing.JLabel();
-        jTF_nSede1 = new javax.swing.JTextField();
         jl_nom_1_jugador2 = new javax.swing.JLabel();
         jTF_nombre1jug2 = new javax.swing.JTextField();
-        jl_fPartida1 = new javax.swing.JLabel();
-        jTF_fechaPartida1 = new javax.swing.JTextField();
         jb_Asignar = new javax.swing.JButton();
         jb_cancel2 = new javax.swing.JButton();
-        jTF_horarioPartida1 = new javax.swing.JTextField();
-        jl_hPartida1 = new javax.swing.JLabel();
-        jb_disponibilidadHora1 = new javax.swing.JButton();
-        jb_disponibilidadDia1 = new javax.swing.JButton();
         jTF_nombreEntrenador1jugador = new javax.swing.JTextField();
         jl_nEntrenador1jugador = new javax.swing.JLabel();
         jl_nFed = new javax.swing.JLabel();
@@ -130,6 +136,17 @@ public class AdminJFrame extends javax.swing.JFrame {
         jTF_nombre2jug = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
+        jTF_fechaPartida3 = new javax.swing.JTextField();
+        jl_hPartida3 = new javax.swing.JLabel();
+        jb_disponibilidadHora3 = new javax.swing.JButton();
+        jl_nSede4 = new javax.swing.JLabel();
+        jCB_horasDisponibles1 = new javax.swing.JComboBox<>();
+        jl_fPartida3 = new javax.swing.JLabel();
+        jB_cargarListaPartidasSinSede = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList_partidasSinSede = new javax.swing.JList<>();
+        jB_asignar = new javax.swing.JButton();
+        jCB_sedesDisponibles = new javax.swing.JComboBox<>();
         jf_infantiles = new javax.swing.JFrame();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -181,6 +198,13 @@ public class AdminJFrame extends javax.swing.JFrame {
         jb_cancel5 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        jTF_fechaPartida2 = new javax.swing.JTextField();
+        jl_hPartida2 = new javax.swing.JLabel();
+        jb_disponibilidadHora2 = new javax.swing.JButton();
+        jl_nSede3 = new javax.swing.JLabel();
+        jTF_nSede3 = new javax.swing.JTextField();
+        jCB_horasDisponibles = new javax.swing.JComboBox<>();
+        jl_fPartida2 = new javax.swing.JLabel();
         Admin = new javax.swing.JPanel();
         jl_admin = new javax.swing.JLabel();
         jb_reservaSede = new javax.swing.JButton();
@@ -530,22 +554,9 @@ public class AdminJFrame extends javax.swing.JFrame {
         jl_aSede.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jp_aSede.add(jl_aSede, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, 43));
 
-        jl_nSede1.setText("Nombre de Sede:");
-
-        jTF_nSede1.setText("san jose");
-        jTF_nSede1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTF_nSede1ActionPerformed(evt);
-            }
-        });
-
         jl_nom_1_jugador2.setText("Nombre  jugador");
 
         jTF_nombre1jug2.setText("Iborra López");
-
-        jl_fPartida1.setText("Fecha de partida:");
-
-        jTF_fechaPartida1.setText("10/05/2009");
 
         jb_Asignar.setBackground(new java.awt.Color(0, 153, 255));
         jb_Asignar.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
@@ -564,30 +575,6 @@ public class AdminJFrame extends javax.swing.JFrame {
         jb_cancel2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_cancel2ActionPerformed(evt);
-            }
-        });
-
-        jTF_horarioPartida1.setText("17:00");
-
-        jl_hPartida1.setText("Horario de partida:");
-
-        jb_disponibilidadHora1.setBackground(new java.awt.Color(0, 153, 255));
-        jb_disponibilidadHora1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        jb_disponibilidadHora1.setForeground(new java.awt.Color(255, 255, 255));
-        jb_disponibilidadHora1.setText("consulta disponibilidad");
-        jb_disponibilidadHora1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_disponibilidadHora1ActionPerformed(evt);
-            }
-        });
-
-        jb_disponibilidadDia1.setBackground(new java.awt.Color(0, 153, 255));
-        jb_disponibilidadDia1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        jb_disponibilidadDia1.setForeground(new java.awt.Color(255, 255, 255));
-        jb_disponibilidadDia1.setText("consulta disponibilidad");
-        jb_disponibilidadDia1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_disponibilidadDia1ActionPerformed(evt);
             }
         });
 
@@ -640,94 +627,150 @@ public class AdminJFrame extends javax.swing.JFrame {
 
         jTF_nombre2jug.setText("Iborra López");
 
+        jTF_fechaPartida3.setText("30/11/2020");
+
+        jl_hPartida3.setText("Horario de partida:");
+
+        jb_disponibilidadHora3.setBackground(new java.awt.Color(0, 153, 255));
+        jb_disponibilidadHora3.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jb_disponibilidadHora3.setForeground(new java.awt.Color(255, 255, 255));
+        jb_disponibilidadHora3.setText("consulta disponibilidad");
+        jb_disponibilidadHora3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_disponibilidadHora3ActionPerformed(evt);
+            }
+        });
+
+        jl_nSede4.setText("Nombre de Sede:");
+
+        jCB_horasDisponibles1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCB_horasDisponibles1ActionPerformed(evt);
+            }
+        });
+
+        jl_fPartida3.setText("Fecha de partida:");
+
+        jB_cargarListaPartidasSinSede.setText("Carga lista de partidos sin sede");
+        jB_cargarListaPartidasSinSede.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_cargarListaPartidasSinSedeActionPerformed(evt);
+            }
+        });
+
+        jScrollPane2.setViewportView(jList_partidasSinSede);
+
+        jB_asignar.setText("Asigna sede para el partido seleccionado");
+        jB_asignar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_asignarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jf_aSedeLayout = new javax.swing.GroupLayout(jf_aSede.getContentPane());
         jf_aSede.getContentPane().setLayout(jf_aSedeLayout);
         jf_aSedeLayout.setHorizontalGroup(
             jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jp_aSede, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jf_aSedeLayout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jl_d2Jugador)
-                    .addGroup(jf_aSedeLayout.createSequentialGroup()
-                        .addComponent(jl_nom2jugador)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTF_nombre2jug, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(jl_club_2_jugador)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTF_club_2_jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jf_aSedeLayout.createSequentialGroup()
-                        .addComponent(jl_nEntrenador2jugador)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTF_nombreEntrenador2jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jl_d1Jugador)
-                    .addGroup(jf_aSedeLayout.createSequentialGroup()
-                        .addComponent(jl_nom_1_jugador2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTF_nombre1jug2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(jl_club_1_jugador)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTF_club_1_jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jf_aSedeLayout.createSequentialGroup()
-                        .addComponent(jl_nEntrenador1jugador)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTF_nombreEntrenador1jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jf_aSedeLayout.createSequentialGroup()
-                        .addComponent(jl_nFed)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTF_nFed, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jf_aSedeLayout.createSequentialGroup()
-                        .addComponent(jl_nSede1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTF_nSede1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jl_fPartida1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTF_fechaPartida1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(jb_disponibilidadDia1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jf_aSedeLayout.createSequentialGroup()
-                        .addComponent(jl_hPartida1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTF_horarioPartida1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jb_disponibilidadHora1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jf_aSedeLayout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(jb_cancel2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(jb_Asignar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26))
             .addGroup(jf_aSedeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
+            .addGroup(jf_aSedeLayout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jf_aSedeLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jl_d2Jugador)
+                            .addGroup(jf_aSedeLayout.createSequentialGroup()
+                                .addComponent(jl_nom2jugador)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTF_nombre2jug, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(jl_club_2_jugador)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTF_club_2_jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jf_aSedeLayout.createSequentialGroup()
+                                .addComponent(jl_nEntrenador2jugador)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTF_nombreEntrenador2jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jl_d1Jugador)
+                            .addGroup(jf_aSedeLayout.createSequentialGroup()
+                                .addComponent(jl_nom_1_jugador2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTF_nombre1jug2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(jl_club_1_jugador)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTF_club_1_jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jf_aSedeLayout.createSequentialGroup()
+                                .addComponent(jl_nEntrenador1jugador)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTF_nombreEntrenador1jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jf_aSedeLayout.createSequentialGroup()
+                                .addGap(170, 170, 170)
+                                .addComponent(jb_cancel2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(jb_Asignar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(200, 200, 200))
+                    .addGroup(jf_aSedeLayout.createSequentialGroup()
+                        .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jB_asignar)
+                            .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jf_aSedeLayout.createSequentialGroup()
+                                    .addComponent(jl_nFed)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jTF_nFed, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jf_aSedeLayout.createSequentialGroup()
+                                    .addComponent(jB_cargarListaPartidasSinSede)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jf_aSedeLayout.createSequentialGroup()
+                                    .addComponent(jl_fPartida3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTF_fechaPartida3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jb_disponibilidadHora3, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(55, 55, 55)
+                                    .addComponent(jl_hPartida3)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jCB_horasDisponibles1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jf_aSedeLayout.createSequentialGroup()
+                                    .addComponent(jl_nSede4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jCB_sedesDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(479, 479, 479))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jf_aSedeLayout.setVerticalGroup(
             jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jf_aSedeLayout.createSequentialGroup()
                 .addComponent(jp_aSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nFed)
                     .addComponent(jTF_nFed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
+                .addGap(18, 18, 18)
+                .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jB_cargarListaPartidasSinSede)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jB_asignar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_nSede1)
-                    .addComponent(jTF_nSede1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jl_fPartida1)
-                    .addComponent(jTF_fechaPartida1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_disponibilidadDia1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jl_nSede4)
+                    .addComponent(jCB_sedesDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_hPartida1)
-                    .addComponent(jTF_horarioPartida1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_disponibilidadHora1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jl_fPartida3)
+                    .addComponent(jTF_fechaPartida3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_disponibilidadHora3)
+                    .addComponent(jCB_horasDisponibles1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_hPartida3))
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
                 .addComponent(jl_d1Jugador)
@@ -1253,6 +1296,21 @@ public class AdminJFrame extends javax.swing.JFrame {
                 .addGap(0, 31, Short.MAX_VALUE))
         );
 
+        jTF_fechaPartida2.setText("30/11/2020");
+
+        jl_hPartida2.setText("Horario de partida:");
+
+        jb_disponibilidadHora2.setBackground(new java.awt.Color(0, 153, 255));
+        jb_disponibilidadHora2.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jb_disponibilidadHora2.setForeground(new java.awt.Color(255, 255, 255));
+        jb_disponibilidadHora2.setText("consulta disponibilidad");
+
+        jl_nSede3.setText("Nombre de Sede:");
+
+        jTF_nSede3.setText("Lorena ");
+
+        jl_fPartida2.setText("Fecha de partida:");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Admin");
 
@@ -1405,7 +1463,10 @@ public class AdminJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_infantilesActionPerformed
 
     private void jb_aSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_aSedeActionPerformed
-
+        partidasJlistString.removeAllElements();
+        jList_partidasSinSede.setListData(partidasJlistString);   
+        jList_partidasSinSede.removeAll();
+        jCB_horasDisponibles1.removeAllItems();
        jf_aSede.setSize(876, 650);       
        jf_aSede.setLocationRelativeTo(null);       
        jf_aSede.setVisible(true);       
@@ -1471,27 +1532,42 @@ public class AdminJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTF_tPartidaActionPerformed
 
-    private void jTF_nSede1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nSede1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTF_nSede1ActionPerformed
-
     private void jb_AsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_AsignarActionPerformed
-        jf_aSede.setVisible(false);
-        this.setVisible(true);
+        String nomSede,nomJ1, nomJ2, nomEntrenador, fechaAux;int tiempo;
+        Date fecha ; 
+        
+        fechaAux=jTF_fechaPartida3.getText();
+        tiempo=jCB_horasDisponibles1.getSelectedIndex();
+        
+        SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            fecha = cambioFecha.parse(fechaAux);
+            Date date=java.util.Calendar.getInstance().getTime();
+            if(fecha.before(date)){
+
+                JOptionPane.showMessageDialog(this,"La fecha introducida deber ser posterior a la fecha de hoy.");
+            }else if (tiempo ==-1)
+            {
+                JOptionPane.showMessageDialog(this,"debes introducir una fecha valida y selecciona una franja horario");
+                
+            }else{
+                jugador.asignarFranjaHoraria(fecha, tiempo);
+                adminisitrador.removePartidoSinSede(jList_partidasSinSede.getSelectedIndex());
+                jf_aSede.setVisible(false);
+                this.setVisible(true);
+            }
+            
+        } 
+        catch (ParseException ex) {
+            System.out.print(ex);
+        }
+        
     }//GEN-LAST:event_jb_AsignarActionPerformed
 
     private void jb_cancel2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancel2ActionPerformed
         jf_aSede.setVisible(false);
         this.setVisible(true);
     }//GEN-LAST:event_jb_cancel2ActionPerformed
-
-    private void jb_disponibilidadHora1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_disponibilidadHora1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jb_disponibilidadHora1ActionPerformed
-
-    private void jb_disponibilidadDia1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_disponibilidadDia1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jb_disponibilidadDia1ActionPerformed
 
     private void jTF_nombreEntrenador1jugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nombreEntrenador1jugadorActionPerformed
         // TODO add your handling code here:
@@ -1695,6 +1771,128 @@ public class AdminJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxJugadoresActionPerformed
 
+    private void jb_disponibilidadHora3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_disponibilidadHora3ActionPerformed
+        // TODO add your handling code here:
+        String nomSede,nomJ1, nomJ2, nomEntrenador, fechaAux;
+        Date fecha ;
+
+        nomSede= jCB_sedesDisponibles.getItemAt(jCB_sedesDisponibles.getSelectedIndex());
+        //para saber que sede ha elegido
+        if(nomSede == j1.getNomSede())
+        {
+            jugador = j1;
+        }
+        else 
+        {
+            jugador = j2;
+        }
+        
+        fechaAux=jTF_fechaPartida3.getText();
+
+        SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            fecha = cambioFecha.parse(fechaAux);
+            Date date=java.util.Calendar.getInstance().getTime();
+            if(fecha.before(date) ){
+                jCB_horasDisponibles1.removeAllItems();
+                JOptionPane.showMessageDialog(this,"La fecha introducida deber ser posterior a la fecha de hoy y antes de los 30 dias siguiente");
+            }else{
+
+                ArrayList<String> horas = jugador.getHorariosDisponible(fecha);
+                jCB_horasDisponibles1.removeAllItems();
+                for (String hora: horas)
+                {
+                    jCB_horasDisponibles1.addItem(hora);
+                }
+
+            }
+
+        }
+        catch (ParseException ex) {
+            System.out.print(ex);
+        }
+
+    }//GEN-LAST:event_jb_disponibilidadHora3ActionPerformed
+
+    private void jB_cargarListaPartidasSinSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_cargarListaPartidasSinSedeActionPerformed
+        // TODO add your handling code here:
+        
+        ArrayList partidas = adminisitrador.getPartidasSinSede();
+        if(partidas.isEmpty())
+            {
+                JOptionPane.showMessageDialog(this,"No existe ninguna partida sin sede!!");
+            }
+            else{
+                partidasJlistString.removeAllElements();
+                partidasSeleccionadas.removeAllElements();
+                
+                for (Object partida : partidas){
+                    partidasJlistString.add(partida.toString());
+                    partidasSeleccionadas.add(partida);
+                    
+                }
+
+
+                jList_partidasSinSede.setListData(partidasJlistString);                
+            } 
+    }//GEN-LAST:event_jB_cargarListaPartidasSinSedeActionPerformed
+
+    private void jB_asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_asignarActionPerformed
+        // TODO add your handling code here:
+        if (jList_partidasSinSede.getSelectedIndex() == -1 )
+            {
+                JOptionPane.showMessageDialog(this,"Debe seleccionar una partida primero! " );
+            }
+            else 
+            {
+                String partidaSelec = jList_partidasSinSede.getSelectedValue(); 
+                int i = jList_partidasSinSede.getSelectedIndex();
+                //separamos el string
+                String barra_separar = Pattern.quote("|");
+                String[] partes = partidaSelec.split(barra_separar);
+                String nomJ1 = partes[1].substring(0,  (partes[1].length() -1)); 
+                String nomJ2= partes[2].substring(1, partes[2].length()); 
+                String fechaAux = partes[4].substring(1, partes[4].length()); 
+                
+                System.out.println(nomJ1);
+                System.out.println(nomJ2);
+                System.out.println(fechaAux);
+                 j1 =  Jugador.builder().build();
+                 j1 = adminisitrador.buscarJugador(nomJ1);
+                 j2 =  Jugador.builder().build();
+                 j2 = adminisitrador.buscarJugador(nomJ2);
+                
+                
+                jTF_nombre1jug2.setText(j1.getNombre());
+                jTF_club_1_jugador.setText(j1.getNomClub());
+                jTF_nombreEntrenador1jugador.setText(j1.getEntrenador().getNombre());
+                
+                jTF_nombre2jug.setText(j2.getNombre());
+                jTF_club_2_jugador.setText(j2.getNomClub());
+                jTF_nombreEntrenador2jugador.setText(j2.getEntrenador().getNombre());
+                
+                //obtenemos sedes de los dos clubes
+                jCB_sedesDisponibles.removeAllItems();
+                jCB_sedesDisponibles.addItem(j1.getNomSede());
+                jCB_sedesDisponibles.addItem(j2.getNomSede());
+                
+                
+                Date fecha ;
+                
+                SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    fecha = cambioFecha.parse(fechaAux);
+                    jTF_fechaPartida3.setText(fecha.toString());
+                }catch (ParseException ex) {
+                    System.out.print(ex);
+                }
+            }
+    }//GEN-LAST:event_jB_asignarActionPerformed
+
+    private void jCB_horasDisponibles1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_horasDisponibles1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCB_horasDisponibles1ActionPerformed
+
     private void exitAdmin() {
      // Navegamos al menu del admin de la aplicación
      dispose();
@@ -1706,7 +1904,12 @@ public class AdminJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Admin;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton jB_asignar;
+    private javax.swing.JButton jB_cargarListaPartidasSinSede;
     private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jCB_horasDisponibles;
+    private javax.swing.JComboBox<String> jCB_horasDisponibles1;
+    private javax.swing.JComboBox<String> jCB_sedesDisponibles;
     private javax.swing.JComboBox<String> jComboBoxClubes;
     private javax.swing.JComboBox<String> jComboBoxJugadores;
     private javax.swing.JInternalFrame jInternalFrame1;
@@ -1728,8 +1931,10 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList_partidasSinSede;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -1737,13 +1942,13 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTF_club_2_jugador;
     private javax.swing.JTextField jTF_disputacionP;
     private javax.swing.JTextField jTF_fechaPartida;
-    private javax.swing.JTextField jTF_fechaPartida1;
+    private javax.swing.JTextField jTF_fechaPartida2;
+    private javax.swing.JTextField jTF_fechaPartida3;
     private javax.swing.JTextField jTF_horarioPartida;
-    private javax.swing.JTextField jTF_horarioPartida1;
     private javax.swing.JTextField jTF_nFed;
     private javax.swing.JTextField jTF_nSede;
-    private javax.swing.JTextField jTF_nSede1;
     private javax.swing.JTextField jTF_nSede2;
+    private javax.swing.JTextField jTF_nSede3;
     private javax.swing.JTextField jTF_nombre1jug;
     private javax.swing.JTextField jTF_nombre1jug1;
     private javax.swing.JTextField jTF_nombre1jug2;
@@ -1777,9 +1982,9 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jb_cancel4;
     private javax.swing.JButton jb_cancel5;
     private javax.swing.JButton jb_disponibilidadDia;
-    private javax.swing.JButton jb_disponibilidadDia1;
     private javax.swing.JButton jb_disponibilidadHora;
-    private javax.swing.JButton jb_disponibilidadHora1;
+    private javax.swing.JButton jb_disponibilidadHora2;
+    private javax.swing.JButton jb_disponibilidadHora3;
     private javax.swing.JButton jb_guardar;
     private javax.swing.JButton jb_infantiles;
     private javax.swing.JButton jb_infantiles1;
@@ -1801,17 +2006,20 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jl_d2Jugador;
     private javax.swing.JLabel jl_disputacionP;
     private javax.swing.JLabel jl_fPartida;
-    private javax.swing.JLabel jl_fPartida1;
+    private javax.swing.JLabel jl_fPartida2;
+    private javax.swing.JLabel jl_fPartida3;
     private javax.swing.JLabel jl_hPartida;
-    private javax.swing.JLabel jl_hPartida1;
+    private javax.swing.JLabel jl_hPartida2;
+    private javax.swing.JLabel jl_hPartida3;
     private javax.swing.JLabel jl_nEntrenador;
     private javax.swing.JLabel jl_nEntrenador1jugador;
     private javax.swing.JLabel jl_nEntrenador2jugador;
     private javax.swing.JLabel jl_nFed;
     private javax.swing.JLabel jl_nGanador;
     private javax.swing.JLabel jl_nSede;
-    private javax.swing.JLabel jl_nSede1;
     private javax.swing.JLabel jl_nSede2;
+    private javax.swing.JLabel jl_nSede3;
+    private javax.swing.JLabel jl_nSede4;
     private javax.swing.JLabel jl_nom2jugador;
     private javax.swing.JLabel jl_nom_1_jugador;
     private javax.swing.JLabel jl_nom_1_jugador1;

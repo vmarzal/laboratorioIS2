@@ -1242,7 +1242,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
             fecha = cambioFecha.parse(fechaAux);
             Date date=java.util.Calendar.getInstance().getTime();
             if(fecha.before(date)){
-
+                jCB_horasDisponibles.removeAllItems();
                 JOptionPane.showMessageDialog(this,"La fecha introducida deber ser posterior a la fecha de hoy y antes de los 30 dias siguiente");
             }else{
                 
