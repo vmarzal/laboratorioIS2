@@ -178,7 +178,6 @@ public class AdminJFrame extends javax.swing.JFrame {
         jf_historicoClubs = new javax.swing.JFrame();
         jp_reserva2 = new javax.swing.JPanel();
         jl_rSede3 = new javax.swing.JLabel();
-        jb_reservar2 = new javax.swing.JButton();
         jb_cancel5 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
@@ -1204,33 +1203,23 @@ public class AdminJFrame extends javax.swing.JFrame {
         jp_reserva2.setLayout(jp_reserva2Layout);
         jp_reserva2Layout.setHorizontalGroup(
             jp_reserva2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_reserva2Layout.createSequentialGroup()
-                .addGap(159, 159, 159)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_reserva2Layout.createSequentialGroup()
+                .addContainerGap(130, Short.MAX_VALUE)
                 .addComponent(jl_rSede3, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(74, 74, 74))
         );
         jp_reserva2Layout.setVerticalGroup(
             jp_reserva2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_reserva2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(28, 28, 28)
                 .addComponent(jl_rSede3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
-
-        jb_reservar2.setBackground(new java.awt.Color(0, 153, 255));
-        jb_reservar2.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        jb_reservar2.setForeground(new java.awt.Color(255, 255, 255));
-        jb_reservar2.setText("Guardar");
-        jb_reservar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_reservar2ActionPerformed(evt);
-            }
-        });
 
         jb_cancel5.setBackground(new java.awt.Color(0, 153, 255));
         jb_cancel5.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jb_cancel5.setForeground(new java.awt.Color(255, 255, 255));
-        jb_cancel5.setText("Cancelar");
+        jb_cancel5.setText("Volver");
         jb_cancel5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_cancel5ActionPerformed(evt);
@@ -1248,18 +1237,10 @@ public class AdminJFrame extends javax.swing.JFrame {
         jf_historicoClubs.getContentPane().setLayout(jf_historicoClubsLayout);
         jf_historicoClubsLayout.setHorizontalGroup(
             jf_historicoClubsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jp_reserva2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jf_historicoClubsLayout.createSequentialGroup()
-                .addGroup(jf_historicoClubsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jf_historicoClubsLayout.createSequentialGroup()
-                        .addGap(212, 212, 212)
-                        .addComponent(jb_cancel5, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jb_reservar2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jf_historicoClubsLayout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(223, Short.MAX_VALUE))
+            .addComponent(jp_reserva2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jf_historicoClubsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jb_cancel5, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jf_historicoClubsLayout.setVerticalGroup(
             jf_historicoClubsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1267,11 +1248,9 @@ public class AdminJFrame extends javax.swing.JFrame {
                 .addComponent(jp_reserva2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addGroup(jf_historicoClubsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jb_reservar2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_cancel5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 34, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(jb_cancel5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 31, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1691,7 +1670,7 @@ public class AdminJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxClubesActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        jf_historicoClubs.setSize(600, 600);
+        jf_historicoClubs.setSize(700, 400);
         jf_historicoClubs.setLocationRelativeTo(null);       
         jf_historicoClubs.setVisible(true);
         
@@ -1707,12 +1686,9 @@ public class AdminJFrame extends javax.swing.JFrame {
         //    "Success", JOptionPane.OK_OPTION);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jb_reservar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_reservar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jb_reservar2ActionPerformed
-
     private void jb_cancel5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancel5ActionPerformed
-        // TODO add your handling code here:
+        jf_historicoClubs.setVisible(false);
+        jf_cambioClub.setVisible(true);
     }//GEN-LAST:event_jb_cancel5ActionPerformed
 
     private void jComboBoxJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxJugadoresActionPerformed
@@ -1811,7 +1787,6 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jb_reservaSede;
     private javax.swing.JButton jb_reservar;
     private javax.swing.JButton jb_reservar1;
-    private javax.swing.JButton jb_reservar2;
     private javax.swing.JFrame jf_aSede;
     private javax.swing.JFrame jf_cambioClub;
     private javax.swing.JFrame jf_historicoClubs;
