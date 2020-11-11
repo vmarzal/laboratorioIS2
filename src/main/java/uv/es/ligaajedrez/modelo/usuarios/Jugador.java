@@ -83,6 +83,17 @@ public class Jugador extends Usuario {
    public String toString() {
        return nombre + " " + apellidos;               
    }
-     
+     public String getNomSede()
+    {
+        return club.getNomSede();
+    }
+   public ArrayList<String> getHorariosDisponible(Date d)
+    {
+        return club.getHorariosDisponible(d);
+    }
     
+   public void asignarFranjaHoraria(Date d,int i )
+    {
+        club.asignarFranjaHoraria(d, i);
+    }
 }

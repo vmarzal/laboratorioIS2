@@ -7,6 +7,7 @@ package uv.es.ligaajedrez;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -31,6 +32,15 @@ public class JugadorJFrame extends javax.swing.JFrame {
         jugador = j;
         jTF_nombre1jug1RP.setText(j.getNombre());
         jTF_nombre1jug1RP.setEditable(false);
+        
+        jTF_nSede.setText(jugador.getNomSede());
+        jTF_nSede.setEditable(false);
+        jTF_nombre1jug.setText(j.getNombre());
+        jTF_nombre1jug.setEditable(false);
+        jTF_apellido1jug1.setText(j.getApellidos());
+        jTF_apellido1jug1.setEditable(false);
+        
+        
     }
 
     /**
@@ -53,13 +63,17 @@ public class JugadorJFrame extends javax.swing.JFrame {
         jTF_fechaPartida = new javax.swing.JTextField();
         jb_reservar = new javax.swing.JButton();
         jb_cancel = new javax.swing.JButton();
-        jTF_horarioPartida = new javax.swing.JTextField();
         jl_hPartida = new javax.swing.JLabel();
         jb_disponibilidadHora = new javax.swing.JButton();
         jTF_nombre2jugador = new javax.swing.JTextField();
         jl_nom_2_jugador = new javax.swing.JLabel();
         jTF_nombreEntrenador = new javax.swing.JTextField();
         jl_nEntrenador = new javax.swing.JLabel();
+        jCB_horasDisponibles = new javax.swing.JComboBox<>();
+        jTF_apellido1jug1 = new javax.swing.JTextField();
+        jl_apellido_1_jugador1 = new javax.swing.JLabel();
+        jTF_apellido2jugador1 = new javax.swing.JTextField();
+        jl_apellido_2_jugador1 = new javax.swing.JLabel();
         jf_resultadosPartida = new javax.swing.JFrame();
         jp_resultadosPartidaRP = new javax.swing.JPanel();
         jl_rSede1 = new javax.swing.JLabel();
@@ -146,7 +160,6 @@ public class JugadorJFrame extends javax.swing.JFrame {
         jb_infantiles = new javax.swing.JButton();
         jb_rPartida = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         jf_reserva.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -164,7 +177,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
         jp_reservaLayout.setHorizontalGroup(
             jp_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_reservaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(122, Short.MAX_VALUE)
                 .addComponent(jl_rSede, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(254, 254, 254))
         );
@@ -191,7 +204,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
 
         jl_fPartida.setText("Fecha de partida:");
 
-        jTF_fechaPartida.setText("10/05/2009");
+        jTF_fechaPartida.setText("30/11/2020");
 
         jb_reservar.setBackground(new java.awt.Color(0, 153, 255));
         jb_reservar.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
@@ -213,8 +226,6 @@ public class JugadorJFrame extends javax.swing.JFrame {
             }
         });
 
-        jTF_horarioPartida.setText("17:00");
-
         jl_hPartida.setText("Horario de partida:");
 
         jb_disponibilidadHora.setBackground(new java.awt.Color(0, 153, 255));
@@ -227,7 +238,6 @@ public class JugadorJFrame extends javax.swing.JFrame {
             }
         });
 
-        jTF_nombre2jugador.setText("Alex Garcia");
         jTF_nombre2jugador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_nombre2jugadorActionPerformed(evt);
@@ -245,6 +255,12 @@ public class JugadorJFrame extends javax.swing.JFrame {
 
         jl_nEntrenador.setText("Nombre entrenador");
 
+        jTF_apellido1jug1.setText("Iborra López");
+
+        jl_apellido_1_jugador1.setText("Apellido primer jugador");
+
+        jl_apellido_2_jugador1.setText("Apellido segundo jugador");
+
         javax.swing.GroupLayout jf_reservaLayout = new javax.swing.GroupLayout(jf_reserva.getContentPane());
         jf_reserva.getContentPane().setLayout(jf_reservaLayout);
         jf_reservaLayout.setHorizontalGroup(
@@ -254,39 +270,48 @@ public class JugadorJFrame extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jf_reservaLayout.createSequentialGroup()
-                        .addComponent(jl_nEntrenador)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTF_nombreEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jf_reservaLayout.createSequentialGroup()
                         .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jf_reservaLayout.createSequentialGroup()
+                                .addComponent(jl_nom_2_jugador)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTF_nombre2jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jl_apellido_2_jugador1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTF_apellido2jugador1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jf_reservaLayout.createSequentialGroup()
+                                .addComponent(jl_nEntrenador)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTF_nombreEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jf_reservaLayout.createSequentialGroup()
+                                .addComponent(jl_nSede)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTF_nSede, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jf_reservaLayout.createSequentialGroup()
                                 .addComponent(jl_nom_1_jugador)
                                 .addGap(18, 18, 18)
                                 .addComponent(jTF_nombre1jug, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addComponent(jl_nom_2_jugador))
+                                .addGap(18, 18, 18)
+                                .addComponent(jl_apellido_1_jugador1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTF_apellido1jug1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jf_reservaLayout.createSequentialGroup()
                                 .addGap(172, 172, 172)
                                 .addComponent(jb_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jb_reservar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTF_nombre2jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jf_reservaLayout.createSequentialGroup()
-                        .addComponent(jl_nSede)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTF_nSede, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(72, Short.MAX_VALUE))
                     .addGroup(jf_reservaLayout.createSequentialGroup()
                         .addComponent(jl_fPartida)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTF_fechaPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jl_hPartida)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTF_horarioPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jb_disponibilidadHora, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(70, Short.MAX_VALUE))
+                        .addComponent(jb_disponibilidadHora, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jl_hPartida)
+                        .addGap(18, 18, 18)
+                        .addComponent(jCB_horasDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(166, 166, 166))))
         );
         jf_reservaLayout.setVerticalGroup(
             jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -296,30 +321,34 @@ public class JugadorJFrame extends javax.swing.JFrame {
                 .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nSede)
                     .addComponent(jTF_nSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jl_fPartida)
-                        .addComponent(jTF_fechaPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jl_hPartida)
-                        .addComponent(jTF_horarioPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jb_disponibilidadHora)))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_fPartida)
+                    .addComponent(jTF_fechaPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_disponibilidadHora)
+                    .addComponent(jCB_horasDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_hPartida))
+                .addGap(30, 30, 30)
                 .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nom_1_jugador)
                     .addComponent(jTF_nombre1jug, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_apellido_1_jugador1)
+                    .addComponent(jTF_apellido1jug1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nom_2_jugador)
-                    .addComponent(jTF_nombre2jugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
+                    .addComponent(jTF_nombre2jugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_apellido_2_jugador1)
+                    .addComponent(jTF_apellido2jugador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nEntrenador)
                     .addComponent(jTF_nombreEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
+                .addGap(18, 18, 18)
                 .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_reservar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jb_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 24, Short.MAX_VALUE))
+                .addGap(0, 7, Short.MAX_VALUE))
         );
 
         jf_resultadosPartida.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1090,15 +1119,6 @@ public class JugadorJFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(0, 51, 204));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Pagar Cuota");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1106,14 +1126,12 @@ public class JugadorJFrame extends javax.swing.JFrame {
             .addComponent(Jugador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(169, 169, 169)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jb_infantiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jb_rPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jb_reservaSede, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jb_infantiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jb_rPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jb_reservaSede, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(0, 191, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -1127,9 +1145,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jb_infantiles, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
 
@@ -1138,7 +1154,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jb_reservaSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_reservaSedeActionPerformed
-        
+        jCB_horasDisponibles.removeAllItems();
         jf_reserva.setSize(876, 500);
         jf_reserva.setLocationRelativeTo(null);        
         jf_reserva.setVisible(true);        
@@ -1171,7 +1187,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTF_nSedeActionPerformed
 
     private void jb_reservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_reservarActionPerformed
-        String nomSede,nomJ1, nomJ2, nomEntrenador, fechaAux, tiempo;
+        String nomSede,nomJ1, nomJ2, nomEntrenador, fechaAux;int tiempo;
         Date fecha ; 
         
         nomSede=jTF_nSede.getText();
@@ -1179,7 +1195,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
         nomJ2=jTF_nombre2jugador.getText();
         nomEntrenador=jTF_nombreEntrenador.getText();
         fechaAux=jTF_fechaPartida.getText();
-        tiempo=jTF_horarioPartida.getText();
+        tiempo=jCB_horasDisponibles.getSelectedIndex();
         
         SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
         try {
@@ -1188,7 +1204,12 @@ public class JugadorJFrame extends javax.swing.JFrame {
             if(fecha.before(date)){
 
                 JOptionPane.showMessageDialog(this,"La fecha introducida deber ser posterior a la fecha de hoy.");
+            }else if (tiempo ==-1)
+            {
+                JOptionPane.showMessageDialog(this,"debes introducir una fecha valida y selecciona una franja horario");
+                
             }else{
+                jugador.asignarFranjaHoraria(fecha, tiempo);
                 jf_reserva.setVisible(false);
                 this.setVisible(true);
             }
@@ -1209,6 +1230,34 @@ public class JugadorJFrame extends javax.swing.JFrame {
 
     private void jb_disponibilidadHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_disponibilidadHoraActionPerformed
         // TODO add your handling code here:
+        String nomSede,nomJ1, nomJ2, nomEntrenador, fechaAux;
+        Date fecha ; 
+        
+        
+        fechaAux=jTF_fechaPartida.getText();
+        
+        SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            fecha = cambioFecha.parse(fechaAux);
+            Date date=java.util.Calendar.getInstance().getTime();
+            if(fecha.before(date)){
+
+                JOptionPane.showMessageDialog(this,"La fecha introducida deber ser posterior a la fecha de hoy y antes de los 30 dias siguiente");
+            }else{
+                
+               ArrayList<String> horas = jugador.getHorariosDisponible(fecha);
+               jCB_horasDisponibles.removeAllItems();
+               for (String hora: horas)
+               {
+                   jCB_horasDisponibles.addItem(hora);
+               }
+               
+            }
+            
+        } 
+        catch (ParseException ex) {
+            System.out.print(ex);
+        }
         
         
     }//GEN-LAST:event_jb_disponibilidadHoraActionPerformed
@@ -1457,7 +1506,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Jugador;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jCB_horasDisponibles;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1476,12 +1525,13 @@ public class JugadorJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTF_apellido1jug1;
+    private javax.swing.JTextField jTF_apellido2jugador1;
     private javax.swing.JTextField jTF_club_1_jugador;
     private javax.swing.JTextField jTF_club_2_jugador;
     private javax.swing.JTextField jTF_disputacionPRP;
     private javax.swing.JTextField jTF_fechaPartida;
     private javax.swing.JTextField jTF_fechaPartida1;
-    private javax.swing.JTextField jTF_horarioPartida;
     private javax.swing.JTextField jTF_horarioPartida1;
     private javax.swing.JTextField jTF_nFed;
     private javax.swing.JTextField jTF_nSede;
@@ -1529,6 +1579,8 @@ public class JugadorJFrame extends javax.swing.JFrame {
     private javax.swing.JFrame jf_reserva;
     private javax.swing.JFrame jf_resultadosPartida;
     private javax.swing.JLabel jl_aSede;
+    private javax.swing.JLabel jl_apellido_1_jugador1;
+    private javax.swing.JLabel jl_apellido_2_jugador1;
     private javax.swing.JLabel jl_club_1_jugador;
     private javax.swing.JLabel jl_club_2_jugador;
     private javax.swing.JLabel jl_d1Jugador;

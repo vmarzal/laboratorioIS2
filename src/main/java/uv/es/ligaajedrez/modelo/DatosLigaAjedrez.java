@@ -82,8 +82,8 @@ public class DatosLigaAjedrez {
                .apellidos("Botella").fechaNacimiento(fechaNacEntrenador2)               
                .build();              
                        
-        Sede sedeValencia = Sede.builder().direccion("C/ de Guillem de Castro, 65").telefono("963153005").build();
-        Sede sedeVillareal = Sede.builder().direccion("C/ Federico de Saboya, 102").telefono("9867030303").build();
+        Sede sedeValencia = Sede.builder().nombre("Valencia").direccion("C/ de Guillem de Castro, 65").telefono("963153005").build();sedeValencia.loadFechas();
+        Sede sedeVillareal = Sede.builder().nombre("Villareal").direccion("C/ Federico de Saboya, 102").telefono("9867030303").build();sedeVillareal.loadFechas();
         
         Club club1, club2, club3, club4, club5;
                 
