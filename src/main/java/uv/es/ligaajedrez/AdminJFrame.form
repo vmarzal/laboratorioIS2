@@ -14,10 +14,19 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jp_reserva" alignment="0" max="32767" attributes="0"/>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jl_nom_2_jugador" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTF_nombre2jugador" min="-2" pref="188" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jl_apellido_2_jugador1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jTF_apellido2jugador1" min="-2" pref="188" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <Component id="jl_nEntrenador" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jTF_nombreEntrenador" min="-2" pref="188" max="-2" attributes="0"/>
@@ -26,41 +35,36 @@
                           <Component id="jl_nSede" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jTF_nSede" min="-2" pref="234" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jl_nom_1_jugador" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jTF_nombre1jug" min="-2" pref="188" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jl_apellido_1_jugador1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jTF_apellido1jug1" min="-2" pref="188" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
+                          <Component id="jb_cancel" min="-2" pref="143" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jb_reservar" min="-2" pref="149" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <Component id="jl_fPartida" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jTF_fechaPartida" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="jb_disponibilidadDia" min="-2" pref="192" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jl_hPartida" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jTF_horarioPartida" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jb_disponibilidadHora" min="-2" pref="192" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jl_nom_1_jugador" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jTF_nombre1jug" min="-2" pref="188" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                                  <Component id="jl_nom_2_jugador" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
-                                  <Component id="jb_cancel" min="-2" pref="143" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jb_reservar" min="-2" pref="149" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTF_nombre2jugador" min="-2" pref="188" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jl_hPartida" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jCB_horasDisponibles2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="21" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -68,38 +72,44 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jp_reserva" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                  <EmptySpace pref="11" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jl_nSede" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTF_nSede" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jl_fPartida" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTF_fechaPartida" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jb_disponibilidadDia" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jl_hPartida" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTF_horarioPartida" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jb_disponibilidadHora" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCB_horasDisponibles2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jl_hPartida" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jl_nom_1_jugador" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTF_nombre1jug" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jl_apellido_1_jugador1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTF_apellido1jug1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jl_nom_2_jugador" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTF_nombre2jugador" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jl_apellido_2_jugador1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTF_apellido2jugador1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jl_nEntrenador" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTF_nombreEntrenador" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jb_reservar" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                       <Component id="jb_cancel" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="0" pref="21" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -121,7 +131,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="162" max="32767" attributes="0"/>
                       <Component id="jl_rSede" min="-2" pref="382" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
                   </Group>
@@ -153,17 +163,35 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JTextField" name="jTF_nombre2jugador">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_nombre2jugadorActionPerformed"/>
+          </Events>
+        </Component>
         <Component class="javax.swing.JLabel" name="jl_nSede">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nombre de Sede:"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="jl_nom_2_jugador">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nombre segundo jugador"/>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JTextField" name="jTF_nSede">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Lorena "/>
+            <Property name="text" type="java.lang.String" value="Valencia"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_nSedeActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTF_nombreEntrenador">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Alex Garcia"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_nombreEntrenadorActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jl_nom_1_jugador">
@@ -171,19 +199,41 @@
             <Property name="text" type="java.lang.String" value="Nombre primer jugador"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="jl_nEntrenador">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nombre entrenador"/>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JTextField" name="jTF_nombre1jug">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Iborra L&#xf3;pez"/>
+            <Property name="text" type="java.lang.String" value="ezz"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jCB_horasDisponibles2">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jl_fPartida">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fecha de partida:"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JTextField" name="jTF_apellido1jug1">
+        </Component>
         <Component class="javax.swing.JTextField" name="jTF_fechaPartida">
           <Properties>
-            <Property name="text" type="java.lang.String" value="10/05/2009"/>
+            <Property name="text" type="java.lang.String" value="30/11/2020"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jl_apellido_1_jugador1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Apellido primer jugador"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jb_reservar">
@@ -203,6 +253,8 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_reservarActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JTextField" name="jTF_apellido2jugador1">
+        </Component>
         <Component class="javax.swing.JButton" name="jb_cancel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -220,9 +272,9 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_cancelActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTF_horarioPartida">
+        <Component class="javax.swing.JLabel" name="jl_apellido_2_jugador1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="17:00"/>
+            <Property name="text" type="java.lang.String" value="Apellido segundo jugador"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jl_hPartida">
@@ -247,49 +299,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_disponibilidadHoraActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jb_disponibilidadDia">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="99" red="0" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="13" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="consulta disponibilidad"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_disponibilidadDiaActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTF_nombre2jugador">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Alex Garcia"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_nombre2jugadorActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jl_nom_2_jugador">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nombre segundo jugador"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTF_nombreEntrenador">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Alex Garcia"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_nombreEntrenadorActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jl_nEntrenador">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nombre entrenador"/>
-          </Properties>
-        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="jf_resultadosPartida">
@@ -301,37 +310,43 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jp_resultadosPartida" alignment="0" max="32767" attributes="0"/>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jl_nom_1_jugador1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jl_disputacionP" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jl_nGanador" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jl_nom_1_jugador1RP" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jl_disputacionPRP" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jl_nGanadorRP" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="jb_cancel1" min="-2" pref="143" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jb_cancel1RP" min="-2" pref="143" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                          <Component id="jb_guardar" min="-2" pref="149" max="-2" attributes="0"/>
+                          <Component id="jb_guardarRP" min="-2" pref="149" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jTF_nombreGanador" min="-2" pref="188" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="jTF_disputacionP" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTF_nombreGanadorRP" alignment="0" min="-2" pref="188" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jTF_disputacionPRP" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jl_tPartida" min="-2" max="-2" attributes="0"/>
+                          <Component id="jl_tPartidaRP" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jTF_tPartida" min="-2" pref="36" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jTF_nombre1jug1" min="-2" pref="188" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jl_nom_2_jugador1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTF_tPartidaRP" min="-2" pref="36" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTF_nombre2jugador1" min="-2" pref="188" max="-2" attributes="0"/>
+                          <Component id="jl_hour" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="jl_ubicacionRP" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTF_ubicacionRP" min="-2" pref="101" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jTF_nombre1jug1RP" min="-2" pref="188" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jl_nom_2_jugador1RP" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTF_nombre2jugador1RP" min="-2" pref="188" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -339,31 +354,38 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jp_resultadosPartida" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace pref="41" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jl_nom_1_jugador1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTF_nombre1jug1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jl_nom_2_jugador1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTF_nombre2jugador1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jl_nom_1_jugador1RP" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTF_nombre1jug1RP" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jl_nom_2_jugador1RP" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTF_nombre2jugador1RP" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTF_disputacionP" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jl_tPartida" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTF_tPartida" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jl_disputacionP" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="jTF_ubicacionRP" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jl_ubicacionRP" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jl_hour" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="jTF_disputacionPRP" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jl_tPartidaRP" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTF_tPartidaRP" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jl_disputacionPRP" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jl_nGanador" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTF_nombreGanador" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jl_nGanadorRP" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTF_nombreGanadorRP" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jb_cancel1" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="jb_guardar" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="jb_cancel1RP" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="jb_guardarRP" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="28" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -385,7 +407,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="108" max="32767" attributes="0"/>
                       <Component id="jl_rSede1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
                   </Group>
@@ -417,27 +439,84 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="jl_nom_1_jugador1">
+        <Component class="javax.swing.JTextField" name="jTF_tPartidaRP">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="2"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_tPartidaRPActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jl_tPartidaRP">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tiempo de partida"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTF_nombre2jugador1RP">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="vic"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_nombre2jugador1RPActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jl_nom_2_jugador1RP">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nombre segundo jugador"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTF_nombreGanadorRP">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ezz"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_nombreGanadorRPActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jl_nom_1_jugador1RP">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nombre primer jugador"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTF_nombre1jug1">
+        <Component class="javax.swing.JLabel" name="jl_nGanadorRP">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Iborra L&#xf3;pez"/>
+            <Property name="text" type="java.lang.String" value="Nombre ganador"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jl_disputacionP">
+        <Component class="javax.swing.JTextField" name="jTF_nombre1jug1RP">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ezz"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_nombre1jug1RPActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTF_ubicacionRP">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="villareal"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jl_disputacionPRP">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fecha de disputacion:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTF_disputacionP">
+        <Component class="javax.swing.JLabel" name="jl_ubicacionRP">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ubicacion"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTF_disputacionPRP">
           <Properties>
             <Property name="text" type="java.lang.String" value="10/05/2009"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jb_guardar">
+        <Component class="javax.swing.JLabel" name="jl_hour">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="hr"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jb_guardarRP">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="0" type="rgb"/>
@@ -451,10 +530,10 @@
             <Property name="text" type="java.lang.String" value="Guardar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_guardarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_guardarRPActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jb_cancel1">
+        <Component class="javax.swing.JButton" name="jb_cancel1RP">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="0" type="rgb"/>
@@ -468,47 +547,8 @@
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_cancel1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_cancel1RPActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTF_tPartida">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="2 hr"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_tPartidaActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jl_tPartida">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Tiempo de partida"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTF_nombre2jugador1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Alex Garcia"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_nombre2jugador1ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jl_nom_2_jugador1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nombre segundo jugador"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTF_nombreGanador">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Alex Garcia"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_nombreGanadorActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jl_nGanador">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nombre ganador"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>

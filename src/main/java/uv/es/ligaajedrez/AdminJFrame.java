@@ -82,37 +82,43 @@ public class AdminJFrame extends javax.swing.JFrame {
         jf_reserva = new javax.swing.JFrame();
         jp_reserva = new javax.swing.JPanel();
         jl_rSede = new javax.swing.JLabel();
+        jTF_nombre2jugador = new javax.swing.JTextField();
         jl_nSede = new javax.swing.JLabel();
+        jl_nom_2_jugador = new javax.swing.JLabel();
         jTF_nSede = new javax.swing.JTextField();
+        jTF_nombreEntrenador = new javax.swing.JTextField();
         jl_nom_1_jugador = new javax.swing.JLabel();
+        jl_nEntrenador = new javax.swing.JLabel();
         jTF_nombre1jug = new javax.swing.JTextField();
+        jCB_horasDisponibles2 = new javax.swing.JComboBox<>();
         jl_fPartida = new javax.swing.JLabel();
+        jTF_apellido1jug1 = new javax.swing.JTextField();
         jTF_fechaPartida = new javax.swing.JTextField();
+        jl_apellido_1_jugador1 = new javax.swing.JLabel();
         jb_reservar = new javax.swing.JButton();
+        jTF_apellido2jugador1 = new javax.swing.JTextField();
         jb_cancel = new javax.swing.JButton();
-        jTF_horarioPartida = new javax.swing.JTextField();
+        jl_apellido_2_jugador1 = new javax.swing.JLabel();
         jl_hPartida = new javax.swing.JLabel();
         jb_disponibilidadHora = new javax.swing.JButton();
-        jb_disponibilidadDia = new javax.swing.JButton();
-        jTF_nombre2jugador = new javax.swing.JTextField();
-        jl_nom_2_jugador = new javax.swing.JLabel();
-        jTF_nombreEntrenador = new javax.swing.JTextField();
-        jl_nEntrenador = new javax.swing.JLabel();
         jf_resultadosPartida = new javax.swing.JFrame();
         jp_resultadosPartida = new javax.swing.JPanel();
         jl_rSede1 = new javax.swing.JLabel();
-        jl_nom_1_jugador1 = new javax.swing.JLabel();
-        jTF_nombre1jug1 = new javax.swing.JTextField();
-        jl_disputacionP = new javax.swing.JLabel();
-        jTF_disputacionP = new javax.swing.JTextField();
-        jb_guardar = new javax.swing.JButton();
-        jb_cancel1 = new javax.swing.JButton();
-        jTF_tPartida = new javax.swing.JTextField();
-        jl_tPartida = new javax.swing.JLabel();
-        jTF_nombre2jugador1 = new javax.swing.JTextField();
-        jl_nom_2_jugador1 = new javax.swing.JLabel();
-        jTF_nombreGanador = new javax.swing.JTextField();
-        jl_nGanador = new javax.swing.JLabel();
+        jTF_tPartidaRP = new javax.swing.JTextField();
+        jl_tPartidaRP = new javax.swing.JLabel();
+        jTF_nombre2jugador1RP = new javax.swing.JTextField();
+        jl_nom_2_jugador1RP = new javax.swing.JLabel();
+        jTF_nombreGanadorRP = new javax.swing.JTextField();
+        jl_nom_1_jugador1RP = new javax.swing.JLabel();
+        jl_nGanadorRP = new javax.swing.JLabel();
+        jTF_nombre1jug1RP = new javax.swing.JTextField();
+        jTF_ubicacionRP = new javax.swing.JTextField();
+        jl_disputacionPRP = new javax.swing.JLabel();
+        jl_ubicacionRP = new javax.swing.JLabel();
+        jTF_disputacionPRP = new javax.swing.JTextField();
+        jl_hour = new javax.swing.JLabel();
+        jb_guardarRP = new javax.swing.JButton();
+        jb_cancel1RP = new javax.swing.JButton();
         jf_aSede = new javax.swing.JFrame();
         jp_aSede = new javax.swing.JPanel();
         jl_aSede = new javax.swing.JLabel();
@@ -230,7 +236,7 @@ public class AdminJFrame extends javax.swing.JFrame {
         jp_reservaLayout.setHorizontalGroup(
             jp_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_reservaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(162, Short.MAX_VALUE)
                 .addComponent(jl_rSede, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(222, 222, 222))
         );
@@ -242,22 +248,41 @@ public class AdminJFrame extends javax.swing.JFrame {
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
+        jTF_nombre2jugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTF_nombre2jugadorActionPerformed(evt);
+            }
+        });
+
         jl_nSede.setText("Nombre de Sede:");
 
-        jTF_nSede.setText("Lorena ");
+        jl_nom_2_jugador.setText("Nombre segundo jugador");
+
+        jTF_nSede.setText("Valencia");
         jTF_nSede.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_nSedeActionPerformed(evt);
             }
         });
 
+        jTF_nombreEntrenador.setText("Alex Garcia");
+        jTF_nombreEntrenador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTF_nombreEntrenadorActionPerformed(evt);
+            }
+        });
+
         jl_nom_1_jugador.setText("Nombre primer jugador");
 
-        jTF_nombre1jug.setText("Iborra López");
+        jl_nEntrenador.setText("Nombre entrenador");
+
+        jTF_nombre1jug.setText("ezz");
 
         jl_fPartida.setText("Fecha de partida:");
 
-        jTF_fechaPartida.setText("10/05/2009");
+        jTF_fechaPartida.setText("30/11/2020");
+
+        jl_apellido_1_jugador1.setText("Apellido primer jugador");
 
         jb_reservar.setBackground(new java.awt.Color(0, 153, 255));
         jb_reservar.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
@@ -279,7 +304,7 @@ public class AdminJFrame extends javax.swing.JFrame {
             }
         });
 
-        jTF_horarioPartida.setText("17:00");
+        jl_apellido_2_jugador1.setText("Apellido segundo jugador");
 
         jl_hPartida.setText("Horario de partida:");
 
@@ -293,42 +318,22 @@ public class AdminJFrame extends javax.swing.JFrame {
             }
         });
 
-        jb_disponibilidadDia.setBackground(new java.awt.Color(0, 153, 255));
-        jb_disponibilidadDia.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        jb_disponibilidadDia.setForeground(new java.awt.Color(255, 255, 255));
-        jb_disponibilidadDia.setText("consulta disponibilidad");
-        jb_disponibilidadDia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_disponibilidadDiaActionPerformed(evt);
-            }
-        });
-
-        jTF_nombre2jugador.setText("Alex Garcia");
-        jTF_nombre2jugador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTF_nombre2jugadorActionPerformed(evt);
-            }
-        });
-
-        jl_nom_2_jugador.setText("Nombre segundo jugador");
-
-        jTF_nombreEntrenador.setText("Alex Garcia");
-        jTF_nombreEntrenador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTF_nombreEntrenadorActionPerformed(evt);
-            }
-        });
-
-        jl_nEntrenador.setText("Nombre entrenador");
-
         javax.swing.GroupLayout jf_reservaLayout = new javax.swing.GroupLayout(jf_reserva.getContentPane());
         jf_reserva.getContentPane().setLayout(jf_reservaLayout);
         jf_reservaLayout.setHorizontalGroup(
             jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jp_reserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jf_reservaLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(43, 43, 43)
                 .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jf_reservaLayout.createSequentialGroup()
+                        .addComponent(jl_nom_2_jugador)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTF_nombre2jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jl_apellido_2_jugador1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTF_apellido2jugador1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jf_reservaLayout.createSequentialGroup()
                         .addComponent(jl_nEntrenador)
                         .addGap(18, 18, 18)
@@ -336,67 +341,69 @@ public class AdminJFrame extends javax.swing.JFrame {
                     .addGroup(jf_reservaLayout.createSequentialGroup()
                         .addComponent(jl_nSede)
                         .addGap(18, 18, 18)
-                        .addComponent(jTF_nSede, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTF_nSede, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jf_reservaLayout.createSequentialGroup()
+                        .addComponent(jl_nom_1_jugador)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTF_nombre1jug, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jl_apellido_1_jugador1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTF_apellido1jug1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jf_reservaLayout.createSequentialGroup()
+                        .addGap(172, 172, 172)
+                        .addComponent(jb_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_reservar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jf_reservaLayout.createSequentialGroup()
                         .addComponent(jl_fPartida)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTF_fechaPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(jb_disponibilidadDia, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jf_reservaLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_disponibilidadHora, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jl_hPartida)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTF_horarioPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jb_disponibilidadHora, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jf_reservaLayout.createSequentialGroup()
-                        .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jf_reservaLayout.createSequentialGroup()
-                                .addComponent(jl_nom_1_jugador)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTF_nombre1jug, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addComponent(jl_nom_2_jugador))
-                            .addGroup(jf_reservaLayout.createSequentialGroup()
-                                .addGap(172, 172, 172)
-                                .addComponent(jb_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jb_reservar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTF_nombre2jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jCB_horasDisponibles2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(94, 94, 94)))
+                .addContainerGap())
         );
         jf_reservaLayout.setVerticalGroup(
             jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jf_reservaLayout.createSequentialGroup()
                 .addComponent(jp_reserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nSede)
-                    .addComponent(jTF_nSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTF_nSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_fPartida)
                     .addComponent(jTF_fechaPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_disponibilidadDia))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_hPartida)
-                    .addComponent(jTF_horarioPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_disponibilidadHora))
-                .addGap(18, 18, 18)
+                    .addComponent(jb_disponibilidadHora)
+                    .addComponent(jCB_horasDisponibles2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_hPartida))
+                .addGap(30, 30, 30)
                 .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nom_1_jugador)
                     .addComponent(jTF_nombre1jug, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_apellido_1_jugador1)
+                    .addComponent(jTF_apellido1jug1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nom_2_jugador)
-                    .addComponent(jTF_nombre2jugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
+                    .addComponent(jTF_nombre2jugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_apellido_2_jugador1)
+                    .addComponent(jTF_apellido2jugador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nEntrenador)
                     .addComponent(jTF_nombreEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
+                .addGap(18, 18, 18)
                 .addGroup(jf_reservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_reservar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jb_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jf_resultadosPartida.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -415,7 +422,7 @@ public class AdminJFrame extends javax.swing.JFrame {
         jp_resultadosPartidaLayout.setHorizontalGroup(
             jp_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_resultadosPartidaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(108, Short.MAX_VALUE)
                 .addComponent(jl_rSede1)
                 .addGap(138, 138, 138))
         );
@@ -427,118 +434,140 @@ public class AdminJFrame extends javax.swing.JFrame {
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
-        jl_nom_1_jugador1.setText("Nombre primer jugador");
-
-        jTF_nombre1jug1.setText("Iborra López");
-
-        jl_disputacionP.setText("Fecha de disputacion:");
-
-        jTF_disputacionP.setText("10/05/2009");
-
-        jb_guardar.setBackground(new java.awt.Color(0, 153, 255));
-        jb_guardar.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        jb_guardar.setForeground(new java.awt.Color(255, 255, 255));
-        jb_guardar.setText("Guardar");
-        jb_guardar.addActionListener(new java.awt.event.ActionListener() {
+        jTF_tPartidaRP.setText("2");
+        jTF_tPartidaRP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_guardarActionPerformed(evt);
+                jTF_tPartidaRPActionPerformed(evt);
             }
         });
 
-        jb_cancel1.setBackground(new java.awt.Color(0, 153, 255));
-        jb_cancel1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        jb_cancel1.setForeground(new java.awt.Color(255, 255, 255));
-        jb_cancel1.setText("Cancelar");
-        jb_cancel1.addActionListener(new java.awt.event.ActionListener() {
+        jl_tPartidaRP.setText("Tiempo de partida");
+
+        jTF_nombre2jugador1RP.setText("vic");
+        jTF_nombre2jugador1RP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_cancel1ActionPerformed(evt);
+                jTF_nombre2jugador1RPActionPerformed(evt);
             }
         });
 
-        jTF_tPartida.setText("2 hr");
-        jTF_tPartida.addActionListener(new java.awt.event.ActionListener() {
+        jl_nom_2_jugador1RP.setText("Nombre segundo jugador");
+
+        jTF_nombreGanadorRP.setText("ezz");
+        jTF_nombreGanadorRP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTF_tPartidaActionPerformed(evt);
+                jTF_nombreGanadorRPActionPerformed(evt);
             }
         });
 
-        jl_tPartida.setText("Tiempo de partida");
+        jl_nom_1_jugador1RP.setText("Nombre primer jugador");
 
-        jTF_nombre2jugador1.setText("Alex Garcia");
-        jTF_nombre2jugador1.addActionListener(new java.awt.event.ActionListener() {
+        jl_nGanadorRP.setText("Nombre ganador");
+
+        jTF_nombre1jug1RP.setText("ezz");
+        jTF_nombre1jug1RP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTF_nombre2jugador1ActionPerformed(evt);
+                jTF_nombre1jug1RPActionPerformed(evt);
             }
         });
 
-        jl_nom_2_jugador1.setText("Nombre segundo jugador");
+        jTF_ubicacionRP.setText("villareal");
 
-        jTF_nombreGanador.setText("Alex Garcia");
-        jTF_nombreGanador.addActionListener(new java.awt.event.ActionListener() {
+        jl_disputacionPRP.setText("Fecha de disputacion:");
+
+        jl_ubicacionRP.setText("Ubicacion");
+
+        jTF_disputacionPRP.setText("10/05/2009");
+
+        jl_hour.setText("hr");
+
+        jb_guardarRP.setBackground(new java.awt.Color(0, 153, 255));
+        jb_guardarRP.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jb_guardarRP.setForeground(new java.awt.Color(255, 255, 255));
+        jb_guardarRP.setText("Guardar");
+        jb_guardarRP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTF_nombreGanadorActionPerformed(evt);
+                jb_guardarRPActionPerformed(evt);
             }
         });
 
-        jl_nGanador.setText("Nombre ganador");
+        jb_cancel1RP.setBackground(new java.awt.Color(0, 153, 255));
+        jb_cancel1RP.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jb_cancel1RP.setForeground(new java.awt.Color(255, 255, 255));
+        jb_cancel1RP.setText("Cancelar");
+        jb_cancel1RP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_cancel1RPActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jf_resultadosPartidaLayout = new javax.swing.GroupLayout(jf_resultadosPartida.getContentPane());
         jf_resultadosPartida.getContentPane().setLayout(jf_resultadosPartidaLayout);
         jf_resultadosPartidaLayout.setHorizontalGroup(
             jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jp_resultadosPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jf_resultadosPartidaLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jf_resultadosPartidaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jl_nom_1_jugador1)
-                    .addComponent(jl_disputacionP)
-                    .addComponent(jl_nGanador))
+                    .addComponent(jl_nom_1_jugador1RP)
+                    .addComponent(jl_disputacionPRP)
+                    .addComponent(jl_nGanadorRP))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jf_resultadosPartidaLayout.createSequentialGroup()
-                        .addComponent(jb_cancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jb_cancel1RP, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(73, 73, 73)
-                        .addComponent(jb_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTF_nombreGanador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jb_guardarRP, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTF_nombreGanadorRP, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jf_resultadosPartidaLayout.createSequentialGroup()
-                        .addComponent(jTF_disputacionP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTF_disputacionPRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jl_tPartida)
+                        .addComponent(jl_tPartidaRP)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTF_tPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jf_resultadosPartidaLayout.createSequentialGroup()
-                        .addComponent(jTF_nombre1jug1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jl_nom_2_jugador1)
+                        .addComponent(jTF_tPartidaRP, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTF_nombre2jugador1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jl_hour)
+                        .addGap(53, 53, 53)
+                        .addComponent(jl_ubicacionRP)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTF_ubicacionRP, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jf_resultadosPartidaLayout.createSequentialGroup()
+                        .addComponent(jTF_nombre1jug1RP, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jl_nom_2_jugador1RP)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTF_nombre2jugador1RP, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20))
         );
         jf_resultadosPartidaLayout.setVerticalGroup(
             jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jf_resultadosPartidaLayout.createSequentialGroup()
                 .addComponent(jp_resultadosPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_nom_1_jugador1)
-                    .addComponent(jTF_nombre1jug1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jl_nom_2_jugador1)
-                    .addComponent(jTF_nombre2jugador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jl_nom_1_jugador1RP)
+                    .addComponent(jTF_nombre1jug1RP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_nom_2_jugador1RP)
+                    .addComponent(jTF_nombre2jugador1RP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTF_disputacionP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jl_tPartida)
-                    .addComponent(jTF_tPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jl_disputacionP))
+                .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTF_ubicacionRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jl_ubicacionRP)
+                        .addComponent(jl_hour))
+                    .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTF_disputacionPRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jl_tPartidaRP)
+                        .addComponent(jTF_tPartidaRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jl_disputacionPRP)))
                 .addGap(25, 25, 25)
                 .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_nGanador)
-                    .addComponent(jTF_nombreGanador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jl_nGanadorRP)
+                    .addComponent(jTF_nombreGanadorRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jf_resultadosPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jb_cancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                    .addComponent(jb_cancel1RP, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_guardarRP, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
         );
 
         jf_aSede.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1443,7 +1472,7 @@ public class AdminJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jb_reservaSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_reservaSedeActionPerformed
-        
+        jCB_horasDisponibles2.removeAllItems();
         jf_reserva.setSize(876, 400);
         jf_reserva.setLocationRelativeTo(null);
         jf_reserva.setVisible(true);        
@@ -1478,59 +1507,6 @@ public class AdminJFrame extends javax.swing.JFrame {
         jf_resultadosPartida.setLocationRelativeTo(null);       
         jf_resultadosPartida.setVisible(true);        
     }//GEN-LAST:event_jb_rPartidaActionPerformed
-
-    private void jTF_nSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nSedeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTF_nSedeActionPerformed
-
-    private void jb_reservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_reservarActionPerformed
-        jf_reserva.setVisible(false);
-        this.setVisible(true);
-    }//GEN-LAST:event_jb_reservarActionPerformed
-
-    private void jb_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancelActionPerformed
-        jf_reserva.setVisible(false);
-        this.setVisible(true);
-
-    }//GEN-LAST:event_jb_cancelActionPerformed
-
-    private void jb_disponibilidadHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_disponibilidadHoraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jb_disponibilidadHoraActionPerformed
-
-    private void jb_disponibilidadDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_disponibilidadDiaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jb_disponibilidadDiaActionPerformed
-
-    private void jTF_nombre2jugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nombre2jugadorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTF_nombre2jugadorActionPerformed
-
-    private void jTF_nombreEntrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nombreEntrenadorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTF_nombreEntrenadorActionPerformed
-
-    private void jb_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_guardarActionPerformed
-        jf_resultadosPartida.setVisible(false);
-        this.setVisible(true);
-    }//GEN-LAST:event_jb_guardarActionPerformed
-
-    private void jb_cancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancel1ActionPerformed
-        jf_resultadosPartida.setVisible(false);
-        this.setVisible(true);
-    }//GEN-LAST:event_jb_cancel1ActionPerformed
-
-    private void jTF_nombre2jugador1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nombre2jugador1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTF_nombre2jugador1ActionPerformed
-
-    private void jTF_nombreGanadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nombreGanadorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTF_nombreGanadorActionPerformed
-
-    private void jTF_tPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_tPartidaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTF_tPartidaActionPerformed
 
     private void jb_AsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_AsignarActionPerformed
         String nomSede,nomJ1, nomJ2, nomEntrenador, fechaAux;int tiempo;
@@ -1893,6 +1869,155 @@ public class AdminJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCB_horasDisponibles1ActionPerformed
 
+    private void jTF_nombre2jugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nombre2jugadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTF_nombre2jugadorActionPerformed
+
+    private void jTF_nSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nSedeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTF_nSedeActionPerformed
+
+    private void jTF_nombreEntrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nombreEntrenadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTF_nombreEntrenadorActionPerformed
+
+    private void jb_reservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_reservarActionPerformed
+        String nomSede,nomJ1, nomJ2, nomEntrenador, fechaAux;int tiempo;
+        Date fecha ;
+
+        nomSede=jTF_nSede.getText();
+        nomJ1=jTF_nombre1jug.getText();
+        nomJ2=jTF_nombre2jugador.getText();
+        nomEntrenador=jTF_nombreEntrenador.getText();
+        fechaAux=jTF_fechaPartida.getText();
+        tiempo=jCB_horasDisponibles2.getSelectedIndex();
+
+        SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            fecha = cambioFecha.parse(fechaAux);
+            Date date=java.util.Calendar.getInstance().getTime();
+            if(fecha.before(date)){
+
+                JOptionPane.showMessageDialog(this,"La fecha introducida deber ser posterior a la fecha de hoy.");
+            }else if (tiempo ==-1)
+            {
+                JOptionPane.showMessageDialog(this,"debes introducir una fecha valida y selecciona una franja horario");
+
+            }else{
+                jugador.asignarFranjaHoraria(fecha, tiempo);
+                jf_reserva.setVisible(false);
+                this.setVisible(true);
+            }
+
+        }
+        catch (ParseException ex) {
+            System.out.print(ex);
+        }
+
+    }//GEN-LAST:event_jb_reservarActionPerformed
+
+    private void jb_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancelActionPerformed
+        jf_reserva.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jb_cancelActionPerformed
+
+    private void jb_disponibilidadHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_disponibilidadHoraActionPerformed
+        // TODO add your handling code here:
+        String nomSede,nomJ1, nomJ2, nomEntrenador, fechaAux;
+        Date fecha ;
+
+        fechaAux=jTF_fechaPartida.getText();
+
+        SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
+        jugador=adminisitrador.buscarJugador(jTF_nombre1jug.getText());
+        try {
+            fecha = cambioFecha.parse(fechaAux);
+            Date date=java.util.Calendar.getInstance().getTime();
+            if(fecha.before(date)){
+                jCB_horasDisponibles.removeAllItems();
+                JOptionPane.showMessageDialog(this,"La fecha introducida debe ser posterior a la fecha de hoy y antes de los 30 dias siguiente");
+            }else if(jugador == null)
+            {
+                JOptionPane.showMessageDialog(this,"Debes introducir por lo menos el nombre del primer jugador valido y que pertenece al club cuya sede es "+ jTF_nSede.getText());
+            }else{
+                
+                ArrayList<String> horas = jugador.getHorariosDisponible(fecha);
+                jCB_horasDisponibles.removeAllItems();
+                for (String hora: horas)
+                {
+                    jCB_horasDisponibles2.addItem(hora);
+                }
+
+            }
+
+        }
+        catch (ParseException ex) {
+            System.out.print(ex);
+        }
+
+    }//GEN-LAST:event_jb_disponibilidadHoraActionPerformed
+
+    private void jTF_tPartidaRPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_tPartidaRPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTF_tPartidaRPActionPerformed
+
+    private void jTF_nombre2jugador1RPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nombre2jugador1RPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTF_nombre2jugador1RPActionPerformed
+
+    private void jTF_nombreGanadorRPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nombreGanadorRPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTF_nombreGanadorRPActionPerformed
+
+    private void jTF_nombre1jug1RPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nombre1jug1RPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTF_nombre1jug1RPActionPerformed
+
+    private void jb_guardarRPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_guardarRPActionPerformed
+        String nomJ1, nomJ2, ganador, ubi;
+        Date fecha ;
+        float duracion;
+
+        nomJ1 = jTF_nombre1jug1RP.getText();
+        nomJ2 = jTF_nombre2jugador1RP.getText();
+
+        ganador= jTF_nombreGanadorRP.getText();
+        ubi= jTF_ubicacionRP.getText();
+        duracion= Float.parseFloat(jTF_tPartidaRP.getText());
+
+        String fechaAux = jTF_disputacionPRP.getText();
+        SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            fecha = cambioFecha.parse(fechaAux);
+            Date date=java.util.Calendar.getInstance().getTime();
+            if(!fecha.before(date)){
+
+                JOptionPane.showMessageDialog(this,"La fecha introducida deber ser anterior a la fecha de hoy.");
+            }else{
+                System.out.print("jframe");
+                jugador = adminisitrador.buscarJugador(nomJ1);
+                boolean exito=jugador.introResultPartida(nomJ1, nomJ2, ganador, ubi, fecha, duracion);
+                if(exito){
+
+                    jf_resultadosPartida.setVisible(false);
+                    this.setVisible(true);
+                }
+                else{
+                    JOptionPane.showMessageDialog(this,"El nombre del rival no coincide con ningun jugador en la liga ajedrez");
+                }
+            }
+        }
+        catch (ParseException ex) {
+            System.out.print(ex);
+        }
+
+    }//GEN-LAST:event_jb_guardarRPActionPerformed
+
+    private void jb_cancel1RPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancel1RPActionPerformed
+        jf_resultadosPartida.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jb_cancel1RPActionPerformed
+
     private void exitAdmin() {
      // Navegamos al menu del admin de la aplicación
      dispose();
@@ -1909,6 +2034,7 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jCB_horasDisponibles;
     private javax.swing.JComboBox<String> jCB_horasDisponibles1;
+    private javax.swing.JComboBox<String> jCB_horasDisponibles2;
     private javax.swing.JComboBox<String> jCB_sedesDisponibles;
     private javax.swing.JComboBox<String> jComboBoxClubes;
     private javax.swing.JComboBox<String> jComboBoxJugadores;
@@ -1938,28 +2064,30 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTextField jTF_apellido1jug1;
+    private javax.swing.JTextField jTF_apellido2jugador1;
     private javax.swing.JTextField jTF_club_1_jugador;
     private javax.swing.JTextField jTF_club_2_jugador;
-    private javax.swing.JTextField jTF_disputacionP;
+    private javax.swing.JTextField jTF_disputacionPRP;
     private javax.swing.JTextField jTF_fechaPartida;
     private javax.swing.JTextField jTF_fechaPartida2;
     private javax.swing.JTextField jTF_fechaPartida3;
-    private javax.swing.JTextField jTF_horarioPartida;
     private javax.swing.JTextField jTF_nFed;
     private javax.swing.JTextField jTF_nSede;
     private javax.swing.JTextField jTF_nSede2;
     private javax.swing.JTextField jTF_nSede3;
     private javax.swing.JTextField jTF_nombre1jug;
-    private javax.swing.JTextField jTF_nombre1jug1;
+    private javax.swing.JTextField jTF_nombre1jug1RP;
     private javax.swing.JTextField jTF_nombre1jug2;
     private javax.swing.JTextField jTF_nombre2jug;
     private javax.swing.JTextField jTF_nombre2jugador;
-    private javax.swing.JTextField jTF_nombre2jugador1;
+    private javax.swing.JTextField jTF_nombre2jugador1RP;
     private javax.swing.JTextField jTF_nombreEntrenador;
     private javax.swing.JTextField jTF_nombreEntrenador1jugador;
     private javax.swing.JTextField jTF_nombreEntrenador2jugador;
-    private javax.swing.JTextField jTF_nombreGanador;
-    private javax.swing.JTextField jTF_tPartida;
+    private javax.swing.JTextField jTF_nombreGanadorRP;
+    private javax.swing.JTextField jTF_tPartidaRP;
+    private javax.swing.JTextField jTF_ubicacionRP;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -1976,16 +2104,15 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jb_Asignar1;
     private javax.swing.JButton jb_aSede;
     private javax.swing.JButton jb_cancel;
-    private javax.swing.JButton jb_cancel1;
+    private javax.swing.JButton jb_cancel1RP;
     private javax.swing.JButton jb_cancel2;
     private javax.swing.JButton jb_cancel3;
     private javax.swing.JButton jb_cancel4;
     private javax.swing.JButton jb_cancel5;
-    private javax.swing.JButton jb_disponibilidadDia;
     private javax.swing.JButton jb_disponibilidadHora;
     private javax.swing.JButton jb_disponibilidadHora2;
     private javax.swing.JButton jb_disponibilidadHora3;
-    private javax.swing.JButton jb_guardar;
+    private javax.swing.JButton jb_guardarRP;
     private javax.swing.JButton jb_infantiles;
     private javax.swing.JButton jb_infantiles1;
     private javax.swing.JButton jb_rPartida;
@@ -2000,37 +2127,41 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JFrame jf_resultadosPartida;
     private javax.swing.JLabel jl_aSede;
     private javax.swing.JLabel jl_admin;
+    private javax.swing.JLabel jl_apellido_1_jugador1;
+    private javax.swing.JLabel jl_apellido_2_jugador1;
     private javax.swing.JLabel jl_club_1_jugador;
     private javax.swing.JLabel jl_club_2_jugador;
     private javax.swing.JLabel jl_d1Jugador;
     private javax.swing.JLabel jl_d2Jugador;
-    private javax.swing.JLabel jl_disputacionP;
+    private javax.swing.JLabel jl_disputacionPRP;
     private javax.swing.JLabel jl_fPartida;
     private javax.swing.JLabel jl_fPartida2;
     private javax.swing.JLabel jl_fPartida3;
     private javax.swing.JLabel jl_hPartida;
     private javax.swing.JLabel jl_hPartida2;
     private javax.swing.JLabel jl_hPartida3;
+    private javax.swing.JLabel jl_hour;
     private javax.swing.JLabel jl_nEntrenador;
     private javax.swing.JLabel jl_nEntrenador1jugador;
     private javax.swing.JLabel jl_nEntrenador2jugador;
     private javax.swing.JLabel jl_nFed;
-    private javax.swing.JLabel jl_nGanador;
+    private javax.swing.JLabel jl_nGanadorRP;
     private javax.swing.JLabel jl_nSede;
     private javax.swing.JLabel jl_nSede2;
     private javax.swing.JLabel jl_nSede3;
     private javax.swing.JLabel jl_nSede4;
     private javax.swing.JLabel jl_nom2jugador;
     private javax.swing.JLabel jl_nom_1_jugador;
-    private javax.swing.JLabel jl_nom_1_jugador1;
+    private javax.swing.JLabel jl_nom_1_jugador1RP;
     private javax.swing.JLabel jl_nom_1_jugador2;
     private javax.swing.JLabel jl_nom_2_jugador;
-    private javax.swing.JLabel jl_nom_2_jugador1;
+    private javax.swing.JLabel jl_nom_2_jugador1RP;
     private javax.swing.JLabel jl_rSede;
     private javax.swing.JLabel jl_rSede1;
     private javax.swing.JLabel jl_rSede2;
     private javax.swing.JLabel jl_rSede3;
-    private javax.swing.JLabel jl_tPartida;
+    private javax.swing.JLabel jl_tPartidaRP;
+    private javax.swing.JLabel jl_ubicacionRP;
     private javax.swing.JPanel jp_aSede;
     private javax.swing.JPanel jp_reserva;
     private javax.swing.JPanel jp_reserva1;
