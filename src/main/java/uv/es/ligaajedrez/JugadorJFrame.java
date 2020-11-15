@@ -11,19 +11,21 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import lombok.extern.slf4j.Slf4j;
+import uv.es.ligaajedrez.facade.PartidasFacade;
 import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 
 @Slf4j
 public class JugadorJFrame extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Admin
-     */
+  
     private Login login;
     private Jugador jugador;
+    private PartidasFacade partidasFachada;
     
     public JugadorJFrame(Jugador j) {
         initComponents();
+        
+        partidasFachada = new PartidasFacade();
+        
         jugador = j;
         jTF_nombre1jug1RP.setText(j.getNombre());
         jTF_nombre1jug1RP.setEditable(false);
@@ -1258,41 +1260,36 @@ public class JugadorJFrame extends javax.swing.JFrame {
 
     private void jb_guardarRPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_guardarRPActionPerformed
         String nomJ1, nomJ2, ganador, ubi;
-        Date fecha ;
+        Date fecha;
         float duracion;
-        
+
         nomJ1 = jTF_nombre1jug1RP.getText();
         nomJ2 = jTF_nombre2jugador1RP.getText();
-        
-        ganador= jTF_nombreGanadorRP.getText();
-        ubi= jTF_ubicacionRP.getText();
-        duracion= Float.parseFloat(jTF_tPartidaRP.getText());
-        
+
+        ganador = jTF_nombreGanadorRP.getText();
+        ubi = jTF_ubicacionRP.getText();
+        duracion = Float.parseFloat(jTF_tPartidaRP.getText());
+
         String fechaAux = jTF_disputacionPRP.getText();
         SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
         try {
             fecha = cambioFecha.parse(fechaAux);
-            Date date=java.util.Calendar.getInstance().getTime();
-            if(!fecha.before(date)){
-
-                JOptionPane.showMessageDialog(this,"La fecha introducida deber ser anterior a la fecha de hoy.");
-            }else{
-                System.out.print("jframe");
-                boolean exito=jugador.introResultPartida(nomJ1, nomJ2, ganador, ubi, fecha, duracion);
-                if(exito){
-                    
+            Date date = java.util.Calendar.getInstance().getTime();
+            if (!fecha.before(date)) {
+                JOptionPane.showMessageDialog(this, "La fecha introducida deber ser anterior a la fecha de hoy.");
+            } else {
+                boolean exito = partidasFachada.introducirResultadoPartida(nomJ1, nomJ2, ganador, ubi, fecha, duracion);
+                if (exito) {
                     jf_resultadosPartida.setVisible(false);
                     this.setVisible(true);
-                }
-                else{
-                    JOptionPane.showMessageDialog(this,"El nombre del rival no coincide con ningun jugador en la liga ajedrez");
-                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "El nombre del rival no coincide con ningun jugador en la liga ajedrez");
                 }
             }
-        catch (ParseException ex) {
+        } catch (ParseException ex) {
             System.out.print(ex);
         }
-        
+
     }//GEN-LAST:event_jb_guardarRPActionPerformed
 
     private void jb_cancel1RPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancel1RPActionPerformed

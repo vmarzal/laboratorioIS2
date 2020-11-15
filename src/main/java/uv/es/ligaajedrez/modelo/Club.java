@@ -20,7 +20,7 @@ public class Club {
     private Federacion federacion;
 
     protected List<Jugador> listaJugadores = new ArrayList<Jugador>();
-    private List<Partida> partidasJugadoreDelClub = new ArrayList<Partida>();
+    private List<Partida> partidasJugadoresDelClub = new ArrayList<Partida>();
 
     protected Entrenador entrenador;
 
@@ -41,21 +41,16 @@ public class Club {
         return nombre;
     }
 
-    public void introResultPartida(Partida p) {
-        partidasJugadoreDelClub.add(p);
-
-    }
-
-    public Sede getSede() {
-        return sede;
-    }
-
+    public void addPartidaJugadoresDelClub(Partida partida) {
+        partidasJugadoresDelClub.add(partida);
+    } 
+    
     public String getNomSede() {
         return sede.getNombre();
     }
 
-    public List<String> getHorariosDisponible(Date d) {        
-        return sede.getHorariosDisponible(d);
+    public List<String> getHorariosDisponible(Date fecha) {        
+        return sede.getHorariosDisponible(fecha);
     }
 
     public void asignarFranjaHoraria(Date d, int i) {

@@ -14,14 +14,16 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import lombok.extern.slf4j.Slf4j;
 import uv.es.ligaajedrez.modelo.usuarios.Administrador;
 import uv.es.ligaajedrez.modelo.usuarios.Entrenador;
 import uv.es.ligaajedrez.modelo.usuarios.Gerente;
 import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 import uv.es.ligaajedrez.modelo.usuarios.Usuario;
 
-@Slf4j
+/**
+ * Usamos Patron singleton para acceder a los datos persistentes desde cualquier
+ * otra clase.
+ */
 public class DatosLigaAjedrez {
     
     private static Map<String, Usuario> usuarios;
@@ -30,7 +32,7 @@ public class DatosLigaAjedrez {
     private static Map<String, Gerente> gerentes;
     private static List<Club> clubesParticipantes;
     private static List<Sede> sedes;
-    protected static List<Partida> partidas ;
+    protected static List<Partida> partidas;
     
     public static List<String> federaciones;
     public static List<Torneo> torneos;
@@ -58,14 +60,7 @@ public class DatosLigaAjedrez {
             partidas = new ArrayList<>();            
         }      
         return singleton;        
-    }
-   
-    public static DatosLigaAjedrez getSingletonInstance(Map<String, Usuario> loadedUsersList) {
-        if (singleton == null) {
-            singleton = new DatosLigaAjedrez(loadedUsersList);
-        }       
-        return singleton;
-    }    
+    }      
     
     public static void initUsuariosPorDefecto() {   
         DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -73,7 +68,7 @@ public class DatosLigaAjedrez {
         Torneo torneo = new Torneo("Torneo internacional de La Comunidat Valenciana", Federacion.FEDERACION_VALENCIANA);
         torneos.add(torneo);                        
         
-        Administrador adminUser = Administrador.builder().login("admin").password("admin").ligaAjedrez(singleton).build();                     
+        Administrador adminUser = Administrador.builder().login("admin").password("admin").build();                     
         usuarios.put(adminUser.getLogin(), adminUser);                                                               
 
         Entrenador e1, e2;
@@ -146,7 +141,7 @@ public class DatosLigaAjedrez {
         usuarios.put(adri.getLogin(), adri);
         usuarios.put(vic.getLogin(), vic);   
         
-        //partidas sin sede asignado para comprobar cosas
+        // Partidas sin sede asignada para comprobar cosas
         adminUser.cargarPartidasSinSede();
         String fechaAux = "25/11/2020";
         Date fecha ;
@@ -154,35 +149,15 @@ public class DatosLigaAjedrez {
         try {
             fecha = cambioFecha.parse(fechaAux);
             Partida p1,p2;
-            p1 = new Partida("ezz", "adri", null, fecha, 0, null);
-            p2 = new Partida("adri", "ezz", null, fecha, 0, null);
+            p1 = Partida.builder().jugador1("ezz").jugador2("adri2").fecha(fecha).build();
+            p2 = Partida.builder().jugador1("adri").jugador2("ezz").fecha(fecha).build();            
             adminUser.addPartidaSinSede(p1);
             adminUser.addPartidaSinSede(p2);
-        }catch (ParseException ex) {
+        } catch (ParseException ex) {
             System.out.print(ex);
         }
     }
-    
-    public boolean introducirResultoPartida(Partida partida) {
-        boolean existe = false;
-        if (jugadoresParticipantes.containsKey(partida.jugador2)) {
-            partidas.add(partida);
-            
-            // Añadimos la partida al rival en el caso que el rival existe
-            jugadoresParticipantes.get(partida.jugador2).addPartida(partida);
-            existe = true;
-        }
-        return existe;
-    }
-    
-    public Jugador buscarJugador(String loginJugador) {    
-        if (jugadoresParticipantes.containsKey(loginJugador)) {
-            return jugadoresParticipantes.get(loginJugador);
-        } else {
-            return null;
-        }       
-    }           
-    
+                    
     public boolean isUsuariosEmpty() {
         return usuarios.isEmpty();
     }
@@ -205,7 +180,15 @@ public class DatosLigaAjedrez {
     
     public List<Club> getClubesParticipantes() {
         return clubesParticipantes;
-    }         
+    }   
+
+    public List<Sede> getSedes() {
+        return sedes;
+    }
+    
+    public List<Partida> getPartidas() {
+        return partidas;
+    }
     
     public String toString() {
         return "usuarios: " + usuarios.toString() + "\n" + 

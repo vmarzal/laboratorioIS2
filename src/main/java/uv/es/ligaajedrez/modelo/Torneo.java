@@ -27,8 +27,8 @@ public class Torneo {
         this.federacion = federacion;
     }
           
-    public void introResultPartida(Partida p) {
-        partidasTorneo.add(p);
+    public void addPartidaDelTorneo(Partida partida) {
+        partidasTorneo.add(partida);
     }
 
     public boolean addJugador(Jugador jugador){

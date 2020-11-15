@@ -34,22 +34,11 @@ public class Jugador extends Usuario {
     protected DatosLigaAjedrez ligaAjedrez;
     private String responsableMenor;
     private String nomClub;
-
-    public boolean introResultPartida(String j1, String j2, String ganador, String ubi, Date fecha, float duracion) {
-        System.out.println(j1 + " " + j2 + " " + ganador + " " + ubi + " " + fecha + " " + duracion);
-        Partida partida = new Partida(j1, j2, ganador, fecha, duracion, null);
-
-        // Añadimos la partida a la lista de partidas de la liga, del rival , del club y del torneo
-        if (ligaAjedrez.introducirResultoPartida(partida)) {
-            partidas.add(partida);
-            club.introResultPartida(partida);
-            torneo.introResultPartida(partida);
-            return true;
-        } else {
-            return false;
-        }
+    
+    public Torneo getTorneo() {
+        return torneo;
     }
-
+    
     public void setLigaAjedrez(DatosLigaAjedrez ligaAje) {
         ligaAjedrez = ligaAje;
     }

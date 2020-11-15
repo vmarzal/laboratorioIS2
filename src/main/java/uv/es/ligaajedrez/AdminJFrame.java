@@ -17,6 +17,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import lombok.extern.slf4j.Slf4j;
+import uv.es.ligaajedrez.facade.AccionesJugadorFacade;
+import uv.es.ligaajedrez.facade.PartidasFacade;
 import uv.es.ligaajedrez.modelo.Club;
 import uv.es.ligaajedrez.modelo.DatosLigaAjedrez;
 import uv.es.ligaajedrez.modelo.usuarios.Administrador;
@@ -28,8 +30,12 @@ public class AdminJFrame extends javax.swing.JFrame {
     
     private Login login;
     private Jugador jugador, j1,j2;
-    private Administrador adminisitrador;
+    private Administrador administrador;
+    
     private DatosLigaAjedrez commonData;    
+    private AccionesJugadorFacade accionesJugadorFachada;
+    private PartidasFacade partidasFachada;
+    
     private Map<String, Usuario> usuarios;
     
     private Vector<Object> partidasSeleccionadas= new Vector<>();
@@ -39,7 +45,11 @@ public class AdminJFrame extends javax.swing.JFrame {
     
     public AdminJFrame(Administrador admin) {
         initComponents();
-        adminisitrador =  admin;
+        administrador =  admin;
+        
+        // Instanciamos las clases fachada para acciones del Jugador
+        accionesJugadorFachada = new AccionesJugadorFacade();
+        partidasFachada = new PartidasFacade();
         
         jList1.setModel(jList1Model); 
         
@@ -1520,7 +1530,7 @@ public class AdminJFrame extends javax.swing.JFrame {
 
             } else {
                 jugador.asignarFranjaHoraria(fecha, tiempo);
-                adminisitrador.removePartidaSinSede(jList_partidasSinSede.getSelectedIndex());
+                administrador.removePartidaSinSede(jList_partidasSinSede.getSelectedIndex());
                 jf_aSede.setVisible(false);
                 this.setVisible(true);
             }
@@ -1749,7 +1759,7 @@ public class AdminJFrame extends javax.swing.JFrame {
 
     private void jB_cargarListaPartidasSinSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_cargarListaPartidasSinSedeActionPerformed
                 
-        List partidas = adminisitrador.getAllPartidasSinSede();
+        List partidas = administrador.getAllPartidasSinSede();
         if (partidas.isEmpty()) {
             JOptionPane.showMessageDialog(this, "¡No existe ninguna partida sin sede!!");
         } else {
@@ -1781,9 +1791,9 @@ public class AdminJFrame extends javax.swing.JFrame {
             String fechaAux = partes[4].substring(1, partes[4].length());
          
             j1 = Jugador.builder().build();
-            j1 = adminisitrador.buscarJugador(nomJ1);
+            j1 = accionesJugadorFachada.buscarJugador(nomJ1);
             j2 = Jugador.builder().build();
-            j2 = adminisitrador.buscarJugador(nomJ2);
+            j2 = accionesJugadorFachada.buscarJugador(nomJ2);
 
             jTF_nombre1jug2.setText(j1.getNombre());
             jTF_club_1_jugador.setText(j1.getNomClub());
@@ -1868,7 +1878,7 @@ public class AdminJFrame extends javax.swing.JFrame {
         fechaAux = jTF_fechaPartida.getText();
 
         SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
-        jugador = adminisitrador.buscarJugador(jTF_nombre1jug.getText());
+        jugador = accionesJugadorFachada.buscarJugador(jTF_nombre1jug.getText());
         try {
             fecha = cambioFecha.parse(fechaAux);
             Date date = java.util.Calendar.getInstance().getTime();
@@ -1927,14 +1937,11 @@ public class AdminJFrame extends javax.swing.JFrame {
             fecha = cambioFecha.parse(fechaAux);
             Date date = java.util.Calendar.getInstance().getTime();
             if (!fecha.before(date)) {
-
                 JOptionPane.showMessageDialog(this, "La fecha introducida deber ser anterior a la fecha de hoy.");
-            } else {
-                System.out.print("jframe");
-                jugador = adminisitrador.buscarJugador(nomJ1);
-                boolean exito = jugador.introResultPartida(nomJ1, nomJ2, ganador, ubi, fecha, duracion);
+            } else {                
+                jugador = accionesJugadorFachada.buscarJugador(nomJ1);
+                boolean exito = partidasFachada.introducirResultadoPartida(nomJ1, nomJ2, ganador, ubi, fecha, duracion);
                 if (exito) {
-
                     jf_resultadosPartida.setVisible(false);
                     this.setVisible(true);
                 } else {
