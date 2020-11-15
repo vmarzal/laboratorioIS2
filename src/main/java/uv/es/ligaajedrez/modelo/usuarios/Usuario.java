@@ -34,7 +34,7 @@ public class Usuario {
     }
     
     public String toString() {
-        return "(login=" + login + ",password=" + password + ")";
+        return "(login=" + login + ", password=" + password + ")";
     }
     
 }

@@ -15,22 +15,17 @@ import java.util.Vector;
 import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import lombok.extern.slf4j.Slf4j;
 import uv.es.ligaajedrez.modelo.Club;
 import uv.es.ligaajedrez.modelo.DatosLigaAjedrez;
-import uv.es.ligaajedrez.modelo.Partida;
 import uv.es.ligaajedrez.modelo.usuarios.Administrador;
 import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 import uv.es.ligaajedrez.modelo.usuarios.Usuario;
 
 @Slf4j
 public class AdminJFrame extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Admin
-     */
+    
     private Login login;
     private Jugador jugador, j1,j2;
     private Administrador adminisitrador;
@@ -40,13 +35,13 @@ public class AdminJFrame extends javax.swing.JFrame {
     private Vector<Object> partidasSeleccionadas= new Vector<>();
     private Vector<String> partidasJlistString= new Vector<>();
     
-    private DefaultListModel jList1Model = new DefaultListModel();  // JLIST
+    private DefaultListModel jList1Model = new DefaultListModel();  
     
     public AdminJFrame(Administrador admin) {
         initComponents();
         adminisitrador =  admin;
         
-        jList1.setModel(jList1Model); // JLIST
+        jList1.setModel(jList1Model); 
         
         commonData = DatosLigaAjedrez.getSingletonInstance();                        
         usuarios = commonData.getUsuarios();        
@@ -65,8 +60,7 @@ public class AdminJFrame extends javax.swing.JFrame {
         
         Jugador[] jugadorArray = new Jugador[commonData.getJugadoresParticipantes().size()];
         jugadorArray = jugadoresLst.toArray(jugadorArray);
-        jComboBoxJugadores.setModel(new DefaultComboBoxModel(jugadorArray));
-                
+        jComboBoxJugadores.setModel(new DefaultComboBoxModel(jugadorArray));                
         
     }
 
@@ -1486,16 +1480,15 @@ public class AdminJFrame extends javax.swing.JFrame {
         
         jTextField1.setText(jugador.getNombre());
         jTextField12.setText(jugador.getApellidos());
-        jTextField2.setText(jugador.getDNI());
-        //jTextField4.setText(jugador.getClub());
+        jTextField2.setText(jugador.getDNI());        
         jTextField13.setText(jugador.getResponsableMenor());
     }//GEN-LAST:event_jb_infantilesActionPerformed
 
     private void jb_aSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_aSedeActionPerformed
-        partidasJlistString.removeAllElements();
-        jList_partidasSinSede.setListData(partidasJlistString);   
-        jList_partidasSinSede.removeAll();
-        jCB_horasDisponibles1.removeAllItems();
+       partidasJlistString.removeAllElements();
+       jList_partidasSinSede.setListData(partidasJlistString);   
+       jList_partidasSinSede.removeAll();
+       jCB_horasDisponibles1.removeAllItems();
        jf_aSede.setSize(876, 650);       
        jf_aSede.setLocationRelativeTo(null);       
        jf_aSede.setVisible(true);       
@@ -1509,35 +1502,33 @@ public class AdminJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_rPartidaActionPerformed
 
     private void jb_AsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_AsignarActionPerformed
-        String nomSede,nomJ1, nomJ2, nomEntrenador, fechaAux;int tiempo;
-        Date fecha ; 
-        
-        fechaAux=jTF_fechaPartida3.getText();
-        tiempo=jCB_horasDisponibles1.getSelectedIndex();
-        
+        String fechaAux;
+        int tiempo;
+        Date fecha;
+
+        fechaAux = jTF_fechaPartida3.getText();
+        tiempo = jCB_horasDisponibles1.getSelectedIndex();
+
         SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
         try {
             fecha = cambioFecha.parse(fechaAux);
-            Date date=java.util.Calendar.getInstance().getTime();
-            if(fecha.before(date)){
+            Date date = java.util.Calendar.getInstance().getTime();
+            if (fecha.before(date)) {
+                JOptionPane.showMessageDialog(this, "La fecha introducida deber ser posterior a la fecha de hoy.");
+            } else if (tiempo == -1) {
+                JOptionPane.showMessageDialog(this, "Se debe introducir una fecha válida y seleccionar una franja horaria");
 
-                JOptionPane.showMessageDialog(this,"La fecha introducida deber ser posterior a la fecha de hoy.");
-            }else if (tiempo ==-1)
-            {
-                JOptionPane.showMessageDialog(this,"debes introducir una fecha valida y selecciona una franja horario");
-                
-            }else{
+            } else {
                 jugador.asignarFranjaHoraria(fecha, tiempo);
-                adminisitrador.removePartidoSinSede(jList_partidasSinSede.getSelectedIndex());
+                adminisitrador.removePartidaSinSede(jList_partidasSinSede.getSelectedIndex());
                 jf_aSede.setVisible(false);
                 this.setVisible(true);
             }
-            
-        } 
-        catch (ParseException ex) {
+
+        } catch (ParseException ex) {
             System.out.print(ex);
         }
-        
+
     }//GEN-LAST:event_jb_AsignarActionPerformed
 
     private void jb_cancel2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancel2ActionPerformed
@@ -1590,15 +1581,15 @@ public class AdminJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField9ActionPerformed
 
     private void jb_Asignar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_Asignar1ActionPerformed
-        //jf_infantiles.setVisible(false);
+        
         this.setVisible(false);
 
         String nombre_resp, apellidos_resp, DNI_resp, email_resp, relacion_resp;
-        
+
         jugador.setNombre(jTextField1.getText());
         jugador.setApellidos(jTextField12.getText());
         jugador.setDNI(jTextField2.getText());
-        
+
         nombre_resp = jTextField6.getText();
         apellidos_resp = jTextField10.getText();
         DNI_resp = jTextField7.getText();
@@ -1608,65 +1599,52 @@ public class AdminJFrame extends javax.swing.JFrame {
 
         jTextField13.setText(jugador.getResponsableMenor());
 
-        while(registrable == false){
+        while (registrable == false) {
             if (isNullOrEmpty(nombre_resp) || isNullOrEmpty(apellidos_resp)) {
                 JOptionPane.showMessageDialog(this, "El nombre y apellidos del usuario son OBLIGATORIOS.",
-                    "Error", JOptionPane.ERROR_MESSAGE);
+                        "Error", JOptionPane.ERROR_MESSAGE);
                 registrable = true;
             } else if (isNullOrEmpty(DNI_resp)) {
                 JOptionPane.showMessageDialog(this, "El DNI del usuario es OBLIGATORIO.",
-                    "Error", JOptionPane.ERROR_MESSAGE);
+                        "Error", JOptionPane.ERROR_MESSAGE);
                 registrable = true;
-            } else if(isNullOrEmpty(email_resp)) {
+            } else if (isNullOrEmpty(email_resp)) {
                 JOptionPane.showMessageDialog(this, "El correo es OBLIGATORIO.",
-                    "Error", JOptionPane.ERROR_MESSAGE);
+                        "Error", JOptionPane.ERROR_MESSAGE);
                 registrable = true;
-            } else if(isNullOrEmpty(relacion_resp)) {
+            } else if (isNullOrEmpty(relacion_resp)) {
                 JOptionPane.showMessageDialog(this, "La relación con el jugador es OBLIGATORIA.",
-                    "Error", JOptionPane.ERROR_MESSAGE);
+                        "Error", JOptionPane.ERROR_MESSAGE);
                 registrable = true;
-            }
-            else{
-                if(!registrable) {
+            } else {
+                if (!registrable) {
                     JOptionPane.showMessageDialog(this, "¡Responsable de menor registrado con exito!",
-                        "Success", JOptionPane.OK_OPTION);
+                            "Success", JOptionPane.OK_OPTION);
 
                     jugador.setResponsableMenor(DNI_resp);
 
                     clearAllInputs();
                     registrable = true;
                     jTextField13.setText(jugador.getResponsableMenor());
-                }
-                else{
+                } else {
                     JOptionPane.showMessageDialog(this, "¡Sigue habiendo algún error!",
-                        "Success", JOptionPane.OK_OPTION);
+                            "Success", JOptionPane.OK_OPTION);
                 }
             }
-        }
-
-        //usuarios.put(jugador.getLogin(), jugador);
-
+        }       
     }//GEN-LAST:event_jb_Asignar1ActionPerformed
-
-    
+   
     public void clearAllInputs() {
         jTextField6.setText("");
         jTextField10.setText("");
         jTextField7.setText("");
         jTextField11.setText("");
-        jTextField9.setText("");
-    
+        jTextField9.setText("");    
     }
     
     private boolean isNullOrEmpty(String value) {
-        if (value.isEmpty() || value.equals("")) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    
+        return (value.isEmpty() || value.equals("")) ? true : false;            
+    }           
     
     private void jb_cancel3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancel3ActionPerformed
         jf_infantiles.setVisible(false);
@@ -1684,12 +1662,8 @@ public class AdminJFrame extends javax.swing.JFrame {
     private void jb_infantiles1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_infantiles1ActionPerformed
         jf_cambioClub.setSize(802, 400);
         jf_cambioClub.setLocationRelativeTo(null);       
-        jf_cambioClub.setVisible(true);
-        
-        //jTF_nSede2.setText(jugador.getClub().toString());
-        jTF_nSede2.setText(jComboBoxClubes.getSelectedItem().toString());   
-          
-        
+        jf_cambioClub.setVisible(true);                
+        jTF_nSede2.setText(jComboBoxClubes.getSelectedItem().toString());                    
     }//GEN-LAST:event_jb_infantiles1ActionPerformed
 
     private void jTF_nSede2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_nSede2ActionPerformed
@@ -1698,8 +1672,7 @@ public class AdminJFrame extends javax.swing.JFrame {
 
     private void jb_reservar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_reservar1ActionPerformed
         jf_cambioClub.setVisible(false);
-        
-        //jugador.setNomClub(jTF_nSede2.getText());
+                
         Club selectedClub = (Club) jComboBoxClubes.getSelectedItem();
         Jugador jugador = Jugador.builder().club(selectedClub).build();
         
@@ -1708,8 +1681,7 @@ public class AdminJFrame extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "¡Jugador registrado con exito en el nuevo club!", 
             "Success", JOptionPane.OK_OPTION);
         
-        jList1Model.addElement(selectedClub.getNombre());   // JLIST
-        //jList1.setModel(jList1Model);
+        jList1Model.addElement(selectedClub.getNombre());          
     }//GEN-LAST:event_jb_reservar1ActionPerformed
 
     private void jb_cancel4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancel4ActionPerformed
@@ -1726,16 +1698,7 @@ public class AdminJFrame extends javax.swing.JFrame {
         jf_historicoClubs.setLocationRelativeTo(null);       
         jf_historicoClubs.setVisible(true);
         
-        jScrollPane1.repaint(); // JLIST
-        
-        //jScrollPane1.revalidate();
-
-        //String historico = new String();
-        
-        //historico += jComboBoxClubes.getSelectedItem().toString();
-        
-        //JOptionPane.showMessageDialog(this, historico, 
-        //    "Success", JOptionPane.OK_OPTION);
+        jScrollPane1.repaint();           
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jb_cancel5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancel5ActionPerformed
@@ -1748,121 +1711,102 @@ public class AdminJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxJugadoresActionPerformed
 
     private void jb_disponibilidadHora3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_disponibilidadHora3ActionPerformed
-        // TODO add your handling code here:
-        String nomSede,nomJ1, nomJ2, nomEntrenador, fechaAux;
-        Date fecha ;
 
-        nomSede= jCB_sedesDisponibles.getItemAt(jCB_sedesDisponibles.getSelectedIndex());
-        //para saber que sede ha elegido
-        if(nomSede == j1.getNomSede())
-        {
+        String nomSede, fechaAux;
+        Date fecha;
+
+        nomSede = jCB_sedesDisponibles.getItemAt(jCB_sedesDisponibles.getSelectedIndex());
+        if (nomSede == j1.getNomSede()) {
             jugador = j1;
-        }
-        else 
-        {
+        } else {
             jugador = j2;
         }
-        
-        fechaAux=jTF_fechaPartida3.getText();
+
+        fechaAux = jTF_fechaPartida3.getText();
 
         SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
         try {
             fecha = cambioFecha.parse(fechaAux);
-            Date date=java.util.Calendar.getInstance().getTime();
-            if(fecha.before(date) ){
+            Date date = java.util.Calendar.getInstance().getTime();
+            if (fecha.before(date)) {
                 jCB_horasDisponibles1.removeAllItems();
-                JOptionPane.showMessageDialog(this,"La fecha introducida deber ser posterior a la fecha de hoy y antes de los 30 dias siguiente");
-            }else{
-
-                ArrayList<String> horas = jugador.getHorariosDisponible(fecha);
+                JOptionPane.showMessageDialog(this, "La fecha introducida deber ser posterior a la fecha de hoy y "
+                        + "anterior a los 30 días siguientes.");
+            } else {
+                List<String> horas = jugador.getHorariosDisponible(fecha);
                 jCB_horasDisponibles1.removeAllItems();
-                for (String hora: horas)
-                {
+                for (String hora : horas) {
                     jCB_horasDisponibles1.addItem(hora);
                 }
 
             }
 
-        }
-        catch (ParseException ex) {
+        } catch (ParseException ex) {
             System.out.print(ex);
         }
 
     }//GEN-LAST:event_jb_disponibilidadHora3ActionPerformed
 
     private void jB_cargarListaPartidasSinSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_cargarListaPartidasSinSedeActionPerformed
-        // TODO add your handling code here:
-        
-        ArrayList partidas = adminisitrador.getPartidasSinSede();
-        if(partidas.isEmpty())
-            {
-                JOptionPane.showMessageDialog(this,"No existe ninguna partida sin sede!!");
-            }
-            else{
-                partidasJlistString.removeAllElements();
-                partidasSeleccionadas.removeAllElements();
                 
-                for (Object partida : partidas){
-                    partidasJlistString.add(partida.toString());
-                    partidasSeleccionadas.add(partida);
-                    
-                }
+        List partidas = adminisitrador.getAllPartidasSinSede();
+        if (partidas.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "¡No existe ninguna partida sin sede!!");
+        } else {
+            partidasJlistString.removeAllElements();
+            partidasSeleccionadas.removeAllElements();
 
+            for (Object partida : partidas) {
+                partidasJlistString.add(partida.toString());
+                partidasSeleccionadas.add(partida);
 
-                jList_partidasSinSede.setListData(partidasJlistString);                
-            } 
+            }
+
+            jList_partidasSinSede.setListData(partidasJlistString);
+        }
     }//GEN-LAST:event_jB_cargarListaPartidasSinSedeActionPerformed
 
     private void jB_asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_asignarActionPerformed
-        // TODO add your handling code here:
-        if (jList_partidasSinSede.getSelectedIndex() == -1 )
-            {
-                JOptionPane.showMessageDialog(this,"Debe seleccionar una partida primero! " );
+        
+        if (jList_partidasSinSede.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar una partida primero.");
+        } else {
+            String partidaSelec = jList_partidasSinSede.getSelectedValue();
+            int i = jList_partidasSinSede.getSelectedIndex();
+
+            String barra_separar = Pattern.quote("|");
+            String[] partes = partidaSelec.split(barra_separar);
+            String nomJ1 = partes[1].substring(0, (partes[1].length() - 1));
+            String nomJ2 = partes[2].substring(1, partes[2].length());
+            String fechaAux = partes[4].substring(1, partes[4].length());
+         
+            j1 = Jugador.builder().build();
+            j1 = adminisitrador.buscarJugador(nomJ1);
+            j2 = Jugador.builder().build();
+            j2 = adminisitrador.buscarJugador(nomJ2);
+
+            jTF_nombre1jug2.setText(j1.getNombre());
+            jTF_club_1_jugador.setText(j1.getNomClub());
+            jTF_nombreEntrenador1jugador.setText(j1.getEntrenador().getNombre());
+
+            jTF_nombre2jug.setText(j2.getNombre());
+            jTF_club_2_jugador.setText(j2.getNomClub());
+            jTF_nombreEntrenador2jugador.setText(j2.getEntrenador().getNombre());
+
+            // Obtenemos sedes de los dos clubes
+            jCB_sedesDisponibles.removeAllItems();
+            jCB_sedesDisponibles.addItem(j1.getNomSede());
+            jCB_sedesDisponibles.addItem(j2.getNomSede());
+
+            Date fecha;
+            SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                fecha = cambioFecha.parse(fechaAux);
+                jTF_fechaPartida3.setText(fecha.toString());
+            } catch (ParseException ex) {
+                System.out.print(ex);
             }
-            else 
-            {
-                String partidaSelec = jList_partidasSinSede.getSelectedValue(); 
-                int i = jList_partidasSinSede.getSelectedIndex();
-                //separamos el string
-                String barra_separar = Pattern.quote("|");
-                String[] partes = partidaSelec.split(barra_separar);
-                String nomJ1 = partes[1].substring(0,  (partes[1].length() -1)); 
-                String nomJ2= partes[2].substring(1, partes[2].length()); 
-                String fechaAux = partes[4].substring(1, partes[4].length()); 
-                
-                System.out.println(nomJ1);
-                System.out.println(nomJ2);
-                System.out.println(fechaAux);
-                 j1 =  Jugador.builder().build();
-                 j1 = adminisitrador.buscarJugador(nomJ1);
-                 j2 =  Jugador.builder().build();
-                 j2 = adminisitrador.buscarJugador(nomJ2);
-                
-                
-                jTF_nombre1jug2.setText(j1.getNombre());
-                jTF_club_1_jugador.setText(j1.getNomClub());
-                jTF_nombreEntrenador1jugador.setText(j1.getEntrenador().getNombre());
-                
-                jTF_nombre2jug.setText(j2.getNombre());
-                jTF_club_2_jugador.setText(j2.getNomClub());
-                jTF_nombreEntrenador2jugador.setText(j2.getEntrenador().getNombre());
-                
-                //obtenemos sedes de los dos clubes
-                jCB_sedesDisponibles.removeAllItems();
-                jCB_sedesDisponibles.addItem(j1.getNomSede());
-                jCB_sedesDisponibles.addItem(j2.getNomSede());
-                
-                
-                Date fecha ;
-                
-                SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
-                try {
-                    fecha = cambioFecha.parse(fechaAux);
-                    jTF_fechaPartida3.setText(fecha.toString());
-                }catch (ParseException ex) {
-                    System.out.print(ex);
-                }
-            }
+        }
     }//GEN-LAST:event_jB_asignarActionPerformed
 
     private void jCB_horasDisponibles1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_horasDisponibles1ActionPerformed
@@ -1882,35 +1826,30 @@ public class AdminJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTF_nombreEntrenadorActionPerformed
 
     private void jb_reservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_reservarActionPerformed
-        String nomSede,nomJ1, nomJ2, nomEntrenador, fechaAux;int tiempo;
-        Date fecha ;
-
-        nomSede=jTF_nSede.getText();
-        nomJ1=jTF_nombre1jug.getText();
-        nomJ2=jTF_nombre2jugador.getText();
-        nomEntrenador=jTF_nombreEntrenador.getText();
-        fechaAux=jTF_fechaPartida.getText();
-        tiempo=jCB_horasDisponibles2.getSelectedIndex();
+        String fechaAux;
+        int tiempo;
+        Date fecha;
+    
+        fechaAux = jTF_fechaPartida.getText();
+        tiempo = jCB_horasDisponibles2.getSelectedIndex();
 
         SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
         try {
             fecha = cambioFecha.parse(fechaAux);
-            Date date=java.util.Calendar.getInstance().getTime();
-            if(fecha.before(date)){
+            Date date = java.util.Calendar.getInstance().getTime();
+            if (fecha.before(date)) {
 
-                JOptionPane.showMessageDialog(this,"La fecha introducida deber ser posterior a la fecha de hoy.");
-            }else if (tiempo ==-1)
-            {
-                JOptionPane.showMessageDialog(this,"debes introducir una fecha valida y selecciona una franja horario");
+                JOptionPane.showMessageDialog(this, "La fecha introducida deber ser posterior a la fecha de hoy.");
+            } else if (tiempo == -1) {
+                JOptionPane.showMessageDialog(this, "Se debe introducir una fecha válida y seleccionar una franja horaria.");
 
-            }else{
+            } else {
                 jugador.asignarFranjaHoraria(fecha, tiempo);
                 jf_reserva.setVisible(false);
                 this.setVisible(true);
             }
 
-        }
-        catch (ParseException ex) {
+        } catch (ParseException ex) {
             System.out.print(ex);
         }
 
@@ -1922,36 +1861,33 @@ public class AdminJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_cancelActionPerformed
 
     private void jb_disponibilidadHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_disponibilidadHoraActionPerformed
-        // TODO add your handling code here:
-        String nomSede,nomJ1, nomJ2, nomEntrenador, fechaAux;
-        Date fecha ;
+        
+        String fechaAux;
+        Date fecha;
 
-        fechaAux=jTF_fechaPartida.getText();
+        fechaAux = jTF_fechaPartida.getText();
 
         SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
-        jugador=adminisitrador.buscarJugador(jTF_nombre1jug.getText());
+        jugador = adminisitrador.buscarJugador(jTF_nombre1jug.getText());
         try {
             fecha = cambioFecha.parse(fechaAux);
-            Date date=java.util.Calendar.getInstance().getTime();
-            if(fecha.before(date)){
+            Date date = java.util.Calendar.getInstance().getTime();
+            if (fecha.before(date)) {
                 jCB_horasDisponibles.removeAllItems();
-                JOptionPane.showMessageDialog(this,"La fecha introducida debe ser posterior a la fecha de hoy y antes de los 30 dias siguiente");
-            }else if(jugador == null)
-            {
-                JOptionPane.showMessageDialog(this,"Debes introducir por lo menos el nombre del primer jugador valido y que pertenece al club cuya sede es "+ jTF_nSede.getText());
-            }else{
-                
-                ArrayList<String> horas = jugador.getHorariosDisponible(fecha);
+                JOptionPane.showMessageDialog(this, "La fecha introducida debe ser posterior a la fecha de hoy y "
+                        + "anterior a los 30 días siguientes.");
+            } else if (jugador == null) {
+                JOptionPane.showMessageDialog(this, "Debes introducir por lo menos el nombre del primer jugador válido y "
+                        + "que pertenece al club cuya sede es " + jTF_nSede.getText());
+            } else {
+                List<String> horas = jugador.getHorariosDisponible(fecha);
                 jCB_horasDisponibles.removeAllItems();
-                for (String hora: horas)
-                {
+                for (String hora : horas) {
                     jCB_horasDisponibles2.addItem(hora);
                 }
-
             }
 
-        }
-        catch (ParseException ex) {
+        } catch (ParseException ex) {
             System.out.print(ex);
         }
 
@@ -1975,39 +1911,37 @@ public class AdminJFrame extends javax.swing.JFrame {
 
     private void jb_guardarRPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_guardarRPActionPerformed
         String nomJ1, nomJ2, ganador, ubi;
-        Date fecha ;
+        Date fecha;
         float duracion;
 
         nomJ1 = jTF_nombre1jug1RP.getText();
         nomJ2 = jTF_nombre2jugador1RP.getText();
 
-        ganador= jTF_nombreGanadorRP.getText();
-        ubi= jTF_ubicacionRP.getText();
-        duracion= Float.parseFloat(jTF_tPartidaRP.getText());
+        ganador = jTF_nombreGanadorRP.getText();
+        ubi = jTF_ubicacionRP.getText();
+        duracion = Float.parseFloat(jTF_tPartidaRP.getText());
 
         String fechaAux = jTF_disputacionPRP.getText();
         SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
         try {
             fecha = cambioFecha.parse(fechaAux);
-            Date date=java.util.Calendar.getInstance().getTime();
-            if(!fecha.before(date)){
+            Date date = java.util.Calendar.getInstance().getTime();
+            if (!fecha.before(date)) {
 
-                JOptionPane.showMessageDialog(this,"La fecha introducida deber ser anterior a la fecha de hoy.");
-            }else{
+                JOptionPane.showMessageDialog(this, "La fecha introducida deber ser anterior a la fecha de hoy.");
+            } else {
                 System.out.print("jframe");
                 jugador = adminisitrador.buscarJugador(nomJ1);
-                boolean exito=jugador.introResultPartida(nomJ1, nomJ2, ganador, ubi, fecha, duracion);
-                if(exito){
+                boolean exito = jugador.introResultPartida(nomJ1, nomJ2, ganador, ubi, fecha, duracion);
+                if (exito) {
 
                     jf_resultadosPartida.setVisible(false);
                     this.setVisible(true);
-                }
-                else{
-                    JOptionPane.showMessageDialog(this,"El nombre del rival no coincide con ningun jugador en la liga ajedrez");
+                } else {
+                    JOptionPane.showMessageDialog(this, "El nombre del rival no coincide con ningun jugador en la liga ajedrez.");
                 }
             }
-        }
-        catch (ParseException ex) {
+        } catch (ParseException ex) {
             System.out.print(ex);
         }
 
@@ -2018,8 +1952,7 @@ public class AdminJFrame extends javax.swing.JFrame {
         this.setVisible(true);
     }//GEN-LAST:event_jb_cancel1RPActionPerformed
 
-    private void exitAdmin() {
-     // Navegamos al menu del admin de la aplicación
+    private void exitAdmin() {     
      dispose();
      Login loginAdmin = new Login();
      loginAdmin.setVisible(true);         

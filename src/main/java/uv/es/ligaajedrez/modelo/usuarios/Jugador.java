@@ -20,46 +20,40 @@ import uv.es.ligaajedrez.modelo.Torneo;
 @Setter
 @SuperBuilder
 public class Jugador extends Usuario {
-    
+
     private List<Partida> partidas;
     private List<Club> historicoClubes = new ArrayList<Club>();
-    
+
     protected Torneo torneo;
     private Club club;
     private Entrenador entrenador;
-    private int elo;    
+    private int elo;
     private boolean cuotaPagada;
     private boolean esMenor;
-    private float cuota; 
+    private float cuota;
     protected DatosLigaAjedrez ligaAjedrez;
     private String responsableMenor;
     private String nomClub;
-    
-    
-    public boolean introResultPartida(String j1, String j2, String ganador, String ubi, Date fecha, float duracion) {        
-        System.out.println(j1 + " " + j2 + " " + ganador + " " + ubi + " " + fecha + " " + duracion);
-        Partida partida = new Partida(j1, j2, ganador, fecha, duracion,null);
 
-        //aNadimos la partida a la lista de partidas de la liga, del rival , del club y del torneo
-        if (ligaAjedrez.introResultPartida(partida)) {
+    public boolean introResultPartida(String j1, String j2, String ganador, String ubi, Date fecha, float duracion) {
+        System.out.println(j1 + " " + j2 + " " + ganador + " " + ubi + " " + fecha + " " + duracion);
+        Partida partida = new Partida(j1, j2, ganador, fecha, duracion, null);
+
+        // Añadimos la partida a la lista de partidas de la liga, del rival , del club y del torneo
+        if (ligaAjedrez.introducirResultoPartida(partida)) {
             partidas.add(partida);
-            System.out.println("lo anyade a la liga");
-            System.out.println("lo anyade a la liga");
             club.introResultPartida(partida);
-            System.out.println("lo anyade al club");
             torneo.introResultPartida(partida);
-            System.out.println("lo anyade al torneo");
             return true;
         } else {
-            System.out.println("el rival no existe");
             return false;
         }
     }
-    
+
     public void setLigaAjedrez(DatosLigaAjedrez ligaAje) {
         ligaAjedrez = ligaAje;
     }
-    
+
     public void crearListaPartidas() {
         partidas = new ArrayList<Partida>();
     }
@@ -67,7 +61,7 @@ public class Jugador extends Usuario {
     public void addPartida(Partida p) {
         partidas.add(p);
     }
-     
+
     public boolean apuntarseTorneo(Jugador jugador) {
         return (torneo.addJugador(jugador));
     }
@@ -75,30 +69,29 @@ public class Jugador extends Usuario {
     public boolean desapuntarseTorneo(Jugador jugador) {
         return (torneo.removeJugador(jugador));
     }
-    
-    public void cambiarClub(Jugador jugador, Club club){
+
+    public void cambiarClub(Jugador jugador, Club club) {
         jugador.historicoClubes.add(jugador.getClub());
         jugador.setClub(club);
     }
-       
-   public String toString() {
-       return nombre + " " + apellidos;               
-   }
-     public String getNomSede()
-    {
+
+    public String toString() {
+        return nombre + " " + apellidos;
+    }
+
+    public String getNomSede() {
         return club.getNomSede();
     }
-     public String getNomClub()
-    {
+
+    public String getNomClub() {
         return club.getNombre();
     }
-   public ArrayList<String> getHorariosDisponible(Date d)
-    {
+
+    public List<String> getHorariosDisponible(Date d) {
         return club.getHorariosDisponible(d);
     }
-    
-   public void asignarFranjaHoraria(Date d,int i )
-    {
+
+    public void asignarFranjaHoraria(Date d, int i) {
         club.asignarFranjaHoraria(d, i);
     }
 }

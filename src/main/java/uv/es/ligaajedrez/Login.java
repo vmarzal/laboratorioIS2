@@ -28,8 +28,7 @@ public class Login extends javax.swing.JFrame {
         commonData = DatosLigaAjedrez.getSingletonInstance();        
         if (commonData.isUsuariosEmpty()) {                       
             commonData.initUsuariosPorDefecto();
-        }         
-        log.info(">>>> " + commonData.toString());        
+        }                 
     }
 
     /**

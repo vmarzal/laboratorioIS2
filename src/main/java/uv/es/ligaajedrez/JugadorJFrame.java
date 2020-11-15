@@ -7,17 +7,12 @@ package uv.es.ligaajedrez;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import javax.swing.JFrame;
+import java.util.List;
 import javax.swing.JOptionPane;
 import lombok.extern.slf4j.Slf4j;
 import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 
-/**
- *
- * @author Ezzedine
- */
 @Slf4j
 public class JugadorJFrame extends javax.swing.JFrame {
 
@@ -38,9 +33,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
         jTF_nombre1jug.setText(j.getNombre());
         jTF_nombre1jug.setEditable(false);
         jTF_apellido1jug1.setText(j.getApellidos());
-        jTF_apellido1jug1.setEditable(false);
-        
-        
+        jTF_apellido1jug1.setEditable(false);                
     }
 
     /**
@@ -1169,8 +1162,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
         
         jTextField1.setText(jugador.getNombre());
         jTextField12.setText(jugador.getApellidos());
-        jTextField2.setText(jugador.getDNI());
-        //jTextField4.setText(jugador.getClub());
+        jTextField2.setText(jugador.getDNI());        
         jTextField13.setText(jugador.getResponsableMenor());
         
         
@@ -1189,38 +1181,34 @@ public class JugadorJFrame extends javax.swing.JFrame {
 
     private void jb_reservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_reservarActionPerformed
         String nomSede,nomJ1, nomJ2, nomEntrenador, fechaAux;int tiempo;
-        Date fecha ; 
-        
-        nomSede=jTF_nSede.getText();
-        nomJ1=jTF_nombre1jug.getText();
-        nomJ2=jTF_nombre2jugador.getText();
-        nomEntrenador=jTF_nombreEntrenador.getText();
-        fechaAux=jTF_fechaPartida.getText();
-        tiempo=jCB_horasDisponibles.getSelectedIndex();
-        
+        Date fecha;
+
+        nomSede = jTF_nSede.getText();
+        nomJ1 = jTF_nombre1jug.getText();
+        nomJ2 = jTF_nombre2jugador.getText();
+        nomEntrenador = jTF_nombreEntrenador.getText();
+        fechaAux = jTF_fechaPartida.getText();
+        tiempo = jCB_horasDisponibles.getSelectedIndex();
+
         SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
         try {
             fecha = cambioFecha.parse(fechaAux);
-            Date date=java.util.Calendar.getInstance().getTime();
-            if(fecha.before(date)){
+            Date date = java.util.Calendar.getInstance().getTime();
+            if (fecha.before(date)) {
 
-                JOptionPane.showMessageDialog(this,"La fecha introducida deber ser posterior a la fecha de hoy.");
-            }else if (tiempo ==-1)
-            {
-                JOptionPane.showMessageDialog(this,"debes introducir una fecha valida y selecciona una franja horario");
-                
-            }else{
+                JOptionPane.showMessageDialog(this, "La fecha introducida deber ser posterior a la fecha de hoy.");
+            } else if (tiempo == -1) {
+                JOptionPane.showMessageDialog(this, "Se debe introducir una fecha válida y seleccionar una franja horaria");
+
+            } else {
                 jugador.asignarFranjaHoraria(fecha, tiempo);
                 jf_reserva.setVisible(false);
                 this.setVisible(true);
             }
-            
-        } 
-        catch (ParseException ex) {
+
+        } catch (ParseException ex) {
             System.out.print(ex);
-        }
-               
-        
+        }                      
     }//GEN-LAST:event_jb_reservarActionPerformed
 
     private void jb_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancelActionPerformed
@@ -1231,32 +1219,29 @@ public class JugadorJFrame extends javax.swing.JFrame {
 
     private void jb_disponibilidadHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_disponibilidadHoraActionPerformed
         // TODO add your handling code here:
-        String nomSede,nomJ1, nomJ2, nomEntrenador, fechaAux;
-        Date fecha ; 
-        
-        
-        fechaAux=jTF_fechaPartida.getText();
-        
+        String nomSede, nomJ1, nomJ2, nomEntrenador, fechaAux;
+        Date fecha;
+
+        fechaAux = jTF_fechaPartida.getText();
         SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
+        
         try {
             fecha = cambioFecha.parse(fechaAux);
-            Date date=java.util.Calendar.getInstance().getTime();
-            if(fecha.before(date)){
+            Date date = java.util.Calendar.getInstance().getTime();
+            if (fecha.before(date)) {
                 jCB_horasDisponibles.removeAllItems();
-                JOptionPane.showMessageDialog(this,"La fecha introducida deber ser posterior a la fecha de hoy y antes de los 30 dias siguiente");
-            }else{
-                
-               ArrayList<String> horas = jugador.getHorariosDisponible(fecha);
-               jCB_horasDisponibles.removeAllItems();
-               for (String hora: horas)
-               {
-                   jCB_horasDisponibles.addItem(hora);
-               }
-               
+                JOptionPane.showMessageDialog(this, "La fecha introducida deber ser posterior a la fecha de hoy "
+                        + "pero no superior a los 30 días siguientes.");
+            } else {
+                List<String> horas = jugador.getHorariosDisponible(fecha);
+                jCB_horasDisponibles.removeAllItems();
+                for (String hora : horas) {
+                    jCB_horasDisponibles.addItem(hora);
+                }
+
             }
-            
-        } 
-        catch (ParseException ex) {
+
+        } catch (ParseException ex) {
             System.out.print(ex);
         }
         

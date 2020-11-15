@@ -5,7 +5,6 @@
  */
 package uv.es.ligaajedrez.modelo.usuarios;
 
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
@@ -16,35 +15,28 @@ import uv.es.ligaajedrez.modelo.Partida;
 @Getter
 @SuperBuilder
 public class Administrador extends Usuario {
-       private ArrayList<Partida> partidasSinSedeAsignado;
-       protected DatosLigaAjedrez ligaAjedrez;
-       
-       
-       
-       public void cargarPartidasSinSede()
-       {
-           partidasSinSedeAsignado = new ArrayList<Partida>();
-           
-       }
-       public void aNadirPartidasSinSede(Partida p)
-       {
-           partidasSinSedeAsignado.add(p);
-           
-       }
-      public ArrayList getPartidasSinSede()
-      {
-          return partidasSinSedeAsignado;
-      }
-      public void removePartidoSinSede(int i )
-      {
-          partidasSinSedeAsignado.remove(i);
-      }
-      
-      public Jugador buscarJugador(String j)
-      {
-          System.out.println(ligaAjedrez.buscarJugador(j).getNombre() + " " + ligaAjedrez.buscarJugador(j).getApellidos());
-          return ligaAjedrez.buscarJugador(j);
-      }
-       
-    
+
+    private List<Partida> partidasSinSedeAsignada;
+    protected DatosLigaAjedrez ligaAjedrez;
+
+    public void cargarPartidasSinSede() {
+        partidasSinSedeAsignada = new ArrayList<Partida>();
+    }
+
+    public void addPartidaSinSede(Partida p) {
+        partidasSinSedeAsignada.add(p);
+    }
+
+    public List getAllPartidasSinSede() {
+        return partidasSinSedeAsignada;
+    }
+
+    public void removePartidaSinSede(int i) {
+        partidasSinSedeAsignada.remove(i);
+    }
+
+    public Jugador buscarJugador(String j) {        
+        return ligaAjedrez.buscarJugador(j);
+    }
+
 }

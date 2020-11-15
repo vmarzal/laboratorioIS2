@@ -14,63 +14,51 @@ import lombok.Getter;
 
 @Getter
 public class Club {
-    
+
     private String nombre;
-    private Sede sede;            
-    private Federacion federacion;    
-    
+    private Sede sede;
+    private Federacion federacion;
+
     protected List<Jugador> listaJugadores = new ArrayList<Jugador>();
     private List<Partida> partidasJugadoreDelClub = new ArrayList<Partida>();
 
-    protected Entrenador entrenador;    
-   
+    protected Entrenador entrenador;
+
     public Club(String nombre, Sede sede, Federacion federacion) {
         this.nombre = nombre;
         this.sede = sede;
         this.federacion = federacion;
     }
-    
+
     public Club(String nombre, Sede sede, Federacion federacion, Entrenador entrenador) {
         this.nombre = nombre;
         this.sede = sede;
         this.federacion = federacion;
-        this.entrenador = entrenador;        
-    }
-    
-    public Club(String nombre) {
-        this.nombre = nombre;
+        this.entrenador = entrenador;
     }
 
-    public Club() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-            
     public String toString() {
         return nombre;
     }
-       
-    public void introResultPartida ( Partida p) {
+
+    public void introResultPartida(Partida p) {
         partidasJugadoreDelClub.add(p);
 
     }
-    
-    public Sede getSede()
-    {
+
+    public Sede getSede() {
         return sede;
     }
-    public String getNomSede()
-    {
+
+    public String getNomSede() {
         return sede.getNombre();
     }
-    
-    public ArrayList<String> getHorariosDisponible(Date d)
-    {
-        System.out.println("2");
+
+    public List<String> getHorariosDisponible(Date d) {        
         return sede.getHorariosDisponible(d);
     }
-    
-    public void asignarFranjaHoraria(Date d,int i )
-    {
+
+    public void asignarFranjaHoraria(Date d, int i) {
         sede.asignarFranjaHoraria(d, i);
     }
 

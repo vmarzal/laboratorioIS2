@@ -3,15 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uv.es</groupId>
     <artifactId>LigaAjedrez</artifactId>
-    <version>0.0.1</version>
-    <packaging>jar</packaging>
-           
+    <version>0.0.2</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-            
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -24,16 +21,12 @@
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
         </dependency>       
-        
-         <!-- https://mvnrepository.com/artifact/org.netbeans.external/AbsoluteLayout -->
         <dependency>
             <groupId>org.netbeans.external</groupId>
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE65</version>
         </dependency>
-           
     </dependencies>
-    
     <repositories>
         <repository>
           <id>netbeans</id>
@@ -41,5 +34,4 @@
           <url>http://bits.netbeans.org/maven2/</url>
         </repository>
     </repositories>
-    
 </project>

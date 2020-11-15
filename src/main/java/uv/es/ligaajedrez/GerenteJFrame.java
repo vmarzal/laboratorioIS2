@@ -14,8 +14,7 @@ import uv.es.ligaajedrez.modelo.Club;
 import uv.es.ligaajedrez.modelo.DatosLigaAjedrez;
 import uv.es.ligaajedrez.modelo.usuarios.Gerente;
 
-/**
- *
+/** 
  * @author Adrian Cozma
  */
 public class GerenteJFrame extends javax.swing.JFrame {
@@ -23,12 +22,10 @@ public class GerenteJFrame extends javax.swing.JFrame {
     private DatosLigaAjedrez commonData;    
     private Gerente gerenteAActualizar;
     
-    private DefaultListModel jList1Model = new DefaultListModel();  // JLIST
-    
+    private DefaultListModel jList1Model = new DefaultListModel();  // JLIST    
     private DefaultListModel jList2Model = new DefaultListModel();  // JLIST
     private DefaultListModel jList3Model = new DefaultListModel();  // JLIST
-    
-    
+        
     
     /**
      * Creates new form Gerente
@@ -40,10 +37,9 @@ public class GerenteJFrame extends javax.swing.JFrame {
     public GerenteJFrame(Gerente gerente) {
         initComponents();
                 
-        jList1.setModel(jList1Model); // JLIST
-        
-        jList2.setModel(jList2Model); // JLIST
-        jList3.setModel(jList3Model); // JLIST
+        jList1.setModel(jList1Model);         
+        jList2.setModel(jList2Model); 
+        jList3.setModel(jList3Model); 
         
         commonData = DatosLigaAjedrez.getSingletonInstance();                                
         
@@ -508,16 +504,15 @@ public class GerenteJFrame extends javax.swing.JFrame {
                 JOptionPane.OK_OPTION);
                         
         // TODO: faltaria actualizar los historicos de clubes, irpfs y nominas
-        jList1Model.addElement(clubCambiado.getNombre());   // JLIST
-        
-        jList2Model.addElement(nomina + "€");               // JLIST
-        jList3Model.addElement(irpf + "%");                 // JLIST
+        jList1Model.addElement(clubCambiado.getNombre());          
+        jList2Model.addElement(nomina + "€");               
+        jList3Model.addElement(irpf + "%");                 
         
         
     }//GEN-LAST:event_btnGuardarGerenteActionPerformed
 
     private void btnVolverLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverLoginActionPerformed
-        //log.info("Volvemos al login");
+        
         dispose();
         Login login = new Login();
         login.setVisible(true);
@@ -541,8 +536,8 @@ public class GerenteJFrame extends javax.swing.JFrame {
         jf_historicoG.setLocationRelativeTo(null);       
         jf_historicoG.setVisible(true);
         
-        jScrollPane2.repaint(); // JLIST
-        jScrollPane3.repaint(); // JLIST
+        jScrollPane2.repaint(); 
+        jScrollPane3.repaint(); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jb_cancel5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancel5ActionPerformed
@@ -563,7 +558,6 @@ public class GerenteJFrame extends javax.swing.JFrame {
         jf_historicoG.setVisible(false);
         this.setVisible(true);
     }//GEN-LAST:event_jb_cancel6ActionPerformed
-
     
     
     private void exitMenu() {

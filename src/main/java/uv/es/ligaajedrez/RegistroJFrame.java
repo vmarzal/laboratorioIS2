@@ -9,7 +9,6 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
-import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import lombok.extern.slf4j.Slf4j;
@@ -433,11 +432,7 @@ public class RegistroJFrame extends javax.swing.JFrame {
    
     
     private boolean isNullOrEmpty(String value) {
-        if (value.isEmpty() || value.equals("")) {
-            return true;
-        } else {
-            return false;
-        }
+        return (value.isEmpty() || value.equals("")) ? true : false;            
     }
     
     private void btnVolverLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverLoginActionPerformed

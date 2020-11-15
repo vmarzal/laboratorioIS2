@@ -5,7 +5,6 @@
  */
 package uv.es.ligaajedrez.modelo;
 
-import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 import java.util.Date;
 
 /**
@@ -13,37 +12,28 @@ import java.util.Date;
  * @author Ezzedine
  */
 public class Partida {
-    protected String j1, j2, ganador;
+    
+    protected String jugador1, jugador2, ganador;
     protected Date fecha;
     protected float duracion;
     protected String sede;
-    protected Sede sedePartido;
-    
-
-    public Partida() {
-    }
-    
-    public Partida(String j1, String j2, String ganador, Date fecha, float duracion, String sede) {
-        this.j1 = j1;
-        this.j2 = j2;
+    protected Sede sedePartida;
+        
+    public Partida(String jugador1, String jugador2, String ganador, Date fecha, float duracion, String sede) {
+        this.jugador1 = jugador1;
+        this.jugador2 = jugador2;
         this.ganador = ganador;
         this.fecha = fecha;
         this.duracion = duracion;
         this.sede = sede;
-        
-        System.out.println("creamos partida  "+j1 + " " + j2+ " " + ganador+ " " +sede+ " " +fecha+ " " +duracion );
-    }
-    @Override
-        public String toString() {
-            return ("Partida entre: |" + j1+ " | " + j2 + "| Fecha: | " + fecha) ;
-        }
 
-    
-    public void AsignarSedePartida(Sede sede, Date fecha, String time)
-    {
-        
+        System.out.println("Creamos partida  " + jugador1 + " " + jugador2 + " " + ganador + " " + sede 
+                + " " + fecha + " " + duracion);
     }
+        
     
-    
-    
+    public String toString() {
+        return ("Partida entre: |" + jugador1 + " | " + jugador2 + "| Fecha: | " + fecha);
+    }
+          
 }

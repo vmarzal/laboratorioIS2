@@ -156,41 +156,32 @@ public class DatosLigaAjedrez {
             Partida p1,p2;
             p1 = new Partida("ezz", "adri", null, fecha, 0, null);
             p2 = new Partida("adri", "ezz", null, fecha, 0, null);
-            adminUser.aNadirPartidasSinSede(p1);
-            adminUser.aNadirPartidasSinSede(p2);
+            adminUser.addPartidaSinSede(p1);
+            adminUser.addPartidaSinSede(p2);
         }catch (ParseException ex) {
             System.out.print(ex);
         }
     }
     
-     //Ezz-anyadimos la partida ala lista de partidas de la liga
-    public boolean introResultPartida(Partida p) {
+    public boolean introducirResultoPartida(Partida partida) {
         boolean existe = false;
-        if (jugadoresParticipantes.containsKey(p.j2)) {
-            partidas.add(p);
-            //aNadimos la partida al rival en el caso que el rival existe
-            jugadoresParticipantes.get(p.j2).addPartida(p);
+        if (jugadoresParticipantes.containsKey(partida.jugador2)) {
+            partidas.add(partida);
+            
+            // Añadimos la partida al rival en el caso que el rival existe
+            jugadoresParticipantes.get(partida.jugador2).addPartida(partida);
             existe = true;
         }
-
         return existe;
     }
-    public Jugador buscarJugador(String jug)
-      {
-          Jugador j = null ;
-          System.err.println("jug" + jug);
-          
-          if (jugadoresParticipantes.containsKey(jug)) 
-            j=jugadoresParticipantes.get(jug);
-           
-            
-          return j;
-      }
-        
-        
-    public List<String> getFederaciones() {
-        return federaciones;                
-    }
+    
+    public Jugador buscarJugador(String loginJugador) {    
+        if (jugadoresParticipantes.containsKey(loginJugador)) {
+            return jugadoresParticipantes.get(loginJugador);
+        } else {
+            return null;
+        }       
+    }           
     
     public boolean isUsuariosEmpty() {
         return usuarios.isEmpty();
@@ -214,15 +205,7 @@ public class DatosLigaAjedrez {
     
     public List<Club> getClubesParticipantes() {
         return clubesParticipantes;
-    }
-    
-    public List<Partida> getPartidas() {
-        return partidas;
-    }
-        
-    public List<Torneo> getTorneos() {
-        return torneos;
-    }        
+    }         
     
     public String toString() {
         return "usuarios: " + usuarios.toString() + "\n" + 

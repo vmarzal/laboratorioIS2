@@ -5,8 +5,7 @@
  */
 package uv.es.ligaajedrez.modelo;
 
-/**
- *
+/** 
  * @author vmarzal
  */
 public enum Federacion {
