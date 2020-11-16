@@ -6,35 +6,34 @@
 package uv.es.ligaajedrez.modelo.dao.impl;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.time.ZoneId;
 import java.util.List;
 import java.util.TimeZone;
+import lombok.extern.slf4j.Slf4j;
 import uv.es.ligaajedrez.modelo.dao.IUsuarioDAO;
 import uv.es.ligaajedrez.modelo.usuarios.Usuario;
 
 /** 
  * @author vmarzal
  */
+@Slf4j
 public class MySQLUsuarioDAO implements IUsuarioDAO {
 
     private Connection obtenerConexion() {
         Connection conexionBD = null;
         
-        String bd = "jdbc:mysql://localhost/practicaIS2?serverTimezone=" + TimeZone.getDefault().getID();
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver"); // Driver de mysql
-            
+        String bd = "jdbc:mysql://localhost:3306/practicaIS2?serverTimezone=" + TimeZone.getDefault().getID();
+        try {                        
             // Conexión usando usuario y clave de administrador de la BD
             conexionBD = DriverManager.getConnection(bd, "vmarzal", "1234");
             
         } catch (Exception e) {
+            e.printStackTrace();
             // Error en la conexión con la BD
-            System.out.println("Error de conexión");
+            log.error("Error de conexión");
         }
         return conexionBD;
     }

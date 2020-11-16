@@ -14,6 +14,10 @@ import javax.swing.JOptionPane;
 import lombok.extern.slf4j.Slf4j;
 import uv.es.ligaajedrez.modelo.Club;
 import uv.es.ligaajedrez.modelo.DatosLigaAjedrez;
+import uv.es.ligaajedrez.modelo.dao.IUsuarioDAO;
+import uv.es.ligaajedrez.modelo.dao.factories.IDaoFactory;
+import uv.es.ligaajedrez.modelo.dao.factories.MySQLDaoFactory;
+import uv.es.ligaajedrez.modelo.dao.impl.MySQLUsuarioDAO;
 import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 import uv.es.ligaajedrez.modelo.usuarios.Usuario;
 
@@ -25,13 +29,14 @@ public class RegistroJFrame extends javax.swing.JFrame {
 
     private DatosLigaAjedrez commonData;    
     private Map<String, Usuario> usuarios;
+    private IDaoFactory daoFactory;
             
     /**
      * Creates new form Registro
      */
     public RegistroJFrame() {
         initComponents();
-             
+                             
         commonData = DatosLigaAjedrez.getSingletonInstance();                        
         usuarios = commonData.getUsuarios();        
         usuarios.values().stream().forEach(System.out::println);        
@@ -39,7 +44,8 @@ public class RegistroJFrame extends javax.swing.JFrame {
         Club[] clubArray = new Club[commonData.getClubesParticipantes().size()];
         clubArray = commonData.getClubesParticipantes().toArray(clubArray);        
         jComboBoxClubes.setModel(new DefaultComboBoxModel(clubArray));                
-               
+        
+        daoFactory = new MySQLDaoFactory();               
     }
 
     /**
@@ -408,6 +414,10 @@ public class RegistroJFrame extends javax.swing.JFrame {
                 .esMenor(isMenor).club(selectedClub).build();         
             
           usuarios.put(jugador.getLogin(), jugador);     
+          
+          // Persistimos al nuevo jugador
+          IUsuarioDAO usuarioDAO = daoFactory.crearUsuarioDAO();          
+          usuarioDAO.guardarUsuario(jugador);
                               
           JOptionPane.showMessageDialog(this, "¡Jugador registrado con exito!", 
                     "Success", JOptionPane.OK_OPTION); 
