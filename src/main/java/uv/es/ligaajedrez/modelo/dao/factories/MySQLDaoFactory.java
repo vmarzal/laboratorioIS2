@@ -5,6 +5,9 @@
  */
 package uv.es.ligaajedrez.modelo.dao.factories;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.TimeZone;
 import uv.es.ligaajedrez.modelo.dao.IClubDAO;
 import uv.es.ligaajedrez.modelo.dao.IUsuarioDAO;
 import uv.es.ligaajedrez.modelo.dao.impl.MySQLClubDAO;
@@ -14,7 +17,7 @@ import uv.es.ligaajedrez.modelo.dao.impl.MySQLUsuarioDAO;
  * @author vmarzal
  */
 public class MySQLDaoFactory implements IDaoFactory {
-
+                
     @Override
     public IUsuarioDAO crearUsuarioDAO() {
         return new MySQLUsuarioDAO();        
