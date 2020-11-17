@@ -45,6 +45,6 @@ y por último creamos al usuario:
 
 ```sql
 	CREATE USER 'vmarzal' IDENTIFIED BY 'vmarzal';
-	grant all on *.* to 'practicaIS2'@'%' identified by '1234';
+	grant all on *.* to 'vmarzal'@'%' identified by '1234';
 	FLUSH PRIVILEGES;
 ```

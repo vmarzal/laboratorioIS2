@@ -417,11 +417,15 @@ public class RegistroJFrame extends javax.swing.JFrame {
           
           // Persistimos al nuevo jugador
           IUsuarioDAO usuarioDAO = daoFactory.crearUsuarioDAO();          
-          usuarioDAO.guardarUsuario(jugador);
-                              
-          JOptionPane.showMessageDialog(this, "¡Jugador registrado con exito!", 
-                    "Success", JOptionPane.OK_OPTION); 
-                              
+          boolean success = usuarioDAO.guardarUsuario(jugador);
+            
+          if (success) {
+              JOptionPane.showMessageDialog(this, "¡Jugador registrado con exito!", 
+                    "Success", JOptionPane.INFORMATION_MESSAGE); 
+          } else {
+              JOptionPane.showMessageDialog(this, "Error persistiendo nuevo jugador.", 
+                    "Error", JOptionPane.ERROR_MESSAGE); 
+          }                                                  
           clearAllInputs();
         }
         

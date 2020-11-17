@@ -22,10 +22,10 @@ import uv.es.ligaajedrez.modelo.usuarios.Usuario;
 @Slf4j
 public class MySQLUsuarioDAO implements IUsuarioDAO {
 
-    private Connection obtenerConexion() {
+    public Connection obtenerConexion() {
         Connection conexionBD = null;
         
-        String bd = "jdbc:mysql://localhost:3306/practicaIS2?serverTimezone=" + TimeZone.getDefault().getID();
+        String bd = "jdbc:mysql://localhost/practicaIS2";
         try {                        
             // Conexión usando usuario y clave de administrador de la BD
             conexionBD = DriverManager.getConnection(bd, "vmarzal", "1234");
@@ -47,23 +47,25 @@ public class MySQLUsuarioDAO implements IUsuarioDAO {
             Statement stm = conexionBD.createStatement();
             
             // Operación de insercion SQL sobre la base de datos                        
-            String con = "INSERT INTO usuarios VALUES (null,?,?,?,?,?,?,?,?,null)";
+            String con = "INSERT INTO usuarios VALUES (null,?,?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStmt = conexionBD.prepareStatement(con);
-                                                
-            preparedStmt.setString(2, usuario.getLogin());
-            preparedStmt.setString(3, usuario.getPassword());
-            preparedStmt.setString(4, usuario.getDNI());
-            preparedStmt.setString(5, usuario.getNombre());
-            preparedStmt.setString(6, usuario.getApellidos());
-            preparedStmt.setString(7, usuario.getEmail());
-            preparedStmt.setString(8, usuario.getTelefono());
-            preparedStmt.setString(9, usuario.getDireccion());
+                                                            
+            preparedStmt.setString(1, usuario.getLogin());
+            preparedStmt.setString(2, usuario.getPassword());
+            preparedStmt.setString(3, usuario.getDNI());
+            preparedStmt.setString(4, usuario.getNombre());
+            preparedStmt.setString(5, usuario.getApellidos());
+            preparedStmt.setString(6, usuario.getEmail());
+            preparedStmt.setString(7, usuario.getTelefono());
+            preparedStmt.setString(8, usuario.getDireccion());            
+            preparedStmt.setString(9, usuario.getFechaNacimiento().toString());
                                                               
             preparedStmt.executeUpdate();            
             return true;
             
         } catch (Exception e) { 
-            System.out.println("No se ha completado la operación");
+            e.printStackTrace();
+            log.error("No se ha completado la operación");
         }
         return false; 
     }
