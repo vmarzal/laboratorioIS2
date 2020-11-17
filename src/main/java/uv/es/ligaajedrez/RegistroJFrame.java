@@ -17,7 +17,7 @@ import uv.es.ligaajedrez.modelo.DatosLigaAjedrez;
 import uv.es.ligaajedrez.modelo.dao.IUsuarioDAO;
 import uv.es.ligaajedrez.modelo.dao.factories.IDaoFactory;
 import uv.es.ligaajedrez.modelo.dao.factories.MySQLDaoFactory;
-import uv.es.ligaajedrez.modelo.dao.impl.MySQLUsuarioDAO;
+import uv.es.ligaajedrez.modelo.dao.factories.XMLDaoFactory;
 import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 import uv.es.ligaajedrez.modelo.usuarios.Usuario;
 
@@ -45,7 +45,8 @@ public class RegistroJFrame extends javax.swing.JFrame {
         clubArray = commonData.getClubesParticipantes().toArray(clubArray);        
         jComboBoxClubes.setModel(new DefaultComboBoxModel(clubArray));                
         
-        daoFactory = new MySQLDaoFactory();               
+        // Instanciamos el factory que nos interesa en cada aplicación
+        daoFactory = new MySQLDaoFactory();                       
     }
 
     /**
@@ -418,7 +419,7 @@ public class RegistroJFrame extends javax.swing.JFrame {
           // Persistimos al nuevo jugador
           IUsuarioDAO usuarioDAO = daoFactory.crearUsuarioDAO();          
           boolean success = usuarioDAO.guardarUsuario(jugador);
-            
+                               
           if (success) {
               JOptionPane.showMessageDialog(this, "¡Jugador registrado con exito!", 
                     "Success", JOptionPane.INFORMATION_MESSAGE); 
