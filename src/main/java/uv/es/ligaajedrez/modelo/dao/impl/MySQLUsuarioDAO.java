@@ -11,7 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
-import java.util.TimeZone;
 import lombok.extern.slf4j.Slf4j;
 import uv.es.ligaajedrez.modelo.dao.IUsuarioDAO;
 import uv.es.ligaajedrez.modelo.usuarios.Usuario;

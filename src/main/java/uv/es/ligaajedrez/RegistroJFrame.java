@@ -46,7 +46,8 @@ public class RegistroJFrame extends javax.swing.JFrame {
         jComboBoxClubes.setModel(new DefaultComboBoxModel(clubArray));                
         
         // Instanciamos el factory que nos interesa en cada aplicación
-        daoFactory = new MySQLDaoFactory();                       
+        daoFactory = new MySQLDaoFactory();                                       
+        //daoFactory =  new XMLDaoFactory();
     }
 
     /**
