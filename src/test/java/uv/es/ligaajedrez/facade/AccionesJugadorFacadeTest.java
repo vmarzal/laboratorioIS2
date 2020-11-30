@@ -7,7 +7,6 @@ package uv.es.ligaajedrez.facade;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import uv.es.ligaajedrez.modelo.DatosLigaAjedrez;
 import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 
 /**
