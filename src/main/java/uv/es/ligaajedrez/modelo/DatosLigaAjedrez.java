@@ -57,7 +57,9 @@ public class DatosLigaAjedrez {
             torneos = new ArrayList<>();
             clubesParticipantes = new ArrayList<>();
             sedes = new ArrayList<>();
-            partidas = new ArrayList<>();            
+            partidas = new ArrayList<>();         
+            
+            initUsuariosPorDefecto();
         }      
         return singleton;        
     }      
