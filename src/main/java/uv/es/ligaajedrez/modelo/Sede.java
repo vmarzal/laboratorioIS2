@@ -16,7 +16,7 @@ import lombok.Builder;
 
 @Builder
 @AllArgsConstructor
-class Sede {
+public class Sede {
 
     protected ArrayList<Fecha> fechas;// Create an ArrayList object
 

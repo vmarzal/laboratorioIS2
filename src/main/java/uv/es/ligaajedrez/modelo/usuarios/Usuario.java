@@ -7,12 +7,14 @@ package uv.es.ligaajedrez.modelo.usuarios;
 
 import java.time.LocalDate;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
 @SuperBuilder
+@NoArgsConstructor
 public class Usuario {
 
     protected String login;

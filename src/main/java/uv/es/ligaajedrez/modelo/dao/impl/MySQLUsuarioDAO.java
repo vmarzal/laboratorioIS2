@@ -9,8 +9,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.List;
+import javax.sql.DataSource;
 import lombok.extern.slf4j.Slf4j;
 import uv.es.ligaajedrez.modelo.dao.IUsuarioDAO;
 import uv.es.ligaajedrez.modelo.usuarios.Usuario;
@@ -21,29 +24,23 @@ import uv.es.ligaajedrez.modelo.usuarios.Usuario;
 @Slf4j
 public class MySQLUsuarioDAO implements IUsuarioDAO {
 
-    public Connection obtenerConexion() {
-        Connection conexionBD = null;
-        
-        String bd = "jdbc:mysql://localhost/practicaIS2";
-        try {                        
-            // Conexión usando usuario y clave de administrador de la BD
-            conexionBD = DriverManager.getConnection(bd, "vmarzal", "1234");
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-            // Error en la conexión con la BD
-            log.error("Error de conexión");
-        }
-        return conexionBD;
+    private DataSource ds;
+    
+    public MySQLUsuarioDAO(DataSource ds) {
+        this.ds = ds;
+    }
+
+    public MySQLUsuarioDAO() {
+        super();        
     }
     
     @Override
-    public Boolean guardarUsuario(Usuario usuario) {                
-        Connection conexionBD = obtenerConexion();
-                
+    public Boolean guardarUsuario(Usuario usuario) {                                
         ResultSet resultados = null;
         try {            
-            Statement stm = conexionBD.createStatement();
+            Connection conexionBD = ds.getConnection();
+            
+            Statement stmt = conexionBD.createStatement();
             
             // Operación de insercion SQL sobre la base de datos                        
             String con = "INSERT INTO usuarios VALUES (null,?,?,?,?,?,?,?,?,?)";
@@ -59,29 +56,72 @@ public class MySQLUsuarioDAO implements IUsuarioDAO {
             preparedStmt.setString(8, usuario.getDireccion());            
             preparedStmt.setString(9, usuario.getFechaNacimiento().toString());
                                                               
-            preparedStmt.executeUpdate();            
+            preparedStmt.executeQuery();
             return true;
             
-        } catch (Exception e) { 
+        } catch (SQLException e) { 
             e.printStackTrace();
-            log.error("No se ha completado la operación");
+            log.error("No se ha completado la operación");            
         }
         return false; 
+    }
+    
+    @Override
+    public Usuario obtenerUsuario(String login) {
+        try (Connection conexionBD = ds.getConnection()) {
+            
+            PreparedStatement stmt = conexionBD.prepareStatement("SELECT * FROM usuarios WHERE login = ?");
+            stmt.setString(1, login);
+            
+            ResultSet rs = stmt.executeQuery();
+            if (!rs.first()) {
+                return null;
+            }
+            
+            Usuario usuario = new Usuario();
+            usuario.setLogin(rs.getString(1));
+            usuario.setPassword(rs.getString(2));
+            usuario.setDNI(rs.getString(3));            
+            usuario.setNombre(rs.getString(4));
+            usuario.setApellidos(rs.getString(5));
+            usuario.setEmail(rs.getString(6));
+            usuario.setTelefono(rs.getString(7));
+            usuario.setDireccion(rs.getString(8));
+            usuario.setFechaNacimiento(LocalDate.parse(rs.getString(9)));
+                                                
+            return usuario;
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+            log.error("No se ha completado la operación");            
+        } 
+        return null;
     }
 
     @Override
     public Boolean actualizarUsuario(Usuario usuario) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
-
-    @Override
-    public Usuario obtenerUsuario(String login) {
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
-
+    
     @Override
     public List<Usuario> obtenerTodosLosUsuarios() {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
     
+    
+    public Connection obtenerConexion() {
+        Connection conexionBD = null;
+
+        String bd = "jdbc:mysql://localhost/practicaIS2";
+        try {
+            // Conexión usando usuario y clave de administrador de la BD
+            conexionBD = DriverManager.getConnection(bd, "vmarzal", "1234");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Error en la conexión con la BD
+            log.error("Error de conexión");
+        }
+        return conexionBD;
+    }
 }

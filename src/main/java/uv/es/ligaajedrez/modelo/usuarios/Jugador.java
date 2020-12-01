@@ -51,19 +51,30 @@ public class Jugador extends Usuario {
         partidas.add(p);
     }
 
-    public boolean apuntarseTorneo(Jugador jugador) {
-        return (torneo.addJugador(jugador));
+    public boolean apuntarseTorneo() {
+        return (torneo.addJugador(this));
     }
 
-    public boolean desapuntarseTorneo(Jugador jugador) {
-        return (torneo.removeJugador(jugador));
+    public boolean desapuntarseTorneo() {
+        return (torneo.removeJugador(this));
     }
 
-    public void cambiarClub(Jugador jugador, Club club) {
-        jugador.historicoClubes.add(jugador.getClub());
-        jugador.setClub(club);
+    public void cambiarClub(Club club) {
+        if (historicoClubes == null) {
+            this.historicoClubes = new ArrayList<>();
+        }        
+        this.historicoClubes.add(club);
+        this.setClub(club);        
+    }
+   
+    public List<String> getHorariosDisponible(Date d) {
+        return club.getHorariosDisponible(d);
     }
 
+    public void asignarFranjaHoraria(Date d, int i) {
+        club.asignarFranjaHoraria(d, i);
+    }
+    
     public String toString() {
         return nombre + " " + apellidos;
     }
@@ -75,12 +86,7 @@ public class Jugador extends Usuario {
     public String getNomClub() {
         return club.getNombre();
     }
-
-    public List<String> getHorariosDisponible(Date d) {
-        return club.getHorariosDisponible(d);
-    }
-
-    public void asignarFranjaHoraria(Date d, int i) {
-        club.asignarFranjaHoraria(d, i);
-    }
+    
 }
+
+
