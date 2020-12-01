@@ -85,5 +85,4 @@ public class JugadorTest {
         // Comprobamos su nueva sede
         assertEquals(jugadorTest1.getClub().getSede().getNombre(), "Murcia");               
     }
-          
 }
