@@ -19,8 +19,7 @@ public class ClubTest {
 
     @Test
     public void testToString() {
-         fail("el test falla");
-        
+         fail("el test falla");        
     }
 
     @Test
