@@ -80,7 +80,7 @@ public class MySQLUsuarioDAOTest {
         when(stmt.executeQuery()).thenReturn(resultSet);
 
         MySQLUsuarioDAO dao = new MySQLUsuarioDAO(ds);
-        dao.guardarUsuario(usuario);
+        assertTrue(dao.guardarUsuario(usuario));
 
         Usuario result = dao.obtenerUsuario("test");
         assertEquals(usuario.getNombre(), result.getNombre());
