@@ -5,7 +5,12 @@
  */
 package uv.es.ligaajedrez.modelo.usuarios;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import javax.swing.JOptionPane;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterAll;
@@ -90,17 +95,45 @@ public class JugadorTest {
     }
         
     @Test
-    @Disabled
+    //@Disabled
     public void testGetHorariosDisponible() {
         System.out.println("GetHorariosDisponible");
         
-        Date dat1 = new Date(2020,04,02);
-
-        Sede sedeMurcia = Sede.builder().nombre("Murcia").direccion("C/ Mayor, 65").telefono("11111111111").build();
-        Club clubTest1 = new Club("Target club", sedeMurcia, Federacion.FEDERACION_MURCIANA);
-        clubTest1.asignarFranjaHoraria(dat1, 2);        
+        //2 casos, uno comentado
+        Date fecha = new Date(2020,04,25); //una fecha anterior a la fecha de hoy
+//        Date fecha = new Date(2021,01,01);//una fecha posterior a la fecha de hoy
         
-        //assertTrue(dat1 == dat2);
+        Sede sedeMurcia = Sede.builder().nombre("Murcia").direccion("C/ Mayor, 65").telefono("11111111111").build();
+        sedeMurcia.loadFechas();
+        Club clubTest1 = new Club("Target club", sedeMurcia, Federacion.FEDERACION_MURCIANA);
+        
+                
+        SimpleDateFormat cambioFecha = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+            fecha = cambioFecha.parse("25/05/2020");
+            Date date = java.util.Calendar.getInstance().getTime();
+            //si es una fecha anterior al dia de hoy, devuelve null
+            if (fecha.before(date)) {
+                try{
+                    List<String> HorrariosfechaAnterior =  clubTest1.getHorariosDisponible(fecha);
+                    Object primeraHora = HorrariosfechaAnterior.get(0);
+                }catch(IndexOutOfBoundsException ex)
+                {
+                    Object primeraHora = null;
+                    assertNull(primeraHora);
+                }
+                
+            } else {
+                List<String> HorrariosfechaAnterior =  clubTest1.getHorariosDisponible(fecha);
+                Object primeraHora = HorrariosfechaAnterior.get(0);//"8-10"
+                
+                assertSame(primeraHora, "8-10");
+            }
+
+        } catch (ParseException ex) {
+            System.out.print(ex);
+        }
         
     }
     

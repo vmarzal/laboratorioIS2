@@ -52,6 +52,8 @@ public class Sede {
         System.out.println("3");
         List<String> horasDisponible = new ArrayList<String>();
         for (Fecha fecha : fechas) {
+            //si una de las fechas de los siguientes 30 dias es equal ala fecha introducida
+            //pues la aNadimos sus horariosCorrespondientes
             if (fecha.getFecha().compareTo(d) == 0) {
                 horasDisponible = fecha.getHorariosDisponible();
             }
