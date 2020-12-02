@@ -20,7 +20,7 @@ public class Club {
     private Federacion federacion;
 
     protected List<Jugador> listaJugadores = new ArrayList<Jugador>();
-    private List<Partida> partidasJugadoresDelClub = new ArrayList<Partida>();
+    private List<Partida> partidasJugadoresDelClub;
 
     protected Entrenador entrenador;
 
@@ -28,6 +28,7 @@ public class Club {
         this.nombre = nombre;
         this.sede = sede;
         this.federacion = federacion;
+        partidasJugadoresDelClub = new ArrayList<Partida>();
     }
 
     public Club(String nombre, Sede sede, Federacion federacion, Entrenador entrenador) {
@@ -35,6 +36,7 @@ public class Club {
         this.sede = sede;
         this.federacion = federacion;
         this.entrenador = entrenador;
+        partidasJugadoresDelClub = new ArrayList<Partida>();
     }
 
     public String toString() {
