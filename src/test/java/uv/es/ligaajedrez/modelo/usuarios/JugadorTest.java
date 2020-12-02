@@ -5,11 +5,13 @@
  */
 package uv.es.ligaajedrez.modelo.usuarios;
 
+import java.util.Date;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import uv.es.ligaajedrez.modelo.Club;
 import uv.es.ligaajedrez.modelo.Federacion;
@@ -33,6 +35,7 @@ public class JugadorTest {
     }
     
     private Jugador jugadorTest1, jugadorTest2, jugadorTest3;
+    private Club clubTest1, clubTest2;
     
     @BeforeEach
     public void setUp() {
@@ -86,4 +89,30 @@ public class JugadorTest {
         assertEquals(jugadorTest1.getClub().getSede().getNombre(), "Murcia");               
     }
         
+    @Test
+    @Disabled
+    public void testGetHorariosDisponible() {
+        System.out.println("GetHorariosDisponible");
+        
+        Date dat1 = new Date(2020,04,02);
+
+        Sede sedeMurcia = Sede.builder().nombre("Murcia").direccion("C/ Mayor, 65").telefono("11111111111").build();
+        Club clubTest1 = new Club("Target club", sedeMurcia, Federacion.FEDERACION_MURCIANA);
+        clubTest1.asignarFranjaHoraria(dat1, 2);        
+        
+        //assertTrue(dat1 == dat2);
+        
+    }
+    
+    @Test    
+    @Disabled
+    public void testAsignarFranjaHoraria(Date d, int i) {
+        System.out.println("AsignarFranjaHoraria");
+        //club.asignarFranjaHoraria(d, i);
+        
+        //boolean ok = clubTest1.AsignarFranjaHoraria(Date d, int i);
+        //assertFalse(result);
+    }
+    
+
 }
