@@ -18,11 +18,7 @@ public class TorneoTest {
     public TorneoTest() {
     }
 
-    @Test
-    public void testAddPartidaDelTorneo() {
-         //fail("el test falla");
-    }
-
+    
     @Test
     public void testAddJugador() {
          //fail("el test falla");
@@ -53,10 +49,6 @@ public class TorneoTest {
         torneo.addJugador(jugadorTest1);
         assertTrue(torneo.removeJugador(jugadorTest1));
     }
-
-    @Test
-    public void testToString() {
-         //fail("el test falla");
-    }
+   
     
 }
