@@ -21,22 +21,41 @@ public class Torneo {
     protected List<Club> clubesParticipantes = new ArrayList<Club>();
     protected List<Entrenador> entrenadoresParticipantes = new ArrayList<Entrenador>();
     protected List<Partida> partidasTorneo = new ArrayList<Partida>();
+    /*
+        RET = 1
+        DETS = 5
+    */
     
     public Torneo(String nombre, Federacion federacion) {
         this.nombre = nombre;
         this.federacion = federacion;
-    }
+    }/* EI
+    DET = 2
+    FTR = 2    
+    */
           
     public void addPartidaDelTorneo(Partida partida) {
         partidasTorneo.add(partida);
     }
+    /* EI
+    DET = 1
+    FTR = 2    
+    */
 
     public boolean addJugador(Jugador jugador){
         return (jugadoresParticipantes.add(jugador));
     }
+    /* EI
+    DET = 1
+    FTR = 2    
+    */
     
     public boolean removeJugador(Jugador jugador){
         return (jugadoresParticipantes.remove(jugador));
     }
+    /* EI
+    DET = 1
+    FTR = 2    
+    */
     
 }

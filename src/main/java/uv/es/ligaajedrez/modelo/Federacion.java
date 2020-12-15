@@ -9,13 +9,21 @@ package uv.es.ligaajedrez.modelo;
  * @author vmarzal
  */
 public enum Federacion {
+    /*
+        RET = 1
+        DETS = 0
+    */
             
     FEDERACION_VALENCIANA("Federación de La Comunidad Valenciana"),
     FEDERACION_MURCIANA("Federación de La Comunidad Murciana");
     
     private Federacion(String display) {
         this.display = display;
-    }        
+    }  
+    /* EI
+    DET = 1
+    FTR = 1    
+    */
     
     private final String display;
     
@@ -23,5 +31,9 @@ public enum Federacion {
     public String toString() {
         return display;
     }
+    /* EI
+    DET = 0
+    FTR = 1    
+    */
             
 }

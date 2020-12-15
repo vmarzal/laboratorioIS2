@@ -38,12 +38,24 @@ public class DatosLigaAjedrez {
     public static List<Torneo> torneos;
         
     private static DatosLigaAjedrez singleton;
+    /*
+        RET = 1
+        DETS = 8
+    */
                 
     private DatosLigaAjedrez(Map<String, Usuario> loadedUsersList) {
         DatosLigaAjedrez.usuarios = loadedUsersList;                
     } 
+    /* EI
+    DET = 1
+    FTR = 2  
+    */
     
     public DatosLigaAjedrez() {}
+    /* EI
+    DET = 0
+    FTR =  1   
+    */
     
     public static DatosLigaAjedrez getSingletonInstance() {
         if (singleton == null) {
@@ -62,7 +74,11 @@ public class DatosLigaAjedrez {
             initUsuariosPorDefecto();
         }      
         return singleton;        
-    }      
+    }    
+    /* EQ 
+    DET = 0
+    FTR =  1
+    */
     
     public static void initUsuariosPorDefecto() {   
         DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -159,38 +175,74 @@ public class DatosLigaAjedrez {
             System.out.print(ex);
         }
     }
+    /* EI
+    DET = 0
+    FTR =  1   
+    */
                     
     public boolean isUsuariosEmpty() {
         return usuarios.isEmpty();
     }
+    /* EQ 
+    DET = 0
+    FTR =  1
+    */
     
     public Map<String, Usuario> getUsuarios() {
         return usuarios;
     }
+    /* EQ 
+    DET = 0
+    FTR =  2  
+    */
     
     public Map<String, Jugador> getJugadoresParticipantes() {
         return jugadoresParticipantes;
     }
+    /* EQ 
+    DET = 0
+    FTR =  2  
+    */
     
     public Map<String, Entrenador> getEntrenadoresParticipantes() {
         return entrenadoresParticipantes;
     }
+    /* EQ 
+    DET = 0
+    FTR =  2  
+    */
     
     public Map<String, Gerente> getGerentes() {
         return gerentes;
     }
+    /* EQ 
+    DET = 0
+    FTR =  2  
+    */
     
     public List<Club> getClubesParticipantes() {
         return clubesParticipantes;
     }   
+    /* EQ 
+    DET = 0
+    FTR =  2  
+    */
 
     public List<Sede> getSedes() {
         return sedes;
     }
+    /* EQ 
+    DET = 0
+    FTR =  2  
+    */
     
     public List<Partida> getPartidas() {
         return partidas;
     }
+    /* EQ 
+    DET = 0
+    FTR =  2  
+    */
     
     public String toString() {
         return "usuarios: " + usuarios.toString() + "\n" + 
@@ -201,5 +253,9 @@ public class DatosLigaAjedrez {
                "federaciones: " + federaciones.toString() + "\n" +
                "torneos: " + torneos.toString();
     }
+    /* EI
+    DET = 0
+    FTR =  1   
+    */
     
 }

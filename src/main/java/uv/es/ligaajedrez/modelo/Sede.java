@@ -23,6 +23,10 @@ public class Sede {
     private String direccion;
     private String telefono;
     private String nombre;
+    /*
+        RET = 3
+        DETS = 1
+    */
 
     //Ezz- funcion que carga las fechas de los 30 dias siguientes 
     public void loadFechas() {
@@ -47,6 +51,10 @@ public class Sede {
 
         }
     }
+    /* EI
+    DET = 1
+    FTR = 1  
+    */
 
     public List<String> getHorariosDisponible(Date d) {
         System.out.println("3");
@@ -60,6 +68,10 @@ public class Sede {
         }
         return horasDisponible;
     }
+    /* EQ 
+    DET = 1
+    FTR =  1 
+    */
 
     public void asignarFranjaHoraria(Date d, int i) {
         System.out.println("asignarFranjaHoraria()");
@@ -72,10 +84,18 @@ public class Sede {
             }
         }
     }
+    /* EI
+    DET = 2
+    FTR = 1
+    */
 
     public String getNombre() {
         return nombre;
     }
+    /* EQ 
+    DET = 0
+    FTR =  1 
+    */
 
 }
 
@@ -92,17 +112,31 @@ class Fecha {
         this.horasDisponible.add("12-14");//2
         this.horasDisponible.add("16-18");//3
         this.horasDisponible.add("18-20");//4
-    }
+    }/* EI
+    DET = 1
+    FTR = 1  
+    */
 
     public Date getFecha() {
         return fecha;
     }
+    /* EQ 
+    DET = 0
+    FTR =  1 
+    */
 
     public List<String> getHorariosDisponible() {        
         return horasDisponible;
     }
-
+    /* EQ 
+    DET = 0
+    FTR =  1  
+    */
     public void asignarFranjaHoraria(int i) {        
         horasDisponible.remove(i);
     }
+    /* EI
+    DET = 1
+    FTR = 1    
+    */
 }

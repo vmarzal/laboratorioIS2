@@ -22,9 +22,16 @@ public class Partida {
     protected float duracion;
     protected String sede;
     protected Sede sedePartida;                    
-    
+    /*
+        RET = 6
+        DETS = 1
+    */
     public String toString() {
         return ("Partida entre: |" + jugador1 + " | " + jugador2 + "| Fecha: | " + fecha);
     }
+    /* EI
+    DET = 0
+    FTR = 1  
+    */
           
 }
