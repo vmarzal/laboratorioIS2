@@ -25,6 +25,7 @@ public class Partida {
     /*
         RET = 6
         DETS = 1
+    Complejidad media
     */
     public String toString() {
         return ("Partida entre: |" + jugador1 + " | " + jugador2 + "| Fecha: | " + fecha);
@@ -32,6 +33,15 @@ public class Partida {
     /* EI
     DET = 0
     FTR = 1  
+    Complejidad baja
     */
           
 }
+
+/* totales:
+EI:     1b 0m 0a
+EO:     0b 0m 0a
+EQ:     0b 0m 0a
+ILF:     0b 1m 0a
+ELF:     0b 1m 0a
+*/

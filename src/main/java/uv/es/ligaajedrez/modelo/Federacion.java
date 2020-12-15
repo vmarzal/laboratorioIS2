@@ -12,6 +12,7 @@ public enum Federacion {
     /*
         RET = 1
         DETS = 0
+    Complejidad baja
     */
             
     FEDERACION_VALENCIANA("Federación de La Comunidad Valenciana"),
@@ -22,7 +23,8 @@ public enum Federacion {
     }  
     /* EI
     DET = 1
-    FTR = 1    
+    FTR = 1  
+    Complejidad baja
     */
     
     private final String display;
@@ -34,6 +36,15 @@ public enum Federacion {
     /* EI
     DET = 0
     FTR = 1    
+    Complejidad baja
     */
             
 }
+
+/* totales:
+EI:     2b 0m 0a
+EO:     0b 0m 0a
+EQ:     0b 0m 0a
+ILF:     1b 0m 0a
+ELF:     1b 0m 0a
+*/

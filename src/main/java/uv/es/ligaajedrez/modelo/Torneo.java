@@ -24,6 +24,7 @@ public class Torneo {
     /*
         RET = 1
         DETS = 5
+        Complejidad baja
     */
     
     public Torneo(String nombre, Federacion federacion) {
@@ -31,7 +32,8 @@ public class Torneo {
         this.federacion = federacion;
     }/* EI
     DET = 2
-    FTR = 2    
+    FTR = 2  
+    Complejidad baja
     */
           
     public void addPartidaDelTorneo(Partida partida) {
@@ -39,7 +41,8 @@ public class Torneo {
     }
     /* EI
     DET = 1
-    FTR = 2    
+    FTR = 2  
+    Complejidad baja
     */
 
     public boolean addJugador(Jugador jugador){
@@ -47,7 +50,8 @@ public class Torneo {
     }
     /* EI
     DET = 1
-    FTR = 2    
+    FTR = 2  
+    Complejidad baja
     */
     
     public boolean removeJugador(Jugador jugador){
@@ -55,7 +59,15 @@ public class Torneo {
     }
     /* EI
     DET = 1
-    FTR = 2    
+    FTR = 2 
+    Complejidad baja
     */
     
 }
+/* totales:
+EI:     4b 0m 0a
+EO:     0b 0m 0a
+EQ:     0b 0m 0a
+ILF:     1b 0m 0a
+ELF:     1b 0m 0a
+*/

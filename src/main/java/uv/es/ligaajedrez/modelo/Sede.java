@@ -26,6 +26,7 @@ public class Sede {
     /*
         RET = 3
         DETS = 1
+    Complejidad baja
     */
 
     //Ezz- funcion que carga las fechas de los 30 dias siguientes 
@@ -52,8 +53,9 @@ public class Sede {
         }
     }
     /* EI
-    DET = 1
+    DET = 0
     FTR = 1  
+    Complejidad baja
     */
 
     public List<String> getHorariosDisponible(Date d) {
@@ -71,6 +73,7 @@ public class Sede {
     /* EQ 
     DET = 1
     FTR =  1 
+    Complejidad baja
     */
 
     public void asignarFranjaHoraria(Date d, int i) {
@@ -87,6 +90,7 @@ public class Sede {
     /* EI
     DET = 2
     FTR = 1
+    Complejidad baja
     */
 
     public String getNombre() {
@@ -94,7 +98,8 @@ public class Sede {
     }
     /* EQ 
     DET = 0
-    FTR =  1 
+    FTR =  1
+    Complejidad baja
     */
 
 }
@@ -103,7 +108,11 @@ class Fecha {
 
     Date fecha;
     List<String> horasDisponible = new ArrayList<String>(); // Create an ArrayList object
-
+/*
+        RET = 2
+        DETS = 0
+    Complejidad baja
+    */
     public Fecha(Date fecha) {
 
         this.fecha = fecha;
@@ -115,6 +124,7 @@ class Fecha {
     }/* EI
     DET = 1
     FTR = 1  
+        Complejidad baja
     */
 
     public Date getFecha() {
@@ -123,6 +133,7 @@ class Fecha {
     /* EQ 
     DET = 0
     FTR =  1 
+    Complejidad baja
     */
 
     public List<String> getHorariosDisponible() {        
@@ -131,6 +142,7 @@ class Fecha {
     /* EQ 
     DET = 0
     FTR =  1  
+    Complejidad baja
     */
     public void asignarFranjaHoraria(int i) {        
         horasDisponible.remove(i);
@@ -138,5 +150,13 @@ class Fecha {
     /* EI
     DET = 1
     FTR = 1    
+    Complejidad baja
     */
 }
+/* totales:
+EI:     4b 0m 0a
+EO:     0b 0m 0a
+EQ:     4b 0m 0a
+ILF:     2b 0m 0a
+ELF:     2b 0m 0a
+*/

@@ -41,6 +41,7 @@ public class DatosLigaAjedrez {
     /*
         RET = 1
         DETS = 8
+    Complejidad baja
     */
                 
     private DatosLigaAjedrez(Map<String, Usuario> loadedUsersList) {
@@ -49,12 +50,14 @@ public class DatosLigaAjedrez {
     /* EI
     DET = 1
     FTR = 2  
+    Complejidad baja
     */
     
     public DatosLigaAjedrez() {}
     /* EI
     DET = 0
-    FTR =  1   
+    FTR =  1 
+    Complejidad baja
     */
     
     public static DatosLigaAjedrez getSingletonInstance() {
@@ -78,6 +81,7 @@ public class DatosLigaAjedrez {
     /* EQ 
     DET = 0
     FTR =  1
+    Complejidad baja
     */
     
     public static void initUsuariosPorDefecto() {   
@@ -177,7 +181,8 @@ public class DatosLigaAjedrez {
     }
     /* EI
     DET = 0
-    FTR =  1   
+    FTR =  1  
+    Complejidad baja
     */
                     
     public boolean isUsuariosEmpty() {
@@ -186,6 +191,7 @@ public class DatosLigaAjedrez {
     /* EQ 
     DET = 0
     FTR =  1
+    Complejidad baja
     */
     
     public Map<String, Usuario> getUsuarios() {
@@ -194,6 +200,8 @@ public class DatosLigaAjedrez {
     /* EQ 
     DET = 0
     FTR =  2  
+    Complejidad baja
+    
     */
     
     public Map<String, Jugador> getJugadoresParticipantes() {
@@ -202,6 +210,7 @@ public class DatosLigaAjedrez {
     /* EQ 
     DET = 0
     FTR =  2  
+    Complejidad baja
     */
     
     public Map<String, Entrenador> getEntrenadoresParticipantes() {
@@ -210,6 +219,7 @@ public class DatosLigaAjedrez {
     /* EQ 
     DET = 0
     FTR =  2  
+    Complejidad baja
     */
     
     public Map<String, Gerente> getGerentes() {
@@ -218,6 +228,7 @@ public class DatosLigaAjedrez {
     /* EQ 
     DET = 0
     FTR =  2  
+    Complejidad baja
     */
     
     public List<Club> getClubesParticipantes() {
@@ -226,6 +237,7 @@ public class DatosLigaAjedrez {
     /* EQ 
     DET = 0
     FTR =  2  
+    Complejidad baja
     */
 
     public List<Sede> getSedes() {
@@ -234,6 +246,7 @@ public class DatosLigaAjedrez {
     /* EQ 
     DET = 0
     FTR =  2  
+    Complejidad baja
     */
     
     public List<Partida> getPartidas() {
@@ -242,6 +255,7 @@ public class DatosLigaAjedrez {
     /* EQ 
     DET = 0
     FTR =  2  
+    Complejidad baja
     */
     
     public String toString() {
@@ -256,6 +270,16 @@ public class DatosLigaAjedrez {
     /* EI
     DET = 0
     FTR =  1   
+    Complejidad baja
     */
     
 }
+
+
+/* totales:
+EI:     4b 0m 0a
+EO:     0b 0m 0a
+EQ:     9b 0m 0a
+ILF:     1b 0m 0a
+ELF:     1b 0m 0a
+*/
