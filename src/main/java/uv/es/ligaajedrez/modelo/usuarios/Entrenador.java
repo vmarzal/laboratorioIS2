@@ -17,3 +17,11 @@ public class Entrenador extends Usuario {
     private List<Club> clubesDondeTrabaja = new ArrayList<Club>();
                
 }
+
+/* totales:
+EI:     0b 0m 0a
+EO:     0b 0m 0a
+EQ:     0b 0m 0a
+ILF:     1b 0m 0a
+ELF:     0b 0m 0a
+*/

@@ -26,3 +26,11 @@ public class Gerente extends Usuario {
     protected float nomina, IRPF;       
     
 }
+
+/* totales:
+EI:     0b 0m 0a
+EO:     0b 0m 0a
+EQ:     0b 0m 0a
+ILF:     1b 0m 0a
+ELF:     0b 0m 0a
+*/

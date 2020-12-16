@@ -68,9 +68,9 @@ public class Administrador extends Usuario {
     */
 
 /* totales:
-EI:     4b 0m 0a
+EI:     3b 0m 0a
 EO:     0b 0m 0a
-EQ:     9b 0m 0a
+EQ:     0b 0m 0a
 ILF:     1b 0m 0a
-ELF:     1b 0m 0a
+ELF:     0b 0m 0a
 */

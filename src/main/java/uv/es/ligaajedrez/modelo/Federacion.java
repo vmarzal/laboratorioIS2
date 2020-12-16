@@ -46,5 +46,5 @@ EI:     2b 0m 0a
 EO:     0b 0m 0a
 EQ:     0b 0m 0a
 ILF:     1b 0m 0a
-ELF:     1b 0m 0a
+ELF:     0b 0m 0a
 */

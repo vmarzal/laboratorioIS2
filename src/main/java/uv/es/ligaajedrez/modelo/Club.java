@@ -107,9 +107,9 @@ public class Club {
     */
 
 /* totales:
-EI:     4b 0m 0a
+EI:     2b 2m 0a
 EO:     0b 0m 0a
 EQ:     9b 0m 0a
 ILF:     1b 0m 0a
-ELF:     1b 0m 0a
+ELF:     0b 0m 0a
 */
