@@ -19,6 +19,8 @@ import uv.es.ligaajedrez.modelo.Torneo;
 @Getter
 @Setter
 @SuperBuilder
+// RET = 6
+// DET = 6
 public class Jugador extends Usuario {
 
     private List<Partida> partidas;
@@ -38,26 +40,50 @@ public class Jugador extends Usuario {
     public Torneo getTorneo() {
         return torneo;
     }
+    /* EQ
+    DET = 0
+    FTR = 2
+    */
     
     public void setLigaAjedrez(DatosLigaAjedrez ligaAje) {
         ligaAjedrez = ligaAje;
     }
+    /* EI
+    DET = 1
+    FTR = 2
+    */
 
     public void crearListaPartidas() {
         partidas = new ArrayList<Partida>();
     }
+    /* EI
+    DET = 0
+    FTR = 2
+    */
 
     public void addPartida(Partida p) {
         partidas.add(p);
     }
+    /* EI
+    DET = 1
+    FTR = 2
+    */
 
     public boolean apuntarseTorneo() {
         return (torneo.addJugador(this));
     }
+    /* EI
+    DET = 0
+    FTR = 2
+    */
 
     public boolean desapuntarseTorneo() {
         return (torneo.removeJugador(this));
     }
+    /* EI
+    DET = 0
+    FTR = 2
+    */
 
     public void cambiarClub(Club club) {
         if (historicoClubes == null) {
@@ -66,27 +92,74 @@ public class Jugador extends Usuario {
         this.historicoClubes.add(club);
         this.setClub(club);        
     }
+    /* EI
+    DET = 1
+    FTR = 2
+    */
    
     public List<String> getHorariosDisponible(Date d) {
         return club.getHorariosDisponible(d);
     }
+    /* EQ
+    DET = 1
+    FTR = 2
+    */
 
     public void asignarFranjaHoraria(Date d, int i) {
         club.asignarFranjaHoraria(d, i);
     }
+    /* EI
+    DET = 2
+    FTR = 2
+    */
     
     public String toString() {
         return nombre + " " + apellidos;
     }
+    /* EQ
+    DET = 0
+    FTR = 1
+    */
 
     public String getNomSede() {
         return club.getNomSede();
     }
+    /* EQ
+    DET = 0
+    FTR = 2
+    */
 
     public String getNomClub() {
         return club.getNombre();
     }
-    
+    /* EQ
+    DET = 0
+    FTR = 2
+    */
+     
 }
+
+
+/* TOTAL JUGADOR
+    /*  EI
+    DET = 5
+    FTR = 14
+    
+        EQ
+    DET = 1
+    FTR = 9
+
+        EO
+    DET = 0
+    FTR = 0
+    */
+
+/* totales:
+EI:     4b 0m 0a
+EO:     0b 0m 0a
+EQ:     9b 0m 0a
+ILF:     1b 0m 0a
+ELF:     1b 0m 0a
+*/
 
 

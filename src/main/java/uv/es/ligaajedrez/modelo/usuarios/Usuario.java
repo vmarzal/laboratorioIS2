@@ -15,6 +15,8 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @SuperBuilder
 @NoArgsConstructor
+// RET = 9
+// DET = 0
 public class Usuario {
 
     protected String login;
@@ -34,9 +36,39 @@ public class Usuario {
         this.direccion = orig.getDireccion();
         this.fechaNacimiento = orig.getFechaNacimiento();                
     }
+    /* EI
+    DET = 1
+    FTR = 1
+    */
     
     public String toString() {
         return "(login=" + login + ", password=" + password + ")";
     }
+    /* EQ
+    DET = 0
+    FTR = 1
+    */
     
 }
+
+/* TOTAL USUARIO
+    /*  EI
+    DET = 1
+    FTR = 1
+    
+        EQ
+    DET = 0
+    FTR = 1
+
+        EO
+    DET = 0
+    FTR = 0
+    */
+
+/* totales:
+EI:     4b 0m 0a
+EO:     0b 0m 0a
+EQ:     9b 0m 0a
+ILF:     1b 0m 0a
+ELF:     0b 0m 0a
+*/

@@ -10,6 +10,8 @@ import uv.es.ligaajedrez.modelo.Club;
 @Getter
 @Setter
 @SuperBuilder
+// RET = 0
+// DET = 1
 public class Entrenador extends Usuario {
     
     private List<Club> clubesDondeTrabaja = new ArrayList<Club>();

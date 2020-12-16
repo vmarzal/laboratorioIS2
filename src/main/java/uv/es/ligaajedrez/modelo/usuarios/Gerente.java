@@ -15,6 +15,8 @@ import uv.es.ligaajedrez.modelo.Club;
 @Getter
 @Setter
 @SuperBuilder
+// RET = 4
+// DET = 2
 public class Gerente extends Usuario {
         
     protected List<Club> historicoClubes = new ArrayList<Club>();
