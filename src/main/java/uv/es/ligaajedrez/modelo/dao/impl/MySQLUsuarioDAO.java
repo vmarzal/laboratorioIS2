@@ -10,7 +10,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.List;
 import javax.sql.DataSource;
@@ -37,14 +36,12 @@ public class MySQLUsuarioDAO implements IUsuarioDAO {
     @Override
     public Boolean guardarUsuario(Usuario usuario) {                                
         ResultSet resultados = null;
-        try {            
-            Connection conexionBD = ds.getConnection();
-            
-            Statement stmt = conexionBD.createStatement();
-            
-            // Operación de insercion SQL sobre la base de datos                        
-            String con = "INSERT INTO usuarios VALUES (null,?,?,?,?,?,?,?,?,?)";
-            PreparedStatement preparedStmt = conexionBD.prepareStatement(con);
+       
+        // Operación de insercion SQL sobre la base de datos                        
+        String con = "INSERT INTO usuarios VALUES (null,?,?,?,?,?,?,?,?,?)";
+        
+       try (Connection conexionBD = ds.getConnection();                 
+                PreparedStatement preparedStmt = conexionBD.prepareStatement(con)) {                                                                               
                                                             
             preparedStmt.setString(1, usuario.getLogin());
             preparedStmt.setString(2, usuario.getPassword());
@@ -68,9 +65,9 @@ public class MySQLUsuarioDAO implements IUsuarioDAO {
     
     @Override
     public Usuario obtenerUsuario(String login) {
-        try (Connection conexionBD = ds.getConnection()) {
+        try (Connection conexionBD = ds.getConnection(); 
+                PreparedStatement stmt = conexionBD.prepareStatement("SELECT * FROM usuarios WHERE login = ?")) {                        
             
-            PreparedStatement stmt = conexionBD.prepareStatement("SELECT * FROM usuarios WHERE login = ?");
             stmt.setString(1, login);
             
             ResultSet rs = stmt.executeQuery();
@@ -109,19 +106,13 @@ public class MySQLUsuarioDAO implements IUsuarioDAO {
     }
     
     
-    public Connection obtenerConexion() {
+    public Connection obtenerConexion() throws SQLException {
         Connection conexionBD = null;
-
-        String bd = "jdbc:mysql://localhost/practicaIS2";
-        try {
-            // Conexión usando usuario y clave de administrador de la BD
-            conexionBD = DriverManager.getConnection(bd, "vmarzal", "1234");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            // Error en la conexión con la BD
-            log.error("Error de conexión");
-        }
+        String bd = "jdbc:mysql://localhost/practicaIS2";        
+        
+        // Conexión usando usuario y clave de administrador de la BD
+        conexionBD = DriverManager.getConnection(bd, "vmarzal", "1234");
+       
         return conexionBD;
     }
 }

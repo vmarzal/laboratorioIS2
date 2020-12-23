@@ -10,9 +10,12 @@ import uv.es.ligaajedrez.modelo.usuarios.Entrenador;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
 public class Club {
 
     private String nombre;

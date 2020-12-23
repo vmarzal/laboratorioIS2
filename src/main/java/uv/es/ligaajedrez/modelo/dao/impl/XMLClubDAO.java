@@ -5,6 +5,7 @@
  */
 package uv.es.ligaajedrez.modelo.dao.impl;
 
+import java.util.Arrays;
 import java.util.List;
 import uv.es.ligaajedrez.modelo.Club;
 import uv.es.ligaajedrez.modelo.dao.IClubDAO;
@@ -16,22 +17,22 @@ public class XMLClubDAO implements IClubDAO {
 
     @Override
     public Boolean guardarClub(Club club) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return true;
     }
 
     @Override
     public Boolean actualizarClub(Club club) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return true;
     }
 
     @Override
     public Club obtenerClub(String nombre) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return new Club();
     }
 
     @Override
     public List<Club> obtenerTodosLosClubes() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return Arrays.asList(new Club());        
     }
     
     

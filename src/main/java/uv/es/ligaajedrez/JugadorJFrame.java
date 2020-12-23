@@ -18,7 +18,7 @@ import uv.es.ligaajedrez.modelo.usuarios.Jugador;
 public class JugadorJFrame extends javax.swing.JFrame {
   
     private Login login;
-    private Jugador jugador;
+    private Jugador jugadorItem;
     private PartidasFacade partidasFachada;
     
     public JugadorJFrame(Jugador j) {
@@ -26,11 +26,11 @@ public class JugadorJFrame extends javax.swing.JFrame {
         
         partidasFachada = new PartidasFacade();
         
-        jugador = j;
+        jugadorItem = j;
         jTF_nombre1jug1RP.setText(j.getNombre());
         jTF_nombre1jug1RP.setEditable(false);
         
-        jTF_nSede.setText(jugador.getNomSede());
+        jTF_nSede.setText(jugadorItem.getNomSede());
         jTF_nSede.setEditable(false);
         jTF_nombre1jug.setText(j.getNombre());
         jTF_nombre1jug.setEditable(false);
@@ -1162,10 +1162,10 @@ public class JugadorJFrame extends javax.swing.JFrame {
         jf_infantiles.setLocationRelativeTo(null);
         jf_infantiles.setVisible(true);
         
-        jTextField1.setText(jugador.getNombre());
-        jTextField12.setText(jugador.getApellidos());
-        jTextField2.setText(jugador.getDNI());        
-        jTextField13.setText(jugador.getResponsableMenor());
+        jTextField1.setText(jugadorItem.getNombre());
+        jTextField12.setText(jugadorItem.getApellidos());
+        jTextField2.setText(jugadorItem.getDNI());        
+        jTextField13.setText(jugadorItem.getResponsableMenor());
         
         
     }//GEN-LAST:event_jb_infantilesActionPerformed
@@ -1203,7 +1203,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Se debe introducir una fecha válida y seleccionar una franja horaria");
 
             } else {
-                jugador.asignarFranjaHoraria(fecha, tiempo);
+                jugadorItem.asignarFranjaHoraria(fecha, tiempo);
                 jf_reserva.setVisible(false);
                 this.setVisible(true);
             }
@@ -1235,7 +1235,7 @@ public class JugadorJFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "La fecha introducida deber ser posterior a la fecha de hoy "
                         + "pero no superior a los 30 días siguientes.");
             } else {
-                List<String> horas = jugador.getHorariosDisponible(fecha);
+                List<String> horas = jugadorItem.getHorariosDisponible(fecha);
                 jCB_horasDisponibles.removeAllItems();
                 for (String hora : horas) {
                     jCB_horasDisponibles.addItem(hora);
@@ -1402,53 +1402,32 @@ public class JugadorJFrame extends javax.swing.JFrame {
         apellidos_resp = jTextField10.getText();
         DNI_resp = jTextField7.getText();
         email_resp = jTextField11.getText();
-        relacion_resp = jTextField9.getText();
-        Boolean registrable = false;
-
-        jTextField13.setText(jugador.getResponsableMenor());
-        
-        while(registrable == false){
-            if (isNullOrEmpty(nombre_resp) || isNullOrEmpty(apellidos_resp)) {
-                JOptionPane.showMessageDialog(this, "El nombre y apellidos del usuario son OBLIGATORIOS.",
+        relacion_resp = jTextField9.getText();        
+        jTextField13.setText(jugadorItem.getResponsableMenor());
+                
+        if (isNullOrEmpty(nombre_resp) || isNullOrEmpty(apellidos_resp)) {
+            JOptionPane.showMessageDialog(this, "El nombre y apellidos del usuario son OBLIGATORIOS.",
+                    "Error", JOptionPane.ERROR_MESSAGE);            
+        } else if (isNullOrEmpty(DNI_resp)) {
+            JOptionPane.showMessageDialog(this, "El DNI del usuario es OBLIGATORIO.",
                     "Error", JOptionPane.ERROR_MESSAGE);
-                registrable = true;
-            } else if (isNullOrEmpty(DNI_resp)) {
-                JOptionPane.showMessageDialog(this, "El DNI del usuario es OBLIGATORIO.",
-                    "Error", JOptionPane.ERROR_MESSAGE);
-                registrable = true;
-            } else if(isNullOrEmpty(email_resp)) {
-                JOptionPane.showMessageDialog(this, "El correo es OBLIGATORIO.",
-                    "Error", JOptionPane.ERROR_MESSAGE);
-                registrable = true;
-            } else if(isNullOrEmpty(relacion_resp)) {
-                JOptionPane.showMessageDialog(this, "La relación con el jugador es OBLIGATORIA.",
-                    "Error", JOptionPane.ERROR_MESSAGE);
-                registrable = true;
-            }
-            else{
-                if(!registrable) {
-                    JOptionPane.showMessageDialog(this, "¡Responsable de menor registrado con exito!",
-                    "Success", JOptionPane.OK_OPTION);
-                    
-                    jugador.setResponsableMenor(DNI_resp);      // Lo hacemos sin array porque no necesitamos histórico
-                                                                // solo Setter y Getter
-                    clearAllInputs();
-                    registrable = true;
-                    jTextField13.setText(jugador.getResponsableMenor());
-                }
-                else{
-                    JOptionPane.showMessageDialog(this, "¡Sigue habiendo algún error!",
-                    "Success", JOptionPane.OK_OPTION);
-                }
-            }
-        }
             
+        } else if (isNullOrEmpty(email_resp)) {
+            JOptionPane.showMessageDialog(this, "El correo es OBLIGATORIO.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            
+        } else if (isNullOrEmpty(relacion_resp)) {
+            JOptionPane.showMessageDialog(this, "La relación con el jugador es OBLIGATORIA.",
+                    "Error", JOptionPane.ERROR_MESSAGE);            
+        } else {           
+            JOptionPane.showMessageDialog(this, "¡Responsable de menor registrado con exito!",
+                    "Success", JOptionPane.OK_OPTION);
 
-        //usuarios.put(jugador.getLogin(), jugador);
+            jugadorItem.setResponsableMenor(DNI_resp);      // Lo hacemos sin array porque no necesitamos histórico            
+            clearAllInputs();
 
-        
-
-        
+            jTextField13.setText(jugadorItem.getResponsableMenor());           
+        }        
     }//GEN-LAST:event_jb_Asignar1ActionPerformed
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
@@ -1476,8 +1455,8 @@ public class JugadorJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField13ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (!jugador.isCuotaPagada()) {
-            jugador.setCuotaPagada(true);
+        if (!jugadorItem.isCuotaPagada()) {
+            jugadorItem.setCuotaPagada(true);
             JOptionPane.showMessageDialog(this, "¡Cuota pagada con éxito!", "Success", JOptionPane.OK_OPTION);
         } else {
             JOptionPane.showMessageDialog(this, "Ya tienes la cuota pagada", "Success", JOptionPane.ERROR_MESSAGE);

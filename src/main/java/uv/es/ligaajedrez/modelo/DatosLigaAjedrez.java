@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -100,8 +101,8 @@ public class DatosLigaAjedrez {
         clubesParticipantes.add(club3); clubesParticipantes.add(club4); 
         clubesParticipantes.add(club5);
                 
-        e1.setClubesDondeTrabaja(new ArrayList<Club>() {{ add(club1); }});
-        e2.setClubesDondeTrabaja(new ArrayList<Club>(){{ add(club2); }});
+        e1.setClubesDondeTrabaja(Arrays.asList(club1));                
+        e2.setClubesDondeTrabaja(Arrays.asList(club2));
         
         entrenadoresParticipantes.put(e1.getLogin(), e1);
         entrenadoresParticipantes.put(e2.getLogin(), e2);

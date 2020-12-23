@@ -7,10 +7,8 @@ package uv.es.ligaajedrez.modelo.usuarios;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.swing.JOptionPane;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterAll;
@@ -94,8 +92,7 @@ public class JugadorTest {
         assertEquals(jugadorTest1.getClub().getSede().getNombre(), "Murcia");               
     }
         
-    @Test
-    //@Disabled
+    @Test    
     public void testGetHorariosDisponible() {
         System.out.println("GetHorariosDisponible");
         
@@ -137,15 +134,4 @@ public class JugadorTest {
         
     }
     
-    @Test    
-    @Disabled
-    public void testAsignarFranjaHoraria(Date d, int i) {
-        System.out.println("AsignarFranjaHoraria");
-        //club.asignarFranjaHoraria(d, i);
-        
-        //boolean ok = clubTest1.AsignarFranjaHoraria(Date d, int i);
-        //assertFalse(result);
-    }
-    
-
 }

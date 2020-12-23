@@ -609,14 +609,14 @@
                                   <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
                                   <Component id="jb_cancel2" min="-2" pref="143" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jb_Asignar" min="-2" pref="149" max="-2" attributes="0"/>
+                                  <Component id="jb_AsignarFecha" min="-2" pref="149" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jB_asignar" min="-2" max="-2" attributes="0"/>
+                              <Component id="jb_AsignarSede" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jl_nFed" min="-2" max="-2" attributes="0"/>
@@ -668,7 +668,7 @@
                       <Component id="jScrollPane2" min="-2" pref="92" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jB_asignar" min="-2" max="-2" attributes="0"/>
+                  <Component id="jb_AsignarSede" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="36" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jl_nSede4" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -716,7 +716,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jb_Asignar" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="jb_AsignarFecha" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                       <Component id="jb_cancel2" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
@@ -771,7 +771,7 @@
             <Property name="text" type="java.lang.String" value="Iborra L&#xf3;pez"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jb_Asignar">
+        <Component class="javax.swing.JButton" name="jb_AsignarFecha">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="0" type="rgb"/>
@@ -785,7 +785,7 @@
             <Property name="text" type="java.lang.String" value="Asignar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_AsignarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_AsignarFechaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jb_cancel2">
@@ -954,12 +954,12 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jB_asignar">
+        <Component class="javax.swing.JButton" name="jb_AsignarSede">
           <Properties>
             <Property name="text" type="java.lang.String" value="Asigna sede para el partido seleccionado"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_asignarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_AsignarSedeActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="jCB_sedesDisponibles">
@@ -1074,7 +1074,7 @@
                                           <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
                                           <Component id="jb_cancel3" min="-2" pref="143" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                          <Component id="jb_Asignar1" min="-2" pref="149" max="-2" attributes="0"/>
+                                          <Component id="jb_AsignarJugador" min="-2" pref="149" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="314" max="-2" attributes="0"/>
@@ -1235,7 +1235,7 @@
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jb_cancel3" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                              <Component id="jb_Asignar1" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                              <Component id="jb_AsignarJugador" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -1327,7 +1327,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField9ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jb_Asignar1">
+                <Component class="javax.swing.JButton" name="jb_AsignarJugador">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="0" type="rgb"/>
@@ -1341,7 +1341,7 @@
                     <Property name="text" type="java.lang.String" value="Asignar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_Asignar1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_AsignarJugadorActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jb_cancel3">

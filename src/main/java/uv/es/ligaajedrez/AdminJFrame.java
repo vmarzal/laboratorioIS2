@@ -128,7 +128,7 @@ public class AdminJFrame extends javax.swing.JFrame {
         jl_aSede = new javax.swing.JLabel();
         jl_nom_1_jugador2 = new javax.swing.JLabel();
         jTF_nombre1jug2 = new javax.swing.JTextField();
-        jb_Asignar = new javax.swing.JButton();
+        jb_AsignarFecha = new javax.swing.JButton();
         jb_cancel2 = new javax.swing.JButton();
         jTF_nombreEntrenador1jugador = new javax.swing.JTextField();
         jl_nEntrenador1jugador = new javax.swing.JLabel();
@@ -155,7 +155,7 @@ public class AdminJFrame extends javax.swing.JFrame {
         jB_cargarListaPartidasSinSede = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList_partidasSinSede = new javax.swing.JList<>();
-        jB_asignar = new javax.swing.JButton();
+        jb_AsignarSede = new javax.swing.JButton();
         jCB_sedesDisponibles = new javax.swing.JComboBox<>();
         jf_infantiles = new javax.swing.JFrame();
         jPanel2 = new javax.swing.JPanel();
@@ -178,7 +178,7 @@ public class AdminJFrame extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
-        jb_Asignar1 = new javax.swing.JButton();
+        jb_AsignarJugador = new javax.swing.JButton();
         jb_cancel3 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jTextField10 = new javax.swing.JTextField();
@@ -591,13 +591,13 @@ public class AdminJFrame extends javax.swing.JFrame {
 
         jTF_nombre1jug2.setText("Iborra López");
 
-        jb_Asignar.setBackground(new java.awt.Color(0, 153, 255));
-        jb_Asignar.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        jb_Asignar.setForeground(new java.awt.Color(255, 255, 255));
-        jb_Asignar.setText("Asignar");
-        jb_Asignar.addActionListener(new java.awt.event.ActionListener() {
+        jb_AsignarFecha.setBackground(new java.awt.Color(0, 153, 255));
+        jb_AsignarFecha.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jb_AsignarFecha.setForeground(new java.awt.Color(255, 255, 255));
+        jb_AsignarFecha.setText("Asignar");
+        jb_AsignarFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_AsignarActionPerformed(evt);
+                jb_AsignarFechaActionPerformed(evt);
             }
         });
 
@@ -693,10 +693,10 @@ public class AdminJFrame extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(jList_partidasSinSede);
 
-        jB_asignar.setText("Asigna sede para el partido seleccionado");
-        jB_asignar.addActionListener(new java.awt.event.ActionListener() {
+        jb_AsignarSede.setText("Asigna sede para el partido seleccionado");
+        jb_AsignarSede.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_asignarActionPerformed(evt);
+                jb_AsignarSedeActionPerformed(evt);
             }
         });
 
@@ -747,11 +747,11 @@ public class AdminJFrame extends javax.swing.JFrame {
                                 .addGap(170, 170, 170)
                                 .addComponent(jb_cancel2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
-                                .addComponent(jb_Asignar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jb_AsignarFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(200, 200, 200))
                     .addGroup(jf_aSedeLayout.createSequentialGroup()
                         .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jB_asignar)
+                            .addComponent(jb_AsignarSede)
                             .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jf_aSedeLayout.createSequentialGroup()
                                     .addComponent(jl_nFed)
@@ -791,7 +791,7 @@ public class AdminJFrame extends javax.swing.JFrame {
                     .addComponent(jB_cargarListaPartidasSinSede)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jB_asignar)
+                .addComponent(jb_AsignarSede)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jl_nSede4)
@@ -833,7 +833,7 @@ public class AdminJFrame extends javax.swing.JFrame {
                     .addComponent(jTF_nombreEntrenador2jugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jf_aSedeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jb_Asignar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_AsignarFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jb_cancel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
         );
@@ -906,13 +906,13 @@ public class AdminJFrame extends javax.swing.JFrame {
             }
         });
 
-        jb_Asignar1.setBackground(new java.awt.Color(0, 153, 255));
-        jb_Asignar1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        jb_Asignar1.setForeground(new java.awt.Color(255, 255, 255));
-        jb_Asignar1.setText("Asignar");
-        jb_Asignar1.addActionListener(new java.awt.event.ActionListener() {
+        jb_AsignarJugador.setBackground(new java.awt.Color(0, 153, 255));
+        jb_AsignarJugador.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jb_AsignarJugador.setForeground(new java.awt.Color(255, 255, 255));
+        jb_AsignarJugador.setText("Asignar");
+        jb_AsignarJugador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_Asignar1ActionPerformed(evt);
+                jb_AsignarJugadorActionPerformed(evt);
             }
         });
 
@@ -962,7 +962,7 @@ public class AdminJFrame extends javax.swing.JFrame {
                                 .addGap(229, 229, 229)
                                 .addComponent(jb_cancel3, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
-                                .addComponent(jb_Asignar1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jb_AsignarJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jInternalFrame1Layout.createSequentialGroup()
                                 .addGap(314, 314, 314)
                                 .addComponent(jLabel13))
@@ -1085,7 +1085,7 @@ public class AdminJFrame extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_cancel3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_Asignar1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jb_AsignarJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1511,7 +1511,7 @@ public class AdminJFrame extends javax.swing.JFrame {
         jf_resultadosPartida.setVisible(true);        
     }//GEN-LAST:event_jb_rPartidaActionPerformed
 
-    private void jb_AsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_AsignarActionPerformed
+    private void jb_AsignarFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_AsignarFechaActionPerformed
         String fechaAux;
         int tiempo;
         Date fecha;
@@ -1539,7 +1539,7 @@ public class AdminJFrame extends javax.swing.JFrame {
             System.out.print(ex);
         }
 
-    }//GEN-LAST:event_jb_AsignarActionPerformed
+    }//GEN-LAST:event_jb_AsignarFechaActionPerformed
 
     private void jb_cancel2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancel2ActionPerformed
         jf_aSede.setVisible(false);
@@ -1590,7 +1590,7 @@ public class AdminJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField9ActionPerformed
 
-    private void jb_Asignar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_Asignar1ActionPerformed
+    private void jb_AsignarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_AsignarJugadorActionPerformed
         
         this.setVisible(false);
 
@@ -1604,45 +1604,36 @@ public class AdminJFrame extends javax.swing.JFrame {
         apellidos_resp = jTextField10.getText();
         DNI_resp = jTextField7.getText();
         email_resp = jTextField11.getText();
-        relacion_resp = jTextField9.getText();
-        Boolean registrable = false;
+        relacion_resp = jTextField9.getText();        
 
         jTextField13.setText(jugador.getResponsableMenor());
 
-        while (registrable == false) {
-            if (isNullOrEmpty(nombre_resp) || isNullOrEmpty(apellidos_resp)) {
-                JOptionPane.showMessageDialog(this, "El nombre y apellidos del usuario son OBLIGATORIOS.",
-                        "Error", JOptionPane.ERROR_MESSAGE);
-                registrable = true;
-            } else if (isNullOrEmpty(DNI_resp)) {
-                JOptionPane.showMessageDialog(this, "El DNI del usuario es OBLIGATORIO.",
-                        "Error", JOptionPane.ERROR_MESSAGE);
-                registrable = true;
-            } else if (isNullOrEmpty(email_resp)) {
-                JOptionPane.showMessageDialog(this, "El correo es OBLIGATORIO.",
-                        "Error", JOptionPane.ERROR_MESSAGE);
-                registrable = true;
-            } else if (isNullOrEmpty(relacion_resp)) {
-                JOptionPane.showMessageDialog(this, "La relación con el jugador es OBLIGATORIA.",
-                        "Error", JOptionPane.ERROR_MESSAGE);
-                registrable = true;
-            } else {
-                if (!registrable) {
-                    JOptionPane.showMessageDialog(this, "¡Responsable de menor registrado con exito!",
-                            "Success", JOptionPane.OK_OPTION);
+        if (isNullOrEmpty(nombre_resp) || isNullOrEmpty(apellidos_resp)) {
+            JOptionPane.showMessageDialog(this, "El nombre y apellidos del usuario son OBLIGATORIOS.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            
+        } else if (isNullOrEmpty(DNI_resp)) {
+            JOptionPane.showMessageDialog(this, "El DNI del usuario es OBLIGATORIO.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            
+        } else if (isNullOrEmpty(email_resp)) {
+            JOptionPane.showMessageDialog(this, "El correo es OBLIGATORIO.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            
+        } else if (isNullOrEmpty(relacion_resp)) {
+            JOptionPane.showMessageDialog(this, "La relación con el jugador es OBLIGATORIA.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            
+        } else {            
+            JOptionPane.showMessageDialog(this, "¡Responsable de menor registrado con exito!",
+                    "Success", JOptionPane.OK_OPTION);
 
-                    jugador.setResponsableMenor(DNI_resp);
+            jugador.setResponsableMenor(DNI_resp);
 
-                    clearAllInputs();
-                    registrable = true;
-                    jTextField13.setText(jugador.getResponsableMenor());
-                } else {
-                    JOptionPane.showMessageDialog(this, "¡Sigue habiendo algún error!",
-                            "Success", JOptionPane.OK_OPTION);
-                }
-            }
-        }       
-    }//GEN-LAST:event_jb_Asignar1ActionPerformed
+            clearAllInputs();
+            jTextField13.setText(jugador.getResponsableMenor());           
+        }             
+    }//GEN-LAST:event_jb_AsignarJugadorActionPerformed
    
     public void clearAllInputs() {
         jTextField6.setText("");
@@ -1726,7 +1717,7 @@ public class AdminJFrame extends javax.swing.JFrame {
         Date fecha;
 
         nomSede = jCB_sedesDisponibles.getItemAt(jCB_sedesDisponibles.getSelectedIndex());
-        if (nomSede == j1.getNomSede()) {
+        if (nomSede.equals(j1.getNomSede())) {
             jugador = j1;
         } else {
             jugador = j2;
@@ -1776,7 +1767,7 @@ public class AdminJFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jB_cargarListaPartidasSinSedeActionPerformed
 
-    private void jB_asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_asignarActionPerformed
+    private void jb_AsignarSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_AsignarSedeActionPerformed
         
         if (jList_partidasSinSede.getSelectedIndex() == -1) {
             JOptionPane.showMessageDialog(this, "Debe seleccionar una partida primero.");
@@ -1817,7 +1808,7 @@ public class AdminJFrame extends javax.swing.JFrame {
                 System.out.print(ex);
             }
         }
-    }//GEN-LAST:event_jB_asignarActionPerformed
+    }//GEN-LAST:event_jb_AsignarSedeActionPerformed
 
     private void jCB_horasDisponibles1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_horasDisponibles1ActionPerformed
         // TODO add your handling code here:
@@ -1969,7 +1960,6 @@ public class AdminJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Admin;
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton jB_asignar;
     private javax.swing.JButton jB_cargarListaPartidasSinSede;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jCB_horasDisponibles;
@@ -2040,8 +2030,9 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JButton jb_Asignar;
-    private javax.swing.JButton jb_Asignar1;
+    private javax.swing.JButton jb_AsignarFecha;
+    private javax.swing.JButton jb_AsignarJugador;
+    private javax.swing.JButton jb_AsignarSede;
     private javax.swing.JButton jb_aSede;
     private javax.swing.JButton jb_cancel;
     private javax.swing.JButton jb_cancel1RP;
